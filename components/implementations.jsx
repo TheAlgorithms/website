@@ -13,6 +13,7 @@ const useStyles = makeStyles((theme) => ({
   button: {
     marginRight: 10,
     marginBottom: 10,
+    textDecoration: "none",
   },
   icon: {
     marginLeft: 10,
@@ -25,12 +26,12 @@ export default function Implementations({ implementations, large = false }) {
   return large ? (
     <div className={classes.rootLarge}>
       {Object.keys(implementations).map((language) => (
-        <a key={language} href={implementations[language]}>
-          <Button
-            variant="outlined"
-            className={classes.button}
-            startIcon={getIcon(language)}
-          >
+        <a
+          key={language}
+          href={implementations[language]}
+          className={classes.button}
+        >
+          <Button variant="outlined" startIcon={getIcon(language)}>
             {language}
           </Button>
         </a>
