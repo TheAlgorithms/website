@@ -18,14 +18,14 @@ export default function AlgorithmCard({ algorithm }) {
       <CardContent>
         <Breadcrumbs>
           <Typography variant="h6" className={classes.category}>
-            <Link href={`/${normalize(algorithm.category)}`}>
+            <Link href={`/category/${normalize(algorithm.category)}`}>
               {algorithm.category}
             </Link>
           </Typography>
           {algorithm.subCategory && (
             <Typography variant="h6" className={classes.category}>
               <Link
-                href={`/${normalize(algorithm.category)}/${normalize(
+                href={`/category/${normalize(algorithm.category)}/${normalize(
                   algorithm.subCategory
                 )}`}
               >

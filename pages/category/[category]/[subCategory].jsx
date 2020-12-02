@@ -1,8 +1,11 @@
 import React from "react";
 import { Typography, Breadcrumbs } from "@material-ui/core";
-import AlgorithmsList from "../../components/algorithmsList";
-import { getSubCategories, getSubCategory } from "../../lib/subcategories.ts";
-import Section from "../../components/section";
+import AlgorithmsList from "../../../components/algorithmsList";
+import {
+  getSubCategories,
+  getSubCategory,
+} from "../../../lib/subcategories.ts";
+import Section from "../../../components/section";
 import Head from "next/head";
 
 export default function SubCategory({ subCategory }) {

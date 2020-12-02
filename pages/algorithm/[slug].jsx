@@ -28,14 +28,14 @@ export default function Algorithm({ algorithm, exampleLanguage, code }) {
       <CodePreview code={code} language={exampleLanguage} />
       <Breadcrumbs>
         <Typography variant="h6">
-          <Link href={`/${normalize(algorithm.category)}`}>
+          <Link href={`/category/${normalize(algorithm.category)}`}>
             {algorithm.category}
           </Link>
         </Typography>
         {algorithm.subCategory && (
           <Typography variant="h6">
             <Link
-              href={`/${normalize(algorithm.category)}/${normalize(
+              href={`/category/${normalize(algorithm.category)}/${normalize(
                 algorithm.subCategory
               )}`}
             >
