@@ -4,13 +4,13 @@
 
 .code {
   transition: height 0.3s ease, margin-bottom 0.3s ease;
-  height: 350;
+  height: 350px;
   overflow: hidden;
   cursor: pointer;
 }
 
 .codeHover {
-  height: 500;
+  height: 500px;
   overflow: auto;
   margin-bottom: 1em;
   cursor: unset;
