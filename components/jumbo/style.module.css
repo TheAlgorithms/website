@@ -1,0 +1,25 @@
+.outer {
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url(/programming-1873854_1920.png);
+  background-size: cover;
+  color: white;
+  padding-top: 100px;
+  padding-bottom: 50px;
+}
+
+.h1 {
+  font-size: 4em !important;
+  font-weight: 500 !important;
+  margin-bottom: 10px !important;
+}
+
+.h2 {
+  font-size: 2em !important;
+  font-weight: 300 !important;
+  margin-bottom: 50px !important;
+}
+
+.input {
+  width: 400px;
+  max-width: 100%;
+}

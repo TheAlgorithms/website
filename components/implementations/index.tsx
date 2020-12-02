@@ -1,28 +1,7 @@
 import { Box, Button, Icon, Tooltip, Typography } from "@material-ui/core";
-import { makeStyles } from "@material-ui/core/styles";
-
-const useStyles = makeStyles((theme) => ({
-  rootSmall: {
-    display: "flex",
-    justifyContent: "flex-end",
-  },
-  rootLarge: {
-    display: "flex",
-    flexWrap: "wrap",
-  },
-  button: {
-    marginRight: 10,
-    marginBottom: 10,
-    textDecoration: "none",
-  },
-  icon: {
-    marginLeft: 10,
-  },
-}));
+import classes from "./style.module.css";
 
 export default function Implementations({ implementations, large = false }) {
-  let classes = useStyles();
-
   return large ? (
     <div className={classes.rootLarge}>
       {Object.keys(implementations).map((language) => (
@@ -40,10 +19,12 @@ export default function Implementations({ implementations, large = false }) {
   ) : (
     <div className={classes.rootSmall}>
       {Object.keys(implementations).map((language) => (
-        <a key={language} href={implementations[language]}>
-          <Box color="text.disabled" className={classes.icon}>
-            {getIcon(language)}
-          </Box>
+        <a
+          key={language}
+          href={implementations[language]}
+          className={classes.icon}
+        >
+          {getIcon(language)}
         </a>
       ))}
     </div>
@@ -53,7 +34,7 @@ export default function Implementations({ implementations, large = false }) {
 function getIcon(language) {
   const icon = (language, className) => (
     <Tooltip title={`${language} Implementation`}>
-      <Icon className={className} />
+      <Icon color="disabled" className={className} />
     </Tooltip>
   );
 

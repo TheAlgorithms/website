@@ -6,12 +6,13 @@ import Jumbo from "../components/jumbo";
 import Navbar from "../components/navbar";
 import Head from "next/head";
 import { useRouter } from "next/router";
+import { GlobalStateProvider } from "../hooks/globalState";
 
 function MyApp({ Component, pageProps }) {
   const router = useRouter();
 
   return (
-    <React.Fragment>
+    <GlobalStateProvider>
       <Head>
         <title>TheAlgorithms</title>
       </Head>
@@ -19,7 +20,7 @@ function MyApp({ Component, pageProps }) {
       <Navbar />
       <Jumbo collapsed={router.route != "/"} />
       <Component {...pageProps} />
-    </React.Fragment>
+    </GlobalStateProvider>
   );
 }
 

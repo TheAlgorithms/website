@@ -1,0 +1,11 @@
+.category {
+  font-size: 14px !important;
+}
+
+.title {
+  margin-bottom: 10px;
+}
+
+.actions {
+  justify-content: space-between;
+}

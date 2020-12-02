@@ -2,35 +2,17 @@ import {
   Typography,
   Card,
   CardContent,
-  Icon,
   CardActions,
   Button,
   Breadcrumbs,
 } from "@material-ui/core";
-import { makeStyles } from "@material-ui/core/styles";
 import React from "react";
-import Implementations from "./implementations";
-import { useRouter } from "next/router";
-import { normalize } from "../lib/normalize";
-import Link from "./link";
-
-const useStyles = makeStyles((theme) => ({
-  root: {},
-  category: {
-    fontSize: 14,
-  },
-  title: {
-    marginBottom: "10px",
-  },
-  actions: {
-    justifyContent: "space-between",
-  },
-}));
+import Implementations from "../../implementations";
+import { normalize } from "../../../lib/normalize";
+import Link from "../../link";
+import classes from "./style.module.css";
 
 export default function AlgorithmCard({ algorithm }) {
-  const router = useRouter();
-  let classes = useStyles();
-
   return (
     <Card className={classes.root}>
       <CardContent>

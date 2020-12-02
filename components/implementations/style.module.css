@@ -1,0 +1,19 @@
+.rootSmall {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.rootLarge {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.button {
+  margin-right: 10px;
+  margin-bottom: 10px;
+  text-decoration: none;
+}
+
+.icon {
+  margin-left: 10px;
+}
