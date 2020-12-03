@@ -1,9 +1,9 @@
 .outer {
   background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-    url(/programming-1873854_1920.png);
+    url(/programming-1873854_1920.webp);
   background-size: cover;
   color: white;
-  padding-top: 100px;
+  padding-top: 50px;
   padding-bottom: 50px;
 }
 

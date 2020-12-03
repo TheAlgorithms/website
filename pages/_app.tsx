@@ -17,8 +17,8 @@ function MyApp({ Component, pageProps }) {
         <title>TheAlgorithms</title>
       </Head>
       <CssBaseline />
-      <Navbar />
-      <Jumbo collapsed={router.route != "/"} />
+      <Navbar search={router.route != "/"} />
+      {router.route == "/" && <Jumbo />}
       <Component {...pageProps} />
     </GlobalStateProvider>
   );
