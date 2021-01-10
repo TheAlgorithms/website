@@ -50,6 +50,7 @@ export default function SearchBar({ small = false }) {
               onInput={handleInput}
               value={query}
               placeholder="Search any algorithm"
+              endAdornment={searchAdornment}
               autoFocus
             />
           </React.Fragment>

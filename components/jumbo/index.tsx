@@ -4,7 +4,7 @@ import SearchBar from "../searchBar";
 import classes from "./style.module.css";
 import DarkThemeProvider from "../darkThemeProvider";
 
-export default function Jumbo() {
+export default function Jumbo({ search }) {
   return (
     <DarkThemeProvider>
       <div className={classes.outer}>

@@ -7,9 +7,12 @@ import Navbar from "../components/navbar";
 import Head from "next/head";
 import { useRouter } from "next/router";
 import { GlobalStateProvider } from "../hooks/globalState";
+import SearchBar from "../components/searchBar";
 
 function MyApp({ Component, pageProps }) {
   const router = useRouter();
+
+  const searchBar = <SearchBar small={router.route != "/"} />;
 
   return (
     <GlobalStateProvider>
@@ -17,8 +20,8 @@ function MyApp({ Component, pageProps }) {
         <title>TheAlgorithms</title>
       </Head>
       <CssBaseline />
-      <Navbar search={router.route != "/"} />
-      {router.route == "/" && <Jumbo />}
+      <Navbar search={router.route != "/" && searchBar} />
+      {router.route == "/" && <Jumbo search={searchBar} />}
       <Component {...pageProps} />
     </GlobalStateProvider>
   );

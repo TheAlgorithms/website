@@ -6,7 +6,7 @@ import classes from "./style.module.css";
 import SearchBar from "../searchBar";
 import DarkThemeProvider from "../darkThemeProvider";
 
-export default function Navbar({ search = true }) {
+export default function Navbar({ search }) {
   return (
     <AppBar className={classes.root} position="sticky">
       <DarkThemeProvider>
@@ -17,7 +17,7 @@ export default function Navbar({ search = true }) {
             </Link>
           </Typography>
 
-          {search && <SearchBar small />}
+          {search && search}
           <Button
             color="inherit"
             href="https://github.com/TheAlgorithms/"
