@@ -11,7 +11,7 @@ import SearchBar from "../components/searchBar";
 
 function MyApp({ Component, pageProps }) {
   const router = useRouter();
-  const [query, setQuery] = useState(router.query.q as string);
+  const [query, setQuery] = useState((router.query.q as string) || "");
 
   const searchBar = (
     <SearchBar small={router.route != "/"} query={query} setQuery={setQuery} />
