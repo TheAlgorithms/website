@@ -3,23 +3,14 @@ import { Typography, Breadcrumbs, Link as MuiLink } from "@material-ui/core";
 import Implementations from "../../components/implementations";
 import { getAlgorithmSlugs, getAlgorithm } from "../../lib/algorithms.ts";
 import Head from "next/head";
-import { makeStyles } from "@material-ui/core/styles";
 import Link from "../../components/link";
 import { normalize } from "../../lib/normalize";
 import { getFileRaw } from "../../lib/github";
 import Markdown from "../../components/markdown";
 import CodePreview from "../../components/codePreview";
-
-const useStyles = makeStyles((theme) => ({
-  titleSmall: {
-    marginTop: "2em",
-    marginBottom: "0.5em",
-  },
-}));
+import classes from "./algorithm.module.css";
 
 export default function Algorithm({ algorithm, exampleLanguage, code }) {
-  let classes = useStyles();
-
   return (
     <div className="section container">
       <Head>
@@ -27,22 +18,11 @@ export default function Algorithm({ algorithm, exampleLanguage, code }) {
       </Head>
       <CodePreview code={code} language={exampleLanguage} />
       <Breadcrumbs>
-        <Typography variant="h6">
-          <Link href={`/category/${normalize(algorithm.category)}`}>
-            {algorithm.category}
-          </Link>
-        </Typography>
-        {algorithm.subCategory && (
-          <Typography variant="h6">
-            <Link
-              href={`/category/${normalize(algorithm.category)}/${normalize(
-                algorithm.subCategory
-              )}`}
-            >
-              {algorithm.subCategory}
-            </Link>
+        {algorithm.categories.map((category) => (
+          <Typography key={category} variant="h6">
+            <Link href={`/category/${normalize(category)}`}>{category}</Link>
           </Typography>
-        )}
+        ))}
       </Breadcrumbs>
       <Typography variant="h4">{algorithm.name}</Typography>
       <Typography variant="h5" className={classes.titleSmall}>

@@ -19,7 +19,11 @@ export default function AlgorithmCard({ algorithm }: { algorithm: Algorithm }) {
       <CardContent>
         <Breadcrumbs>
           {algorithm.categories.map((category) => (
-            <Typography variant="h6" className={classes.category}>
+            <Typography
+              variant="h6"
+              className={classes.category}
+              key={category}
+            >
               <Link href={`/category/${normalize(category)}`}>{category}</Link>
             </Typography>
           ))}

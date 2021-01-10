@@ -1,11 +1,11 @@
-export function normalize(st) {
+export function normalize(st: string) {
   return st
     .normalize()
     .toLowerCase()
     .replace(/[^a-z0-9]/g, "");
 }
 
-export function normalizeWeak(st) {
+export function normalizeWeak(st: string) {
   return st
     .normalize()
     .toLowerCase()

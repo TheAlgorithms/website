@@ -7,14 +7,14 @@ import {
   Icon,
   Input,
   OutlinedInput,
+  TextField,
 } from "@material-ui/core";
 import { useRouter } from "next/router";
 
 const debounce = Debouncer(200);
 
-export default function SearchBar({ small = false }) {
+export default function SearchBar({ small = false, query, setQuery }) {
   const router = useRouter();
-  const [query, setQuery] = useState(router.query.q as string);
 
   function handleInput(event: FormEvent) {
     setQuery((event.target as HTMLInputElement).value);
@@ -30,12 +30,29 @@ export default function SearchBar({ small = false }) {
 
   return (
     <form noValidate autoComplete="off" onSubmit={handleSubmit}>
-      <FormControl
-        variant="filled"
-        style={{ width: "100%" }}
+      {/* <TextField
+        variant={small ? "outlined" : "filled"}
         size={small ? "small" : "medium"}
-      >
-        {!small ? (
+        style={{ width: "100%" }}
+        label={!small ? "Search any algorithm" : ""}
+        placeholder={small ? "Search any algorithm" : ""}
+        onInput={handleInput}
+        value={query}
+        id="searchBar"
+      ></TextField> */}
+
+      {small ? (
+        <FormControl variant="outlined" size={"small"}>
+          <OutlinedInput
+            onInput={handleInput}
+            value={query}
+            placeholder="Search any algorithm"
+            endAdornment={searchAdornment}
+            autoFocus
+          />
+        </FormControl>
+      ) : (
+        <FormControl variant="filled" style={{ width: "100%" }} size={"medium"}>
           <React.Fragment>
             <InputLabel>Search any algorithm</InputLabel>
             <FilledInput
@@ -44,18 +61,8 @@ export default function SearchBar({ small = false }) {
               value={query}
             />
           </React.Fragment>
-        ) : (
-          <React.Fragment>
-            <OutlinedInput
-              onInput={handleInput}
-              value={query}
-              placeholder="Search any algorithm"
-              endAdornment={searchAdornment}
-              autoFocus
-            />
-          </React.Fragment>
-        )}
-      </FormControl>
+        </FormControl>
+      )}
     </form>
   );
 }

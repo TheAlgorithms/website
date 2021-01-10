@@ -13,9 +13,7 @@ export default function Jumbo({ search }) {
           <Typography className={classes.h2}>
             Welcome to GitHub's largest open-source algorithm library
           </Typography>
-          <div className={classes.input}>
-            <SearchBar />
-          </div>
+          <div className={classes.input}>{search}</div>
         </div>
       </div>
     </DarkThemeProvider>
