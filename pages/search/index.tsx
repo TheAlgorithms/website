@@ -3,8 +3,9 @@ import AlgorithmsList from "../../components/algorithmsList";
 import search from "../../lib/search";
 import Section from "../../components/section";
 import Head from "next/head";
-import { Button } from "@material-ui/core";
+import { Button, Icon } from "@material-ui/core";
 import { useRouter } from "next/router";
+import classes from "./search.module.css";
 
 export default function Search() {
   const router = useRouter();
@@ -26,7 +27,13 @@ export default function Search() {
       <Section title={`Search${router.query.q && ` "${router.query.q}"`}`}>
         {router.query.q && <AlgorithmsList algorithms={algorithms} />}
         {algorithms.length === limit && (
-          <Button onClick={() => setLimit(undefined)}>More</Button>
+          <Button
+            onClick={() => setLimit(undefined)}
+            className={classes.more}
+            startIcon={<Icon>add</Icon>}
+          >
+            More
+          </Button>
         )}
       </Section>
     </React.Fragment>

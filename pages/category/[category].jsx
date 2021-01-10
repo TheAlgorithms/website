@@ -1,8 +1,8 @@
 import React from "react";
 import { Typography, Breadcrumbs } from "@material-ui/core";
-import AlgorithmsList from "../../../components/algorithmsList";
-import { getCategories, getCategory } from "../../../lib/categories";
-import Section from "../../../components/section";
+import AlgorithmsList from "../../components/algorithmsList";
+import { getCategories, getCategory } from "../../lib/categories";
+import Section from "../../components/section";
 import Head from "next/head";
 
 export default function Category({ category }) {

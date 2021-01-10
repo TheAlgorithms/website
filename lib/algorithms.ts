@@ -1,5 +1,6 @@
 import fs from "fs";
 import path from "path";
+import type { Algorithm } from "./models";
 
 const cacheDirectory = path.join(process.cwd(), "cache");
 const algorithmsDirectory = path.join(cacheDirectory, "algorithms");

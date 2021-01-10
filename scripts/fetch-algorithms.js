@@ -75,18 +75,17 @@ function parseData(lang, data) {
     }
     if (line.startsWith("  *")) {
       const match = line.substr(3).match(/\[(.+)\]\((.+\/(.+)(?:\..+))\)/);
-      if (match) addAlgorithmFromMatch(match, lang, category);
+      if (match) addAlgorithmFromMatch(match, lang, [category]);
       else subCategory = line.substr(3).trim();
     }
     if (line.startsWith("    *")) {
       const match = line.substr(3).match(/\[(.+)\]\((.+\/(.+)(?:\..+))\)/);
-      if (match) addAlgorithmFromMatch(match, lang, category, subCategory);
+      if (match) addAlgorithmFromMatch(match, lang, [category, subCategory]);
     }
   });
 }
 
-function addAlgorithmFromMatch(match, lang, category, subCategory) {
-  if (subCategory == "test") return;
+function addAlgorithmFromMatch(match, lang, categories) {
   let algorithm = algorithms.find(
     (algorithm) => normalize(algorithm.slug) == normalize(match[3])
   );
@@ -94,12 +93,11 @@ function addAlgorithmFromMatch(match, lang, category, subCategory) {
     algorithm = {
       slug: normalizeWeak(match[3]),
       name: match[1],
-      category,
+      categories,
       implementations: {},
     };
     algorithms.push(algorithm);
   }
-  if (subCategory) algorithm.subCategory = subCategory;
   algorithm.implementations[lang] = match[2];
 }
 
