@@ -1,9 +1,21 @@
-import React, { useState } from "react";
+import React, { useMemo, useState } from "react";
 import SyntaxHighlighter from "react-syntax-highlighter";
 import classes from "./style.module.css";
 
 export default function CodePreview({ code, language }) {
   const [hovered, setHovered] = useState(false);
+
+  const syntaxHighlighter = useMemo(
+    () => (
+      <SyntaxHighlighter
+        customStyle={{ minHeight: "100%", margin: 0 }}
+        language={language}
+      >
+        {code}
+      </SyntaxHighlighter>
+    ),
+    []
+  );
 
   return (
     <div
@@ -17,12 +29,7 @@ export default function CodePreview({ code, language }) {
           hovered ? classes.codeHover + " " + classes.code : classes.code
         }
       >
-        <SyntaxHighlighter
-          customStyle={{ minHeight: "100%", margin: 0 }}
-          language={language}
-        >
-          {code}
-        </SyntaxHighlighter>
+        {syntaxHighlighter}
       </div>
     </div>
   );
