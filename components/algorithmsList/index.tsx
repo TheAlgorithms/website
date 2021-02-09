@@ -36,7 +36,7 @@ export default function AlgorithmsList({ algorithms, noCategories = false }) {
         </div>
       ) : (
         Object.keys(splitAlgorithms).map((key) => (
-          <Fragment>
+          <Fragment key={key}>
             {Object.keys(splitAlgorithms).length > 1 && (
               <Typography
                 color="textSecondary"

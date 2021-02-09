@@ -13,7 +13,7 @@
     "@fortawesome/fontawesome-free": "^5.15.1",
     "@material-ui/core": "^4.11.1",
     "atob": "^2.1.2",
-    "devicon": "^2.2.0",
+    "devicon": "https://github.com/devicons/devicon",
     "next": "10.0.3",
     "nprogress": "^0.2.0",
     "react": "17.0.1",
