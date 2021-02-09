@@ -5,26 +5,46 @@ import React from "react";
 import classes from "./style.module.css";
 import SearchBar from "../searchBar";
 import DarkThemeProvider from "../darkThemeProvider";
+import NextLink from "next/link";
 
 export default function Navbar({ search }) {
+  const [atTop, setAtTop] = useState(false);
+
+  useEffect(() => {
+    setAtTop(window.scrollY < 1);
+    window.addEventListener("scroll", (event) => {
+      setAtTop(window.scrollY < 1);
+    });
+  }, []);
+
   return (
-    <AppBar className={classes.root} position="sticky">
+    <AppBar
+      className={
+        atTop && !search ? classes.root : `${classes.root} ${classes.scrolled}`
+      }
+      position="fixed"
+    >
+      <div className={classes.background} />
       <DarkThemeProvider>
         <Toolbar className={classes.toolbar + " container"}>
-          <Typography variant="h6" className={classes.title}>
-            <Link href="/" style={{ color: "white" }}>
+          <Link href="/" style={{ color: "white" }}>
+            <Typography variant="h6" className={classes.title}>
+              <img src="/logo_t.png" />
               TheAlgorithms
-            </Link>
-          </Typography>
-
+            </Typography>
+          </Link>
           {search && search}
-          <Button
-            color="inherit"
-            href="https://github.com/TheAlgorithms/"
-            target="_blank"
-          >
-            GitHub
-          </Button>
+          <div>
+            <NextLink href="/#about">
+              <Button color="inherit">About</Button>
+            </NextLink>
+            <Button color="inherit" href="https://gitter.im/TheAlgorithms/">
+              Gitter
+            </Button>
+            <Button color="inherit" href="https://github.com/TheAlgorithms/">
+              GitHub
+            </Button>
+          </div>
         </Toolbar>
       </DarkThemeProvider>
     </AppBar>

@@ -9,3 +9,11 @@
   row-gap: 20px;
   line-break: anywhere;
 }
+
+.subtitle {
+  margin-top: 30px !important;
+  margin-bottom: 20px !important;
+  letter-spacing: 2px !important;
+  text-transform: uppercase;
+  font-size: 15px !important;
+}

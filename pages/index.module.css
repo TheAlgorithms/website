@@ -1,0 +1,14 @@
+.twoCols {
+  display: grid;
+  grid-template-columns: 47.5% 5% 47.5%;
+}
+
+.title {
+  margin-bottom: 20px !important;
+}
+
+.card {
+  padding: 30px;
+  margin-bottom: -25px;
+  margin-top: -25px;
+}

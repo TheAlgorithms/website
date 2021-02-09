@@ -17,3 +17,9 @@
 .icon {
   margin-left: 10px;
 }
+
+.textIcon {
+  text-decoration: none !important;
+  font-weight: bolder !important;
+  color: rgba(0, 0, 0, 0.26) !important;
+}

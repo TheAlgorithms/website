@@ -1,0 +1,40 @@
+.name {
+  letter-spacing: 2px !important;
+  font-weight: 100;
+  text-transform: uppercase;
+  font-size: 12px !important;
+  grid-area: name;
+}
+
+.logo {
+  grid-area: logo;
+  margin-right: 30px;
+  width: 100px;
+  height: 100px;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  margin-right: 30px;
+}
+
+.grid {
+  display: grid;
+  grid-template-rows: 35px auto;
+  grid-template-areas:
+    "logo name name"
+    "logo list list";
+  justify-content: center;
+}
+
+.outer {
+  position: sticky;
+  top: 100%;
+  background-color: #3a4852 !important;
+  color: rgb(211, 211, 211) !important;
+}
+
+.outer a {
+  color: white !important;
+}

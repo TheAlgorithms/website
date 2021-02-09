@@ -2,20 +2,18 @@ import React from "react";
 import { Typography, Breadcrumbs, Link as MuiLink } from "@material-ui/core";
 import Implementations from "../../components/implementations";
 import { getAlgorithmSlugs, getAlgorithm } from "../../lib/algorithms.ts";
-import Head from "next/head";
 import Link from "../../components/link";
 import { normalize } from "../../lib/normalize";
 import { getFileRaw } from "../../lib/github";
 import Markdown from "../../components/markdown";
 import CodePreview from "../../components/codePreview";
 import classes from "./algorithm.module.css";
+import Head from "../../components/head";
 
 export default function Algorithm({ algorithm, exampleLanguage, code }) {
   return (
     <div className="section container">
-      <Head>
-        <title>{algorithm.name} - TheAlgorithms</title>
-      </Head>
+      <Head title={algorithm.name} />
       <CodePreview code={code} language={exampleLanguage} />
       <Breadcrumbs>
         {algorithm.categories.map((category) => (

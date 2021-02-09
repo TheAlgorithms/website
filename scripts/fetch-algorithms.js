@@ -18,7 +18,31 @@ let algorithms = [];
   fs.mkdirSync(cacheDirectory);
   fs.mkdirSync(algorithmsDirectory);
 
-  for (const el of ["python", "java", "c", "c-plus-plus", "go", "javascript"]) {
+  for (const el of [
+    "Python",
+    "C",
+    "Javascript",
+    "C-Plus-Plus",
+    "Java",
+    "Ruby",
+    // "F-Sharp",
+    "Go",
+    // "Rust",
+    // "AArch64_Assembly",
+    // "C-Sharp",
+    "Dart",
+    // "R",
+    "PHP",
+    "Elixir",
+    // "Kotlin",
+    // "Scala",
+    // "Jupyter",
+    "Haskell",
+    // "OCaml",
+    "Swift",
+    // "Elm",
+    // "MATLAB-Octave",
+  ]) {
     const spinner = ora(el).start();
     const fresponse = await fetch(
       `https://raw.githubusercontent.com/TheAlgorithms/${el}/master/DIRECTORY.md`
@@ -27,7 +51,7 @@ let algorithms = [];
       parseData(el, await fresponse.text());
       spinner.succeed();
     } else {
-      spinner.fail(`${el} not found`);
+      spinner.fail(`DIRECTORY.md for ${el} not found`);
     }
   }
   let spinner = ora("explanations").start();
@@ -36,19 +60,25 @@ let algorithms = [];
       "https://api.github.com/repos/TheAlgorithms/Algorithms-Explanation/git/trees/master?recursive=2"
     )
   ).json();
-  for (const explanation of explanations.tree) {
-    const match = explanation.path.match(/en\/(?:.+)\/(.+)\.md/);
-    if (match) {
-      const algorithm = algorithms.find(
-        (algorithm) => normalize(algorithm.slug) == normalize(match[1])
-      );
-      if (algorithm) {
-        const data = await (await fetch(explanation.url)).json();
-        algorithm.body = atob(data.content).split("\n").slice(1).join("\n");
+  try {
+    for (const explanation of explanations.tree) {
+      const match = explanation.path.match(/en\/(?:.+)\/(.+)\.md/);
+      if (match) {
+        const algorithm = algorithms.find(
+          (algorithm) => normalize(algorithm.slug) == normalize(match[1])
+        );
+        if (algorithm) {
+          const data = await (await fetch(explanation.url)).json();
+          algorithm.body = atob(data.content).split("\n").slice(1).join("\n");
+        }
       }
     }
+    spinner.succeed();
+  } catch (error) {
+    spinner.fail(
+      `Error while fetching explanations: ${explanations.message || error}`
+    );
   }
-  spinner.succeed();
   console.log();
   spinner = ora("Saving algorithms to files").start();
 

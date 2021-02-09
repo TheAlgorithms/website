@@ -1,0 +1,18 @@
+.container {
+}
+
+.cardOuter {
+  margin-right: 20px !important;
+  margin-bottom: 20px !important;
+  width: fit-content;
+}
+
+.cardInner {
+  display: flex;
+  align-items: center;
+  padding-bottom: 16px !important;
+}
+
+.text {
+  margin-left: 10px !important;
+}

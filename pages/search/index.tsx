@@ -2,10 +2,10 @@ import React, { useEffect, useState } from "react";
 import AlgorithmsList from "../../components/algorithmsList";
 import search from "../../lib/search";
 import Section from "../../components/section";
-import Head from "next/head";
 import { Button, Icon } from "@material-ui/core";
 import { useRouter } from "next/router";
 import classes from "./search.module.css";
+import Head from "../../components/head";
 
 export default function Search() {
   const router = useRouter();
@@ -21,9 +21,7 @@ export default function Search() {
 
   return (
     <React.Fragment>
-      <Head>
-        <title>{router.query.q && `"${router.query.q}" - `}TheAlgorithms</title>
-      </Head>
+      <Head title={router.query.q && `"${router.query.q}"`} />
       <Section title={`Search${router.query.q && ` "${router.query.q}"`}`}>
         {router.query.q && <AlgorithmsList algorithms={algorithms} />}
         {algorithms.length === limit && (

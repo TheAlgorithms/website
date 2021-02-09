@@ -1,9 +1,30 @@
 .root {
   flex-grow: 1;
-  transition: background 0.2s ease, border-color 0.2s ease;
-  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-    url(/programming-1873854_1920.webp);
+  /* transition: box-shadow 0.2s ease; */
+  background: none !important;
+  box-shadow: none !important;
   color: white;
+  position: relative;
+}
+
+.background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #3a4852;
+  /* transition: opacity 0.2s ease; */
+  opacity: 0;
+}
+
+.scrolled {
+  box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2),
+    0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12) !important;
+}
+
+.scrolled .background {
+  opacity: 1 !important;
 }
 
 .toolbar {
@@ -13,4 +34,14 @@
 
 .link {
   cursor: pointer;
+}
+
+.title {
+  display: flex;
+  align-items: center;
+}
+
+.title img {
+  height: 2em;
+  margin-right: 7px;
 }

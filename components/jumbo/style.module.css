@@ -1,10 +1,11 @@
 .outer {
-  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+  background: linear-gradient(#3a4852, #3a4852b7),
     url(/programming-1873854_1920.webp);
   background-size: cover;
   color: white;
-  padding-top: 50px;
+  padding-top: 114px;
   padding-bottom: 50px;
+  margin-bottom: -64px;
 }
 
 .h1 {

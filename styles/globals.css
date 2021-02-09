@@ -1,6 +1,13 @@
 @import "https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap";
 @import "https://fonts.googleapis.com/css?family=Material+Icons";
 
+html,
+body,
+#__next {
+  margin: 0;
+  height: 100%;
+}
+
 .section {
   padding-top: 50px;
   padding-bottom: 50px;
@@ -10,4 +17,12 @@
   width: 90%;
   max-width: 1200px;
   margin: auto;
+}
+
+#nprogress .bar {
+  background: white !important;
+}
+
+#nprogress .peg {
+  box-shadow: none !important;
 }

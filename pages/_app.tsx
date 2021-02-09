@@ -4,10 +4,13 @@ import "../styles/globals.css";
 import "devicon/devicon.min.css";
 import Jumbo from "../components/jumbo";
 import Navbar from "../components/navbar";
-import Head from "next/head";
 import { useRouter } from "next/router";
 import { GlobalStateProvider } from "../hooks/globalState";
 import SearchBar from "../components/searchBar";
+import "nprogress/nprogress.css";
+import NProgress from "nprogress";
+import Footer from "../components/footer";
+import Head from "../components/head";
 
 function MyApp({ Component, pageProps }) {
   const router = useRouter();
@@ -17,15 +20,25 @@ function MyApp({ Component, pageProps }) {
     <SearchBar small={router.route != "/"} query={query} setQuery={setQuery} />
   );
 
+  useEffect(() => {
+    NProgress.configure({
+      showSpinner: false,
+    });
+    router.events.on("routeChangeStart", NProgress.start);
+    router.events.on("routeChangeComplete", NProgress.done);
+    router.events.on("routeChangeError", NProgress.done);
+  }, []);
+
   return (
     <GlobalStateProvider>
-      <Head>
-        <title>TheAlgorithms</title>
-      </Head>
+      <Head />
       <CssBaseline />
       <Navbar search={router.route != "/" && searchBar} />
       {router.route == "/" && <Jumbo search={searchBar} />}
-      <Component {...pageProps} />
+      <div style={{ marginTop: "64px" }}>
+        <Component {...pageProps} />
+      </div>
+      <Footer />
     </GlobalStateProvider>
   );
 }
