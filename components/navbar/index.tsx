@@ -72,7 +72,7 @@ export default function Navbar({ search }) {
           ) : (
             <div>
               {menu.map((item, index) => (
-                <NextLink key={index} href={item.href}>
+                <NextLink passHref key={index} href={item.href}>
                   <Button color="inherit">{item.name}</Button>
                 </NextLink>
               ))}
