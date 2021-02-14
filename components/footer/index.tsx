@@ -12,12 +12,14 @@ export default function Footer() {
           &#169; The Algorithms 2021
         </Typography>
         <div className={classes.list}>
-          <Link href="https://github.com/TheAlgorithms/">Github</Link>
-          <Link href="https://gitter.im/TheAlgorithms/">Gitter</Link>
           <Link href="/#about">What is an algorithm?</Link>
           <Link href="/#about">About Us</Link>
+          <Link href="/#contribute">Programming Languages</Link>
+          <Link href="/#contribute">Contribute</Link>
         </div>
         <div className={classes.list}>
+          <Link href="https://github.com/TheAlgorithms/">Github</Link>
+          <Link href="https://gitter.im/TheAlgorithms/">Gitter</Link>
           <Link href="/all">All algorithms</Link>
         </div>
       </div>

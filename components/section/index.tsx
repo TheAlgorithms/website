@@ -10,7 +10,7 @@ export default function Section({
   className = "",
   style = {},
 }: {
-  title: string;
+  title?: string;
   children: any;
   more?: string;
   className?: string;

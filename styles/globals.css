@@ -20,7 +20,7 @@ body,
 }
 
 #nprogress .bar {
-  background: white !important;
+  z-index: 10000 !important;
 }
 
 #nprogress .peg {

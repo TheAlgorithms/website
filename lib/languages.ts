@@ -1,6 +1,6 @@
 import fs from "fs";
 import path from "path";
-import { Algorithm } from "./models";
+import { Algorithm, Language, Languages } from "./models";
 import { normalize, normalizeWeak } from "./normalize";
 
 const cacheDirectory = path.join(process.cwd(), "cache");
@@ -28,7 +28,7 @@ export function getLanguages() {
 
 export function getLanguage(language: string) {
   const algorithms = [];
-  let languageName;
+  let languageName: string;
   for (const file of fs.readdirSync(algorithmsDirectory)) {
     const algorithm: Algorithm = JSON.parse(
       fs.readFileSync(path.join(algorithmsDirectory, file)).toString()

@@ -1,0 +1,20 @@
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(60px, 1fr));
+  justify-items: center;
+  margin-top: 30px;
+  grid-column-gap: 10px;
+  grid-row-gap: 20px;
+}
+
+.grid > a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  padding: 10px;
+}
+
+.grid > a > a {
+  margin-top: 10px;
+}

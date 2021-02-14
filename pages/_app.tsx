@@ -8,7 +8,7 @@ import { useRouter } from "next/router";
 import { GlobalStateProvider } from "../hooks/globalState";
 import SearchBar from "../components/searchBar";
 import "nprogress/nprogress.css";
-import NProgress from "nprogress";
+import NextNprogress from "nextjs-progressbar";
 import Footer from "../components/footer";
 import Head from "../components/head";
 
@@ -20,19 +20,11 @@ function MyApp({ Component, pageProps }) {
     <SearchBar small={router.route != "/"} query={query} setQuery={setQuery} />
   );
 
-  useEffect(() => {
-    NProgress.configure({
-      showSpinner: false,
-    });
-    router.events.on("routeChangeStart", NProgress.start);
-    router.events.on("routeChangeComplete", NProgress.done);
-    router.events.on("routeChangeError", NProgress.done);
-  }, []);
-
   return (
     <GlobalStateProvider>
       <Head />
       <CssBaseline />
+      <NextNprogress color="#fff" height={2} options={{ showSpinner: false }} />
       <Navbar search={router.route != "/" && searchBar} />
       {router.route == "/" && <Jumbo search={searchBar} />}
       <div style={{ marginTop: "64px" }}>

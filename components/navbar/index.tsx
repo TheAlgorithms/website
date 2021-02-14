@@ -1,5 +1,15 @@
-import { useState, useEffect } from "react";
-import { AppBar, Toolbar, Typography, Button } from "@material-ui/core";
+import { useState, useEffect, Fragment } from "react";
+import {
+  AppBar,
+  Toolbar,
+  Typography,
+  Button,
+  useMediaQuery,
+  IconButton,
+  Icon,
+  Menu,
+  MenuItem,
+} from "@material-ui/core";
 import Link from "../link";
 import React from "react";
 import classes from "./style.module.css";
@@ -9,6 +19,8 @@ import NextLink from "next/link";
 
 export default function Navbar({ search }) {
   const [atTop, setAtTop] = useState(false);
+  const hasMenuButton = useMediaQuery("(max-width:600px)");
+  const [menuAnchor, setMenuAnchor] = useState<HTMLButtonElement>();
 
   useEffect(() => {
     setAtTop(window.scrollY < 1);
@@ -16,6 +28,21 @@ export default function Navbar({ search }) {
       setAtTop(window.scrollY < 1);
     });
   }, []);
+
+  const menu = [
+    {
+      name: "About",
+      href: "/#about",
+    },
+    {
+      name: "Gitter",
+      href: "https://gitter.im/TheAlgorithms/",
+    },
+    {
+      name: "GitHub",
+      href: "https://github.com/TheAlgorithms/",
+    },
+  ];
 
   return (
     <AppBar
@@ -34,19 +61,36 @@ export default function Navbar({ search }) {
             </Typography>
           </Link>
           {search && search}
-          <div>
-            <NextLink href="/#about">
-              <Button color="inherit">About</Button>
-            </NextLink>
-            <Button color="inherit" href="https://gitter.im/TheAlgorithms/">
-              Gitter
-            </Button>
-            <Button color="inherit" href="https://github.com/TheAlgorithms/">
-              GitHub
-            </Button>
-          </div>
+          {hasMenuButton ? (
+            <Fragment>
+              <IconButton
+                onClick={(event) => setMenuAnchor(event.currentTarget)}
+              >
+                <Icon>menu</Icon>
+              </IconButton>
+            </Fragment>
+          ) : (
+            <div>
+              {menu.map((item, index) => (
+                <NextLink key={index} href={item.href}>
+                  <Button color="inherit">{item.name}</Button>
+                </NextLink>
+              ))}
+            </div>
+          )}
         </Toolbar>
       </DarkThemeProvider>
+      <Menu
+        anchorEl={menuAnchor}
+        onClose={() => setMenuAnchor(null)}
+        open={!!menuAnchor}
+      >
+        {menu.map((item, index) => (
+          <NextLink key={index} href={item.href}>
+            <MenuItem>{item.name}</MenuItem>
+          </NextLink>
+        ))}
+      </Menu>
     </AppBar>
   );
 }

@@ -1,0 +1,9 @@
+.titleContainer {
+  display: flex;
+  margin-bottom: 10px;
+  justify-content: space-between;
+}
+
+.titleContainer > div > a {
+  margin-left: 20px !important;
+}

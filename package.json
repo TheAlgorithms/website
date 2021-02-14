@@ -15,7 +15,7 @@
     "atob": "^2.1.2",
     "devicon": "https://github.com/devicons/devicon",
     "next": "10.0.3",
-    "nprogress": "^0.2.0",
+    "nextjs-progressbar": "^0.0.7",
     "react": "17.0.1",
     "react-dom": "17.0.1",
     "react-markdown": "^5.0.3",

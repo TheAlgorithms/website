@@ -1,13 +1,27 @@
 import React from "react";
-import { Card, CardContent, Icon, Paper, Typography } from "@material-ui/core";
+import {
+  Card,
+  CardContent,
+  Icon,
+  List,
+  Paper,
+  Typography,
+  ListItem,
+  ListItemText,
+  ListItemIcon,
+  ListItemSecondaryAction,
+  Button,
+} from "@material-ui/core";
 import Jumbo from "../components/jumbo";
 import Navbar from "../components/navbar";
 import AlgorithmsList from "../components/algorithmsList";
+import LanguagesList from "../components/languagesList";
 import { getAlgorithm } from "../lib/algorithms.ts";
 import Section from "../components/section";
 import CategoriesList from "../components/categoriesList";
 import classes from "./index.module.css";
 import ScrollableAnchor from "react-scrollable-anchor";
+import { normalize } from "../lib/normalize";
 
 export default function Home({ topAlgorithms, featuredAlgorithms }) {
   return (
@@ -97,6 +111,70 @@ export default function Home({ topAlgorithms, featuredAlgorithms }) {
           ]}
         />
       </Section>
+
+      <div id="contribute">
+        <Section>
+          <Card className={classes.card}>
+            <CardContent>
+              <div className={classes.twoCols}>
+                <Typography>
+                  <Typography variant="h5" className={classes.title}>
+                    Programming Languages
+                  </Typography>
+                  We support many programming languages. Each language has its
+                  own GitHub repository where all the code for the algorithms is
+                  stored. Here is a list of the current programming languages:
+                  <LanguagesList
+                    languages={[
+                      "Python",
+                      "C",
+                      "Javascript",
+                      "C-Plus-Plus",
+                      "Java",
+                      "Ruby",
+                      // "F-Sharp",
+                      "Go",
+                      // "Rust",
+                      // "AArch64_Assembly",
+                      // "C-Sharp",
+                      "Dart",
+                      // "R",
+                      "PHP",
+                      "Elixir",
+                      // "Kotlin",
+                      // "Scala",
+                      // "Jupyter",
+                      "Haskell",
+                      // "OCaml",
+                      "Swift",
+                      // "Elm",
+                      // "MATLAB-Octave",
+                    ].map((langName) => ({
+                      name: langName,
+                      href: `/language/${normalize(langName)}`,
+                    }))}
+                  />
+                </Typography>
+                <div />
+                <Typography>
+                  <Typography variant="h5" className={classes.title}>
+                    Contribute
+                  </Typography>
+                  We encourage you to contribute to these repositories. If you
+                  have an algorithm that you want to add, a change you want to
+                  make or a bug you want to fix, please do so. But before you
+                  do, make sure you have read the contributing guidelines found
+                  in CONTRIBUTING.md in the repository. Make sure that you are
+                  respectful, helpful and using the latest version of the
+                  language. After reading the contribution guidelines, please
+                  fork the repository, work on your changes and then submit them
+                  as a pull request.
+                </Typography>
+              </div>
+            </CardContent>
+          </Card>
+        </Section>
+      </div>
     </React.Fragment>
   );
 }

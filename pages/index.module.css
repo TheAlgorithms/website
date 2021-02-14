@@ -1,6 +1,12 @@
-.twoCols {
-  display: grid;
-  grid-template-columns: 47.5% 5% 47.5%;
+@media (min-width: 600px) {
+  .twoCols {
+    display: grid;
+    grid-template-columns: 47.5% 5% 47.5%;
+  }
+}
+
+.twoCols > div {
+  margin-bottom: 40px;
 }
 
 .title {
