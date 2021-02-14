@@ -42,6 +42,10 @@ export default function Navbar({ search }) {
       name: "GitHub",
       href: "https://github.com/TheAlgorithms/",
     },
+    {
+      name: "Twitter",
+      href: "https://twitter.com/The_Algorithms/",
+    }
   ];
 
   return (
