@@ -32,14 +32,14 @@ let algorithms = [];
     // "C-Sharp",
     "Dart",
     // "R",
-    "PHP",
+    // "PHP",
     "Elixir",
     // "Kotlin",
     // "Scala",
     // "Jupyter",
-    "Haskell",
+    // "Haskell",
     // "OCaml",
-    "Swift",
+    // "Swift",
     // "Elm",
     // "MATLAB-Octave",
   ]) {
@@ -97,20 +97,23 @@ let algorithms = [];
 })();
 
 function parseData(lang, data) {
-  let category = "";
-  let subCategory = "";
+  let categories = [];
   data.split("\n").forEach((line) => {
     if (line.startsWith("##")) {
-      category = line.substr(2).trim();
+      categories = [line.substr(2).trim()];
     }
-    if (line.startsWith("  *")) {
-      const match = line.substr(3).match(/\[(.+)\]\((.+\/(.+)(?:\..+))\)/);
-      if (match) addAlgorithmFromMatch(match, lang, [category]);
-      else subCategory = line.substr(3).trim();
-    }
-    if (line.startsWith("    *")) {
-      const match = line.substr(3).match(/\[(.+)\]\((.+\/(.+)(?:\..+))\)/);
-      if (match) addAlgorithmFromMatch(match, lang, [category, subCategory]);
+    for (let i = 1; i < 4; i++) {
+      if (
+        line.startsWith(`${"  ".repeat(i)}*`) ||
+        line.startsWith(`${"	".repeat(i)}*`)
+      ) {
+        const match = line
+          .substr(2 * i + 1)
+          .match(/\[(.+)\]\((.+\/(.+)(?:\..+))\)/);
+        categories.length = i;
+        if (match) addAlgorithmFromMatch(match, lang, [...categories]);
+        else categories[i] = line.substr(2 * i + 1).trim();
+      }
     }
   });
 }
