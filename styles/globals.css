@@ -6,6 +6,19 @@ body,
 #__next {
   margin: 0;
   height: 100%;
+  width: 100%;
+}
+
+*,
+*:after,
+*:before {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-size: 1rem;
+  margin: 0;
 }
 
 .section {

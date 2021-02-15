@@ -22,10 +22,10 @@ export default function LanguagesList({
             href={language.href}
             passHref
           >
-            <ButtonBase>
-              <LanguageIcon language={language.name} />
-              <Link>{getLanguageName(language.name)}</Link>
-            </ButtonBase>
+              <ButtonBase>
+                <LanguageIcon language={language.name} />
+                <Typography>{getLanguageName(language.name)}</Typography>
+              </ButtonBase>
           </NextLink>
         );
       })}

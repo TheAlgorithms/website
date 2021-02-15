@@ -1,15 +1,42 @@
-import React, { useMemo, useState } from "react";
+import { useTheme } from "@material-ui/core";
+import React, { useEffect, useMemo, useState } from "react";
 import SyntaxHighlighter from "react-syntax-highlighter";
 import classes from "./style.module.css";
+import atomOneLight from "react-syntax-highlighter/dist/cjs/styles/hljs/atom-one-light";
+import atomOneDark from "react-syntax-highlighter/dist/cjs/styles/hljs/atom-one-dark";
 
 export default function CodePreview({ code, language }) {
   const [hovered, setHovered] = useState(false);
+  const theme = useTheme();
+  const darkTheme = useMemo(() => theme.palette.type == "dark", [theme]);
 
-  const syntaxHighlighter = useMemo(
+  const syntaxHighlighterDark = useMemo(
     () => (
       <SyntaxHighlighter
-        customStyle={{ minHeight: "100%", margin: 0 }}
-        language={language}
+        customStyle={{
+          minHeight: "100%",
+          margin: 0,
+          background: "rgba(0,0,0,0.3)",
+        }}
+        language={language.toLowerCase()}
+        style={atomOneDark}
+      >
+        {code}
+      </SyntaxHighlighter>
+    ),
+    []
+  );
+
+  const syntaxHighlighterLight = useMemo(
+    () => (
+      <SyntaxHighlighter
+        customStyle={{
+          minHeight: "100%",
+          margin: 0,
+          background: "rgba(0,0,0,0.03)",
+        }}
+        language={language.toLowerCase()}
+        style={atomOneLight}
       >
         {code}
       </SyntaxHighlighter>
@@ -19,7 +46,7 @@ export default function CodePreview({ code, language }) {
 
   return (
     <div
-      className={classes.codeContainer}
+      className={`${classes.codeContainer} ${darkTheme && "dark"}`}
       onClick={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
     >
@@ -29,7 +56,7 @@ export default function CodePreview({ code, language }) {
           hovered ? classes.codeHover + " " + classes.code : classes.code
         }
       >
-        {syntaxHighlighter}
+        {darkTheme ? syntaxHighlighterDark : syntaxHighlighterLight}
       </div>
     </div>
   );

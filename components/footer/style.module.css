@@ -31,7 +31,6 @@
 .outer {
   position: sticky;
   top: 100%;
-  background-color: #3a4852 !important;
   color: rgb(211, 211, 211) !important;
 }
 

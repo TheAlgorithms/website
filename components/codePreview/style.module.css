@@ -29,3 +29,7 @@
   );
   pointer-events: none;
 }
+
+:global(.dark) .codeContainerGradient {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0) 50%, #101316 100%);
+}
