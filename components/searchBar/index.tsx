@@ -1,15 +1,27 @@
-import React, { FormEvent, useState } from "react";
+import React, { FormEvent } from "react";
 import {
   FormControl,
   FilledInput,
   InputLabel,
   InputAdornment,
   Icon,
-  Input,
   OutlinedInput,
-  TextField,
 } from "@material-ui/core";
 import { useRouter } from "next/router";
+
+const searchAdornment = (
+  <InputAdornment position="end">
+    <Icon>search</Icon>
+  </InputAdornment>
+);
+
+function Debouncer(time: number) {
+  let timeout: NodeJS.Timeout;
+  return (func: () => void) => {
+    if (timeout) clearTimeout(timeout);
+    timeout = setTimeout(func, time);
+  };
+}
 
 const debounce = Debouncer(200);
 
@@ -42,7 +54,7 @@ export default function SearchBar({ small = false, query, setQuery }) {
       ></TextField> */}
 
       {small ? (
-        <FormControl variant="outlined" size={"small"}>
+        <FormControl variant="outlined" size="small">
           <OutlinedInput
             onInput={handleInput}
             value={query}
@@ -52,31 +64,17 @@ export default function SearchBar({ small = false, query, setQuery }) {
           />
         </FormControl>
       ) : (
-        <FormControl variant="filled" style={{ width: "100%" }} size={"medium"}>
-          <React.Fragment>
+        <FormControl variant="filled" style={{ width: "100%" }} size="medium">
+          <>
             <InputLabel>Search any algorithm</InputLabel>
             <FilledInput
               onInput={handleInput}
               endAdornment={searchAdornment}
               value={query}
             />
-          </React.Fragment>
+          </>
         </FormControl>
       )}
     </form>
   );
-}
-
-const searchAdornment = (
-  <InputAdornment position="end">
-    <Icon>search</Icon>
-  </InputAdornment>
-);
-
-function Debouncer(time: number) {
-  let timeout;
-  return function (func: () => void) {
-    if (timeout) clearTimeout(timeout);
-    timeout = setTimeout(func, time);
-  };
 }

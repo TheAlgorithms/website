@@ -11,18 +11,18 @@ export default function LanguageIcon({
   tooltip?: string;
 }) {
   const icon = (className: string) => (
-    <Tooltip title={tooltip ? tooltip : ""}>
+    <Tooltip title={tooltip || ""}>
       <Icon color="disabled" className={className} />
     </Tooltip>
   );
 
   const textIcon = (text: string) => (
-    <Tooltip title={tooltip ? tooltip : ""}>
+    <Tooltip title={tooltip || ""}>
       <Typography className={classes.textIcon}>{text}</Typography>
     </Tooltip>
   );
 
-  switch (language.toLocaleLowerCase()) {
+  switch (language.toLowerCase() as Language) {
     case "ruby":
       return icon("devicon-ruby-plain");
     case "python":
@@ -55,8 +55,8 @@ export default function LanguageIcon({
       return textIcon("El");
     case "kotlin":
       return icon("devicon-kotlin-plain");
-    case "scala":
-      return icon("devicon-scala-plain");
+    // case "scala":
+    //   return icon("devicon-scala-plain");
     case "jupyter":
       return textIcon("J");
     case "haskell":
@@ -67,7 +67,9 @@ export default function LanguageIcon({
       return icon("devicon-swift-plain");
     case "elm":
       return icon("devicon-elm-plain");
-    case "matlab-octave":
-      return textIcon("MLO");
+    // case "matlab-octave":
+    //   return textIcon("MLO");
+    default:
+      throw new Error(`Missing icon for ${language}`);
   }
 }

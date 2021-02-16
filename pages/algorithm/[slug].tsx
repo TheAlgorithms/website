@@ -1,5 +1,7 @@
 import React from "react";
-import { Typography, Breadcrumbs, Link as MuiLink } from "@material-ui/core";
+import { Typography, Breadcrumbs } from "@material-ui/core";
+import type { Algorithm } from "../../lib/models";
+import renderMarkdown from "../../lib/markdown";
 import Implementations from "../../components/implementations";
 import {
   getAlgorithmSlugs,
@@ -7,12 +9,10 @@ import {
   getAlgorithmCode,
 } from "../../lib/algorithms";
 import Link from "../../components/link";
-import { normalize } from "../../lib/normalize";
+import normalize from "../../lib/normalize";
 import CodePreview from "../../components/codePreview";
 import classes from "./algorithm.module.css";
 import Head from "../../components/head";
-import type { Algorithm } from "@/lib/models";
-import renderMarkdown from "@/lib/markdown";
 
 export default function AlgorithmPage({
   algorithm,
@@ -40,12 +40,13 @@ export default function AlgorithmPage({
       </Typography>
       <Implementations implementations={algorithm.implementations} large />
       {algorithm.body && (
-        <React.Fragment>
+        <>
           <Typography variant="h5" className={classes.titleSmall}>
             Explanation
           </Typography>
+          {/* eslint-disable-next-line react/no-danger */}
           <div dangerouslySetInnerHTML={{ __html: body }} />
-        </React.Fragment>
+        </>
       )}
     </div>
   );

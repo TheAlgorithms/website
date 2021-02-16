@@ -1,4 +1,4 @@
-import { Box, Button, Icon, Tooltip, Typography } from "@material-ui/core";
+import { Typography } from "@material-ui/core";
 import { Language, getLanguageName } from "../../lib/models";
 import LanguageIcon from "../icon";
 import LanguagesList from "../languagesList";

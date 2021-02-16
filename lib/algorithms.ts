@@ -36,12 +36,12 @@ export async function getAlgorithmCode(algorithm: Algorithm) {
 
 export function getAllAlgorithms() {
   const algorithms: Algorithm[] = [];
-  for (const file of fs.readdirSync(algorithmsDirectory)) {
+  fs.readdirSync(algorithmsDirectory).forEach((file) => {
     algorithms.push(
       JSON.parse(
         fs.readFileSync(path.join(algorithmsDirectory, file)).toString()
       )
     );
-  }
+  });
   return algorithms;
 }

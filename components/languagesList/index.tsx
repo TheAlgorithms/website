@@ -1,9 +1,8 @@
-import { ButtonBase, Link, Typography } from "@material-ui/core";
+import { ButtonBase, Typography } from "@material-ui/core";
+import NextLink from "next/link";
 import { Language, getLanguageName } from "../../lib/models";
-import { normalize } from "../../lib/normalize";
 import LanguageIcon from "../icon";
 import classes from "./style.module.css";
-import NextLink from "next/link";
 
 export default function LanguagesList({
   languages,
@@ -15,20 +14,18 @@ export default function LanguagesList({
 }) {
   return (
     <div className={classes.grid}>
-      {languages.map((language) => {
-        return (
-          <NextLink
-            key={getLanguageName(language.name)}
-            href={language.href}
-            passHref
-          >
-              <ButtonBase>
-                <LanguageIcon language={language.name} />
-                <Typography>{getLanguageName(language.name)}</Typography>
-              </ButtonBase>
-          </NextLink>
-        );
-      })}
+      {languages.map((language) => (
+        <NextLink
+          key={getLanguageName(language.name)}
+          href={language.href}
+          passHref
+        >
+          <ButtonBase>
+            <LanguageIcon language={language.name} />
+            <Typography>{getLanguageName(language.name)}</Typography>
+          </ButtonBase>
+        </NextLink>
+      ))}
     </div>
   );
 }

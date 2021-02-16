@@ -1,7 +1,7 @@
 import { Button, Typography } from "@material-ui/core";
-import classes from "./style.module.css";
 import NextLink from "next/link";
-import { CSSProperties, HTMLAttributes } from "react";
+import { CSSProperties } from "react";
+import classes from "./style.module.css";
 
 export default function Section({
   title,
@@ -11,7 +11,7 @@ export default function Section({
   style = {},
 }: {
   title?: string;
-  children: any;
+  children: React.ReactNode;
   more?: string;
   className?: string;
   style?: CSSProperties;

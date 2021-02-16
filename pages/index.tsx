@@ -1,31 +1,17 @@
 import React from "react";
-import {
-  Card,
-  CardContent,
-  Icon,
-  List,
-  Paper,
-  Typography,
-  ListItem,
-  ListItemText,
-  ListItemIcon,
-  ListItemSecondaryAction,
-  Button,
-} from "@material-ui/core";
-import Jumbo from "../components/jumbo";
-import Navbar from "../components/navbar";
+import { Card, CardContent, Typography } from "@material-ui/core";
 import AlgorithmsList from "../components/algorithmsList";
 import LanguagesList from "../components/languagesList";
-import { getAlgorithm } from "../lib/algorithms.ts";
+import { getAlgorithm } from "../lib/algorithms";
 import Section from "../components/section";
 import CategoriesList from "../components/categoriesList";
 import classes from "./index.module.css";
-import ScrollableAnchor from "react-scrollable-anchor";
-import { normalize } from "../lib/normalize";
+import normalize from "../lib/normalize";
+import { Language, Languages } from "../lib/models";
 
 export default function Home({ topAlgorithms, featuredAlgorithms }) {
   return (
-    <React.Fragment>
+    <>
       <Section title="Top algorithms">
         <AlgorithmsList noCategories algorithms={topAlgorithms} />
       </Section>
@@ -133,34 +119,12 @@ export default function Home({ topAlgorithms, featuredAlgorithms }) {
                     languages:
                   </Typography>
                   <LanguagesList
-                    languages={[
-                      "Python",
-                      "C",
-                      "Javascript",
-                      "C-Plus-Plus",
-                      "Java",
-                      "Ruby",
-                      "F-Sharp",
-                      "Go",
-                      "Rust",
-                      "AArch64_Assembly",
-                      "C-Sharp",
-                      "Dart",
-                      "R",
-                      "PHP",
-                      "Elixir",
-                      "Kotlin",
-                      // "Scala",
-                      "Jupyter",
-                      "Haskell",
-                      "OCaml",
-                      "Swift",
-                      "Elm",
-                      // "MATLAB-Octave",
-                    ].map((langName) => ({
-                      name: langName,
-                      href: `/language/${normalize(langName)}`,
-                    }))}
+                    languages={Object.keys(Languages).map(
+                      (langName: Language) => ({
+                        name: langName,
+                        href: `/language/${normalize(langName)}`,
+                      })
+                    )}
                   />
                 </div>
                 <div />
@@ -185,7 +149,7 @@ export default function Home({ topAlgorithms, featuredAlgorithms }) {
           </Card>
         </Section>
       </div>
-    </React.Fragment>
+    </>
   );
 }
 

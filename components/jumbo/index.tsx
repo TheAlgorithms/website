@@ -1,8 +1,7 @@
 import React from "react";
 import { Paper, Typography, useTheme } from "@material-ui/core";
-import SearchBar from "../searchBar";
+import { JumboThemeProvider } from "../../hooks/themes";
 import classes from "./style.module.css";
-import { JumboThemeProvider } from "@/hooks/themes";
 
 export default function Jumbo({ search }) {
   const theme = useTheme();
@@ -14,7 +13,7 @@ export default function Jumbo({ search }) {
           className={classes.outer}
           style={{
             background:
-              theme.palette.type == "dark"
+              theme.palette.type === "dark"
                 ? `linear-gradient(${theme.palette.background.paper}, ${theme.palette.background.paper}C0),url(/programming-1873854_1920.webp)`
                 : "linear-gradient(#3a4852, #3a4852b7),url(/programming-1873854_1920.webp)",
           }}

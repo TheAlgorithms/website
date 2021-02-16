@@ -40,7 +40,11 @@
     "@typescript-eslint/no-use-before-define": [
       "error",
       { "functions": false, "classes": false, "variables": true }
-    ]
+    ],
+    "@typescript-eslint/explicit-module-boundary-types": ["off"],
+    "react/react-in-jsx-scope": "off",
+    "jsx-a11y/click-events-have-key-events": "off",
+    "react/require-default-props": "off"
   },
   "settings": {
     "import/resolver": {

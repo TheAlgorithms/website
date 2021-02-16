@@ -1,4 +1,4 @@
-import { useState, useEffect, Fragment } from "react";
+import React, { useState, useEffect, Fragment } from "react";
 import {
   AppBar,
   Toolbar,
@@ -11,12 +11,11 @@ import {
   MenuItem,
   useTheme,
 } from "@material-ui/core";
-import Link from "../link";
-import React from "react";
-import classes from "./style.module.css";
-import SearchBar from "../searchBar";
 import NextLink from "next/link";
-import { JumboThemeProvider } from "@/hooks/themes";
+import { JumboThemeProvider } from "../../hooks/themes";
+import Link from "../link";
+
+import classes from "./style.module.css";
 
 export default function Navbar({ search, darkTheme, setDarkTheme }) {
   const [atTop, setAtTop] = useState(false);
@@ -26,14 +25,14 @@ export default function Navbar({ search, darkTheme, setDarkTheme }) {
 
   useEffect(() => {
     setAtTop(window.scrollY < 1);
-    window.addEventListener("scroll", (event) => {
+    window.addEventListener("scroll", () => {
       setAtTop(window.scrollY < 1);
     });
   }, []);
 
   function switchTheme() {
-    setDarkTheme((darkTheme) => {
-      localStorage.setItem("theme", darkTheme ? "light" : "dark");
+    setDarkTheme((currentDarkTheme: boolean) => {
+      localStorage.setItem("theme", currentDarkTheme ? "light" : "dark");
       return !darkTheme;
     });
   }
@@ -71,29 +70,29 @@ export default function Navbar({ search, darkTheme, setDarkTheme }) {
         }}
       />
       <JumboThemeProvider>
-        <Toolbar className={classes.toolbar + " container"}>
+        <Toolbar className={`${classes.toolbar} container`}>
           <Link href="/" style={{ color: "white" }}>
             <Typography variant="h6" className={classes.title}>
-              <img src="/logo_t.png" />
+              <img src="/logo_t.png" alt="The Algorithms logo" />
               TheAlgorithms
             </Typography>
           </Link>
           {search && search}
           {hasMenuButton ? (
-            <Fragment>
+            <>
               <IconButton
                 onClick={(event) => setMenuAnchor(event.currentTarget)}
               >
                 <Icon>menu</Icon>
               </IconButton>
-            </Fragment>
+            </>
           ) : (
             <div>
               <IconButton onClick={switchTheme}>
                 {darkTheme ? <Icon>light_mode</Icon> : <Icon>dark_mode</Icon>}
               </IconButton>
-              {menu.map((item, index) => (
-                <NextLink passHref key={index} href={item.href}>
+              {menu.map((item) => (
+                <NextLink passHref key={item.name} href={item.href}>
                   <Button>{item.name}</Button>
                 </NextLink>
               ))}
@@ -106,8 +105,8 @@ export default function Navbar({ search, darkTheme, setDarkTheme }) {
         onClose={() => setMenuAnchor(null)}
         open={!!menuAnchor}
       >
-        {menu.map((item, index) => (
-          <NextLink key={index} href={item.href}>
+        {menu.map((item) => (
+          <NextLink key={item.name} href={item.href}>
             <MenuItem>{item.name}</MenuItem>
           </NextLink>
         ))}

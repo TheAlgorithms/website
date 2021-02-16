@@ -8,7 +8,7 @@ import {
 } from "@material-ui/core";
 import React from "react";
 import Implementations from "../../implementations";
-import { normalize } from "../../../lib/normalize";
+import normalize from "../../../lib/normalize";
 import Link from "../../link";
 import classes from "./style.module.css";
 import { Algorithm } from "../../../lib/models";

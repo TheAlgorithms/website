@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
+import { Button, Icon } from "@material-ui/core";
+import { useRouter } from "next/router";
 import AlgorithmsList from "../../components/algorithmsList";
 import search from "../../lib/search";
 import Section from "../../components/section";
-import { Button, Icon } from "@material-ui/core";
-import { useRouter } from "next/router";
 import classes from "./search.module.css";
 import Head from "../../components/head";
 
@@ -20,7 +20,7 @@ export default function Search() {
   }, [router.query]);
 
   return (
-    <React.Fragment>
+    <>
       <Head title={router.query.q && `"${router.query.q}"`} />
       <Section title={`Search${router.query.q && ` "${router.query.q}"`}`}>
         {router.query.q && <AlgorithmsList algorithms={algorithms} />}
@@ -34,6 +34,6 @@ export default function Search() {
           </Button>
         )}
       </Section>
-    </React.Fragment>
+    </>
   );
 }

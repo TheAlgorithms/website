@@ -6,9 +6,8 @@ import {
   Link,
   Typography,
 } from "@material-ui/core";
-import classes from "./style.module.css";
 import NextLink from "next/link";
-import { normalize } from "../../lib/normalize";
+import classes from "./style.module.css";
 
 export default function CategoriesList({
   categories,

@@ -10,29 +10,29 @@ export interface Algorithm {
 export type Language = keyof typeof Languages;
 
 export const Languages = {
-  ruby: "Ruby",
   python: "Python",
   javascript: "Javascript",
   "c-plus-plus": "C++",
   java: "Java",
+  "c-sharp": "C#",
   c: "C",
+  haskell: "Haskell",
   "f-sharp": "F#",
   go: "Go",
   rust: "Rust",
   aarch64_assembly: "AArch64 Assembly",
-  "c-sharp": "C#",
   dart: "Dart",
   r: "R",
+  ruby: "Ruby",
   php: "PHP",
   elixir: "Elixir",
   kotlin: "Kotlin",
-  scala: "Scala",
+  // scala: "Scala",
   jupyter: "Jupyter",
-  haskell: "Haskell",
   ocaml: "OCaml",
   swift: "Swift",
   elm: "Elm",
-  "matlab-octave": "MATLAB Octave",
+  // "matlab-octave": "MATLAB Octave",
 };
 
 export function getLanguageName(language: Language) {

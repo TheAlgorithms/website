@@ -1,26 +1,27 @@
 import { Paper, Typography, useTheme } from "@material-ui/core";
-import { Fragment, useEffect } from "react";
 import Link from "../link";
 import classes from "./style.module.css";
 
 export default function Footer() {
   const theme = useTheme();
 
-  useEffect(() => {}, [theme]);
-
   return (
     <Paper
       className={classes.outer}
       style={{
         backgroundColor:
-          theme.palette.type == "dark"
+          theme.palette.type === "dark"
             ? `${theme.palette.background.paper}`
             : "#3a4852",
       }}
       square
     >
       <div className={`section container ${classes.grid}`}>
-        <img src="/logo_t.png" className={classes.logo} />
+        <img
+          src="/logo_t.png"
+          className={classes.logo}
+          alt="The Algorithms logo"
+        />
         <Typography className={classes.name}>
           &#169; The Algorithms 2021
         </Typography>

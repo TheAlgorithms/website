@@ -1,17 +1,15 @@
 import React from "react";
-import { Typography, Breadcrumbs, Button, Icon } from "@material-ui/core";
+import { Typography, Button, Icon } from "@material-ui/core";
 import AlgorithmsList from "../../components/algorithmsList";
-import { getCategories, getCategory } from "../../lib/categories";
 import Section from "../../components/section";
 import Head from "../../components/head";
 import { getLanguage, getLanguages } from "../../lib/languages";
-import NextLink from "next/link";
 import classes from "./style.module.css";
 import { getLanguageName } from "../../lib/models";
 
 export default function Language({ language }) {
   return (
-    <React.Fragment>
+    <>
       <Head title={getLanguageName(language.name)} />
       <Section>
         <div className={classes.titleContainer}>
@@ -35,7 +33,7 @@ export default function Language({ language }) {
         </div>
         <AlgorithmsList algorithms={language.algorithms} />
       </Section>
-    </React.Fragment>
+    </>
   );
 }
 
