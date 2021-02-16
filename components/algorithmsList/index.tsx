@@ -17,7 +17,7 @@ export default function AlgorithmsList({ algorithms, noCategories = false }) {
     });
     return Object.keys(ret)
       .sort()
-      .reduce((obj, key) => ({ ...obj, key: ret[key] }), {});
+      .reduce((obj, key) => ({ ...obj, [key]: ret[key] }), {});
   }, [algorithms]);
 
   return (

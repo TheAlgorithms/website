@@ -23,7 +23,9 @@ export default function Search() {
     <>
       <Head title={router.query.q && `"${router.query.q}"`} />
       <Section title={`Search${router.query.q && ` "${router.query.q}"`}`}>
-        {router.query.q && <AlgorithmsList algorithms={algorithms} />}
+        {router.query.q && (
+          <AlgorithmsList algorithms={algorithms} noCategories />
+        )}
         {algorithms.length === limit && (
           <Button
             onClick={() => setLimit(undefined)}

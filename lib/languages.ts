@@ -31,17 +31,15 @@ export function getLanguages() {
 
 export function getLanguage(language: string) {
   const algorithms = [];
-  let languageName: string;
   allAlgorithms.forEach((algorithm) => {
     Object.keys(algorithm.implementations).forEach((algorithmLanguage) => {
       if (normalize(language) === normalize(algorithmLanguage)) {
-        languageName = algorithmLanguage;
         algorithms.push(algorithm);
       }
     });
   });
   return {
-    name: languageName,
+    name: language,
     algorithms,
   };
 }
