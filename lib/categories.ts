@@ -1,10 +1,14 @@
 import fs from "fs";
 import path from "path";
+import { stdout } from "process";
 import { Algorithm } from "./models";
 import { normalize, normalizeWeak } from "./normalize";
 
 const cacheDirectory = path.join(process.cwd(), "cache");
 const algorithmsDirectory = path.join(cacheDirectory, "algorithms");
+const allAlgorithms = JSON.parse(
+  fs.readFileSync(path.join("cache", "algorithms.json")).toString()
+);
 
 export function getCategories() {
   const categories = [];
@@ -27,10 +31,7 @@ export function getCategories() {
 export function getCategory(category: string) {
   const algorithms = [];
   let categoryName: string;
-  for (const file of fs.readdirSync(algorithmsDirectory)) {
-    const algorithm: Algorithm = JSON.parse(
-      fs.readFileSync(path.join(algorithmsDirectory, file)).toString()
-    );
+  for (const algorithm of allAlgorithms) {
     algorithm.categories.forEach((algorithmCategory) => {
       if (normalize(category) == normalize(algorithmCategory)) {
         categoryName = algorithmCategory;

@@ -31,7 +31,6 @@ export default function AlgorithmCard({ algorithm }: { algorithm: Algorithm }) {
         <Typography variant="h5" component="h2" className={classes.title}>
           {algorithm.name}
         </Typography>
-        <Typography>{algorithm.description}</Typography>
       </CardContent>
       <CardActions className={classes.actions}>
         <Implementations implementations={algorithm.implementations} />

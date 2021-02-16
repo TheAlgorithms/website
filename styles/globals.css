@@ -39,3 +39,32 @@ body {
 #nprogress .peg {
   box-shadow: none !important;
 }
+
+.hljs {
+  background-color: rgba(0, 0, 0, 0.03) !important;
+}
+
+.dark .hljs {
+  background-color: rgba(0, 0, 0, 0.3);
+  color: rgb(233, 233, 233);
+}
+
+/* For rendered markdown */
+
+a {
+  color: #3f51b5;
+}
+
+.dark a {
+  color: #00bcb4;
+}
+
+th,
+td {
+  border: 1px solid rgb(122, 122, 122);
+  padding: 5px;
+}
+
+table {
+  border-spacing: 0;
+}

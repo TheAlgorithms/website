@@ -48,7 +48,10 @@ function MyApp({ Component, pageProps }: AppProps) {
           setDarkTheme={setIsDarkTheme}
         />
         {router.route == "/" && <Jumbo search={searchBar} />}
-        <div style={{ marginTop: "64px" }}>
+        <div
+          style={{ marginTop: "64px" }}
+          className={isDarkTheme ? "dark" : ""}
+        >
           <Component {...pageProps} />
         </div>
         <Footer />

@@ -1,14 +1,16 @@
-const ora = require("ora");
-const fetch = require("node-fetch");
-const fs = require("fs");
-const fsPromises = require("fs").promises;
-const path = require("path");
-const atob = require("atob");
+import ora from "ora";
+import fetch from "node-fetch";
+import fs from "fs";
+import fsPromises from "fs/promises";
+import path from "path";
+import { Algorithm } from "@/lib/models";
+import atob from "atob";
 
 const cacheDirectory = path.join(process.cwd(), "cache");
 const algorithmsDirectory = path.join(cacheDirectory, "algorithms");
 
-let algorithms = [];
+let algorithms: Algorithm[] = [];
+let categories: { [category: string]: string[] } = {};
 
 (async () => {
   console.log("Fetching algorithms from github\n");
@@ -54,7 +56,7 @@ let algorithms = [];
       spinner.fail(`DIRECTORY.md for ${el} not found`);
     }
   }
-  let spinner = ora("explanations").start();
+  let spinner = ora("Fetching explanations").start();
   const explanations = await (
     await fetch(
       "https://api.github.com/repos/TheAlgorithms/Algorithms-Explanation/git/trees/master?recursive=2"
@@ -93,6 +95,10 @@ let algorithms = [];
     path.join(cacheDirectory, "algorithms.json"),
     JSON.stringify(algorithms)
   );
+  await fsPromises.writeFile(
+    path.join(cacheDirectory, "categories.json"),
+    JSON.stringify(categories)
+  );
   spinner.succeed();
 })();
 
@@ -118,7 +124,7 @@ function parseData(lang, data) {
   });
 }
 
-function addAlgorithmFromMatch(match, lang, categories) {
+function addAlgorithmFromMatch(match, lang, algorithmCategories) {
   let algorithm = algorithms.find(
     (algorithm) => normalize(algorithm.slug) == normalize(match[3])
   );
@@ -126,22 +132,36 @@ function addAlgorithmFromMatch(match, lang, categories) {
     algorithm = {
       slug: normalizeWeak(match[3]),
       name: match[1],
-      categories,
+      categories: algorithmCategories,
       implementations: {},
+      code: "",
     };
+    for (const category of algorithmCategories) {
+      if (categories[normalize(category)])
+        categories[normalize(category)].push(algorithm.slug);
+      else categories[normalize(category)] = [algorithm.slug];
+    }
     algorithms.push(algorithm);
   }
   algorithm.implementations[lang] = match[2];
 }
 
-function normalize(st) {
+async function getGithubCode(url: string) {
+  const reqUrl = url
+    .replace("github.com", "raw.githubusercontent.com")
+    .replace("/blob", "");
+  const response = await fetch(encodeURI(reqUrl));
+  return await response.text();
+}
+
+function normalize(st: string) {
   return st
     .normalize()
     .toLowerCase()
     .replace(/[^a-z0-9]/g, "");
 }
 
-function normalizeWeak(st) {
+function normalizeWeak(st: string) {
   return st
     .normalize()
     .toLowerCase()

@@ -7,6 +7,12 @@
   height: 350px;
   overflow: hidden;
   cursor: pointer;
+  background: rgba(0, 0, 0, 0.03);
+  padding: 15px;
+}
+
+:global(.dark) .code {
+  background: rgba(0, 0, 0, 0.3);
 }
 
 .codeHover {

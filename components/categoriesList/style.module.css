@@ -1,10 +1,8 @@
-.container {
-}
-
 .cardOuter {
   margin-right: 20px !important;
   margin-bottom: 20px !important;
   width: fit-content;
+  display: inline-block;
 }
 
 .cardInner {

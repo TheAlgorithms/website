@@ -14,18 +14,25 @@ export default function Implementations({ implementations, large = false }) {
     />
   ) : (
     <div className={classes.rootSmall}>
-      {Object.keys(implementations).map((language: Language) => (
-        <a
-          key={language}
-          href={implementations[language]}
-          className={classes.icon}
-        >
-          <LanguageIcon
-            language={language}
-            tooltip={`${getLanguageName(language)} Implementation`}
-          />
-        </a>
-      ))}
+      {Object.keys(implementations)
+        .slice(0, 6)
+        .map((language: Language) => (
+          <a
+            key={language}
+            href={implementations[language]}
+            className={classes.icon}
+          >
+            <LanguageIcon
+              language={language}
+              tooltip={`${getLanguageName(language)} Implementation`}
+            />
+          </a>
+        ))}
+      {Object.keys(implementations).length > 6 && (
+        <Typography color="textSecondary" className={classes.more}>
+          +{Object.keys(implementations).length - 6}
+        </Typography>
+      )}
     </div>
   );
 }

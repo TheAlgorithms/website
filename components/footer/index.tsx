@@ -17,6 +17,7 @@ export default function Footer() {
             ? `${theme.palette.background.paper}`
             : "#3a4852",
       }}
+      square
     >
       <div className={`section container ${classes.grid}`}>
         <img src="/logo_t.png" className={classes.logo} />
@@ -28,7 +29,9 @@ export default function Footer() {
           <Link href="/#about">About us</Link>
           <Link href="/#contribute">Programming Languages</Link>
           <Link href="/#contribute">Contribute</Link>
-          <Link href="https://github.com/maltejur/thealgorithms">Source code</Link>
+          <Link href="https://github.com/maltejur/thealgorithms">
+            Source code
+          </Link>
         </div>
         <div className={classes.list}>
           <Link href="https://github.com/TheAlgorithms/">GitHub</Link>

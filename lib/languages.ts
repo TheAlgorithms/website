@@ -1,10 +1,14 @@
 import fs from "fs";
 import path from "path";
+import { stdout } from "process";
 import { Algorithm, Language, Languages } from "./models";
 import { normalize, normalizeWeak } from "./normalize";
 
 const cacheDirectory = path.join(process.cwd(), "cache");
 const algorithmsDirectory = path.join(cacheDirectory, "algorithms");
+const allAlgorithms = JSON.parse(
+  fs.readFileSync(path.join("cache", "algorithms.json")).toString()
+);
 
 export function getLanguages() {
   const languages = [];
@@ -29,10 +33,7 @@ export function getLanguages() {
 export function getLanguage(language: string) {
   const algorithms = [];
   let languageName: string;
-  for (const file of fs.readdirSync(algorithmsDirectory)) {
-    const algorithm: Algorithm = JSON.parse(
-      fs.readFileSync(path.join(algorithmsDirectory, file)).toString()
-    );
+  for (const algorithm of allAlgorithms) {
     Object.keys(algorithm.implementations).forEach((algorithmLanguage) => {
       if (normalize(language) == normalize(algorithmLanguage)) {
         languageName = algorithmLanguage;

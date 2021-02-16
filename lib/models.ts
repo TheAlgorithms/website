@@ -1,9 +1,10 @@
 export interface Algorithm {
   slug: string;
   name: string;
-  description?: string;
+  body?: string;
   categories: string[];
-  implementations: { [key in Language]: string };
+  implementations: { [key in Language]?: string };
+  code: string;
 }
 
 export type Language = keyof typeof Languages;

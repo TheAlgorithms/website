@@ -3,3 +3,7 @@
   font-weight: bolder !important;
   color: rgba(0, 0, 0, 0.26) !important;
 }
+
+:global(.dark) .textIcon {
+  color: rgba(255, 255, 255, 0.3) !important;
+}

@@ -22,18 +22,18 @@ export default function CategoriesList({
   return (
     <div className={classes.container}>
       {categories.map((category) => (
-        <NextLink key={category.name} href={category.href} passHref>
-          <ButtonBase className={classes.cardOuter}>
-            <Card>
+        <Card key={category.name} className={classes.cardOuter}>
+          <NextLink href={category.href} passHref>
+            <ButtonBase>
               <CardContent className={classes.cardInner}>
                 <Icon>{category.icon}</Icon>
                 <Typography variant="h6" className={classes.text}>
                   <Link>{category.name}</Link>
                 </Typography>
               </CardContent>
-            </Card>
-          </ButtonBase>
-        </NextLink>
+            </ButtonBase>
+          </NextLink>
+        </Card>
       ))}
     </div>
   );

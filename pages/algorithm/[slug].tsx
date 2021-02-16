@@ -1,20 +1,32 @@
 import React from "react";
 import { Typography, Breadcrumbs, Link as MuiLink } from "@material-ui/core";
 import Implementations from "../../components/implementations";
-import { getAlgorithmSlugs, getAlgorithm } from "../../lib/algorithms.ts";
+import {
+  getAlgorithmSlugs,
+  getAlgorithm,
+  getAlgorithmCode,
+} from "../../lib/algorithms";
 import Link from "../../components/link";
 import { normalize } from "../../lib/normalize";
-import { getFileRaw } from "../../lib/github";
-import Markdown from "../../components/markdown";
 import CodePreview from "../../components/codePreview";
 import classes from "./algorithm.module.css";
 import Head from "../../components/head";
+import type { Algorithm } from "@/lib/models";
+import renderMarkdown from "@/lib/markdown";
 
-export default function Algorithm({ algorithm, exampleLanguage, code }) {
+export default function AlgorithmPage({
+  algorithm,
+  code,
+  body,
+}: {
+  algorithm: Algorithm;
+  code: string;
+  body: string;
+}) {
   return (
     <div className="section container">
       <Head title={algorithm.name} />
-      <CodePreview code={code} language={exampleLanguage} />
+      <CodePreview code={code} />
       <Breadcrumbs>
         {algorithm.categories.map((category) => (
           <Typography key={category} variant="h6">
@@ -32,7 +44,7 @@ export default function Algorithm({ algorithm, exampleLanguage, code }) {
           <Typography variant="h5" className={classes.titleSmall}>
             Explanation
           </Typography>
-          <Markdown>{algorithm.body}</Markdown>
+          <div dangerouslySetInnerHTML={{ __html: body }} />
         </React.Fragment>
       )}
     </div>
@@ -41,17 +53,13 @@ export default function Algorithm({ algorithm, exampleLanguage, code }) {
 
 export async function getStaticProps({ params }) {
   const algorithm = getAlgorithm(params.slug);
-  const exampleLanguage = Object.keys(algorithm.implementations)[0];
-  const code = await (
-    await fetch(
-      encodeURI(getFileRaw(algorithm.implementations[exampleLanguage]))
-    )
-  ).text();
+  const code = await getAlgorithmCode(algorithm);
+  const body = algorithm.body ? await renderMarkdown(algorithm.body) : "";
   return {
     props: {
       algorithm,
-      exampleLanguage,
       code,
+      body,
     },
   };
 }
