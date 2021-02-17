@@ -23,10 +23,12 @@ export function getAlgorithm(slug: string) {
 
 export async function getAlgorithmCode(algorithm: Algorithm) {
   const exampleLanguage = Object.keys(algorithm.implementations)[0];
-  const codeUrl = algorithm.implementations[exampleLanguage]
-    .replace("github.com", "raw.githubusercontent.com")
-    .replace("/blob", "");
-  const codeResponse = await fetch(codeUrl);
+  const codeUrl = new URL(
+    algorithm.implementations[exampleLanguage]
+      .replace("github.com", "raw.githubusercontent.com")
+      .replace("/blob", "")
+  );
+  const codeResponse = await fetch(codeUrl.toString());
   const codeText = await codeResponse.text();
   const codeHighlight = highlightCode(codeText, exampleLanguage);
   return codeHighlight;

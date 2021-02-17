@@ -8,7 +8,7 @@ export default function highlightCode(code: string, language: string) {
       .replace("c-sharp", "cs")
       .replace("f-sharp", "fs")
       .replace("aarch64_assembly", "arm")
-      .replace("jupyter", "plaintext")
+      .replace("jupyter", "json")
       .replace("matlab-octave", "matlab"),
     code,
     true
