@@ -55,8 +55,8 @@ export default function LanguageIcon({
       return textIcon("El");
     case "kotlin":
       return icon("devicon-kotlin-plain");
-    // case "scala":
-    //   return icon("devicon-scala-plain");
+    case "scala":
+      return icon("devicon-scala-plain");
     case "jupyter":
       return textIcon("J");
     case "haskell":
@@ -67,8 +67,8 @@ export default function LanguageIcon({
       return icon("devicon-swift-plain");
     case "elm":
       return icon("devicon-elm-plain");
-    // case "matlab-octave":
-    //   return textIcon("MLO");
+    case "matlab-octave":
+      return textIcon("MLO");
     default:
       throw new Error(`Missing icon for ${language}`);
   }
