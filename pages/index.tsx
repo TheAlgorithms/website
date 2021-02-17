@@ -6,7 +6,7 @@ import { getAlgorithm } from "../lib/algorithms";
 import Section from "../components/section";
 import CategoriesList from "../components/categoriesList";
 import classes from "./index.module.css";
-import normalize from "../lib/normalize";
+import { normalize } from "../lib/normalize";
 import { Language, Languages } from "../lib/models";
 
 export default function Home({ topAlgorithms, featuredAlgorithms }) {

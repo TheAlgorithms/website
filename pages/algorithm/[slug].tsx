@@ -9,7 +9,7 @@ import {
   getAlgorithmCode,
 } from "../../lib/algorithms";
 import Link from "../../components/link";
-import normalize from "../../lib/normalize";
+import { normalize } from "../../lib/normalize";
 import CodePreview from "../../components/codePreview";
 import classes from "./algorithm.module.css";
 import Head from "../../components/head";

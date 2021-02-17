@@ -6,6 +6,7 @@ import fs from "fs";
 import path from "path";
 import atob from "atob";
 import { Algorithm, Languages } from "../lib/models";
+import { normalize, normalizeWeak } from "../lib/normalize";
 
 const fsPromises = fs.promises;
 
@@ -94,7 +95,7 @@ function parseData(lang, data) {
     if (line.startsWith("##")) {
       aCategories = [line.substr(2).trim()];
     }
-    for (let i = 1; i < 4; i += 1) {
+    for (let i = 1; i < 6; i += 1) {
       if (
         line.startsWith(`${"  ".repeat(i)}*`) ||
         line.startsWith(`${"	".repeat(i)}*`)
@@ -139,23 +140,4 @@ function addAlgorithmFromMatch(
     algorithms.push(algorithm);
   }
   [, , algorithm.implementations[lang]] = match;
-}
-
-function normalize(st: string) {
-  return st
-    .normalize()
-    .toLowerCase()
-    .replace(/[^a-z0-9]/g, "");
-}
-
-function normalizeWeak(st: string) {
-  return (
-    st
-      .normalize()
-      .toLowerCase()
-      .replace(/_/g, "-")
-      .replace(/ /g, "-")
-      // eslint-disable-next-line no-useless-escape
-      .replace(/[^a-z0-9\-]/g, "")
-  );
 }

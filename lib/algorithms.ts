@@ -23,11 +23,9 @@ export function getAlgorithm(slug: string) {
 
 export async function getAlgorithmCode(algorithm: Algorithm) {
   const exampleLanguage = Object.keys(algorithm.implementations)[0];
-  const codeUrl = encodeURI(
-    algorithm.implementations[exampleLanguage]
-      .replace("github.com", "raw.githubusercontent.com")
-      .replace("/blob", "")
-  );
+  const codeUrl = algorithm.implementations[exampleLanguage]
+    .replace("github.com", "raw.githubusercontent.com")
+    .replace("/blob", "");
   const codeResponse = await fetch(codeUrl);
   const codeText = await codeResponse.text();
   const codeHighlight = highlightCode(codeText, exampleLanguage);

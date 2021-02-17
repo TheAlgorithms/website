@@ -24,8 +24,22 @@
   grid-template-rows: 35px auto;
   grid-template-areas:
     "logo name name"
-    "logo list list";
+    "logo list list"
+    "vercel vercel vercel";
   justify-content: center;
+}
+
+.vercelLogo {
+  grid-area: vercel;
+  justify-self: center;
+  display: flex;
+  margin-top: 30px;
+  align-items: center;
+  text-decoration: none;
+}
+
+.vercelLogo span {
+  margin-right: 5px;
 }
 
 .outer {

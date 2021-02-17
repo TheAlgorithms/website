@@ -1,5 +1,5 @@
 import algorithms from "../cache/algorithms.json";
-import normalize from "./normalize";
+import { normalize } from "./normalize";
 import type { Algorithm } from "./models";
 
 export default function search(query: string, limit?: number) {

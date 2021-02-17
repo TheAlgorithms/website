@@ -1,7 +1,7 @@
 import fs from "fs";
 import path from "path";
 import { Algorithm } from "./models";
-import normalize from "./normalize";
+import { normalize } from "./normalize";
 
 const cacheDirectory = path.join(process.cwd(), "cache");
 const algorithmsDirectory = path.join(cacheDirectory, "algorithms");
