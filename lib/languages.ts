@@ -1,7 +1,7 @@
 import fs from "fs";
 import path from "path";
 import { Algorithm } from "./models";
-import { normalize } from "./normalize";
+import { normalize, normalizeWeak } from "./normalize";
 
 const cacheDirectory = path.join(process.cwd(), "cache");
 const algorithmsDirectory = path.join(cacheDirectory, "algorithms");
@@ -24,7 +24,7 @@ export function getLanguages() {
   });
   return languages.map((language) => ({
     params: {
-      language: normalize(language),
+      language: normalizeWeak(language),
     },
   }));
 }
