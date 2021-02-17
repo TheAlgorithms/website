@@ -125,6 +125,8 @@ export default function Home({ topAlgorithms, featuredAlgorithms }) {
                         href: `/language/${normalize(langName)}`,
                       })
                     )}
+                    className={classes.languages}
+                    outlined
                   />
                 </div>
                 <div />

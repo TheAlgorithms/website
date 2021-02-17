@@ -18,3 +18,11 @@
   margin-bottom: -25px;
   margin-top: -25px;
 }
+
+.card > div {
+  margin-bottom: -40px !important;
+}
+
+.languages {
+  margin-top: 20px;
+}

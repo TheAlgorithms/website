@@ -1,7 +1,8 @@
-import React from "react";
+import React, { Fragment, useEffect } from "react";
 import { Typography, Breadcrumbs } from "@material-ui/core";
-import type { Algorithm } from "../../lib/models";
 import renderMarkdown from "../../lib/markdown";
+import renderNotebook from "../../lib/notebookjs";
+import type { Algorithm } from "../../lib/models";
 import Implementations from "../../components/implementations";
 import {
   getAlgorithmSlugs,
@@ -18,15 +19,27 @@ export default function AlgorithmPage({
   algorithm,
   code,
   body,
+  jupyter,
 }: {
   algorithm: Algorithm;
   code: string;
-  body: string;
+  body?: string;
+  jupyter?: string;
 }) {
+  useEffect(() => {
+    if (jupyter) {
+      import("katex/dist/katex.min.js");
+      // import("katex/dist/katex.min.css");
+      import("katex/contrib/auto-render/auto-render");
+    }
+  }, [jupyter]);
+
   return (
     <div className="section container">
       <Head title={algorithm.name} />
-      <CodePreview code={code} />
+      {(Object.keys(algorithm.implementations).length !== 1 || !jupyter) && (
+        <CodePreview code={code} />
+      )}
       <Breadcrumbs>
         {algorithm.categories.map((category) => (
           <Typography key={category} variant="h6">
@@ -35,15 +48,20 @@ export default function AlgorithmPage({
         ))}
       </Breadcrumbs>
       <Typography variant="h4">{algorithm.name}</Typography>
-      <Typography variant="h5" className={classes.titleSmall}>
-        Implementations
-      </Typography>
-      <Implementations implementations={algorithm.implementations} large />
-      {algorithm.body && (
+      <Implementations
+        className={classes.implementations}
+        implementations={algorithm.implementations}
+        large
+      />
+      {jupyter && (
+        <div
+          className={classes.notebook}
+          // eslint-disable-next-line react/no-danger
+          dangerouslySetInnerHTML={{ __html: jupyter }}
+        />
+      )}
+      {body && (
         <>
-          <Typography variant="h5" className={classes.titleSmall}>
-            Explanation
-          </Typography>
           {/* eslint-disable-next-line react/no-danger */}
           <div dangerouslySetInnerHTML={{ __html: body }} />
         </>
@@ -56,11 +74,15 @@ export async function getStaticProps({ params }) {
   const algorithm = getAlgorithm(params.slug);
   const code = await getAlgorithmCode(algorithm);
   const body = algorithm.body ? await renderMarkdown(algorithm.body) : "";
+  const jupyter = algorithm.implementations.jupyter
+    ? await renderNotebook(algorithm)
+    : "";
   return {
     props: {
       algorithm,
       code,
       body,
+      jupyter,
     },
   };
 }

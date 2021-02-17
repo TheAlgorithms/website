@@ -2,3 +2,11 @@
   margin-top: 2em !important;
   margin-bottom: 0.5em !important;
 }
+
+.notebook {
+  margin-top: 50px !important;
+}
+
+.implementations {
+  margin-top: 20px;
+}

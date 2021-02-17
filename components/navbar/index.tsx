@@ -19,7 +19,7 @@ import classes from "./style.module.css";
 
 export default function Navbar({ search, darkTheme, setDarkTheme }) {
   const [atTop, setAtTop] = useState(false);
-  const hasMenuButton = useMediaQuery("(max-width:600px)");
+  const hasMenuButton = useMediaQuery("(max-width:800px)");
   const [menuAnchor, setMenuAnchor] = useState<HTMLButtonElement>();
   const theme = useTheme();
 

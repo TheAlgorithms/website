@@ -11,6 +11,7 @@ import Navbar from "../components/navbar";
 import SearchBar from "../components/searchBar";
 import Footer from "../components/footer";
 import Head from "../components/head";
+import "../styles/notebook.css";
 
 function MyApp({ Component, pageProps }: AppProps) {
   const router = useRouter();

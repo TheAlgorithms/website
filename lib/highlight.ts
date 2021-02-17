@@ -1,7 +1,7 @@
 import hljs from "highlight.js";
 
 export default function highlightCode(code: string, language: string) {
-  const result = hljs.highlight(
+  const result: string = hljs.highlight(
     language
       .toLowerCase()
       .replace("c-plus-plus", "cpp")

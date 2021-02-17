@@ -1,20 +1,21 @@
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(60px, 1fr));
-  justify-items: center;
-  margin-top: 30px;
-  grid-column-gap: 10px;
-  grid-row-gap: 10px;
+.card {
+  display: inline-block;
+  margin-right: 10px;
+  margin-bottom: 10px;
 }
 
-.grid > a {
+.cardInner {
   display: flex;
   flex-direction: column;
   align-items: center;
   cursor: pointer;
   padding: 10px;
+  padding-bottom: 5px !important;
+  padding-top: 10px !important;
+  padding-left: 15px !important;
+  padding-right: 15px !important;
 }
 
-.grid > a > p {
-  margin-top: 10px;
+.cardInner > p {
+  margin-top: 5px;
 }

@@ -42,7 +42,7 @@ export default function LanguageIcon({
     case "rust":
       return icon("devicon-rust-plain");
     case "aarch64_assembly":
-      return textIcon("A64");
+      return textIcon("A");
     case "c-sharp":
       return icon("devicon-csharp-plain");
     case "dart":

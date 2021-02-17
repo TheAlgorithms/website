@@ -1,21 +1,35 @@
-import { Typography } from "@material-ui/core";
+import { Tooltip, Typography, useMediaQuery } from "@material-ui/core";
 import { Language, getLanguageName } from "../../lib/models";
 import LanguageIcon from "../icon";
 import LanguagesList from "../languagesList";
 import classes from "./style.module.css";
 
-export default function Implementations({ implementations, large = false }) {
+export default function Implementations({
+  implementations,
+  large = false,
+  className,
+}: {
+  implementations: { [key in Language]?: string };
+  large?: boolean;
+  className?: string;
+}) {
+  const smallWidth = useMediaQuery(
+    "(max-width: 1200px) and (min-width: 700px)"
+  );
+  const numIcons = smallWidth ? 4 : 6;
+
   return large ? (
     <LanguagesList
       languages={Object.keys(implementations).map((langName: Language) => ({
         name: langName,
         href: implementations[langName],
       }))}
+      className={className || ""}
     />
   ) : (
     <div className={classes.rootSmall}>
       {Object.keys(implementations)
-        .slice(0, 6)
+        .slice(0, numIcons)
         .map((language: Language) => (
           <a
             key={language}
@@ -28,10 +42,14 @@ export default function Implementations({ implementations, large = false }) {
             />
           </a>
         ))}
-      {Object.keys(implementations).length > 6 && (
-        <Typography color="textSecondary" className={classes.more}>
-          +{Object.keys(implementations).length - 6}
-        </Typography>
+      {Object.keys(implementations).length > numIcons && (
+        <Tooltip
+          title={`And ${Object.keys(implementations).length - numIcons} more`}
+        >
+          <Typography color="textSecondary" className={classes.more}>
+            +{Object.keys(implementations).length - numIcons}
+          </Typography>
+        </Tooltip>
       )}
     </div>
   );
