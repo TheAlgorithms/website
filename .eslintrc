@@ -31,7 +31,12 @@
     "react/prop-types": "off",
     "jsx-a11y/anchor-is-valid": "off",
     "react/jsx-props-no-spreading": ["error", { "custom": "ignore" }],
-    "prettier/prettier": "error",
+    "prettier/prettier": [
+      "warn",
+      {
+        "endOfLine": "crlf"
+      }
+    ],
     "react/no-unescaped-entities": "off",
     "import/no-cycle": [0, { "ignoreExternal": true }],
     "prefer-const": "off",
@@ -44,7 +49,8 @@
     "@typescript-eslint/explicit-module-boundary-types": ["off"],
     "react/react-in-jsx-scope": "off",
     "jsx-a11y/click-events-have-key-events": "off",
-    "react/require-default-props": "off"
+    "react/require-default-props": "off",
+    "linebreak-style": ["warn", "windows"]
   },
   "settings": {
     "import/resolver": {
