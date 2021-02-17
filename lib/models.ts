@@ -27,12 +27,12 @@ export const Languages = {
   php: "PHP",
   elixir: "Elixir",
   kotlin: "Kotlin",
-  // scala: "Scala",
+  scala: "Scala",
   jupyter: "Jupyter",
   ocaml: "OCaml",
   swift: "Swift",
   elm: "Elm",
-  // "matlab-octave": "MATLAB Octave",
+  "matlab-octave": "MATLAB Octave",
 };
 
 export function getLanguageName(language: Language) {
