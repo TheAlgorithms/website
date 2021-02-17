@@ -1,8 +1,8 @@
 import React from "react";
-import AlgorithmsList from "../../components/algorithmsList";
-import { getCategories, getCategory } from "../../lib/categories";
-import Section from "../../components/section";
-import Head from "../../components/head";
+import AlgorithmsList from "components/algorithmsList";
+import { getCategories, getCategory } from "lib/categories";
+import Section from "components/section";
+import Head from "components/head";
 
 export default function Category({ category }) {
   return (

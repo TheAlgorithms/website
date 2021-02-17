@@ -50,7 +50,8 @@
     "react/react-in-jsx-scope": "off",
     "jsx-a11y/click-events-have-key-events": "off",
     "react/require-default-props": "off",
-    "linebreak-style": ["warn", "windows"]
+    "linebreak-style": ["warn", "windows"],
+    "import/order": "warn"
   },
   "settings": {
     "import/resolver": {
@@ -59,7 +60,7 @@
       },
       "node": {
         "extensions": [".js", ".jsx", ".ts", ".tsx"],
-        "paths": ["src"]
+        "paths": ["."]
       }
     }
   }

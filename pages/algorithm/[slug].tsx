@@ -1,19 +1,19 @@
 import React, { Fragment, useEffect } from "react";
 import { Typography, Breadcrumbs } from "@material-ui/core";
-import renderMarkdown from "../../lib/markdown";
-import renderNotebook from "../../lib/notebookjs";
-import type { Algorithm } from "../../lib/models";
-import Implementations from "../../components/implementations";
+import Link from "components/link";
+import renderMarkdown from "lib/markdown";
+import renderNotebook from "lib/notebookjs";
+import type { Algorithm } from "lib/models";
+import Implementations from "components/implementations";
 import {
   getAlgorithmSlugs,
   getAlgorithm,
   getAlgorithmCode,
-} from "../../lib/algorithms";
-import Link from "../../components/link";
-import { normalize } from "../../lib/normalize";
-import CodePreview from "../../components/codePreview";
+} from "lib/algorithms";
+import { normalize } from "lib/normalize";
+import CodePreview from "components/codePreview";
+import Head from "components/head";
 import classes from "./algorithm.module.css";
-import Head from "../../components/head";
 
 export default function AlgorithmPage({
   algorithm,

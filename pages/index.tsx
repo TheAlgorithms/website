@@ -1,13 +1,13 @@
 import React from "react";
 import { Card, CardContent, Typography } from "@material-ui/core";
-import AlgorithmsList from "../components/algorithmsList";
-import LanguagesList from "../components/languagesList";
-import { getAlgorithm } from "../lib/algorithms";
-import Section from "../components/section";
-import CategoriesList from "../components/categoriesList";
+import AlgorithmsList from "components/algorithmsList";
+import LanguagesList from "components/languagesList";
+import { getAlgorithm } from "lib/algorithms";
+import Section from "components/section";
+import CategoriesList from "components/categoriesList";
+import { normalizeWeak } from "lib/normalize";
+import { Language, Languages } from "lib/models";
 import classes from "./index.module.css";
-import { normalizeWeak } from "../lib/normalize";
-import { Language, Languages } from "../lib/models";
 
 export default function Home({ topAlgorithms, featuredAlgorithms }) {
   return (

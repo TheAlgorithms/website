@@ -1,6 +1,6 @@
 import React from "react";
 import { Paper, Typography, useTheme } from "@material-ui/core";
-import { JumboThemeProvider } from "../../hooks/themes";
+import { JumboThemeProvider } from "hooks/themes";
 import classes from "./style.module.css";
 
 export default function Jumbo({ search }) {

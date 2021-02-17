@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { Button, Icon } from "@material-ui/core";
 import { useRouter } from "next/router";
-import AlgorithmsList from "../../components/algorithmsList";
-import search from "../../lib/search";
-import Section from "../../components/section";
+import AlgorithmsList from "components/algorithmsList";
+import search from "lib/search";
+import Section from "components/section";
+import Head from "components/head";
 import classes from "./search.module.css";
-import Head from "../../components/head";
 
 export default function Search() {
   const router = useRouter();

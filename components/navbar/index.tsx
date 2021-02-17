@@ -12,8 +12,8 @@ import {
   useTheme,
 } from "@material-ui/core";
 import NextLink from "next/link";
-import { JumboThemeProvider } from "../../hooks/themes";
-import Link from "../link";
+import { JumboThemeProvider } from "hooks/themes";
+import Link from "components/link";
 
 import classes from "./style.module.css";
 

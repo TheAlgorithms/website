@@ -1,6 +1,6 @@
 import { Tooltip, Typography, useMediaQuery } from "@material-ui/core";
-import { Language, getLanguageName } from "../../lib/models";
-import LanguageIcon from "../icon";
+import { Language, getLanguageName } from "lib/models";
+import LanguageIcon from "components/icon";
 import LanguagesList from "../languagesList";
 import classes from "./style.module.css";
 

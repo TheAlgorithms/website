@@ -1,7 +1,7 @@
 import React from "react";
-import AlgorithmsList from "../components/algorithmsList";
-import { getAllAlgorithms } from "../lib/algorithms";
-import Section from "../components/section";
+import AlgorithmsList from "components/algorithmsList";
+import { getAllAlgorithms } from "lib/algorithms";
+import Section from "components/section";
 
 export default function All({ algorithms }) {
   return (

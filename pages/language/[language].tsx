@@ -1,11 +1,11 @@
 import React from "react";
 import { Typography, Button, Icon } from "@material-ui/core";
-import AlgorithmsList from "../../components/algorithmsList";
-import Section from "../../components/section";
-import Head from "../../components/head";
-import { getLanguage, getLanguages } from "../../lib/languages";
+import AlgorithmsList from "components/algorithmsList";
+import Section from "components/section";
+import Head from "components/head";
+import { getLanguage, getLanguages } from "lib/languages";
+import { getLanguageName } from "lib/models";
 import classes from "./style.module.css";
-import { getLanguageName } from "../../lib/models";
 
 export default function Language({ language }) {
   return (

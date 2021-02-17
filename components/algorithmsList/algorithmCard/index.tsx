@@ -7,11 +7,11 @@ import {
   Breadcrumbs,
 } from "@material-ui/core";
 import React from "react";
-import Implementations from "../../implementations";
-import { normalize } from "../../../lib/normalize";
-import Link from "../../link";
+import Implementations from "components/implementations";
+import { normalize } from "lib/normalize";
+import Link from "components/link";
+import { Algorithm } from "lib/models";
 import classes from "./style.module.css";
-import { Algorithm } from "../../../lib/models";
 
 export default function AlgorithmCard({ algorithm }: { algorithm: Algorithm }) {
   return (
