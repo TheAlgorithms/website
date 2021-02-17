@@ -24,7 +24,9 @@ export default function Language({ language }) {
             {["c", "c-plus-plus"].includes(language.name.toLowerCase()) && (
               <Button
                 startIcon={<Icon>open_in_new</Icon>}
-                href={`https://thealgorithms.github.io/${language.name}`}
+                href={`https://thealgorithms.github.io/${language.name
+                  .replace(/^c$/, "C")
+                  .replace(/^c-plus-plus$/, "C-Plus-Plus")}`}
               >
                 Documentation
               </Button>
