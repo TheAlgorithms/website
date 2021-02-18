@@ -1,25 +1,19 @@
 .root {
   flex-grow: 1;
-  /* transition: box-shadow 0.2s ease; */
   background: none !important;
   box-shadow: none !important;
   color: white;
   position: relative;
 }
 
-.background {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  /* transition: opacity 0.2s ease; */
-  opacity: 0;
-}
-
 .scrolled {
   box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2),
     0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12) !important;
+  background: #3a4852 !important;
+}
+
+:global(.dark) .scrolled {
+  background: #20282d !important;
 }
 
 .scrolled .background {

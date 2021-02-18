@@ -27,21 +27,25 @@ function MyApp({ Component, pageProps }: AppProps) {
   );
 
   return (
-    <ThemeProvider theme={isDarkTheme ? darkTheme : lightTheme}>
-      <Head />
-      <CssBaseline />
-      <NextNprogress color="#fff" height={2} options={{ showSpinner: false }} />
-      <Navbar
-        search={router.route !== "/" && searchBar}
-        darkTheme={isDarkTheme}
-        setDarkTheme={setIsDarkTheme}
-      />
-      {router.route === "/" && <Jumbo search={searchBar} />}
-      <div style={{ marginTop: "64px" }} className={isDarkTheme ? "dark" : ""}>
+    <div style={{ height: "100%" }} className={isDarkTheme ? "dark" : ""}>
+      <ThemeProvider theme={isDarkTheme ? darkTheme : lightTheme}>
+        <Head />
+        <CssBaseline />
+        <NextNprogress
+          color="#fff"
+          height={2}
+          options={{ showSpinner: false }}
+        />
+        <Navbar
+          search={router.route !== "/" && searchBar}
+          darkTheme={isDarkTheme}
+          setDarkTheme={setIsDarkTheme}
+        />
+        {router.route === "/" && <Jumbo search={searchBar} />}
         <Component {...pageProps} />
-      </div>
-      <Footer />
-    </ThemeProvider>
+        <Footer />
+      </ThemeProvider>
+    </div>
   );
 }
 

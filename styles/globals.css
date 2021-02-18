@@ -9,6 +9,11 @@ body,
   width: 100%;
 }
 
+body {
+  margin-top: 64px !important;
+  height: calc(100% - 64px);
+}
+
 *,
 *:after,
 *:before {
@@ -54,11 +59,11 @@ body {
 
 /* For rendered markdown and jupyter */
 
-a {
+.section a {
   color: #3f51b5;
 }
 
-.dark a {
+.dark .section a {
   color: #00bcb4;
 }
 

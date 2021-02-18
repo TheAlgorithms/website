@@ -1,0 +1,11 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: calc(100% - 260px);
+}
+
+.home {
+  margin-top: 20px !important;
+}

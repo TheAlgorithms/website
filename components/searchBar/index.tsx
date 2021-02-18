@@ -25,7 +25,12 @@ function Debouncer(time: number) {
 
 const debounce = Debouncer(200);
 
-export default function SearchBar({ small = false, query, setQuery }) {
+export default function SearchBar({
+  small = false,
+  query,
+  setQuery,
+  className = "",
+}) {
   const router = useRouter();
 
   function handleInput(event: FormEvent) {
@@ -41,7 +46,12 @@ export default function SearchBar({ small = false, query, setQuery }) {
   }
 
   return (
-    <form noValidate autoComplete="off" onSubmit={handleSubmit}>
+    <form
+      noValidate
+      autoComplete="off"
+      onSubmit={handleSubmit}
+      className={className}
+    >
       {/* <TextField
         variant={small ? "outlined" : "filled"}
         size={small ? "small" : "medium"}

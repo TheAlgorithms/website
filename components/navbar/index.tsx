@@ -63,12 +63,6 @@ export default function Navbar({ search, darkTheme, setDarkTheme }) {
       }
       position="fixed"
     >
-      <div
-        className={classes.background}
-        style={{
-          background: darkTheme ? theme.palette.background.paper : "#3a4852",
-        }}
-      />
       <JumboThemeProvider>
         <Toolbar className={`${classes.toolbar} container`}>
           <Link href="/" style={{ color: "white" }}>
