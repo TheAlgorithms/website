@@ -40,7 +40,7 @@ export default function Footer() {
           <Link href="https://twitter.com/The_Algorithms">Twitter</Link>
           <Link href="/all">All algorithms</Link>
         </div>
-        {/* <a className={classes.vercelLogo} href="https://vercel.com">
+        <a className={classes.vercelLogo} href="https://vercel.com">
           <span>Powered by</span>
           <svg
             height="1em"
@@ -53,7 +53,7 @@ export default function Footer() {
               fill="#fff"
             />
           </svg>
-        </a> */}
+        </a>
       </div>
     </Paper>
   );
