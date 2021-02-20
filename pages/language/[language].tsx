@@ -4,10 +4,14 @@ import AlgorithmsList from "components/algorithmsList";
 import Section from "components/section";
 import Head from "components/head";
 import { getLanguage, getLanguages } from "lib/languages";
-import { getLanguageName } from "lib/models";
+import { getLanguageName, Language } from "lib/models";
 import classes from "./style.module.css";
 
-export default function Language({ language }) {
+export default function LanguagePage({
+  language,
+}: {
+  language: { name: Language; algorithms: Algorithm[] };
+}) {
   return (
     <>
       <Head title={getLanguageName(language.name)} />
@@ -17,7 +21,10 @@ export default function Language({ language }) {
           <div>
             <Button
               startIcon={<Icon>open_in_new</Icon>}
-              href={`https://github.com/TheAlgorithms/${language.name}`}
+              href={`https://github.com/TheAlgorithms/${language.name.replace(
+                /^aarch64-assembly$/,
+                "aarch64_assembly"
+              )}`}
             >
               Github Repo
             </Button>
