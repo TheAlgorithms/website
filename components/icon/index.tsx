@@ -48,7 +48,7 @@ export default function LanguageIcon({
     case "dart":
       return icon("devicon-flutter-plain");
     case "r":
-      return textIcon("R");
+      return icon("devicon-r-plain");
     case "php":
       return icon("devicon-php-plain");
     case "elixir":
