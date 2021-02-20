@@ -1,4 +1,4 @@
-import React, { useState, useEffect, Fragment } from "react";
+import React, { useState, useEffect } from "react";
 import {
   AppBar,
   Toolbar,
@@ -9,7 +9,6 @@ import {
   Icon,
   Menu,
   MenuItem,
-  useTheme,
 } from "@material-ui/core";
 import NextLink from "next/link";
 import { JumboThemeProvider } from "hooks/themes";
@@ -21,7 +20,6 @@ export default function Navbar({ search, darkTheme, setDarkTheme }) {
   const [atTop, setAtTop] = useState(false);
   const hasMenuButton = useMediaQuery("(max-width:800px)");
   const [menuAnchor, setMenuAnchor] = useState<HTMLButtonElement>();
-  const theme = useTheme();
 
   useEffect(() => {
     setAtTop(window.scrollY < 1);

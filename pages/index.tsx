@@ -5,7 +5,6 @@ import LanguagesList from "components/languagesList";
 import { getAlgorithm } from "lib/algorithms";
 import Section from "components/section";
 import CategoriesList from "components/categoriesList";
-import { normalizeWeak } from "lib/normalize";
 import { Language, Languages } from "lib/models";
 import classes from "./index.module.css";
 
@@ -122,7 +121,7 @@ export default function Home({ topAlgorithms, featuredAlgorithms }) {
                     languages={Object.keys(Languages).map(
                       (langName: Language) => ({
                         name: langName,
-                        href: `/language/${normalizeWeak(langName)}`,
+                        href: `/language/${langName}`,
                       })
                     )}
                     className={classes.languages}

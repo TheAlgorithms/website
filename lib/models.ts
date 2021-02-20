@@ -20,7 +20,7 @@ export const Languages = {
   "f-sharp": "F#",
   go: "Go",
   rust: "Rust",
-  "aarch64-assembly": "AArch64 Assembly",
+  aarch64_assembly: "AArch64 Assembly",
   dart: "Dart",
   r: "R",
   ruby: "Ruby",

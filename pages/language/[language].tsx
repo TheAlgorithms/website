@@ -21,10 +21,7 @@ export default function LanguagePage({
           <div>
             <Button
               startIcon={<Icon>open_in_new</Icon>}
-              href={`https://github.com/TheAlgorithms/${language.name.replace(
-                /^aarch64-assembly$/,
-                "aarch64_assembly"
-              )}`}
+              href={`https://github.com/TheAlgorithms/${language.name}`}
             >
               Github Repo
             </Button>
