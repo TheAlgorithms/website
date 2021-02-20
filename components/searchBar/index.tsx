@@ -6,14 +6,10 @@ import {
   InputAdornment,
   Icon,
   OutlinedInput,
+  useMediaQuery,
+  IconButton,
 } from "@material-ui/core";
 import { useRouter } from "next/router";
-
-const searchAdornment = (
-  <InputAdornment position="end">
-    <Icon>search</Icon>
-  </InputAdornment>
-);
 
 function Debouncer(time: number) {
   let timeout: NodeJS.Timeout;
@@ -32,18 +28,28 @@ export default function SearchBar({
   className = "",
 }) {
   const router = useRouter();
+  const smallScreen = useMediaQuery("(max-width: 800px)");
 
   function handleInput(event: FormEvent) {
     setQuery((event.target as HTMLInputElement).value);
-    debounce(() => {
-      router.push(`/search?q=${(event.target as HTMLInputElement).value}`);
-    });
+    if (!smallScreen)
+      debounce(() => {
+        router.push(`/search?q=${(event.target as HTMLInputElement).value}`);
+      });
   }
 
-  function handleSubmit(event: FormEvent) {
-    event.preventDefault();
+  function handleSubmit(event?: FormEvent) {
+    if (event) event.preventDefault();
     router.push(`/search?q=${query}`);
   }
+
+  const searchAdornment = (
+    <InputAdornment position="end">
+      <IconButton style={{ marginRight: -12 }} onClick={() => handleSubmit()}>
+        <Icon>search</Icon>
+      </IconButton>
+    </InputAdornment>
+  );
 
   return (
     <form

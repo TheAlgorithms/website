@@ -3,16 +3,18 @@
   background: none !important;
   box-shadow: none !important;
   color: white;
-  position: relative;
+  z-index: 1400 !important;
 }
 
-.scrolled {
+.scrolled,
+.drawer {
   box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2),
     0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12) !important;
   background: #3a4852 !important;
 }
 
-:global(.dark) .scrolled {
+:global(.dark) .scrolled,
+.drawerDark {
   background: #20282d !important;
 }
 
@@ -37,4 +39,9 @@
 .title img {
   height: 2em;
   margin-right: 7px;
+}
+
+.drawerSearch {
+  margin-top: 70px;
+  width: 225px !important;
 }

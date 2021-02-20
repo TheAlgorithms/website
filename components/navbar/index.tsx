@@ -7,19 +7,38 @@ import {
   useMediaQuery,
   IconButton,
   Icon,
-  Menu,
   MenuItem,
+  SwipeableDrawer,
+  ListItem,
 } from "@material-ui/core";
 import NextLink from "next/link";
 import { JumboThemeProvider } from "hooks/themes";
 import Link from "components/link";
-
 import classes from "./style.module.css";
+
+const menu = [
+  {
+    name: "About",
+    href: "/#about",
+  },
+  {
+    name: "Gitter",
+    href: "https://gitter.im/TheAlgorithms/",
+  },
+  {
+    name: "GitHub",
+    href: "https://github.com/TheAlgorithms/",
+  },
+  {
+    name: "Twitter",
+    href: "https://twitter.com/The_Algorithms/",
+  },
+];
 
 export default function Navbar({ search, darkTheme, setDarkTheme }) {
   const [atTop, setAtTop] = useState(false);
-  const hasMenuButton = useMediaQuery("(max-width:800px)");
-  const [menuAnchor, setMenuAnchor] = useState<HTMLButtonElement>();
+  const smallScreen = useMediaQuery("(max-width:800px)");
+  const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
     setAtTop(window.scrollY < 1);
@@ -34,25 +53,6 @@ export default function Navbar({ search, darkTheme, setDarkTheme }) {
       return !darkTheme;
     });
   }
-
-  const menu = [
-    {
-      name: "About",
-      href: "/#about",
-    },
-    {
-      name: "Gitter",
-      href: "https://gitter.im/TheAlgorithms/",
-    },
-    {
-      name: "GitHub",
-      href: "https://github.com/TheAlgorithms/",
-    },
-    {
-      name: "Twitter",
-      href: "https://twitter.com/The_Algorithms/",
-    },
-  ];
 
   return (
     <AppBar
@@ -69,13 +69,13 @@ export default function Navbar({ search, darkTheme, setDarkTheme }) {
               TheAlgorithms
             </Typography>
           </Link>
-          {search && search}
-          {hasMenuButton ? (
+          {search && !smallScreen && search}
+          {smallScreen ? (
             <>
               <IconButton
-                onClick={(event) => setMenuAnchor(event.currentTarget)}
+                onClick={() => setMenuOpen((isMenuOpen) => !isMenuOpen)}
               >
-                <Icon>menu</Icon>
+                <Icon>{menuOpen ? "close" : "menu"}</Icon>
               </IconButton>
             </>
           ) : (
@@ -91,21 +91,26 @@ export default function Navbar({ search, darkTheme, setDarkTheme }) {
             </div>
           )}
         </Toolbar>
+        <SwipeableDrawer
+          onOpen={() => setMenuOpen(true)}
+          onClose={() => setMenuOpen(false)}
+          open={menuOpen && smallScreen}
+          anchor="right"
+          classes={{
+            paper: darkTheme ? classes.drawerDark : classes.drawer,
+          }}
+        >
+          <ListItem className={classes.drawerSearch}>{search}</ListItem>
+          {menu.map((item) => (
+            <NextLink key={item.name} href={item.href}>
+              <MenuItem>{item.name}</MenuItem>
+            </NextLink>
+          ))}
+          <MenuItem onClick={switchTheme}>
+            {darkTheme ? "Light mode" : "Dark mode"}
+          </MenuItem>
+        </SwipeableDrawer>
       </JumboThemeProvider>
-      <Menu
-        anchorEl={menuAnchor}
-        onClose={() => setMenuAnchor(null)}
-        open={!!menuAnchor}
-      >
-        {menu.map((item) => (
-          <NextLink key={item.name} href={item.href}>
-            <MenuItem>{item.name}</MenuItem>
-          </NextLink>
-        ))}
-        <MenuItem onClick={switchTheme}>
-          {darkTheme ? "Light mode" : "Dark mode"}
-        </MenuItem>
-      </Menu>
     </AppBar>
   );
 }

@@ -10,6 +10,7 @@ import classes from "./search.module.css";
 export default function Search() {
   const router = useRouter();
   const [limit, setLimit] = useState(27);
+  const [loading, setLoading] = useState(false);
 
   const algorithms = search(router.query.q as string, limit);
 
@@ -27,13 +28,22 @@ export default function Search() {
           <AlgorithmsList algorithms={algorithms} noCategories />
         )}
         {algorithms.length === limit && (
-          <Button
-            onClick={() => setLimit(undefined)}
-            className={classes.more}
-            startIcon={<Icon>add</Icon>}
-          >
-            More
-          </Button>
+          <>
+            <Button
+              disabled={loading}
+              onClick={() => {
+                setLoading(true);
+                setTimeout(() => {
+                  setLimit(undefined);
+                  setLoading(false);
+                });
+              }}
+              className={classes.more}
+              startIcon={<Icon>add</Icon>}
+            >
+              More
+            </Button>
+          </>
         )}
       </Section>
     </>
