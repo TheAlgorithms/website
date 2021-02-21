@@ -1,3 +1,5 @@
+# [The Algorithms](https://github.com/TheAlgorithms) official website
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
@@ -5,7 +7,7 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 First, fetch all the algorithms from Github:
 
 ```bash
-yarn fetch-aglorithms
+yarn fetch-algorithms
 ```
 
 Then, run the development server:
@@ -26,4 +28,4 @@ To learn more about Next.js, take a look at the following resources:
 You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
 
 Powered by  
-![vercel](https://i.imgur.com/OX6NWC5.png)
+[![Vercel](https://i.imgur.com/OX6NWC5.png)](https://vercel.com)
