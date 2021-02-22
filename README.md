@@ -1,10 +1,12 @@
-<img align="left" src="./public/logo_t.png" height="110" title="logo">
+<a href="https://the-algorithms.com">
+	<img align="left" src="./public/logo_t.png" height="110" title="The Algorithms official logo">
+</a>
 
 # [The Algorithms](https://github.com/TheAlgorithms) official website
 
-This is a static [Next.js](https://nextjs.org/) site proividing a searchable library of all the algorithms in [The Algorithms](https://github.com/TheAlgorithms).
+This is a static [Next.js](https://nextjs.org/) site providing a searchable library of all the algorithms in [The Algorithms](https://github.com/TheAlgorithms).
 
-All the data about the algorithms gets fetched from the `DIRECTORY.md` files in all the different repos.
+All the data about the algorithms get fetched from the `DIRECTORY.md` files in all the different repositories.
 
 ## Getting Started
 
@@ -14,7 +16,8 @@ First, install all the dependencies:
 yarn
 ```
 
-Then, run the script that fetches all the algorithms from github:
+Then, run the script that fetches all the algorithms from GitHub:
+
 ```bash
 yarn fetch-algorithms
 ```
