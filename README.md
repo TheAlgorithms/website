@@ -2,7 +2,7 @@
 
 # [The Algorithms](https://github.com/TheAlgorithms) official website
 
-This is a static [Next.js](https://nextjs.org/) site proividing a searchable libary of all the algorithms in the [The Algorithms](https://github.com/TheAlgorithms) organization. 
+This is a static [Next.js](https://nextjs.org/) site proividing a searchable libary of all the algorithms in [The Algorithms](https://github.com/TheAlgorithms).
 
 All the data about the algorithms gets fetched from the `DIRECTORY.md` files in all the different repos.
 
