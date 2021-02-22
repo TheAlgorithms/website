@@ -1,4 +1,4 @@
-<img align="left" src="./public/logo_t.png" height="100" title="logo">
+<img align="left" src="./public/logo_t.png" height="110" title="logo">
 
 # [The Algorithms](https://github.com/TheAlgorithms) official website
 
