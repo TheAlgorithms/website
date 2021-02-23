@@ -1,12 +1,11 @@
-<a href="https://the-algorithms.com">
-	<img align="left" src="./public/logo_t.png" height="110" title="The Algorithms official logo">
-</a>
+<p align="center">
+  <a href="https://the-algorithms.com">
+    <img src="./public/logo_t.png" height="128">
+  </a>
+  <h1 align="center"><a href="https://github.com/TheAlgorithms/">The Algorithms</a> official website</h1>
+</p>
 
-# [The Algorithms](https://github.com/TheAlgorithms) official website
-
-This is a static [Next.js](https://nextjs.org/) site providing a searchable library of all the algorithms in [The Algorithms](https://github.com/TheAlgorithms).
-
-All the data about the algorithms get fetched from the `DIRECTORY.md` files in all the different repositories.
+This is a static [Next.js](https://nextjs.org/) site providing a searchable library of all the algorithms in [The Algorithms](https://github.com/TheAlgorithms). All the data about the algorithms get fetched from the `DIRECTORY.md` files in all the different repositories.
 
 ## Getting Started
 
