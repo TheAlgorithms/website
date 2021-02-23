@@ -14,7 +14,7 @@ export const Languages = {
   javascript: "Javascript",
   "c-plus-plus": "C++",
   java: "Java",
-  "c-sharp": "C#",
+  // "c-sharp": "C#",
   c: "C",
   haskell: "Haskell",
   "f-sharp": "F#",
