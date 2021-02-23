@@ -65,7 +65,7 @@ export default function Navbar({ search, darkTheme, setDarkTheme }) {
         <Toolbar className={`${classes.toolbar} container`}>
           <Link href="/" style={{ color: "white" }}>
             <Typography variant="h6" className={classes.title}>
-              <img src="/logo_t.png" alt="The Algorithms logo" />
+              <img src="/logo_t.svg" alt="The Algorithms logo" />
               TheAlgorithms
             </Typography>
           </Link>

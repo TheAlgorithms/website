@@ -1,9 +1,24 @@
+.paper {
+  background: transparent !important;
+}
+
 .outer {
   background-size: cover;
   color: white;
   padding-top: 114px;
   padding-bottom: 50px;
   margin-top: -64px;
+  height: min-content;
+  overflow: hidden;
+  position: relative;
+}
+
+.background {
+  pointer-events: none;
+}
+
+.background img {
+  z-index: -1;
 }
 
 .h1 {

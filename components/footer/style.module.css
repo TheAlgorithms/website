@@ -8,9 +8,9 @@
 
 .logo {
   grid-area: logo;
-  margin-right: 30px;
-  width: 100px;
-  height: 100px;
+  margin-right: 40px;
+  width: 80px;
+  height: 80px;
 }
 
 .list {

@@ -18,7 +18,7 @@ export default function Footer() {
     >
       <div className={`section container ${classes.grid}`}>
         <img
-          src="/logo_t.png"
+          src="/logo_t.svg"
           className={classes.logo}
           alt="The Algorithms logo"
         />
