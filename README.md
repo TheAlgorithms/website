@@ -1,6 +1,6 @@
 <p align="center">
   <a href="https://the-algorithms.com">
-    <img src="./public/logo_t.png" height="128">
+    <img src="./public/logo_t.svg" height="100">
   </a>
   <h1 align="center"><a href="https://github.com/TheAlgorithms/">The Algorithms</a> official website</h1>
 </p>
