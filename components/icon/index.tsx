@@ -22,7 +22,7 @@ export default function LanguageIcon({
     </Tooltip>
   );
 
-  switch (language.toLowerCase() as Language) {
+  switch (language.toLowerCase() as Language | string) {
     case "ruby":
       return icon("devicon-ruby-plain");
     case "python":
