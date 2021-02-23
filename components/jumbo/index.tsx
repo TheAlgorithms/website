@@ -21,7 +21,7 @@ export default function Jumbo({ search }) {
         >
           <div className={classes.background}>
             <Image
-              src="/programming-1873854_1920.webp"
+              src="/programming-1873854.webp"
               layout="fill"
               objectFit="cover"
             />
