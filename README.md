@@ -38,6 +38,8 @@ To learn more about Next.js, take a look at the following resources:
 
 You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
 
-Powered by  
-
-[![Vercel](https://i.imgur.com/OX6NWC5.png)](https://vercel.com)
+<p align="center">
+  <a href="https://vercel.com">
+    <img src="./public/powered-by-vercel.svg" height="35px" alt="Powered by Vercel" />
+  </a>
+</p>
