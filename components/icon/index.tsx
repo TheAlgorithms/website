@@ -16,11 +16,11 @@ export default function LanguageIcon({
     </Tooltip>
   );
 
-  const textIcon = (text: string) => (
-    <Tooltip title={tooltip || ""}>
-      <Typography className={classes.textIcon}>{text}</Typography>
-    </Tooltip>
-  );
+  // const textIcon = (text: string) => (
+  //   <Tooltip title={tooltip || ""}>
+  //     <Typography className={classes.textIcon}>{text}</Typography>
+  //   </Tooltip>
+  // );
 
   switch (language.toLowerCase() as Language | string) {
     case "ruby":
