@@ -1,0 +1,15 @@
+.grid {
+  display: grid;
+  grid-template-columns: calc(50% - 12.5px) calc(50% - 12.5px);
+  grid-gap: 20px;
+}
+
+.card {
+  padding: 20px;
+}
+
+@media (max-width: 1000px) {
+  .grid {
+    grid-template-columns: 100%;
+  }
+}
