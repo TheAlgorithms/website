@@ -1,7 +1,6 @@
-import { Tooltip, Typography, Icon } from "@material-ui/core";
+import { Tooltip, Icon } from "@material-ui/core";
 import React from "react";
 import { Language } from "lib/models";
-import classes from "./style.module.css";
 
 export default function LanguageIcon({
   language,
