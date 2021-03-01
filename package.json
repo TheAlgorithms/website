@@ -9,8 +9,9 @@
     "start": "next start",
     "export": "yarn build && next export",
     "fetch-algorithms": "ts-node scripts/fetch-algorithms.ts",
-    "lint": "tsc && eslint ./",
-    "lint-fix": "eslint ./ --fix"
+    "lint": "eslint ./",
+    "lint-fix": "eslint ./ --fix",
+    "tsc": "tsc"
   },
   "dependencies": {
     "@material-ui/core": "^4.11.3",
