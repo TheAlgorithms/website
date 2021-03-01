@@ -150,6 +150,10 @@ export default function Home({ topAlgorithms, featuredAlgorithms }) {
                   <Typography>
                     Another way you can support us is to make a donation via
                     Liberapay. Even a small donation is much appreciated.
+                    By donating, it means that you appreciate and like our work. If you don't like our work,
+                    there's no need to donate. If you donate, top members will be able to contribute further to
+                    The Algorithms projects. We appreciate donations from everyone,
+                    from everywhere, no matter the amount.
                   </Typography>
                   <Button
                     variant="contained"
