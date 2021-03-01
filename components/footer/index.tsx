@@ -30,16 +30,16 @@ export default function Footer() {
           <Link href="/#about">About us</Link>
           <Link href="/#contribute">Programming Languages</Link>
           <Link href="/#contribute">Contribute</Link>
-          <Link href="https://github.com/TheAlgorithms/website">
-            Source code
-          </Link>
+          <Link href="/#contribute">Donate</Link>
         </div>
         <div className={classes.list}>
           <Link href="https://github.com/TheAlgorithms/">GitHub</Link>
           <Link href="https://gitter.im/TheAlgorithms/">Gitter</Link>
           <Link href="https://twitter.com/The_Algorithms">Twitter</Link>
           <Link href="/all">All algorithms</Link>
-          <Link href="/#contribute">Donate</Link>
+          <Link href="https://github.com/TheAlgorithms/website">
+            Source code
+          </Link>
         </div>
         <a
           className={classes.vercelLogo}
