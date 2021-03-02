@@ -2,9 +2,16 @@ import React from "react";
 import { Paper, Typography, useTheme } from "@material-ui/core";
 import { JumboThemeProvider } from "hooks/themes";
 import Image from "next/image";
+import SearchBar from "components/searchBar";
 import classes from "./style.module.css";
 
-export default function Jumbo({ search }) {
+export default function Jumbo({
+  query,
+  setQuery,
+}: {
+  query: string;
+  setQuery: React.Dispatch<React.SetStateAction<string>>;
+}) {
   const theme = useTheme();
 
   return (
@@ -31,7 +38,9 @@ export default function Jumbo({ search }) {
             <Typography className={classes.h2}>
               Welcome to GitHub's largest open-source algorithm library
             </Typography>
-            <div className={classes.input}>{search}</div>
+            <div className={classes.input}>
+              <SearchBar query={query} setQuery={setQuery} />
+            </div>
           </div>
         </div>
       </JumboThemeProvider>

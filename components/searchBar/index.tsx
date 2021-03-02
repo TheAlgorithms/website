@@ -1,4 +1,4 @@
-import React, { FormEvent } from "react";
+import React, { FormEvent, useEffect, useRef } from "react";
 import {
   FormControl,
   FilledInput,
@@ -29,6 +29,7 @@ export default function SearchBar({
 }) {
   const router = useRouter();
   const smallScreen = useMediaQuery("(max-width: 800px)");
+  const inputRef = useRef<HTMLDivElement>();
 
   function handleInput(event: FormEvent) {
     setQuery((event.target as HTMLInputElement).value);
@@ -50,6 +51,12 @@ export default function SearchBar({
       </IconButton>
     </InputAdornment>
   );
+
+  useEffect(() => {
+    if (router.route.startsWith("/search")) {
+      inputRef.current.getElementsByTagName("input")[0].focus();
+    }
+  }, [router.route]);
 
   return (
     <form
@@ -76,7 +83,7 @@ export default function SearchBar({
             value={query}
             placeholder="Search any algorithm"
             endAdornment={searchAdornment}
-            autoFocus
+            ref={inputRef}
           />
         </FormControl>
       ) : (

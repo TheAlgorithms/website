@@ -9,7 +9,6 @@ import { AppProps } from "next/app";
 import { lightTheme, darkTheme } from "hooks/themes";
 import Jumbo from "components/jumbo";
 import Navbar from "components/navbar";
-import SearchBar from "components/searchBar";
 import Footer from "components/footer";
 import Head from "components/head";
 
@@ -22,10 +21,6 @@ function MyApp({ Component, pageProps }: AppProps) {
     setIsDarkTheme((localStorage.getItem("theme") || "light") === "dark");
   }, []);
 
-  const searchBar = (
-    <SearchBar small={router.route !== "/"} query={query} setQuery={setQuery} />
-  );
-
   return (
     <div style={{ height: "100%" }} className={isDarkTheme ? "dark" : ""}>
       <ThemeProvider theme={isDarkTheme ? darkTheme : lightTheme}>
@@ -37,11 +32,12 @@ function MyApp({ Component, pageProps }: AppProps) {
           options={{ showSpinner: false }}
         />
         <Navbar
-          search={router.route !== "/" && searchBar}
           darkTheme={isDarkTheme}
           setDarkTheme={setIsDarkTheme}
+          query={query}
+          setQuery={setQuery}
         />
-        {router.route === "/" && <Jumbo search={searchBar} />}
+        {router.route === "/" && <Jumbo query={query} setQuery={setQuery} />}
         <Component {...pageProps} />
         <Footer />
       </ThemeProvider>

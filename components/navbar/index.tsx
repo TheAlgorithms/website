@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import {
   AppBar,
   Toolbar,
@@ -14,6 +14,8 @@ import {
 import NextLink from "next/link";
 import { JumboThemeProvider } from "hooks/themes";
 import Link from "components/link";
+import { useRouter } from "next/router";
+import SearchBar from "components/searchBar";
 import classes from "./style.module.css";
 
 const menu = [
@@ -35,10 +37,22 @@ const menu = [
   },
 ];
 
-export default function Navbar({ search, darkTheme, setDarkTheme }) {
+export default function Navbar({
+  darkTheme,
+  setDarkTheme,
+  query,
+  setQuery,
+}: {
+  darkTheme: boolean;
+  setDarkTheme: React.Dispatch<React.SetStateAction<boolean>>;
+  query: string;
+  setQuery: React.Dispatch<React.SetStateAction<string>>;
+}) {
   const [atTop, setAtTop] = useState(false);
   const smallScreen = useMediaQuery("(max-width:800px)");
   const [menuOpen, setMenuOpen] = useState(false);
+  const router = useRouter();
+  const isHome = router.route === "/";
 
   useEffect(() => {
     setAtTop(window.scrollY < 1);
@@ -57,7 +71,9 @@ export default function Navbar({ search, darkTheme, setDarkTheme }) {
   return (
     <AppBar
       className={
-        atTop && !search ? classes.root : `${classes.root} ${classes.scrolled}`
+        !menuOpen && atTop && isHome
+          ? classes.root
+          : `${classes.root} ${classes.scrolled}`
       }
       position="fixed"
     >
@@ -69,7 +85,9 @@ export default function Navbar({ search, darkTheme, setDarkTheme }) {
               TheAlgorithms
             </Typography>
           </Link>
-          {search && !smallScreen && search}
+          {!isHome && !smallScreen && (
+            <SearchBar query={query} setQuery={setQuery} small />
+          )}
           {smallScreen ? (
             <>
               <IconButton
@@ -100,7 +118,9 @@ export default function Navbar({ search, darkTheme, setDarkTheme }) {
             paper: darkTheme ? classes.drawerDark : classes.drawer,
           }}
         >
-          <ListItem className={classes.drawerSearch}>{search}</ListItem>
+          <ListItem className={classes.drawerSearch}>
+            <SearchBar query={query} setQuery={setQuery} small />
+          </ListItem>
           {menu.map((item) => (
             <NextLink key={item.name} href={item.href}>
               <MenuItem>{item.name}</MenuItem>
