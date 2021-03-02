@@ -17,19 +17,14 @@
   <a href="https://gitter.im/TheAlgorithms">
     <img src="https://img.shields.io/badge/Chat-Gitter-ff69b4.svg?label=Chat&logo=gitter" height="20">
   </a>
+  
+  <br />
 
-  <p align="center">
-    <a href="https://liberapay.com/TheAlgorithms">
-      <img src="https://img.shields.io/liberapay/receives/TheAlgorithms.svg?logo=liberapay" height="20">
-    </a>
-
-  <img src="https://img.shields.io/github/repo-size/TheAlgorithms/website?color=green" height="20">
-
-  <a href="https://liberapay.com/TheAlgorithms/donate">
-    <img src="https://liberapay.com/assets/widgets/donate.svg" height="30">
+  <a href="https://liberapay.com/TheAlgorithms">
+    <img src="https://img.shields.io/liberapay/receives/TheAlgorithms.svg?logo=liberapay" height="20">
   </a>
 
-  </p>
+  <img src="https://img.shields.io/github/repo-size/TheAlgorithms/website?color=green" height="20">
 </p>
 
 This is a static [Next.js](https://nextjs.org/) site providing a searchable library of all the algorithms in [The Algorithms](https://github.com/TheAlgorithms). All the data about the algorithms get fetched from the `DIRECTORY.md` files in all the different repositories.
