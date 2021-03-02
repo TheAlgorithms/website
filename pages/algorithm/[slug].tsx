@@ -1,9 +1,9 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Typography, Breadcrumbs } from "@material-ui/core";
 import Link from "components/link";
 import renderMarkdown from "lib/markdown";
 import renderNotebook from "lib/notebookjs";
-import type { Algorithm } from "lib/models";
+import type { Algorithm, Language } from "lib/models";
 import Implementations from "components/implementations";
 import {
   getAlgorithmSlugs,
@@ -22,7 +22,7 @@ export default function AlgorithmPage({
   jupyter,
 }: {
   algorithm: Algorithm;
-  code: string;
+  code: { [language in Language]?: string };
   body?: string;
   jupyter?: string;
 }) {
@@ -38,7 +38,7 @@ export default function AlgorithmPage({
     <div className="section container">
       <Head title={algorithm.name} />
       {(Object.keys(algorithm.implementations).length !== 1 || !jupyter) && (
-        <CodePreview code={code} />
+        <CodePreview code={code} implementations={algorithm.implementations} />
       )}
       <Breadcrumbs>
         {algorithm.categories.map((category) => (
@@ -48,11 +48,6 @@ export default function AlgorithmPage({
         ))}
       </Breadcrumbs>
       <Typography variant="h4">{algorithm.name}</Typography>
-      <Implementations
-        className={classes.implementations}
-        implementations={algorithm.implementations}
-        large
-      />
       {jupyter && (
         <div
           className={classes.notebook}

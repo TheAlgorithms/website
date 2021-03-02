@@ -5,13 +5,15 @@ import { Language } from "lib/models";
 export default function LanguageIcon({
   language,
   tooltip,
+  className = "",
 }: {
   language: Language;
   tooltip?: string;
+  className?: string;
 }) {
-  const icon = (className: string) => (
-    <Tooltip title={tooltip || ""}>
-      <Icon color="disabled" className={className} />
+  const icon = (classN: string) => (
+    <Tooltip className={className} title={tooltip || ""}>
+      <Icon color="disabled" className={classN} />
     </Tooltip>
   );
 

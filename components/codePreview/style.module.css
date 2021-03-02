@@ -39,3 +39,14 @@
 :global(.dark) .codeContainerGradient {
   background: linear-gradient(180deg, rgba(255, 255, 255, 0) 50%, #101316 100%);
 }
+
+.languageIcon {
+  transform: translateY(-10px);
+  margin-right: -6px !important;
+}
+
+.viewOnGithub {
+  position: absolute !important;
+  top: 10px;
+  right: 10px;
+}
