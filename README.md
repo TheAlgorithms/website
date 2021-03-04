@@ -6,8 +6,8 @@
 </p>
 
 <p align="center">
-  <a href="https://gitpod.io/#https://github.com/TheAlgorithms/website">
-    <img src="https://img.shields.io/badge/Gitpod-Ready--to--Code-blue?logo=gitpod" height="20">
+  <a href="https://lgtm.com/projects/g/TheAlgorithms/website/context:javascript">
+    <img alt="Language grade: JavaScript" src="https://img.shields.io/lgtm/grade/javascript/g/TheAlgorithms/website.svg?logo=lgtm&logoWidth=18"/>
   </a>
 
   <a href="https://lgtm.com/projects/g/TheAlgorithms/website/alerts/">
