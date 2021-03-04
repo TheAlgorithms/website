@@ -20,40 +20,49 @@ export default function CodePreview({
   return (
     // eslint-disable-next-line jsx-a11y/no-static-element-interactions
     <div
-      onClick={() => setHovered(true)}
+      onClick={hovered ? () => undefined : () => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
-      className={classes.codeContainer}
+      className={`${classes.container} ${hovered ? classes.hovered : ""}`}
     >
       <div className={classes.codeContainer}>
         {!hovered && <div className={classes.codeContainerGradient} />}
-        <pre
-          className={
-            hovered ? `${classes.codeHover} ${classes.code}` : classes.code
-          }
-        >
+        <pre className={classes.code}>
+          <div className={classes.buttons}>
+            <div className={classes.viewOnGithub}>
+              <Button
+                startIcon={<Icon>open_in_new</Icon>}
+                href={implementations[exampleLanguage]}
+                target="_blank"
+                rel="noref"
+              >
+                View on GitHub
+              </Button>
+            </div>
+            <div className={classes.closeBtn}>
+              <Button
+                startIcon={<Icon>close</Icon>}
+                onClick={() => setHovered(false)}
+              >
+                Close
+              </Button>
+            </div>
+          </div>
           {/* eslint-disable-next-line react/no-danger */}
           <code dangerouslySetInnerHTML={{ __html: code[exampleLanguage] }} />
         </pre>
       </div>
-      {Object.keys(code).map((language: Language) => (
-        // eslint-disable-next-line jsx-a11y/no-static-element-interactions
-        <IconButton
-          key={language}
-          className={classes.languageIcon}
-          onClick={() => setExampleLanguage(language)}
-        >
-          <LanguageIcon language={language} />
-        </IconButton>
-      ))}
-      <Button
-        startIcon={<Icon>open_in_new</Icon>}
-        className={classes.viewOnGithub}
-        href={implementations[exampleLanguage]}
-        target="_blank"
-        rel="noref"
-      >
-        View on GitHub
-      </Button>
+      <div className={classes.languageIcons}>
+        {Object.keys(code).map((language: Language) => (
+          // eslint-disable-next-line jsx-a11y/no-static-element-interactions
+          <IconButton
+            key={language}
+            className={classes.languageIcon}
+            onClick={() => setExampleLanguage(language)}
+          >
+            <LanguageIcon language={language} />
+          </IconButton>
+        ))}
+      </div>
     </div>
   );
 }
