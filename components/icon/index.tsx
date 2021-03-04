@@ -57,7 +57,7 @@ export default function LanguageIcon({
     case "scala":
       return icon("devicon-scala-plain");
     case "jupyter":
-      return icon("devicon-jupyter-plain");
+      return icon("devicon-jupyter-plain-wordmark");
     case "haskell":
       return icon("devicon-haskell-plain");
     case "ocaml":
