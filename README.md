@@ -62,6 +62,8 @@ If you want to add a new feature or fix a bug, create a new branch or fork and c
 
 Open the pull request against `main`. Vercel will automatically create a preview deployment and the pull request will be squash merged after being reviewed by a member.
 
+If you are a member and just want to add a small fix you can also directly commit to `main` instead of opening a pull request.
+
 ## Learn More
 
 To learn more about Next.js, take a look at the following resources:
