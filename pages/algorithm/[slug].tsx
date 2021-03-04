@@ -1,10 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { Typography, Breadcrumbs } from "@material-ui/core";
 import Link from "components/link";
 import renderMarkdown from "lib/markdown";
 import renderNotebook from "lib/notebookjs";
 import type { Algorithm, Language } from "lib/models";
-import Implementations from "components/implementations";
 import {
   getAlgorithmSlugs,
   getAlgorithm,
