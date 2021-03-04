@@ -31,13 +31,13 @@ This is a static [Next.js](https://nextjs.org/) site providing a searchable libr
 
 ## Getting Started
 
-First, install all the dependencies:
+If you haven't installed it yet, install [Node.js](https://nodejs.org/en/) and [yarn](https://classic.yarnpkg.com/en/docs/install#windows-stable). Then, install all the dependencies:
 
 ```bash
 yarn
 ```
 
-Then, run the script that fetches all the algorithms from GitHub:
+After that, run the script that fetches all the algorithms from GitHub:
 
 ```bash
 yarn fetch-algorithms
@@ -50,6 +50,17 @@ yarn dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the website.
+
+## Contributing
+
+Try to use the [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/#summary) naming convention.
+
+If you want to add a new feature or fix a bug, create a new branch or fork and commit there. Before opening a PR be sure to
+
+- Run `yarn lint` and fix potential errors
+- Run `yarn build` to check if everything still builds successfully
+
+Open the pull request against `main`. Vercel will automatically create a preview deployment and the pull request will be squash merged after being reviewed by a member.
 
 ## Learn More
 
