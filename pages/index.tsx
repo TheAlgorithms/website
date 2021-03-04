@@ -198,12 +198,15 @@ export async function getStaticProps() {
       topAlgorithms: [
         getAlgorithm("binary-search"),
         getAlgorithm("quick-sort"),
-        getAlgorithm("bogo-sort"),
+        getAlgorithm("longest-common-subsequence"),
       ],
       featuredAlgorithms: [
         getAlgorithm("coinchange"),
+        getAlgorithm("logistic-regression"),
         getAlgorithm("caesar-cipher"),
+        getAlgorithm("a-simple-gan"),
         getAlgorithm("bellman-ford"),
+        getAlgorithm("bogo-sort"),
       ],
     },
   };

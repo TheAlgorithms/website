@@ -51,9 +51,11 @@ let categories: { [category: string]: string[] } = {};
       explanations.tree.map(async (explanation) => {
         const match = explanation.path.match(/en\/(?:.+)\/(.+)\.md/);
         if (match) {
-          const algorithm = algorithms.find(
-            (alg) => normalize(alg.slug) === normalize(match[1])
-          );
+          const algorithm = algorithms.find((alg) => {
+            if (normalize(alg.name).startsWith("longest"))
+              console.log(normalize(alg.name), normalize(match[1]));
+            return normalize(alg.name) === normalize(match[1]);
+          });
           if (algorithm) {
             const data = await (await fetch(explanation.url)).json();
             algorithm.body = atob(data.content).split("\n").slice(1).join("\n");
