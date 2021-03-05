@@ -110,7 +110,7 @@ function parseData(lang, data) {
             lang,
             aCategories.filter((el) => !!el)
           );
-        else categories[i] = line.substr(2 * i + 1).trim();
+        else aCategories[i] = line.substr(2 * i + 1).trim();
       }
     }
   });
@@ -132,12 +132,13 @@ function addAlgorithmFromMatch(
       implementations: {},
       code: "",
     };
-    algorithmCategories.forEach((category) => {
-      if (categories[normalize(category)])
-        categories[normalize(category)].push(algorithm.slug);
-      else categories[normalize(category)] = [algorithm.slug];
-    });
     algorithms.push(algorithm);
   }
+  algorithmCategories.forEach((category) => {
+    if (categories[normalize(category)]) {
+      if (!categories[normalize(category)].includes(algorithm.slug))
+        categories[normalize(category)].push(algorithm.slug);
+    } else categories[normalize(category)] = [algorithm.slug];
+  });
   [, , algorithm.implementations[lang]] = match;
 }
