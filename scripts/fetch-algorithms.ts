@@ -122,11 +122,11 @@ function addAlgorithmFromMatch(
   algorithmCategories: string[]
 ) {
   let algorithm = algorithms.find(
-    (alg) => normalize(alg.slug) === normalize(match[3])
+    (alg) => normalize(alg.slug) === normalize(match[1])
   );
   if (!algorithm) {
     algorithm = {
-      slug: normalizeWeak(match[3]),
+      slug: normalizeWeak(match[1]),
       name: match[1],
       categories: algorithmCategories,
       implementations: {},
