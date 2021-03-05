@@ -10,14 +10,14 @@
     <img alt="Language grade: JavaScript" src="https://img.shields.io/lgtm/grade/javascript/g/TheAlgorithms/website.svg?logo=lgtm&logoWidth=18"/>
   </a>
 
-  <a href="https://lgtm.com/projects/g/TheAlgorithms/website/alerts/">
-    <img src="https://img.shields.io/lgtm/alerts/g/TheAlgorithms/website.svg?logo=lgtm&logoWidth=18" height="20">
+  <a href="https://github.com/TheAlgorithms/website/actions/workflows/codeql-analysis.yml">
+    <img src="https://github.com/TheAlgorithms/website/actions/workflows/codeql-analysis.yml/badge.svg" height="20">
   </a>
 
   <a href="https://gitter.im/TheAlgorithms">
     <img src="https://img.shields.io/badge/Chat-Gitter-ff69b4.svg?label=Chat&logo=gitter" height="20">
   </a>
-  
+
   <br />
 
   <a href="https://liberapay.com/TheAlgorithms">
