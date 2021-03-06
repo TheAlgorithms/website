@@ -1,4 +1,4 @@
-import { Tooltip, Icon } from "@material-ui/core";
+import { Tooltip, Icon, PropTypes } from "@material-ui/core";
 import React from "react";
 import { Language } from "lib/models";
 
@@ -6,14 +6,16 @@ export default function LanguageIcon({
   language,
   tooltip,
   className = "",
+  color = "disabled",
 }: {
   language: Language;
   tooltip?: string;
   className?: string;
+  color?: PropTypes.Color | "disabled" | "action" | "error";
 }) {
   const icon = (classN: string) => (
     <Tooltip className={className} title={tooltip || ""}>
-      <Icon color="disabled" className={classN} />
+      <Icon color={color} className={classN} />
     </Tooltip>
   );
 

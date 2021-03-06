@@ -39,7 +39,7 @@ export default function AlgorithmPage({
       {(Object.keys(algorithm.implementations).length !== 1 || !jupyter) && (
         <CodePreview code={code} implementations={algorithm.implementations} />
       )}
-      <Breadcrumbs>
+      <Breadcrumbs className={classes.categories}>
         {algorithm.categories.map((category) => (
           <Typography key={category} variant="h6">
             <Link href={`/category/${normalize(category)}`}>{category}</Link>
@@ -65,7 +65,7 @@ export default function AlgorithmPage({
 }
 
 export async function getStaticProps({ params }) {
-  const algorithm = getAlgorithm(params.slug);
+  const algorithm = getAlgorithm(params.algorithm);
   const code = await getAlgorithmCode(algorithm);
   const body = algorithm.body ? await renderMarkdown(algorithm.body) : "";
   const jupyter = algorithm.implementations.jupyter

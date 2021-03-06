@@ -11,7 +11,7 @@ const algorithmsDirectory = path.join(cacheDirectory, "algorithms");
 export function getAlgorithmSlugs() {
   return fs.readdirSync(algorithmsDirectory).map((file) => ({
     params: {
-      slug: file.replace(".json", ""),
+      algorithm: file.replace(".json", ""),
     },
   }));
 }
