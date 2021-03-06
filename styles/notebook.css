@@ -21,7 +21,7 @@
 
   .nb-output::before,
   .nb-input::before {
-    left: 0px !important;
+    left: 0 !important;
     transform: translateY(-1.5em);
     text-align: left !important;
   }
@@ -102,6 +102,7 @@
 .nb-input::before {
   content: "In [" attr(data-prompt-number) "]:";
 }
+
 .nb-output::before {
   content: "Out [" attr(data-prompt-number) "]:";
 }

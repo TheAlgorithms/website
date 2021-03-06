@@ -3,7 +3,7 @@
   color: rgba(0, 0, 0, 0.26) !important;
   line-height: 1 !important;
   font-size: 24px !important;
-  margin-top: 0px !important;
+  margin-top: 0 !important;
 }
 
 :global(.dark) .textIcon {
