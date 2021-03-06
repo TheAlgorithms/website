@@ -19,9 +19,9 @@
     margin-top: 3em;
   }
 
-  .nb-output:before,
-  .nb-input:before {
-    left: 0 !important;
+  .nb-output::before,
+  .nb-input::before {
+    left: 0px !important;
     transform: translateY(-1.5em);
     text-align: left !important;
   }
@@ -36,6 +36,10 @@
 
 .nb-stderr {
   background-color: #faa;
+}
+
+.nb-cell {
+  position: relative;
 }
 
 .nb-cell + .nb-cell {
@@ -66,10 +70,6 @@
   padding-left: 1em;
 }
 
-.nb-cell {
-  position: relative;
-}
-
 .nb-raw-cell {
   white-space: pre-wrap;
   background-color: #f5f2f0;
@@ -89,8 +89,8 @@
   max-width: 100%;
 }
 
-.nb-output:before,
-.nb-input:before {
+.nb-output::before,
+.nb-input::before {
   position: absolute;
   font-family: monospace;
   color: #999;
@@ -99,14 +99,13 @@
   text-align: right;
 }
 
-.nb-input:before {
+.nb-input::before {
   content: "In [" attr(data-prompt-number) "]:";
 }
-.nb-output:before {
+.nb-output::before {
   content: "Out [" attr(data-prompt-number) "]:";
 }
 
-// Fix pandas dataframe formatting
 div[style="max-height:1000px;max-width:1500px;overflow:auto;"] {
   max-height: none !important;
 }
