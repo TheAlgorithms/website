@@ -54,7 +54,11 @@ export default function CodePreview({
         >
           View on GitHub
         </Button>
-        <Button startIcon={<Icon>close</Icon>} onClick={() => setActive(false)}>
+        <Button
+          variant="outlined"
+          startIcon={<Icon>close</Icon>}
+          onClick={() => setActive(false)}
+        >
           Close
         </Button>
       </div>

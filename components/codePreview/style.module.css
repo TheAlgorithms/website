@@ -23,6 +23,10 @@
   transform: translateY(0);
 }
 
+.actions button {
+  margin-left: 10px;
+}
+
 .code {
   background: #f2f2f2;
   padding: 15px;
@@ -32,6 +36,10 @@
   flex-grow: 1;
   cursor: pointer;
   scroll-behavior: smooth;
+}
+
+:global(.dark) .code {
+  background: #0000002c;
 }
 
 .code::before {
@@ -47,6 +55,10 @@
     rgba(250, 250, 250, 1) 100%
   );
   transition: opacity 0.4s ease;
+}
+
+:global(.dark) .code::before {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0) 50%, #101316 100%);
 }
 
 .implementations {
