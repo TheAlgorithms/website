@@ -24,7 +24,7 @@ export default function CodePreview({
     document.getElementsByTagName("html")[0].style.scrollBehavior = "smooth";
     setTimeout(() => {
       if (active) window.scrollTo(0, 0);
-      else codeRef.current.scrollTo(0, 0);
+      else if (codeRef.current) codeRef.current.scrollTo(0, 0);
       setTimeout(
         () => {
           setBodyScroll(active);
@@ -37,7 +37,15 @@ export default function CodePreview({
   }, [active, setBodyScroll]);
 
   return (
-    <div className={`${classes.container} ${active ? classes.active : ""}`}>
+    <div
+      className={`${classes.container} ${active ? classes.active : ""}`}
+      style={
+        Object.keys(implementations).length === 1 &&
+        Object.keys(implementations)[0] === "jupyter"
+          ? { height: 50 }
+          : {}
+      }
+    >
       <div className={classes.actions}>
         <Button
           startIcon={<Icon>open_in_new</Icon>}
@@ -51,33 +59,41 @@ export default function CodePreview({
         </Button>
       </div>
       <div className={classes.scrollContainer}>
-        <div
-          ref={codeRef}
-          className={classes.code}
-          onClick={() => setActive(true)}
-          role="button"
-          tabIndex={0}
-        >
-          <pre className={classes.pre}>
-            <code
-              // eslint-disable-next-line react/no-danger
-              dangerouslySetInnerHTML={{ __html: code[selectedLanguague] }}
-            />
-          </pre>
-        </div>
+        {selectedLanguague !== "jupyter" && (
+          <div
+            ref={codeRef}
+            className={classes.code}
+            onClick={() => setActive(true)}
+            role="button"
+            tabIndex={0}
+          >
+            <pre className={classes.pre}>
+              <code
+                // eslint-disable-next-line react/no-danger
+                dangerouslySetInnerHTML={{ __html: code[selectedLanguague] }}
+              />
+            </pre>
+          </div>
+        )}
         <div className={classes.implementations}>
           {Object.keys(code).map((language: Language) => (
             <IconButton
               className={classes.implementation}
               key={language}
               onClick={() => {
-                setActive(true);
-                setSelectedLanguague(language);
+                if (language !== "jupyter") {
+                  setActive(true);
+                  setSelectedLanguague(language);
+                }
               }}
+              href={
+                language === "jupyter" ? implementations[language] : undefined
+              }
+              target="_blank"
             >
               <LanguageIcon
                 language={language}
-                color={language === selectedLanguague ? "inherit" : "disabled"}
+                color={language === selectedLanguague ? "action" : "disabled"}
               />
             </IconButton>
           ))}

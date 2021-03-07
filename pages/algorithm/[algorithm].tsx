@@ -36,9 +36,7 @@ export default function AlgorithmPage({
   return (
     <div className="section container">
       <Head title={algorithm.name} />
-      {(Object.keys(algorithm.implementations).length !== 1 || !jupyter) && (
-        <CodePreview code={code} implementations={algorithm.implementations} />
-      )}
+      <CodePreview code={code} implementations={algorithm.implementations} />
       <Breadcrumbs className={classes.categories}>
         {algorithm.categories.map((category) => (
           <Typography key={category} variant="h6">
