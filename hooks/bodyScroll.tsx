@@ -8,6 +8,9 @@ export default function useBodyScroll(): [
 
   useEffect(() => {
     document.body.style.overflow = hidden ? "hidden" : "auto";
+    return () => {
+      document.body.style.overflow = "auto";
+    };
   }, [hidden]);
 
   return [hidden, setHidden];
