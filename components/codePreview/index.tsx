@@ -21,9 +21,19 @@ export default function CodePreview({
   );
 
   useEffect(() => {
-    if (active) window.scrollTo(0, 0);
-    else codeRef.current.scrollTo(0, 0);
-    setTimeout(() => setBodyScroll(active), active ? 400 : 0);
+    document.getElementsByTagName("html")[0].style.scrollBehavior = "smooth";
+    setTimeout(() => {
+      if (active) window.scrollTo(0, 0);
+      else codeRef.current.scrollTo(0, 0);
+      setTimeout(
+        () => {
+          setBodyScroll(active);
+          document.getElementsByTagName("html")[0].style.scrollBehavior =
+            "unset";
+        },
+        active ? 400 : 0
+      );
+    });
   }, [active, setBodyScroll]);
 
   return (
@@ -40,36 +50,38 @@ export default function CodePreview({
           Close
         </Button>
       </div>
-      <div
-        ref={codeRef}
-        className={classes.code}
-        onClick={() => setActive(true)}
-        role="button"
-        tabIndex={0}
-      >
-        <pre className={classes.pre}>
-          <code
-            // eslint-disable-next-line react/no-danger
-            dangerouslySetInnerHTML={{ __html: code[selectedLanguague] }}
-          />
-        </pre>
-      </div>
-      <div className={classes.implementations}>
-        {Object.keys(code).map((language: Language) => (
-          <IconButton
-            className={classes.implementation}
-            key={language}
-            onClick={() => {
-              setActive(true);
-              setSelectedLanguague(language);
-            }}
-          >
-            <LanguageIcon
-              language={language}
-              color={language === selectedLanguague ? "default" : "disabled"}
+      <div className={classes.scrollContainer}>
+        <div
+          ref={codeRef}
+          className={classes.code}
+          onClick={() => setActive(true)}
+          role="button"
+          tabIndex={0}
+        >
+          <pre className={classes.pre}>
+            <code
+              // eslint-disable-next-line react/no-danger
+              dangerouslySetInnerHTML={{ __html: code[selectedLanguague] }}
             />
-          </IconButton>
-        ))}
+          </pre>
+        </div>
+        <div className={classes.implementations}>
+          {Object.keys(code).map((language: Language) => (
+            <IconButton
+              className={classes.implementation}
+              key={language}
+              onClick={() => {
+                setActive(true);
+                setSelectedLanguague(language);
+              }}
+            >
+              <LanguageIcon
+                language={language}
+                color={language === selectedLanguague ? "inherit" : "disabled"}
+              />
+            </IconButton>
+          ))}
+        </div>
       </div>
     </div>
   );

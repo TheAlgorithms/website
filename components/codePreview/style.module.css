@@ -5,6 +5,13 @@
   height: 350px;
 }
 
+.scrollContainer {
+  transition: height 0.4s ease;
+  display: flex;
+  flex-direction: column;
+  height: 350px;
+}
+
 .actions {
   transition: height 0.4s ease, opacity 0.4s ease, transform 0.4s ease;
   height: 0;
@@ -52,8 +59,23 @@
 }
 
 .active {
-  height: calc(100vh - 150px);
   margin-bottom: 100px;
+  height: calc(100vh - 150px);
+}
+
+.active .scrollContainer {
+  height: calc(100vh - 150px);
+}
+
+@media (max-width: 800px) {
+  .active {
+    height: calc(100vh - 150px);
+    overflow: scroll;
+  }
+
+  .active .scrollContainer {
+    height: auto;
+  }
 }
 
 .active .actions {
@@ -79,15 +101,11 @@
 .active .code {
   overflow: auto;
   cursor: unset;
-  pointer-events: none;
-}
-
-.active .code pre {
-  pointer-events: all;
 }
 
 .active .code::before {
   opacity: 0;
+  pointer-events: none;
 }
 
 .active .implementations {
