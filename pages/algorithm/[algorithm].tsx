@@ -3,8 +3,7 @@ import { Typography, Breadcrumbs } from "@material-ui/core";
 import Link from "components/link";
 import renderMarkdown from "lib/markdown";
 import renderNotebook from "lib/notebookjs";
-import type { Algorithm } from "lib/models";
-import Implementations from "components/implementations";
+import type { Algorithm, Language } from "lib/models";
 import {
   getAlgorithmSlugs,
   getAlgorithm,
@@ -22,7 +21,7 @@ export default function AlgorithmPage({
   jupyter,
 }: {
   algorithm: Algorithm;
-  code: string;
+  code: { [language in Language]?: string };
   body?: string;
   jupyter?: string;
 }) {
@@ -37,10 +36,8 @@ export default function AlgorithmPage({
   return (
     <div className="section container">
       <Head title={algorithm.name} />
-      {(Object.keys(algorithm.implementations).length !== 1 || !jupyter) && (
-        <CodePreview code={code} />
-      )}
-      <Breadcrumbs>
+      <CodePreview code={code} implementations={algorithm.implementations} />
+      <Breadcrumbs className={classes.categories}>
         {algorithm.categories.map((category) => (
           <Typography key={category} variant="h6">
             <Link href={`/category/${normalize(category)}`}>{category}</Link>
@@ -48,11 +45,6 @@ export default function AlgorithmPage({
         ))}
       </Breadcrumbs>
       <Typography variant="h4">{algorithm.name}</Typography>
-      <Implementations
-        className={classes.implementations}
-        implementations={algorithm.implementations}
-        large
-      />
       {jupyter && (
         <div
           className={classes.notebook}
@@ -71,7 +63,7 @@ export default function AlgorithmPage({
 }
 
 export async function getStaticProps({ params }) {
-  const algorithm = getAlgorithm(params.slug);
+  const algorithm = getAlgorithm(params.algorithm);
   const code = await getAlgorithmCode(algorithm);
   const body = algorithm.body ? await renderMarkdown(algorithm.body) : "";
   const jupyter = algorithm.implementations.jupyter

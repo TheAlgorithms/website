@@ -11,7 +11,7 @@ const algorithmsDirectory = path.join(cacheDirectory, "algorithms");
 export function getAlgorithmSlugs() {
   return fs.readdirSync(algorithmsDirectory).map((file) => ({
     params: {
-      slug: file.replace(".json", ""),
+      algorithm: file.replace(".json", ""),
     },
   }));
 }
@@ -24,10 +24,19 @@ export function getAlgorithm(slug: string) {
 }
 
 export async function getAlgorithmCode(algorithm: Algorithm) {
-  const exampleLanguage = Object.keys(algorithm.implementations)[0] as Language;
-  const codeText = await fetchCode(algorithm.implementations[exampleLanguage]);
-  const codeHighlight = highlightCode(codeText, exampleLanguage);
-  return codeHighlight;
+  const res: { [language in Language]?: string } = {};
+  Object.keys(algorithm.implementations).forEach((language) => {
+    res[language] = ""; // Ensure right order
+  });
+  await Promise.all(
+    Object.keys(algorithm.implementations).map(async (language) => {
+      res[language] = highlightCode(
+        await fetchCode(algorithm.implementations[language]),
+        language
+      );
+    })
+  );
+  return res;
 }
 
 export async function fetchCode(url: string) {
