@@ -6,7 +6,7 @@ import AlgorithmCard from "./algorithmCard";
 import classes from "./style.module.css";
 
 export default function AlgorithmsList({ algorithms, noCategories = false }) {
-  const splitAlgorithms = useMemo(() => {
+  const splitAlgorithms = useMemo<{ [category: string]: Algorithm[] }>(() => {
     const ret: { [key: string]: Algorithm[] } = {};
     algorithms.forEach((algorithm: Algorithm) => {
       const key = algorithm.categories[0]
@@ -39,7 +39,7 @@ export default function AlgorithmsList({ algorithms, noCategories = false }) {
                 variant="h6"
                 className={classes.subtitle}
               >
-                {key}
+                {splitAlgorithms[key][0].categories[0]}
                 <Divider />
               </Typography>
             )}
