@@ -29,6 +29,11 @@
 
 This is a static [Next.js](https://nextjs.org/) site providing a searchable library of all the algorithms in [The Algorithms](https://github.com/TheAlgorithms). All the data about the algorithms get fetched from the `DIRECTORY.md` files in all the different repositories.
 
+## License
+
+Copyright (C) 2021 Malte Jürgens and contributors.\
+See the [`LICENSE`](https://github.com/TheAlgorithms/website/blob/main/LICENSE) file for more information about the license.
+
 ## Getting Started
 
 If you haven't installed it yet, install [Node.js](https://nodejs.org/en/) and [yarn](https://classic.yarnpkg.com/en/docs/install#windows-stable). Then, install all the dependencies:
