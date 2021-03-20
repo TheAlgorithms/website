@@ -6,9 +6,13 @@ import { getAlgorithm } from "lib/algorithms";
 import Section from "components/section";
 import CategoriesList from "components/categoriesList";
 import { Language, Languages } from "lib/models";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+import { useTranslation } from "next-i18next";
 import classes from "./index.module.css";
 
 export default function Home({ topAlgorithms, featuredAlgorithms }) {
+  const { t } = useTranslation("index");
+
   return (
     <>
       <Section title="Top algorithms">
@@ -21,36 +25,16 @@ export default function Home({ topAlgorithms, featuredAlgorithms }) {
               <div className={classes.twoCols}>
                 <div>
                   <Typography variant="h5" className={classes.title}>
-                    What is an algorithm?
+                    {t("algorithmExplanationTitle")}
                   </Typography>
-                  <Typography>
-                    An algorithm is a set of rules that takes in one or more
-                    inputs, then performs inner calculations and data
-                    manipulations and returns an output or a set of outputs. In
-                    short, algorithms make life easy. From complex data
-                    manipulations and hashes, to simple arithmetic, algorithms
-                    follow a set of steps to produce a useful result. One
-                    example of an algorithm would be a simple function that
-                    takes two input values, adds them together and returns their
-                    sum.
-                  </Typography>
+                  <Typography>{t("algorithmExplanation")}</Typography>
                 </div>
                 <div />
                 <div>
                   <Typography variant="h5" className={classes.title}>
-                    About Us
+                    {t("aboutUsTitle")}
                   </Typography>
-                  <Typography>
-                    We are a group of programmers helping each other to build
-                    new things, whether it be writing complex encryption
-                    programs, or simple ciphers. Our goal is to work together to
-                    document and model beautiful, helpful and interesting
-                    algorithms using code. We are an open-source community -
-                    anyone can contribute. We check each other's work,
-                    communicate and collaborate to solve problems. We strive to
-                    be welcoming, respectful, yet make sure that our code
-                    follows the latest programming guidelines.
-                  </Typography>
+                  <Typography>{t("aboutUs")}</Typography>
                 </div>
               </div>
             </CardContent>
@@ -188,7 +172,7 @@ export default function Home({ topAlgorithms, featuredAlgorithms }) {
   );
 }
 
-export async function getStaticProps() {
+export async function getStaticProps({ locale }) {
   // const data = getAllAlgorithms();
 
   // The value of the `props` key will be
@@ -208,6 +192,7 @@ export async function getStaticProps() {
         getAlgorithm("bellman-ford"),
         getAlgorithm("bogo-sort"),
       ],
+      ...(await serverSideTranslations(locale, ["common", "index"])),
     },
   };
 }

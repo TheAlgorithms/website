@@ -1,0 +1,6 @@
+{
+  "algorithmExplanationTitle": "Was ist ein Algorithmus?",
+  "algorithmExplanation": "Ein Algorithmus ist ein Satz von Regeln, der eine oder mehrere Eingaben entgegennimmt, dann innere Berechnungen und Datenmanipulationen durchführt und eine Ausgabe oder einen Satz von Ausgaben zurückgibt. Kurz gesagt: Algorithmen machen das Leben einfach. Von komplexen Datenmanipulationen und Hashes bis hin zu einfacher Arithmetik folgen Algorithmen einer Reihe von Schritten, um ein nützliches Ergebnis zu erzielen. Ein Beispiel für einen Algorithmus wäre eine einfache Funktion, die zwei Eingabewerte nimmt, sie addiert und ihre Summe zurückgibt.",
+  "aboutUsTitle": "Über uns",
+  "aboutUs": "Wir sind eine Gruppe von Programmierern, die sich gegenseitig helfen, neue Dinge zu bauen, sei es das Schreiben komplexer Verschlüsselungsprogramme oder einfacher Chiffren. Unser Ziel ist es, zusammenzuarbeiten, um schöne, hilfreiche und interessante Algorithmen mit Code zu dokumentieren und zu modellieren. Wir sind eine Open-Source-Gemeinschaft - jeder kann etwas beitragen. Wir überprüfen die Arbeit der anderen, kommunizieren und arbeiten zusammen, um Probleme zu lösen. Wir bemühen uns, einladend und respektvoll zu sein, und stellen dennoch sicher, dass unser Code den neuesten Programmierrichtlinien folgt."
+}

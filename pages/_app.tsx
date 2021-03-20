@@ -11,6 +11,7 @@ import Jumbo from "components/jumbo";
 import Navbar from "components/navbar";
 import Footer from "components/footer";
 import Head from "components/head";
+import { appWithTranslation } from "next-i18next";
 
 function MyApp({ Component, pageProps }: AppProps) {
   const router = useRouter();
@@ -45,4 +46,4 @@ function MyApp({ Component, pageProps }: AppProps) {
   );
 }
 
-export default MyApp;
+export default appWithTranslation(MyApp);
