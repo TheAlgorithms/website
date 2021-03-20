@@ -192,7 +192,7 @@ export async function getStaticProps({ locale }) {
         getAlgorithm("bellman-ford"),
         getAlgorithm("bogo-sort"),
       ],
-      ...(await serverSideTranslations(locale, ["common", "index"])),
+      ...(await serverSideTranslations(locale, ["index"])),
     },
   };
 }
