@@ -28,5 +28,7 @@
   "algorithmExplaniationFooter": "What is an algorithm?",
   "aboutUsFooter": "About us",
   "allAlgorithmsFooter": "All algorithms",
-  "sourceCodeFooter": "Source code"
+  "sourceCodeFooter": "Source code",
+  "donateButton": "Donate",
+  "moreAlgorithmCard": "More"
 }
