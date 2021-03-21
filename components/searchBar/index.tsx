@@ -28,7 +28,7 @@ export default function SearchBar({
   setQuery,
   className = "",
 }) {
-  const { t } = useTranslation("index");
+  const { t } = useTranslation("common");
   const router = useRouter();
   const smallScreen = useMediaQuery("(max-width: 800px)");
   const inputRef = useRef<HTMLDivElement>();

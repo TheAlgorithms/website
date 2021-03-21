@@ -11,8 +11,7 @@ import { useTranslation } from "next-i18next";
 import classes from "./index.module.css";
 
 export default function Home({ topAlgorithms, featuredAlgorithms }) {
-  const { t } = useTranslation("index");
-  // const i18n = useTranslation("index"); // Used for translations for the top categories
+  const { t } = useTranslation("common");
 
   return (
     <>
@@ -178,7 +177,7 @@ export async function getStaticProps({ locale }) {
         getAlgorithm("bellman-ford"),
         getAlgorithm("bogo-sort"),
       ],
-      ...(await serverSideTranslations(locale, ["index"])),
+      ...(await serverSideTranslations(locale, ["common"])),
     },
   };
 }

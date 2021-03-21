@@ -19,7 +19,7 @@ export default function CategoriesList({
     href: string;
   }[];
 }) {
-  const { t } = useTranslation("index");
+  const { t } = useTranslation("common");
   return (
     <div className={classes.container}>
       {categories.map((category) => (

@@ -5,7 +5,7 @@ import classes from "./style.module.css";
 
 export default function Footer() {
   const theme = useTheme();
-  const { t } = useTranslation("index");
+  const { t } = useTranslation("common");
 
   return (
     <Paper
