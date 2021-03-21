@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useTranslation } from "next-i18next";
 import {
   AppBar,
   Toolbar,
@@ -48,6 +49,7 @@ export default function Navbar({
   query: string;
   setQuery: React.Dispatch<React.SetStateAction<string>>;
 }) {
+  const { t } = useTranslation("index");
   const [atTop, setAtTop] = useState(false);
   const smallScreen = useMediaQuery("(max-width:800px)");
   const [menuOpen, setMenuOpen] = useState(false);
@@ -103,7 +105,7 @@ export default function Navbar({
               </IconButton>
               {menu.map((item) => (
                 <NextLink passHref key={item.name} href={item.href}>
-                  <Button>{item.name}</Button>
+                  <Button>{t(item.name)}</Button>
                 </NextLink>
               ))}
             </div>
