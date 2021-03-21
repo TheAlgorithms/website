@@ -12,10 +12,11 @@ import classes from "./index.module.css";
 
 export default function Home({ topAlgorithms, featuredAlgorithms }) {
   const { t } = useTranslation("index");
+  //const i18n = useTranslation("index"); // Used for translations for the top categories
 
   return (
     <>
-      <Section title="Top algorithms">
+      <Section title={t("topAlgorithms")}>
         <AlgorithmsList noCategories algorithms={topAlgorithms} />
       </Section>
       <div id="about">
@@ -41,10 +42,10 @@ export default function Home({ topAlgorithms, featuredAlgorithms }) {
           </Card>
         </Section>
       </div>
-      <Section title="Featured algorithms">
+      <Section title={t("featuredAlgorithms")}>
         <AlgorithmsList noCategories algorithms={featuredAlgorithms} />
       </Section>
-      <Section title="Top categories">
+      <Section title={t("topCategories")}>
         <CategoriesList
           categories={[
             {
@@ -93,13 +94,10 @@ export default function Home({ topAlgorithms, featuredAlgorithms }) {
               <div className={classes.twoCols}>
                 <div>
                   <Typography variant="h5" className={classes.title}>
-                    Programming Languages
+                  {t("programmingLanguagesTitle")}
                   </Typography>
                   <Typography>
-                    We support many programming languages. Each language has its
-                    own GitHub repository where all the code for the algorithms
-                    is stored. Here is a list of the current programming
-                    languages:
+                  {t("programmingLanguages")}
                   </Typography>
                   <LanguagesList
                     languages={Object.keys(Languages).map(
@@ -115,21 +113,13 @@ export default function Home({ topAlgorithms, featuredAlgorithms }) {
                 <div />
                 <div>
                   <Typography variant="h5" className={classes.title}>
-                    Contribute
+                  {t("contributeTitle")}
                   </Typography>
                   <Typography>
-                    We encourage you to contribute to these repositories. If you
-                    have an algorithm that you want to add, a change you want to
-                    make or a bug you want to fix, please do so. But before you
-                    do, make sure you have read the contributing guidelines
-                    found in CONTRIBUTING.md in the repository. Make sure that
-                    you are respectful, helpful and using the latest version of
-                    the language. After reading the contribution guidelines,
-                    please fork the repository, work on your changes and then
-                    submit them as a pull request.
+                  {t("contribute")}
                   </Typography>
                   <Typography variant="h5" className={classes.title}>
-                    Donate
+                    {t("donateTitle")}
                   </Typography>
                   <Typography>
                     Another way you can support us is to make a donation via{" "}

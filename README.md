@@ -25,6 +25,10 @@
   </a>
 
   <img src="https://img.shields.io/github/repo-size/TheAlgorithms/website?color=blue" height="20">
+
+  <a href="https://hosted.weblate.org/engage/TheAlgorithms/?utm_source=widget">
+    <img src="https://hosted.weblate.org/widgets/TheAlgorithms/-/svg-badge.svg" height="20">
+  </a>
 </p>
 
 This is a static [Next.js](https://nextjs.org/) site providing a searchable library of all the algorithms in [The Algorithms](https://github.com/TheAlgorithms). All the data about the algorithms get fetched from the `DIRECTORY.md` files in all the different repositories.
@@ -33,6 +37,14 @@ This is a static [Next.js](https://nextjs.org/) site providing a searchable libr
 
 Copyright (C) 2021 Malte Jürgens and contributors.\
 See the [`LICENSE`](https://github.com/TheAlgorithms/website/blob/main/LICENSE) file for more information about the license.
+
+## Translating the website
+
+You can help us translate the [TheAlgorithms](https://the-algorithms.com) website using [Weblate](https://hosted.weblate.org/engage/TheAlgorithms/?utm_source=widget). If you're not sure about if your translation is OK, better submit a suggestion, and someone else will review it. Here is the list of the current languages:
+
+[![Global translation status](https://hosted.weblate.org/widgets/TheAlgorithms/-/index/287x66-white.png)](https://hosted.weblate.org/engage/TheAlgorithms/?utm_source=widget)
+
+[![Translation status by language](https://hosted.weblate.org/widgets/TheAlgorithms/-/index/multi-auto.svg)](https://hosted.weblate.org/projects/TheAlgorithms/website/?utm_source=widget)
 
 ## Getting Started
 
