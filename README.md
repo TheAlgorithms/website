@@ -39,7 +39,7 @@ You can help us translate the [TheAlgorithms](https://the-algorithms.com) websit
 
 [![Global translation status](https://hosted.weblate.org/widgets/TheAlgorithms/-/index/287x66-white.png)](https://hosted.weblate.org/engage/TheAlgorithms/?utm_source=widget)
 
-[![Translation status by language](https://hosted.weblate.org/widgets/TheAlgorithms/-/index/multi-auto.svg)](https://hosted.weblate.org/projects/TheAlgorithms/website/?utm_source=widget)
+[![Translation status by language](https://hosted.weblate.org/widgets/TheAlgorithms/-/common/multi-auto.svg)](https://hosted.weblate.org/projects/TheAlgorithms/common/?utm_source=widget)
 
 ## Getting Started
 
