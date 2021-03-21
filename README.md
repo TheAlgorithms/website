@@ -29,11 +29,6 @@
 
 This is a static [Next.js](https://nextjs.org/) site providing a searchable library of all the algorithms in [The Algorithms](https://github.com/TheAlgorithms). All the data about the algorithms get fetched from the `DIRECTORY.md` files in all the different repositories.
 
-## License
-
-Copyright (C) 2021 Malte Jürgens and contributors.\
-See the [`LICENSE`](https://github.com/TheAlgorithms/website/blob/main/LICENSE) file for more information about the license.
-
 ## Getting Started
 
 If you haven't installed it yet, install [Node.js](https://nodejs.org/en/) and [yarn](https://classic.yarnpkg.com/en/docs/install#windows-stable). Then, install all the dependencies:
@@ -68,6 +63,10 @@ If you want to add a new feature or fix a bug, create a new branch or fork and c
 Open the pull request against `main`. Vercel will automatically create a preview deployment and the pull request will be squash merged after being reviewed by a member.
 
 If you are a member and just want to add a small fix you can also directly commit to `main` instead of opening a pull request.
+
+## License
+
+The website itself (this repository) is licensed under [MIT](https://github.com/TheAlgorithms/website/blob/main/LICENSE), while all the licenses for the code on the website can be found in the respective repositories.
 
 ## Learn More
 
