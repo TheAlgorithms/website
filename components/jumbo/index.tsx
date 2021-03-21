@@ -3,8 +3,8 @@ import { Paper, Typography, useTheme } from "@material-ui/core";
 import { JumboThemeProvider } from "hooks/themes";
 import Image from "next/image";
 import SearchBar from "components/searchBar";
-import classes from "./style.module.css";
 import { useTranslation } from "next-i18next";
+import classes from "./style.module.css";
 
 export default function Jumbo({
   query,
@@ -36,10 +36,10 @@ export default function Jumbo({
             />
           </div>
           <div className="container">
-            <Typography className={classes.h1}>{t("helloAlgorithms")}</Typography>
-            <Typography className={classes.h2}>
-              {t("welcomeTitle")}
+            <Typography className={classes.h1}>
+              {t("helloAlgorithms")}
             </Typography>
+            <Typography className={classes.h2}>{t("welcomeTitle")}</Typography>
             <div className={classes.input}>
               <SearchBar query={query} setQuery={setQuery} />
             </div>

@@ -7,8 +7,8 @@ import {
   Typography,
 } from "@material-ui/core";
 import NextLink from "next/link";
-import classes from "./style.module.css";
 import { useTranslation } from "next-i18next";
+import classes from "./style.module.css";
 
 export default function CategoriesList({
   categories,

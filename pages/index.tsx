@@ -12,7 +12,7 @@ import classes from "./index.module.css";
 
 export default function Home({ topAlgorithms, featuredAlgorithms }) {
   const { t } = useTranslation("index");
-  //const i18n = useTranslation("index"); // Used for translations for the top categories
+  // const i18n = useTranslation("index"); // Used for translations for the top categories
 
   return (
     <>
@@ -94,11 +94,9 @@ export default function Home({ topAlgorithms, featuredAlgorithms }) {
               <div className={classes.twoCols}>
                 <div>
                   <Typography variant="h5" className={classes.title}>
-                  {t("programmingLanguagesTitle")}
+                    {t("programmingLanguagesTitle")}
                   </Typography>
-                  <Typography>
-                  {t("programmingLanguages")}
-                  </Typography>
+                  <Typography>{t("programmingLanguages")}</Typography>
                   <LanguagesList
                     languages={Object.keys(Languages).map(
                       (langName: Language) => ({
@@ -113,11 +111,9 @@ export default function Home({ topAlgorithms, featuredAlgorithms }) {
                 <div />
                 <div>
                   <Typography variant="h5" className={classes.title}>
-                  {t("contributeTitle")}
+                    {t("contributeTitle")}
                   </Typography>
-                  <Typography>
-                  {t("contribute")}
-                  </Typography>
+                  <Typography>{t("contribute")}</Typography>
                   <Typography variant="h5" className={classes.title}>
                     {t("donateTitle")}
                   </Typography>
