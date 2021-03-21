@@ -48,37 +48,37 @@ export default function Home({ topAlgorithms, featuredAlgorithms }) {
         <CategoriesList
           categories={[
             {
-              name: "Sorts",
+              name: t("sortsCategories"),
               icon: "sort",
               href: "/category/sorts",
             },
             {
-              name: "Searches",
+              name: t("searchesCategories"),
               icon: "search",
               href: "/category/searches",
             },
             {
-              name: "Dynamic Programming",
+              name: t("dynamicProgrammingCategories"),
               icon: "bolt",
               href: "/category/dynamicprogramming",
             },
             {
-              name: "Ciphers",
+              name: t("ciphersCategories"),
               icon: "enhanced_encryption",
               href: "/category/ciphers",
             },
             {
-              name: "Data Structures",
+              name: t("dataStructuresCategories"),
               icon: "grid_view",
               href: "/category/datastructures",
             },
             {
-              name: "Basic Math",
+              name: t("basicMathCategories"),
               icon: "calculate",
               href: "/category/maths",
             },
             {
-              name: "Image Processing",
+              name: t("imageProcessingCategories"),
               icon: "insert_photo",
               href: "/category/digitalimageprocessing",
             },
