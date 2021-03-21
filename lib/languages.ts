@@ -1,5 +1,6 @@
 import fs from "fs";
 import path from "path";
+import locales from "lib/locales";
 import { Algorithm, Languages } from "./models";
 import { normalize } from "./normalize";
 
@@ -8,11 +9,14 @@ const allAlgorithms: Algorithm[] = JSON.parse(
 );
 
 export function getLanguages() {
-  return Object.keys(Languages).map((language) => ({
-    params: {
-      language,
-    },
-  }));
+  return Object.keys(Languages).flatMap((language) =>
+    locales.map((locale) => ({
+      params: {
+        language,
+      },
+      locale,
+    }))
+  );
 }
 
 export function getLanguage(language: string) {

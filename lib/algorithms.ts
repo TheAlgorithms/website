@@ -1,5 +1,6 @@
 import fs from "fs";
 import path from "path";
+import locales from "lib/locales";
 import type { Algorithm, Language } from "./models";
 import highlightCode from "./highlight";
 import renderMarkdown from "./markdown";
@@ -9,11 +10,14 @@ const cacheDirectory = path.join(process.cwd(), "cache");
 const algorithmsDirectory = path.join(cacheDirectory, "algorithms");
 
 export function getAlgorithmSlugs() {
-  return fs.readdirSync(algorithmsDirectory).map((file) => ({
-    params: {
-      algorithm: file.replace(".json", ""),
-    },
-  }));
+  return fs.readdirSync(algorithmsDirectory).flatMap((file) =>
+    locales.map((locale) => ({
+      params: {
+        algorithm: file.replace(".json", ""),
+      },
+      locale,
+    }))
+  );
 }
 
 export function getAlgorithm(slug: string) {

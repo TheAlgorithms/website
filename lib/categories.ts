@@ -1,5 +1,6 @@
 import fs from "fs";
 import path from "path";
+import locales from "lib/locales";
 import { Algorithm } from "./models";
 import { normalize } from "./normalize";
 
@@ -20,11 +21,14 @@ export function getCategories() {
         categories.push(category);
     });
   });
-  return categories.map((category) => ({
-    params: {
-      category: normalize(category),
-    },
-  }));
+  return categories.flatMap((category) =>
+    locales.map((locale) => ({
+      params: {
+        category: normalize(category),
+      },
+      locale,
+    }))
+  );
 }
 
 export function getCategory(category: string) {

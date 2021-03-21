@@ -12,6 +12,7 @@ import {
 import { normalize } from "lib/normalize";
 import CodePreview from "components/codePreview";
 import Head from "components/head";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import classes from "./algorithm.module.css";
 
 export default function AlgorithmPage({
@@ -62,7 +63,7 @@ export default function AlgorithmPage({
   );
 }
 
-export async function getStaticProps({ params }) {
+export async function getStaticProps({ params, locale }) {
   const algorithm = getAlgorithm(params.algorithm);
   const code = await getAlgorithmCode(algorithm);
   const body = algorithm.body ? await renderMarkdown(algorithm.body) : "";
@@ -75,6 +76,7 @@ export async function getStaticProps({ params }) {
       code,
       body,
       jupyter,
+      ...(await serverSideTranslations(locale, ["common"])),
     },
   };
 }

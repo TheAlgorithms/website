@@ -5,6 +5,7 @@ import AlgorithmsList from "components/algorithmsList";
 import search from "lib/search";
 import Section from "components/section";
 import Head from "components/head";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import classes from "./search.module.css";
 
 export default function Search() {
@@ -48,4 +49,12 @@ export default function Search() {
       </Section>
     </>
   );
+}
+
+export async function getStaticProps({ locale }) {
+  return {
+    props: {
+      ...(await serverSideTranslations(locale, ["common"])),
+    },
+  };
 }
