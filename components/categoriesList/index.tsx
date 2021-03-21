@@ -7,7 +7,6 @@ import {
   Typography,
 } from "@material-ui/core";
 import NextLink from "next/link";
-import { useTranslation } from "next-i18next";
 import classes from "./style.module.css";
 
 export default function CategoriesList({
@@ -19,7 +18,6 @@ export default function CategoriesList({
     href: string;
   }[];
 }) {
-  const { t } = useTranslation("common");
   return (
     <div className={classes.container}>
       {categories.map((category) => (
@@ -29,7 +27,7 @@ export default function CategoriesList({
               <CardContent className={classes.cardInner}>
                 <Icon>{category.icon}</Icon>
                 <Typography variant="h6" className={classes.text}>
-                  <Link>{t(category.name)}</Link>
+                  <Link>{category.name}</Link>
                 </Typography>
               </CardContent>
             </ButtonBase>

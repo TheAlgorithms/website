@@ -19,25 +19,6 @@ import { useRouter } from "next/router";
 import SearchBar from "components/searchBar";
 import classes from "./style.module.css";
 
-const menu = [
-  {
-    name: "About",
-    href: "/#about",
-  },
-  {
-    name: "Gitter",
-    href: "https://gitter.im/TheAlgorithms/",
-  },
-  {
-    name: "GitHub",
-    href: "https://github.com/TheAlgorithms/",
-  },
-  {
-    name: "Twitter",
-    href: "https://twitter.com/The_Algorithms/",
-  },
-];
-
 export default function Navbar({
   darkTheme,
   setDarkTheme,
@@ -55,6 +36,25 @@ export default function Navbar({
   const [menuOpen, setMenuOpen] = useState(false);
   const router = useRouter();
   const isHome = router.route === "/";
+
+  const menu = [
+    {
+      name: t("aboutTextNavbar"),
+      href: "/#about",
+    },
+    {
+      name: "Gitter",
+      href: "https://gitter.im/TheAlgorithms/",
+    },
+    {
+      name: "GitHub",
+      href: "https://github.com/TheAlgorithms/",
+    },
+    {
+      name: "Twitter",
+      href: "https://twitter.com/The_Algorithms/",
+    },
+  ];
 
   useEffect(() => {
     setAtTop(window.scrollY < 1);
@@ -105,7 +105,7 @@ export default function Navbar({
               </IconButton>
               {menu.map((item) => (
                 <NextLink passHref key={item.name} href={item.href}>
-                  <Button>{t(item.name)}</Button>
+                  <Button>{item.name}</Button>
                 </NextLink>
               ))}
             </div>
