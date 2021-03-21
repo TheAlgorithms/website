@@ -8,6 +8,7 @@ import CategoriesList from "components/categoriesList";
 import { Language, Languages } from "lib/models";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useTranslation } from "next-i18next";
+import SanitizedHTML from "react-sanitized-html";
 import classes from "./index.module.css";
 
 export default function Home({ topAlgorithms, featuredAlgorithms }) {
@@ -117,14 +118,7 @@ export default function Home({ topAlgorithms, featuredAlgorithms }) {
                     {t("donateTitle")}
                   </Typography>
                   <Typography>
-                    Another way you can support us is to make a donation via{" "}
-                    <a href="https://liberapay.com/">Liberapay</a>. Even a small
-                    donation is much appreciated. By donating, it means that you
-                    appreciate and like our work. If you don't like our work,
-                    there's no need to donate. If you donate, top members will
-                    be able to contribute further to The Algorithms projects. We
-                    appreciate donations from everyone, from everywhere, no
-                    matter the amount.
+                    <SanitizedHTML allowedTags={["a"]} html={t("donateText")} />
                   </Typography>
                   <Button
                     variant="contained"
