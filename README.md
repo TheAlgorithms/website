@@ -33,7 +33,6 @@
 
 This is a static [Next.js](https://nextjs.org/) site providing a searchable library of all the algorithms in [The Algorithms](https://github.com/TheAlgorithms). All the data about the algorithms get fetched from the `DIRECTORY.md` files in all the different repositories.
 
-
 ## Translating the website
 
 You can help us translate the [TheAlgorithms](https://the-algorithms.com) website using [Weblate](https://hosted.weblate.org/engage/TheAlgorithms/?utm_source=widget). If you're not sure about if your translation is OK, better submit a suggestion, and someone else will review it. Here is the list of the current languages:
