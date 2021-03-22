@@ -3,8 +3,6 @@ import path from "path";
 import locales from "lib/locales";
 import type { Algorithm, Language } from "./models";
 import highlightCode from "./highlight";
-import renderMarkdown from "./markdown";
-import renderNotebook from "./notebookjs";
 
 const cacheDirectory = path.join(process.cwd(), "cache");
 const algorithmsDirectory = path.join(cacheDirectory, "algorithms");
@@ -48,12 +46,6 @@ export async function fetchCode(url: string) {
     url.replace("github.com", "raw.githubusercontent.com").replace("/blob", "")
   );
   return (await fetch(rawUrl.toString())).text();
-}
-
-export async function getAlgorithmBody(algorithm: Algorithm) {
-  if (algorithm.body) return renderMarkdown(algorithm.body);
-  if (algorithm.implementations.jupyter) return renderNotebook(algorithm);
-  return "";
 }
 
 export function getAllAlgorithms() {

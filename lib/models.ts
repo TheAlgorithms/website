@@ -1,7 +1,7 @@
 export interface Algorithm {
   slug: string;
   name: string;
-  body?: string;
+  body: { [locale: string]: string };
   categories: string[];
   implementations: { [key in Language]?: string };
   code: string;

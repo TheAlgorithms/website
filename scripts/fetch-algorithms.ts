@@ -1,12 +1,28 @@
 /* eslint-disable no-console */
 /* eslint-disable import/no-extraneous-dependencies */
 import ora from "ora";
-import fetch from "node-fetch";
+import fetch, { RequestInit } from "node-fetch";
 import fs from "fs";
 import path from "path";
 import atob from "atob";
+import btoa from "btoa";
+import dotenv from "dotenv";
+import locales from "../lib/locales";
+import aliases from "../lib/aliases";
 import { Algorithm, Languages } from "../lib/models";
 import { normalize, normalizeWeak } from "../lib/normalize";
+
+dotenv.config();
+const fetchOptions: RequestInit = {
+  headers:
+    process.env.GH_USER && process.env.GH_TOKEN
+      ? {
+          Authorization: `Basic ${btoa(
+            `${process.env.GH_USER}:${process.env.GH_TOKEN}`
+          )}`,
+        }
+      : {},
+};
 
 const fsPromises = fs.promises;
 
@@ -43,23 +59,36 @@ let categories: { [category: string]: string[] } = {};
   spinner = ora("Fetching explanations").start();
   const explanations = await (
     await fetch(
-      "https://api.github.com/repos/TheAlgorithms/Algorithms-Explanation/git/trees/master?recursive=2"
+      "https://api.github.com/repos/TheAlgorithms/Algorithms-Explanation/git/trees/master?recursive=2",
+      fetchOptions
     )
   ).json();
   try {
     await Promise.all(
-      explanations.tree.map(async (explanation) => {
-        const match = explanation.path.match(/en\/(?:.+)\/(.+)\.md/);
-        if (match) {
-          const algorithm = algorithms.find(
-            (alg) => normalize(alg.name) === normalize(match[1])
-          );
-          if (algorithm) {
-            const data = await (await fetch(explanation.url)).json();
-            algorithm.body = atob(data.content).split("\n").slice(1).join("\n");
-          }
-        }
-      })
+      locales.flatMap(async (locale) =>
+        Promise.all(
+          explanations.tree.map(async (explanation) => {
+            const match = explanation.path.match(
+              // eslint-disable-next-line no-useless-escape
+              new RegExp(`${locale}\/(?:.+)\/(.+)\.md`)
+            );
+            if (match) {
+              const algorithm = algorithms.find((alg) =>
+                equals(alg.name, match[1])
+              );
+              if (algorithm) {
+                const data = await (
+                  await fetch(explanation.url, fetchOptions)
+                ).json();
+                algorithm.body[locale] = b64DecodeUnicode(data.content)
+                  .split("\n")
+                  .slice(1)
+                  .join("\n");
+              }
+            }
+          })
+        )
+      )
     );
     spinner.succeed();
   } catch (error) {
@@ -131,6 +160,7 @@ function addAlgorithmFromMatch(
       categories: algorithmCategories,
       implementations: {},
       code: "",
+      body: {},
     };
     algorithms.push(algorithm);
   }
@@ -141,4 +171,28 @@ function addAlgorithmFromMatch(
     } else categories[normalize(category)] = [algorithm.slug];
   });
   [, , algorithm.implementations[lang]] = match;
+}
+
+function equals(string1: string, string2: string) {
+  if (normalize(string1) === normalize(string2)) {
+    return true;
+  }
+  if (aliases[normalize(string1)]) {
+    for (let i = 0; i < aliases[normalize(string1)].length; i += 1) {
+      if (normalize(string2) === normalize(aliases[normalize(string1)][i])) {
+        return true;
+      }
+    }
+  }
+  return false;
+}
+
+function b64DecodeUnicode(str) {
+  // Going backwards: from bytestream, to percent-encoding, to original string.
+  return decodeURIComponent(
+    atob(str)
+      .split("")
+      .map((c) => `%${`00${c.charCodeAt(0).toString(16)}`.slice(-2)}`)
+      .join("")
+  );
 }
