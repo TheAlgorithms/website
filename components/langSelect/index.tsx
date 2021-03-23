@@ -7,26 +7,26 @@ import {
   useMediaQuery,
 } from "@material-ui/core";
 import React from "react";
-import { IconFlagUS, IconFlagES, IconFlagDE } from "material-ui-flags";
 import { useRouter } from "next/router";
 import Link from "next/link";
+import ReactCountryFlag from "react-country-flag";
 import classes from "./style.module.css";
 
-const languages: { name: string; locale: string; Icon: JSX.Element }[] = [
+const languages: { name: string; locale: string; icon: string }[] = [
   {
     name: "English",
     locale: "en",
-    Icon: <IconFlagUS />,
+    icon: "GB",
   },
   {
     name: "Español",
     locale: "es",
-    Icon: <IconFlagES />,
+    icon: "MX",
   },
   {
     name: "Deutsch",
     locale: "de",
-    Icon: <IconFlagDE />,
+    icon: "DE",
   },
 ];
 
@@ -43,7 +43,13 @@ function MenuContent() {
           passHref
         >
           <MenuItem selected={router.locale === language.locale}>
-            <ListItemIcon>{language.Icon}</ListItemIcon>
+            <ListItemIcon>
+              <ReactCountryFlag
+                style={{ width: 30, height: 20 }}
+                countryCode={language.icon}
+                svg
+              />
+            </ListItemIcon>
             <ListItemText>{language.name}</ListItemText>
           </MenuItem>
         </Link>
