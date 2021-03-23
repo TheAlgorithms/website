@@ -35,9 +35,7 @@ This is a static [Next.js](https://nextjs.org/) site providing a searchable libr
 
 ## Translating the website
 
-You can help us translate the [TheAlgorithms](https://the-algorithms.com) website using [Weblate](https://hosted.weblate.org/engage/TheAlgorithms/?utm_source=widget). If you're not sure about if your translation is OK, better submit a suggestion, and someone else will review it. Here is the list of the current languages:
-
-[![Global translation status](https://hosted.weblate.org/widgets/TheAlgorithms/-/index/287x66-white.png)](https://hosted.weblate.org/engage/TheAlgorithms/?utm_source=widget)
+You can help us translate the [TheAlgorithms](https://the-algorithms.com) website using Weblate [here](https://hosted.weblate.org/engage/TheAlgorithms/?utm_source=widget). There you can complete the translations for our current languages, or suggest something if you are unsure. Also feel free to add a new language. The current languages are:
 
 [![Translation status by language](https://hosted.weblate.org/widgets/TheAlgorithms/-/common/multi-auto.svg)](https://hosted.weblate.org/projects/TheAlgorithms/common/?utm_source=widget)
 
