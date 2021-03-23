@@ -18,5 +18,16 @@
     "donateTitle": "Spenden",
     "contributeTitle": "Beitragen",
     "programmingLanguages": "Wir unterstützen viele Programmiersprachen. Jede Sprache hat ihr eigenes GitHub-Repository, in dem der gesamte Code für die Algorithmen gespeichert ist. Die folgenden Programmiersprachen werden von uns angeboten:",
-    "programmingLanguagesTitle": "Programmiersprachen"
+    "programmingLanguagesTitle": "Programmiersprachen",
+    "changeLanguageNavbar": "Sprache ändern",
+    "darkModeNavbar": "Dunkles Theme",
+    "lightModeNavbar": "Helles Theme",
+    "helloAlgorithms": "Hallo, Algorithmen!",
+    "imageProcessingCategories": "Bildverarbeitung",
+    "basicMathCategories": "Mathematik",
+    "dataStructuresCategories": "Datenstrukturen",
+    "ciphersCategories": "Chiffren",
+    "dynamicProgrammingCategories": "Dynamisches Programmieren",
+    "searchesCategories": "Suchalgorithmen",
+    "sortsCategories": "Sortieralgorithmen"
 }
