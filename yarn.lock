@@ -3119,6 +3119,11 @@ marked@^2.0.0:
   resolved "https://registry.yarnpkg.com/marked/-/marked-2.0.0.tgz#9662bbcb77ebbded0662a7be66ff929a8611cee5"
   integrity sha512-NqRSh2+LlN2NInpqTQnS614Y/3NkVMFFU6sJlRFEpxJ/LHuK/qJECH7/fXZjk4VZstPW/Pevjil/VtSONsLc7Q==
 
+material-ui-flags@^1.2.4:
+  version "1.2.4"
+  resolved "https://registry.yarnpkg.com/material-ui-flags/-/material-ui-flags-1.2.4.tgz#8eb6130b1cdef58df038f66dc8b286780f2dba23"
+  integrity sha512-547k+KkQ5Dei0Pqaztp7RtwRlI71BZ98rbzuuNX/Bw7nZ1vtBTCnaXLMQ6jVxpFJ9ckS4rjg503EZtb7QnYJsA==
+
 md5.js@^1.3.4:
   version "1.3.5"
   resolved "https://registry.yarnpkg.com/md5.js/-/md5.js-1.3.5.tgz#b5d07b8e3216e3e27cd728d72f70d1e6a342005f"
