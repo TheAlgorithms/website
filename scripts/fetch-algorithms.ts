@@ -69,8 +69,7 @@ let categories: { [category: string]: string[] } = {};
         Promise.all(
           explanations.tree.map(async (explanation) => {
             const match = explanation.path.match(
-              // eslint-disable-next-line no-useless-escape
-              new RegExp(`${locale}\/(?:.+)\/(.+)\.md`)
+              new RegExp(`${locale}\\/(?:.+)\\/(.+)\\.md`)
             );
             if (match) {
               const algorithm = algorithms.find((alg) =>

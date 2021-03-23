@@ -5,8 +5,8 @@ import Section from "components/section";
 import Head from "components/head";
 import { getLanguage, getLanguages } from "lib/languages";
 import { getLanguageName, Language } from "lib/models";
-import classes from "./style.module.css";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+import classes from "./style.module.css";
 
 export default function LanguagePage({
   language,
