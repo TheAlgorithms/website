@@ -1,4 +1,5 @@
 import React, { FormEvent, useEffect, useRef } from "react";
+import { useTranslation } from "next-i18next";
 import {
   FormControl,
   FilledInput,
@@ -27,6 +28,7 @@ export default function SearchBar({
   setQuery,
   className = "",
 }) {
+  const { t } = useTranslation("common");
   const router = useRouter();
   const smallScreen = useMediaQuery("(max-width: 800px)");
   const inputRef = useRef<HTMLDivElement>();
@@ -81,7 +83,7 @@ export default function SearchBar({
           <OutlinedInput
             onInput={handleInput}
             value={query}
-            placeholder="Search any algorithm"
+            placeholder={t("searchText")}
             endAdornment={searchAdornment}
             ref={inputRef}
           />
@@ -89,7 +91,7 @@ export default function SearchBar({
       ) : (
         <FormControl variant="filled" style={{ width: "100%" }} size="medium">
           <>
-            <InputLabel>Search any algorithm</InputLabel>
+            <InputLabel>{t("searchText")}</InputLabel>
             <FilledInput
               onInput={handleInput}
               endAdornment={searchAdornment}

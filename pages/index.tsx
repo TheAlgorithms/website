@@ -6,12 +6,17 @@ import { getAlgorithm } from "lib/algorithms";
 import Section from "components/section";
 import CategoriesList from "components/categoriesList";
 import { Language, Languages } from "lib/models";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+import { useTranslation } from "next-i18next";
+import SanitizedHTML from "react-sanitized-html";
 import classes from "./index.module.css";
 
 export default function Home({ topAlgorithms, featuredAlgorithms }) {
+  const { t } = useTranslation("common");
+
   return (
     <>
-      <Section title="Top algorithms">
+      <Section title={t("topAlgorithms")}>
         <AlgorithmsList noCategories algorithms={topAlgorithms} />
       </Section>
       <div id="about">
@@ -21,80 +26,60 @@ export default function Home({ topAlgorithms, featuredAlgorithms }) {
               <div className={classes.twoCols}>
                 <div>
                   <Typography variant="h5" className={classes.title}>
-                    What is an algorithm?
+                    {t("algorithmExplanationTitle")}
                   </Typography>
-                  <Typography>
-                    An algorithm is a set of rules that takes in one or more
-                    inputs, then performs inner calculations and data
-                    manipulations and returns an output or a set of outputs. In
-                    short, algorithms make life easy. From complex data
-                    manipulations and hashes, to simple arithmetic, algorithms
-                    follow a set of steps to produce a useful result. One
-                    example of an algorithm would be a simple function that
-                    takes two input values, adds them together and returns their
-                    sum.
-                  </Typography>
+                  <Typography>{t("algorithmExplanation")}</Typography>
                 </div>
                 <div />
                 <div>
                   <Typography variant="h5" className={classes.title}>
-                    About Us
+                    {t("aboutUsTitle")}
                   </Typography>
-                  <Typography>
-                    We are a group of programmers helping each other to build
-                    new things, whether it be writing complex encryption
-                    programs, or simple ciphers. Our goal is to work together to
-                    document and model beautiful, helpful and interesting
-                    algorithms using code. We are an open-source community -
-                    anyone can contribute. We check each other's work,
-                    communicate and collaborate to solve problems. We strive to
-                    be welcoming, respectful, yet make sure that our code
-                    follows the latest programming guidelines.
-                  </Typography>
+                  <Typography>{t("aboutUs")}</Typography>
                 </div>
               </div>
             </CardContent>
           </Card>
         </Section>
       </div>
-      <Section title="Featured algorithms">
+      <Section title={t("featuredAlgorithms")}>
         <AlgorithmsList noCategories algorithms={featuredAlgorithms} />
       </Section>
-      <Section title="Top categories">
+      <Section title={t("topCategories")}>
         <CategoriesList
           categories={[
             {
-              name: "Sorts",
+              name: t("sortsCategories"),
               icon: "sort",
               href: "/category/sorts",
             },
             {
-              name: "Searches",
+              name: t("searchesCategories"),
               icon: "search",
               href: "/category/searches",
             },
             {
-              name: "Dynamic Programming",
+              name: t("dynamicProgrammingCategories"),
               icon: "bolt",
               href: "/category/dynamicprogramming",
             },
             {
-              name: "Ciphers",
+              name: t("ciphersCategories"),
               icon: "enhanced_encryption",
               href: "/category/ciphers",
             },
             {
-              name: "Data Structures",
+              name: t("dataStructuresCategories"),
               icon: "grid_view",
               href: "/category/datastructures",
             },
             {
-              name: "Basic Math",
+              name: t("basicMathCategories"),
               icon: "calculate",
               href: "/category/maths",
             },
             {
-              name: "Image Processing",
+              name: t("imageProcessingCategories"),
               icon: "insert_photo",
               href: "/category/digitalimageprocessing",
             },
@@ -109,14 +94,9 @@ export default function Home({ topAlgorithms, featuredAlgorithms }) {
               <div className={classes.twoCols}>
                 <div>
                   <Typography variant="h5" className={classes.title}>
-                    Programming Languages
+                    {t("programmingLanguagesTitle")}
                   </Typography>
-                  <Typography>
-                    We support many programming languages. Each language has its
-                    own GitHub repository where all the code for the algorithms
-                    is stored. Here is a list of the current programming
-                    languages:
-                  </Typography>
+                  <Typography>{t("programmingLanguages")}</Typography>
                   <LanguagesList
                     languages={Object.keys(Languages).map(
                       (langName: Language) => ({
@@ -131,31 +111,14 @@ export default function Home({ topAlgorithms, featuredAlgorithms }) {
                 <div />
                 <div>
                   <Typography variant="h5" className={classes.title}>
-                    Contribute
+                    {t("contributeTitle")}
                   </Typography>
-                  <Typography>
-                    We encourage you to contribute to these repositories. If you
-                    have an algorithm that you want to add, a change you want to
-                    make or a bug you want to fix, please do so. But before you
-                    do, make sure you have read the contributing guidelines
-                    found in CONTRIBUTING.md in the repository. Make sure that
-                    you are respectful, helpful and using the latest version of
-                    the language. After reading the contribution guidelines,
-                    please fork the repository, work on your changes and then
-                    submit them as a pull request.
-                  </Typography>
+                  <Typography>{t("contribute")}</Typography>
                   <Typography variant="h5" className={classes.title}>
-                    Donate
+                    {t("donateTitle")}
                   </Typography>
                   <Typography>
-                    Another way you can support us is to make a donation via{" "}
-                    <a href="https://liberapay.com/">Liberapay</a>. Even a small
-                    donation is much appreciated. By donating, it means that you
-                    appreciate and like our work. If you don't like our work,
-                    there's no need to donate. If you donate, top members will
-                    be able to contribute further to The Algorithms projects. We
-                    appreciate donations from everyone, from everywhere, no
-                    matter the amount.
+                    <SanitizedHTML allowedTags={["a"]} html={t("donateText")} />
                   </Typography>
                   <Button
                     variant="contained"
@@ -176,7 +139,7 @@ export default function Home({ topAlgorithms, featuredAlgorithms }) {
                         <path d="m146.52 246.14c0 3.671-.604 7.03-1.811 10.07-1.207 3.043-2.879 5.669-5.01 7.881-2.138 2.213-4.702 3.935-7.693 5.167-2.992 1.231-6.248 1.848-9.767 1.848-1.71 0-3.42-.151-5.129-.453l-3.394 13.651h-11.162l12.52-52.19c2.01-.603 4.311-1.143 6.901-1.622 2.589-.477 5.393-.716 8.41-.716 2.815 0 5.242.428 7.278 1.282 2.037.855 3.708 2.024 5.02 3.507 1.307 1.484 2.274 3.219 2.904 5.205.627 1.987.942 4.11.942 6.373m-27.378 15.461c.854.202 1.91.302 3.167.302 1.961 0 3.746-.364 5.355-1.094 1.609-.728 2.979-1.747 4.111-3.055 1.131-1.307 2.01-2.877 2.64-4.714.628-1.835.943-3.858.943-6.071 0-2.161-.479-3.998-1.433-5.506-.956-1.508-2.615-2.263-4.978-2.263-1.61 0-3.118.151-4.525.453l-5.28 21.948" />
                       </g>
                     </svg>
-                    Donate
+                    {t("donateButton")}
                   </Button>
                 </div>
               </div>
@@ -188,7 +151,7 @@ export default function Home({ topAlgorithms, featuredAlgorithms }) {
   );
 }
 
-export async function getStaticProps() {
+export async function getStaticProps({ locale }) {
   // const data = getAllAlgorithms();
 
   // The value of the `props` key will be
@@ -208,6 +171,7 @@ export async function getStaticProps() {
         getAlgorithm("bellman-ford"),
         getAlgorithm("bogo-sort"),
       ],
+      ...(await serverSideTranslations(locale, ["common"])),
     },
   };
 }

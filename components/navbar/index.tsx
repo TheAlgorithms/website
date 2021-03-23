@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
+import { useTranslation } from "next-i18next";
 import {
   AppBar,
   Toolbar,
@@ -16,26 +17,8 @@ import { JumboThemeProvider } from "hooks/themes";
 import Link from "components/link";
 import { useRouter } from "next/router";
 import SearchBar from "components/searchBar";
+import LangSelect from "components/langSelect";
 import classes from "./style.module.css";
-
-const menu = [
-  {
-    name: "About",
-    href: "/#about",
-  },
-  {
-    name: "Gitter",
-    href: "https://gitter.im/TheAlgorithms/",
-  },
-  {
-    name: "GitHub",
-    href: "https://github.com/TheAlgorithms/",
-  },
-  {
-    name: "Twitter",
-    href: "https://twitter.com/The_Algorithms/",
-  },
-];
 
 export default function Navbar({
   darkTheme,
@@ -48,11 +31,33 @@ export default function Navbar({
   query: string;
   setQuery: React.Dispatch<React.SetStateAction<string>>;
 }) {
+  const { t } = useTranslation("common");
   const [atTop, setAtTop] = useState(false);
   const smallScreen = useMediaQuery("(max-width:800px)");
   const [menuOpen, setMenuOpen] = useState(false);
+  const langSelectRef = useRef();
+  const [langSelectOpen, setLangSelectOpen] = useState(false);
   const router = useRouter();
   const isHome = router.route === "/";
+
+  const menu = [
+    {
+      name: t("aboutTextNavbar"),
+      href: "/#about",
+    },
+    {
+      name: "Gitter",
+      href: "https://gitter.im/TheAlgorithms/",
+    },
+    {
+      name: "GitHub",
+      href: "https://github.com/TheAlgorithms/",
+    },
+    {
+      name: "Twitter",
+      href: "https://twitter.com/The_Algorithms/",
+    },
+  ];
 
   useEffect(() => {
     setAtTop(window.scrollY < 1);
@@ -98,6 +103,12 @@ export default function Navbar({
             </>
           ) : (
             <div>
+              <IconButton
+                ref={langSelectRef}
+                onClick={() => setLangSelectOpen(true)}
+              >
+                <Icon>translate</Icon>
+              </IconButton>
               <IconButton onClick={switchTheme}>
                 {darkTheme ? <Icon>light_mode</Icon> : <Icon>dark_mode</Icon>}
               </IconButton>
@@ -127,9 +138,18 @@ export default function Navbar({
             </NextLink>
           ))}
           <MenuItem onClick={switchTheme}>
-            {darkTheme ? "Light mode" : "Dark mode"}
+            {darkTheme ? t("lightModeNavbar") : t("darkModeNavbar")}
+          </MenuItem>
+          <MenuItem onClick={() => setLangSelectOpen(true)}>
+            <Icon className={classes.translateIcon}>translate</Icon>
+            {t("changeLanguageNavbar")}
           </MenuItem>
         </SwipeableDrawer>
+        <LangSelect
+          open={langSelectOpen}
+          onClose={() => setLangSelectOpen(false)}
+          anchor={langSelectRef.current}
+        />
       </JumboThemeProvider>
     </AppBar>
   );

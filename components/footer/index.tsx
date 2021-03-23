@@ -1,9 +1,11 @@
 import { Paper, Typography, useTheme } from "@material-ui/core";
 import Link from "components/link";
+import { useTranslation } from "next-i18next";
 import classes from "./style.module.css";
 
 export default function Footer() {
   const theme = useTheme();
+  const { t } = useTranslation("common");
 
   return (
     <Paper
@@ -26,19 +28,19 @@ export default function Footer() {
           &#169; The Algorithms 2021
         </Typography>
         <div className={classes.list}>
-          <Link href="/#about">What is an algorithm?</Link>
-          <Link href="/#about">About us</Link>
-          <Link href="/#contribute">Programming Languages</Link>
-          <Link href="/#contribute">Contribute</Link>
-          <Link href="/#contribute">Donate</Link>
+          <Link href="/#about">{t("algorithmExplaniationFooter")}</Link>
+          <Link href="/#about">{t("aboutUsFooter")}</Link>
+          <Link href="/#contribute">{t("programmingLanguagesTitle")}</Link>
+          <Link href="/#contribute">{t("contributeTitle")}</Link>
+          <Link href="/#contribute">{t("donateTitle")}</Link>
         </div>
         <div className={classes.list}>
           <Link href="https://github.com/TheAlgorithms/">GitHub</Link>
           <Link href="https://gitter.im/TheAlgorithms/">Gitter</Link>
           <Link href="https://twitter.com/The_Algorithms">Twitter</Link>
-          <Link href="/all">All algorithms</Link>
+          <Link href="/all">{t("allAlgorithmsFooter")}</Link>
           <Link href="https://github.com/TheAlgorithms/website">
-            Source code
+            {t("sourceCodeFooter")}
           </Link>
         </div>
         <a

@@ -5,6 +5,7 @@ import Section from "components/section";
 import Head from "components/head";
 import { getLanguage, getLanguages } from "lib/languages";
 import { getLanguageName, Language } from "lib/models";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import classes from "./style.module.css";
 
 export default function LanguagePage({
@@ -43,11 +44,12 @@ export default function LanguagePage({
   );
 }
 
-export async function getStaticProps({ params }) {
+export async function getStaticProps({ params, locale }) {
   const language = getLanguage(params.language);
   return {
     props: {
       language,
+      ...(await serverSideTranslations(locale, ["common"])),
     },
   };
 }

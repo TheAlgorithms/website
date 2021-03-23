@@ -12,6 +12,7 @@ import {
 import { normalize } from "lib/normalize";
 import CodePreview from "components/codePreview";
 import Head from "components/head";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import classes from "./algorithm.module.css";
 
 export default function AlgorithmPage({
@@ -19,11 +20,13 @@ export default function AlgorithmPage({
   code,
   body,
   jupyter,
+  locale,
 }: {
   algorithm: Algorithm;
   code: { [language in Language]?: string };
-  body?: string;
+  body: { [locale: string]: string };
   jupyter?: string;
+  locale: string;
 }) {
   useEffect(() => {
     if (jupyter) {
@@ -54,18 +57,30 @@ export default function AlgorithmPage({
       )}
       {body && (
         <>
-          {/* eslint-disable-next-line react/no-danger */}
-          <div dangerouslySetInnerHTML={{ __html: body }} />
+          <div
+            // eslint-disable-next-line react/no-danger
+            dangerouslySetInnerHTML={{
+              // eslint-disable-next-line react/no-danger
+              // eslint-disable-next-line no-nested-ternary
+              __html: body[locale] ? body[locale] : body.en ? body.en : "",
+            }}
+          />
         </>
       )}
     </div>
   );
 }
 
-export async function getStaticProps({ params }) {
+export async function getStaticProps({ params, locale }) {
   const algorithm = getAlgorithm(params.algorithm);
   const code = await getAlgorithmCode(algorithm);
-  const body = algorithm.body ? await renderMarkdown(algorithm.body) : "";
+  // eslint-disable-next-line no-unused-expressions
+  const body = {};
+  await Promise.all(
+    Object.keys(algorithm.body).map(async (explLocale) => {
+      body[explLocale] = await renderMarkdown(algorithm.body[explLocale]);
+    })
+  );
   const jupyter = algorithm.implementations.jupyter
     ? await renderNotebook(algorithm)
     : "";
@@ -75,6 +90,8 @@ export async function getStaticProps({ params }) {
       code,
       body,
       jupyter,
+      locale,
+      ...(await serverSideTranslations(locale, ["common"])),
     },
   };
 }
