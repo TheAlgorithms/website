@@ -39,7 +39,7 @@ function MenuContent() {
         <Link
           locale={language.locale}
           key={language.locale}
-          href={router.route}
+          href={router.asPath}
           passHref
         >
           <MenuItem selected={router.locale === language.locale}>
