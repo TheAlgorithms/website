@@ -682,10 +682,10 @@ ansi-styles@^4.0.0, ansi-styles@^4.1.0:
   dependencies:
     color-convert "^2.0.1"
 
-ansi_up@^4.0.4:
-  version "4.0.4"
-  resolved "https://registry.yarnpkg.com/ansi_up/-/ansi_up-4.0.4.tgz#5b8c35f0b02e4476f3f18cf89c3bf48d15d054f6"
-  integrity sha512-vRxC8q6QY918MbehO869biJW4tiunJdjOhi5fpY6NLOliBQlZhOkKgABJKJqH+JZfb/WfjvjN1chLWI6tODerw==
+ansi_up@^5.0.0:
+  version "5.0.0"
+  resolved "https://registry.yarnpkg.com/ansi_up/-/ansi_up-5.0.0.tgz#9bc3b087a59bd543c98dd235a9c8e0a842c454e9"
+  integrity sha512-RHw/w3Kb2U3k4XKfl8FXZW9ldxtTBbLNdKO0RboYeU4ReVwRP77M7b/OxiavMGZsBWcDxn/T0QiR+VtLf7mPYw==
 
 anymatch@~3.1.1:
   version "3.1.1"
@@ -3550,7 +3550,7 @@ notebookjs@^0.6.3:
   resolved "https://registry.yarnpkg.com/notebookjs/-/notebookjs-0.6.3.tgz#fde1cea09cb8dd127007f6276fb4468602663a51"
   integrity sha512-rVv0xMhYZrmkKzYY8r5KnBkuPoyuY7Fnyla8BjCdStOHM/9lD8P7xdjxGtxnd1YNaG5qf0nuPUVTu5EKP1ITKQ==
   dependencies:
-    ansi_up "^4.0.4"
+    ansi_up "^5.0.0"
     dompurify "^2.2.6"
     jsdom "^16.4.0"
     marked "^2.0.0"
