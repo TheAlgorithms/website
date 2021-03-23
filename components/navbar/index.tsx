@@ -141,6 +141,7 @@ export default function Navbar({
             {darkTheme ? t("lightModeNavbar") : t("darkModeNavbar")}
           </MenuItem>
           <MenuItem onClick={() => setLangSelectOpen(true)}>
+            <Icon className={classes.translateIcon}>translate</Icon>
             {t("changeLanguageNavbar")}
           </MenuItem>
         </SwipeableDrawer>
