@@ -120,6 +120,7 @@ export default function Home({ topAlgorithms, featuredAlgorithms }) {
                     variant="contained"
                     className={classes.github}
                     href="https://github.com/TheAlgorithms/"
+                    target="_blank"
                   >
                     <i className="devicon-github-original" />
                     GitHub
@@ -128,6 +129,7 @@ export default function Home({ topAlgorithms, featuredAlgorithms }) {
                     variant="contained"
                     className={classes.weblate}
                     href="https://hosted.weblate.org/engage/TheAlgorithms/?utm_source=widget"
+                    target="_blank"
                   >
                     Weblate
                   </Button>
