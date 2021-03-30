@@ -113,7 +113,7 @@ export default function Home({ topAlgorithms, featuredAlgorithms }) {
                   <Typography variant="h5" className={classes.title}>
                     {t("contributeTitle")}
                   </Typography>
-                  <Typography>{t("contribute")}</Typography>
+                  <Typography><SanitizedHTML allowedTags={["a"]} html={t("contribute")} /></Typography>
                   <Typography variant="h5" className={classes.title}>
                     {t("donateTitle")}
                   </Typography>
