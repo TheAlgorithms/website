@@ -18,6 +18,14 @@ function MyApp({ Component, pageProps }: AppProps) {
   const [query, setQuery] = useState((router.query.q as string) || "");
   const [isDarkTheme, setIsDarkTheme] = useState(false);
 
+  React.useEffect(() => {
+    // Remove the server-side injected CSS.
+    const jssStyles = document.querySelector("#jss-server-side");
+    if (jssStyles && jssStyles.parentElement) {
+      jssStyles.parentElement.removeChild(jssStyles);
+    }
+  }, []);
+
   useEffect(() => {
     setIsDarkTheme((localStorage.getItem("theme") || "light") === "dark");
   }, []);
