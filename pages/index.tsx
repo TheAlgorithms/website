@@ -113,13 +113,30 @@ export default function Home({ topAlgorithms, featuredAlgorithms }) {
                   <Typography variant="h5" className={classes.title}>
                     {t("contributeTitle")}
                   </Typography>
-                  <Typography><SanitizedHTML allowedTags={["a"]} html={t("contribute")} /></Typography>
+                  <div className="MuiTypography-root MuiTypography-body1">
+                    <SanitizedHTML allowedTags={["a"]} html={t("contribute")} />
+                  </div>
+                  <Button
+                    variant="contained"
+                    className={classes.github}
+                    href="https://github.com/TheAlgorithms/"
+                  >
+                    <i className="devicon-github-original" />
+                    GitHub
+                  </Button>
+                  <Button
+                    variant="contained"
+                    className={classes.weblate}
+                    href="https://hosted.weblate.org/engage/TheAlgorithms/?utm_source=widget"
+                  >
+                    Weblate
+                  </Button>
                   <Typography variant="h5" className={classes.title}>
                     {t("donateTitle")}
                   </Typography>
-                  <Typography>
+                  <div className="MuiTypography-root MuiTypography-body1">
                     <SanitizedHTML allowedTags={["a"]} html={t("donateText")} />
-                  </Typography>
+                  </div>
                   <Button
                     variant="contained"
                     className={classes.donate}
