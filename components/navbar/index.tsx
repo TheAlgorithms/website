@@ -46,16 +46,20 @@ export default function Navbar({
       href: "/#about",
     },
     {
+      name: "Donate",
+      href: "https://liberapay.com/TheAlgorithms/donate"
+    },
+    {
+      name: "Twitter",
+      href: "https://twitter.com/The_Algorithms/",
+    },
+    {
       name: "Gitter",
       href: "https://gitter.im/TheAlgorithms/",
     },
     {
       name: "GitHub",
       href: "https://github.com/TheAlgorithms/",
-    },
-    {
-      name: "Twitter",
-      href: "https://twitter.com/The_Algorithms/",
     },
   ];
 
