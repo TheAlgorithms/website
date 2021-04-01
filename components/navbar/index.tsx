@@ -46,8 +46,8 @@ export default function Navbar({
       href: "/#about",
     },
     {
-      name: "Donate",
-      href: "https://liberapay.com/TheAlgorithms/donate"
+      name: t("donateButton"),
+      href: "https://liberapay.com/TheAlgorithms/donate",
     },
     {
       name: "Twitter",
