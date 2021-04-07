@@ -63,8 +63,6 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 ## Contributing
 
-Try to use the [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/#summary) naming convention.
-
 If you want to add a new feature or fix a bug, create a new branch or fork and commit there. Before opening a PR be sure to
 
 - Run `yarn lint` and fix potential errors
