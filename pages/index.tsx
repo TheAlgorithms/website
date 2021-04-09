@@ -3,6 +3,7 @@ import {
   Button,
   Card,
   CardContent,
+  Icon,
   IconButton,
   Tooltip,
   Typography,
@@ -177,6 +178,17 @@ export default function Home({ topAlgorithms, featuredAlgorithms }) {
             {t("socialTitle")}
           </Typography>
           <div className={classes.socialButtons}>
+            <Tooltip title="Contribute on GitHub">
+              <IconButton
+                href="https://github.com/TheAlgorithms"
+                target="_blank"
+              >
+                <Icon
+                  className="devicon-github-plain"
+                  style={{ fontSize: "1em", color: "black" }}
+                />
+              </IconButton>
+            </Tooltip>
             <Tooltip title="Twitter">
               <IconButton href="https://discord.gg/c7MnfGFGa6" target="_blank">
                 <svg
