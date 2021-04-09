@@ -26,6 +26,8 @@
 
 .card > div {
   margin-bottom: -40px !important;
+  display: flex;
+  flex-direction: column;
 }
 
 .languages {
@@ -40,7 +42,7 @@
 }
 
 .github i {
-  margin-right: 10px;
+  margin-right: 8px;
 }
 
 .weblate {
@@ -60,9 +62,16 @@
 }
 
 .discord {
-  text-align: left;
   align-self: center;
-  margin-right: 40px !important;
-  background-color: #7289DA !important;
-  color: black !important;
+  background-color: #7289da !important;
+  color: white !important;
+  margin-bottom: 40px !important;
+}
+
+.discord svg {
+  fill: white;
+  height: 1em;
+  width: 1em;
+  transform: scale(1.2);
+  margin-right: 8px;
 }
