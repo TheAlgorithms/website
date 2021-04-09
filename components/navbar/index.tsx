@@ -104,7 +104,10 @@ export default function Navbar({
               <IconButton onClick={switchTheme}>
                 {darkTheme ? <Icon>light_mode</Icon> : <Icon>dark_mode</Icon>}
               </IconButton>
-              <IconButton>
+              <IconButton
+                href="https://github.com/TheAlgorithms"
+                target="_blank"
+              >
                 <Icon className="devicon-github-plain" />
               </IconButton>
               {menu.map((item) => (
@@ -132,6 +135,9 @@ export default function Navbar({
               <MenuItem>{item.name}</MenuItem>
             </NextLink>
           ))}
+          <NextLink href="https://github.com/TheAlgorithms">
+            <MenuItem>GitHub</MenuItem>
+          </NextLink>
           <MenuItem onClick={switchTheme}>
             {darkTheme ? t("lightModeNavbar") : t("darkModeNavbar")}
           </MenuItem>
