@@ -35,5 +35,6 @@
   "lightModeNavbar": "Light mode",
   "darkModeNavbar": "Dark mode",
   "changeLanguageNavbar": "Change language",
-  "discordText": "Join the conversation at Discord"
+  "discordText": "Join the conversation at Discord",
+  "socialTitle": "Connect with us"
 }

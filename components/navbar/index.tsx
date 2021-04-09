@@ -49,18 +49,6 @@ export default function Navbar({
       name: t("donateButton"),
       href: "https://liberapay.com/TheAlgorithms/donate",
     },
-    {
-      name: "Twitter",
-      href: "https://twitter.com/The_Algorithms/",
-    },
-    {
-      name: "Gitter",
-      href: "https://gitter.im/TheAlgorithms/",
-    },
-    {
-      name: "GitHub",
-      href: "https://github.com/TheAlgorithms/",
-    },
   ];
 
   useEffect(() => {
@@ -115,6 +103,9 @@ export default function Navbar({
               </IconButton>
               <IconButton onClick={switchTheme}>
                 {darkTheme ? <Icon>light_mode</Icon> : <Icon>dark_mode</Icon>}
+              </IconButton>
+              <IconButton>
+                <Icon className="devicon-github-plain" />
               </IconButton>
               {menu.map((item) => (
                 <NextLink passHref key={item.name} href={item.href}>
