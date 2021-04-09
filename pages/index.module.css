@@ -58,3 +58,11 @@
 .donate svg {
   margin-right: 5px;
 }
+
+.discord {
+  text-align: left;
+  align-self: center;
+  margin-right: 40px !important;
+  background-color: #7289DA !important;
+  color: black !important;
+}
