@@ -49,3 +49,9 @@
 .translateIcon {
   margin-right: 8px;
 }
+
+.toolbar svg {
+  fill: white;
+  width: 1em;
+  height: 1em;
+}

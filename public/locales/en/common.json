@@ -34,5 +34,9 @@
   "moreAlgorithmCard": "More",
   "lightModeNavbar": "Light mode",
   "darkModeNavbar": "Dark mode",
-  "changeLanguageNavbar": "Change language"
+  "changeLanguageNavbar": "Change language",
+  "socialTitle": "Connect with us",
+  "socialGithub": "Contribute on GitHub",
+  "socialGitter": "Chat on Gitter",
+  "socialDiscord": "Chat on Discord"
 }
