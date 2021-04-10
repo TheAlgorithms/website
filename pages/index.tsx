@@ -178,7 +178,7 @@ export default function Home({ topAlgorithms, featuredAlgorithms }) {
             {t("socialTitle")}
           </Typography>
           <div className={classes.socialButtons}>
-            <Tooltip title="Contribute on GitHub">
+            <Tooltip title={t("socialGithub")}>
               <IconButton
                 href="https://github.com/TheAlgorithms"
                 target="_blank"
@@ -210,7 +210,7 @@ export default function Home({ topAlgorithms, featuredAlgorithms }) {
                 </svg>
               </IconButton>
             </Tooltip>
-            <Tooltip title="Chat on Gitter">
+            <Tooltip title={t("socialGitter")}>
               <IconButton
                 href="https://gitter.im/TheAlgorithms/"
                 target="_blank"
@@ -227,7 +227,7 @@ export default function Home({ topAlgorithms, featuredAlgorithms }) {
                 </svg>
               </IconButton>
             </Tooltip>
-            <Tooltip title="Chat on Discord">
+            <Tooltip title={t("socialDiscord")}>
               <IconButton href="https://discord.gg/c7MnfGFGa6" target="_blank">
                 <svg version="1.1" viewBox="0 0 245 240">
                   <path

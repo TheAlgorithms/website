@@ -35,5 +35,8 @@
   "lightModeNavbar": "Light mode",
   "darkModeNavbar": "Dark mode",
   "changeLanguageNavbar": "Change language",
-  "socialTitle": "Connect with us"
+  "socialTitle": "Connect with us",
+  "socialGithub": "Contribute on GitHub",
+  "socialGitter": "Chat on Gitter",
+  "socialDiscord": "Chat on Discord"
 }
