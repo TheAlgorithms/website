@@ -672,10 +672,10 @@ ansi-styles@^4.0.0, ansi-styles@^4.1.0:
   dependencies:
     color-convert "^2.0.1"
 
-ansi_up@^5.0.0:
-  version "5.0.0"
-  resolved "https://registry.yarnpkg.com/ansi_up/-/ansi_up-5.0.0.tgz#9bc3b087a59bd543c98dd235a9c8e0a842c454e9"
-  integrity sha512-RHw/w3Kb2U3k4XKfl8FXZW9ldxtTBbLNdKO0RboYeU4ReVwRP77M7b/OxiavMGZsBWcDxn/T0QiR+VtLf7mPYw==
+ansi_up@^4.0.4:
+  version "4.0.4"
+  resolved "https://registry.yarnpkg.com/ansi_up/-/ansi_up-4.0.4.tgz#5b8c35f0b02e4476f3f18cf89c3bf48d15d054f6"
+  integrity sha512-vRxC8q6QY918MbehO869biJW4tiunJdjOhi5fpY6NLOliBQlZhOkKgABJKJqH+JZfb/WfjvjN1chLWI6tODerw==
 
 anymatch@~3.1.1:
   version "3.1.1"
@@ -3391,10 +3391,10 @@ next@^10.1.3:
     vm-browserify "1.1.2"
     watchpack "2.1.1"
 
-nextjs-progressbar@^0.0.7:
-  version "0.0.7"
-  resolved "https://registry.yarnpkg.com/nextjs-progressbar/-/nextjs-progressbar-0.0.7.tgz#265ec3fa0127ed2fda0ae1f3f85c99d3673dd28e"
-  integrity sha512-SGV97ZbriOXxtKdBmugiPsV0YaFBOV4EuuCXrCGTt9O0UNiL75wbCJvMXk1rBa7KmgeBZojMZRPxnUFfI9lkZA==
+nextjs-progressbar@^0.0.8:
+  version "0.0.8"
+  resolved "https://registry.yarnpkg.com/nextjs-progressbar/-/nextjs-progressbar-0.0.8.tgz#37c4c48dffce76d990f71e5113815a854a782e8b"
+  integrity sha512-lXhP79EISePJIb0kc2ZZ6cLJbt8nieEJWN13VVxUJQxtWxTG20/vdEp4GeZp5cVdUv5/qP2d2/YlMTrV4kPiVw==
   dependencies:
     nprogress "^0.2.0"
 
