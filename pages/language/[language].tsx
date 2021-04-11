@@ -1,5 +1,5 @@
 import React from "react";
-import { Typography, Button, Icon } from "@material-ui/core";
+import { Typography, Button } from "@material-ui/core";
 import AlgorithmsList from "components/algorithmsList";
 import Section from "components/section";
 import Head from "components/head";
@@ -7,6 +7,7 @@ import { getLanguage, getLanguages } from "lib/languages";
 import { getLanguageName, Language } from "lib/models";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import LanguageIcon from "components/icon";
+import { OpenInNew } from "@material-ui/icons";
 import classes from "./style.module.css";
 
 export default function LanguagePage({
@@ -25,14 +26,14 @@ export default function LanguagePage({
           </Typography>
           <div>
             <Button
-              startIcon={<Icon>open_in_new</Icon>}
+              startIcon={<OpenInNew />}
               href={`https://github.com/TheAlgorithms/${language.name}`}
             >
               Github Repo
             </Button>
             {["c", "c-plus-plus"].includes(language.name.toLowerCase()) && (
               <Button
-                startIcon={<Icon>open_in_new</Icon>}
+                startIcon={<OpenInNew />}
                 href={`https://thealgorithms.github.io/${language.name
                   .replace(/^c$/, "C")
                   .replace(/^c-plus-plus$/, "C-Plus-Plus")}`}

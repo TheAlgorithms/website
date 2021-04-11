@@ -17,6 +17,20 @@ import { Language, Languages } from "lib/models";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useTranslation } from "next-i18next";
 import SanitizedHTML from "react-sanitized-html";
+import {
+  GithubOriginalIcon,
+  GitterPlainIcon,
+  WeblatePlainIcon,
+} from "react-devicons";
+import {
+  Search,
+  Sort,
+  OfflineBolt,
+  EnhancedEncryption,
+  Storage,
+  Functions,
+  InsertPhoto,
+} from "@material-ui/icons";
 import classes from "./index.module.css";
 
 export default function Home({ topAlgorithms, featuredAlgorithms }) {
@@ -58,37 +72,37 @@ export default function Home({ topAlgorithms, featuredAlgorithms }) {
           categories={[
             {
               name: t("sortsCategories"),
-              icon: "sort",
+              icon: <Sort />,
               href: "/category/sorts",
             },
             {
               name: t("searchesCategories"),
-              icon: "search",
+              icon: <Search />,
               href: "/category/searches",
             },
             {
               name: t("dynamicProgrammingCategories"),
-              icon: "bolt",
+              icon: <OfflineBolt />,
               href: "/category/dynamicprogramming",
             },
             {
               name: t("ciphersCategories"),
-              icon: "enhanced_encryption",
+              icon: <EnhancedEncryption />,
               href: "/category/ciphers",
             },
             {
               name: t("dataStructuresCategories"),
-              icon: "grid_view",
+              icon: <Storage />,
               href: "/category/datastructures",
             },
             {
               name: t("basicMathCategories"),
-              icon: "calculate",
+              icon: <Functions />,
               href: "/category/maths",
             },
             {
               name: t("imageProcessingCategories"),
-              icon: "insert_photo",
+              icon: <InsertPhoto />,
               href: "/category/digitalimageprocessing",
             },
           ]}
@@ -130,7 +144,7 @@ export default function Home({ topAlgorithms, featuredAlgorithms }) {
                     href="https://github.com/TheAlgorithms/"
                     target="_blank"
                   >
-                    <i className="devicon-github-original" />
+                    <GithubOriginalIcon color="white" />
                     GitHub
                   </Button>
                   <Button
@@ -139,7 +153,7 @@ export default function Home({ topAlgorithms, featuredAlgorithms }) {
                     href="https://hosted.weblate.org/engage/TheAlgorithms/?utm_source=widget"
                     target="_blank"
                   >
-                    <i className="devicon-weblate-plain" />
+                    <WeblatePlainIcon color="black" />
                     Weblate
                   </Button>
                   <Typography variant="h5" className={classes.title}>
@@ -184,10 +198,9 @@ export default function Home({ topAlgorithms, featuredAlgorithms }) {
                 href="https://github.com/TheAlgorithms"
                 target="_blank"
               >
-                <Icon
-                  className="devicon-github-plain"
-                  style={{ fontSize: "1em", color: "black" }}
-                />
+                <Icon style={{ fontSize: "1em" }}>
+                  <GithubOriginalIcon color="black" />
+                </Icon>
               </IconButton>
             </Tooltip>
             <Tooltip title="Twitter">
@@ -219,10 +232,9 @@ export default function Home({ topAlgorithms, featuredAlgorithms }) {
                 href="https://gitter.im/TheAlgorithms/"
                 target="_blank"
               >
-                <Icon
-                  className="devicon-gitter-plain"
-                  style={{ fontSize: "1em", color: "black" }}
-                />
+                <Icon style={{ fontSize: "1em" }}>
+                  <GitterPlainIcon />
+                </Icon>
               </IconButton>
             </Tooltip>
             <Tooltip title={t("socialDiscord")}>

@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { CssBaseline, ThemeProvider } from "@material-ui/core";
 import "../styles/globals.css";
 import "styles/notebook.css";
-import "devicon/devicon.min.css";
 import { useRouter } from "next/router";
 import NextNprogress from "nextjs-progressbar";
 import { AppProps } from "next/app";

@@ -3,7 +3,8 @@ import "highlight.js/styles/atom-one-light.css";
 import { Language } from "lib/models";
 import useBodyScroll from "hooks/bodyScroll";
 import LanguageIcon from "components/icon";
-import { Button, Icon, IconButton } from "@material-ui/core";
+import { Button, IconButton } from "@material-ui/core";
+import { Close, OpenInNew } from "@material-ui/icons";
 import classes from "./style.module.css";
 
 export default function CodePreview({
@@ -48,7 +49,7 @@ export default function CodePreview({
     >
       <div className={classes.actions}>
         <Button
-          startIcon={<Icon>open_in_new</Icon>}
+          startIcon={<OpenInNew />}
           href={implementations[selectedLanguague]}
           target="_blank"
         >
@@ -56,7 +57,7 @@ export default function CodePreview({
         </Button>
         <Button
           variant="outlined"
-          startIcon={<Icon>close</Icon>}
+          startIcon={<Close />}
           onClick={() => setActive(false)}
         >
           Close

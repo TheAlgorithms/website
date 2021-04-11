@@ -301,6 +301,13 @@
     react-is "^16.8.0 || ^17.0.0"
     react-transition-group "^4.4.0"
 
+"@material-ui/icons@^4.11.2":
+  version "4.11.2"
+  resolved "https://registry.yarnpkg.com/@material-ui/icons/-/icons-4.11.2.tgz#b3a7353266519cd743b6461ae9fdfcb1b25eb4c5"
+  integrity sha512-fQNsKX2TxBmqIGJCSi3tGTO/gZ+eJgWmMJkgDiOfyNaunNaxcklJQFaFogYcFl0qFuaEz1qaXYXboa/bUXVSOQ==
+  dependencies:
+    "@babel/runtime" "^7.4.4"
+
 "@material-ui/styles@^4.11.3":
   version "4.11.3"
   resolved "https://registry.yarnpkg.com/@material-ui/styles/-/styles-4.11.3.tgz#1b8d97775a4a643b53478c895e3f2a464e8916f2"
@@ -1492,11 +1499,6 @@ des.js@^1.0.0:
   dependencies:
     inherits "^2.0.1"
     minimalistic-assert "^1.0.0"
-
-devicon@^2.11.0:
-  version "2.11.0"
-  resolved "https://registry.yarnpkg.com/devicon/-/devicon-2.11.0.tgz#63ca168b920a39201d83c45ed15a7d6a1e3ee665"
-  integrity sha512-sQ4rGJK6azpWmoM1viICEhWVuXfTsUYbZU9yBeFlmUziFKLUvD4yAovM4qFrTytcXElLEix5xdRD5gKzwEwRNA==
 
 diff@^4.0.1:
   version "4.0.2"
@@ -4001,6 +4003,13 @@ react-country-flag@^2.3.0:
   resolved "https://registry.yarnpkg.com/react-country-flag/-/react-country-flag-2.3.0.tgz#dd78906551fdc231f9e02084e87f9a62f8ea6d7b"
   integrity sha512-Lb2nhMoTOxNjlQoun3iPwqIgpluSyzr8jN45cN0mXYbeDi10/MhGJKZa1cvgyrnfCtOh/IHdhA0MkSuls78bBw==
 
+react-devicons@^2.11.0-rev.2:
+  version "2.11.0-rev.2"
+  resolved "https://registry.yarnpkg.com/react-devicons/-/react-devicons-2.11.0-rev.2.tgz#0f61603f45ec31457f2184ae2cd8d5e0f8482dee"
+  integrity sha512-11Y+uaDYfuybePMOP5MmnQ75Q7UJ4WaQu6fCF7RD2TUCxmwtJxGJP2eithV4GZM6TuJ6OCUegnc0PyEcL1LhaQ==
+  dependencies:
+    react "^17.0.2"
+
 react-dom@17.0.1:
   version "17.0.1"
   resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-17.0.1.tgz#1de2560474ec9f0e334285662ede52dbc5426fc6"
@@ -4052,6 +4061,14 @@ react@17.0.1:
   version "17.0.1"
   resolved "https://registry.yarnpkg.com/react/-/react-17.0.1.tgz#6e0600416bd57574e3f86d92edba3d9008726127"
   integrity sha512-lG9c9UuMHdcAexXtigOZLX8exLWkW0Ku29qPRU8uhF2R9BN96dLCt0psvzPLlHc5OWkgymP3qwTRgbnw5BKx3w==
+  dependencies:
+    loose-envify "^1.1.0"
+    object-assign "^4.1.1"
+
+react@^17.0.2:
+  version "17.0.2"
+  resolved "https://registry.yarnpkg.com/react/-/react-17.0.2.tgz#d0b5cc516d29eb3eee383f75b62864cfb6800037"
+  integrity sha512-gnhPt75i/dq/z3/6q/0asP78D0u592D5L1pd7M8P+dck6Fu/jJeL6iVVK23fptSUZj8Vjf++7wXA8UNclGQcbA==
   dependencies:
     loose-envify "^1.1.0"
     object-assign "^4.1.1"

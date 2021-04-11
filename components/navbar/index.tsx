@@ -7,7 +7,6 @@ import {
   Button,
   useMediaQuery,
   IconButton,
-  Icon,
   MenuItem,
   SwipeableDrawer,
   ListItem,
@@ -18,6 +17,14 @@ import Link from "components/link";
 import { useRouter } from "next/router";
 import SearchBar from "components/searchBar";
 import LangSelect from "components/langSelect";
+import { GithubOriginalIcon } from "react-devicons";
+import {
+  Brightness7,
+  Close,
+  Menu,
+  NightsStay,
+  Translate,
+} from "@material-ui/icons";
 import classes from "./style.module.css";
 
 export default function Navbar({
@@ -90,7 +97,7 @@ export default function Navbar({
               <IconButton
                 onClick={() => setMenuOpen((isMenuOpen) => !isMenuOpen)}
               >
-                <Icon>{menuOpen ? "close" : "menu"}</Icon>
+                {menuOpen ? <Close /> : <Menu />}
               </IconButton>
             </>
           ) : (
@@ -99,16 +106,16 @@ export default function Navbar({
                 ref={langSelectRef}
                 onClick={() => setLangSelectOpen(true)}
               >
-                <Icon>translate</Icon>
+                <Translate />
               </IconButton>
               <IconButton onClick={switchTheme}>
-                {darkTheme ? <Icon>light_mode</Icon> : <Icon>dark_mode</Icon>}
+                {darkTheme ? <Brightness7 /> : <NightsStay />}
               </IconButton>
               <IconButton
                 href="https://github.com/TheAlgorithms"
                 target="_blank"
               >
-                <Icon className="devicon-github-plain" />
+                <GithubOriginalIcon color="white" />
               </IconButton>
               {menu.map((item) => (
                 <NextLink passHref key={item.name} href={item.href}>
@@ -142,7 +149,7 @@ export default function Navbar({
             {darkTheme ? t("lightModeNavbar") : t("darkModeNavbar")}
           </MenuItem>
           <MenuItem onClick={() => setLangSelectOpen(true)}>
-            <Icon className={classes.translateIcon}>translate</Icon>
+            <Translate className={classes.translateIcon} />
             {t("changeLanguageNavbar")}
           </MenuItem>
         </SwipeableDrawer>

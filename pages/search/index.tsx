@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
-import { Button, Icon } from "@material-ui/core";
+import { Button } from "@material-ui/core";
 import { useRouter } from "next/router";
 import AlgorithmsList from "components/algorithmsList";
 import search from "lib/search";
 import Section from "components/section";
 import Head from "components/head";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+import { Add } from "@material-ui/icons";
 import classes from "./search.module.css";
 
 export default function Search() {
@@ -40,7 +41,7 @@ export default function Search() {
                 });
               }}
               className={classes.more}
-              startIcon={<Icon>add</Icon>}
+              startIcon={<Add />}
             >
               More
             </Button>

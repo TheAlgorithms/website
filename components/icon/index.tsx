@@ -1,78 +1,99 @@
-import { Tooltip, Icon, PropTypes } from "@material-ui/core";
+import { Tooltip, Icon } from "@material-ui/core";
 import React from "react";
 import { Language } from "lib/models";
+import {
+  Aarch64PlainIcon,
+  CPlainIcon,
+  CplusplusPlainIcon,
+  CsharpPlainIcon,
+  DartPlainIcon,
+  ElixirPlainIcon,
+  ElmPlainIcon,
+  FsharpPlainIcon,
+  GoPlainIcon,
+  HaskellPlainIcon,
+  JavaPlainIcon,
+  JavascriptPlainIcon,
+  JupyterPlainIcon,
+  KotlinPlainIcon,
+  MatlabPlainIcon,
+  OcamlPlainIcon,
+  PhpPlainIcon,
+  PythonPlainIcon,
+  RPlainIcon,
+  RubyPlainIcon,
+  RustPlainIcon,
+  ScalaPlainIcon,
+  SwiftPlainIcon,
+} from "react-devicons";
 
 export default function LanguageIcon({
   language,
   tooltip,
   className = "",
-  color = "disabled",
+  color = "rgba(0, 0, 0, 0.26)",
 }: {
   language: Language;
   tooltip?: string;
   className?: string;
-  color?: PropTypes.Color | "disabled" | "action" | "error";
+  color?: string;
 }) {
-  const icon = (classN: string) => (
+  return (
     <Tooltip className={className} title={tooltip || ""}>
-      <Icon color={color} className={classN} />
+      <Icon>
+        {(() => {
+          switch (language.toLowerCase() as Language | string) {
+            case "ruby":
+              return <RubyPlainIcon color={color} />;
+            case "python":
+              return <PythonPlainIcon color={color} />;
+            case "javascript":
+              return <JavascriptPlainIcon color={color} />;
+            case "c-plus-plus":
+              return <CplusplusPlainIcon color={color} />;
+            case "java":
+              return <JavaPlainIcon color={color} />;
+            case "c":
+              return <CPlainIcon color={color} />;
+            case "f-sharp":
+              return <FsharpPlainIcon color={color} />;
+            case "go":
+              return <GoPlainIcon color={color} />;
+            case "rust":
+              return <RustPlainIcon color={color} />;
+            case "aarch64_assembly":
+              return <Aarch64PlainIcon color={color} />;
+            case "c-sharp":
+              return <CsharpPlainIcon color={color} />;
+            case "dart":
+              return <DartPlainIcon color={color} />;
+            case "r":
+              return <RPlainIcon color={color} />;
+            case "php":
+              return <PhpPlainIcon color={color} />;
+            case "elixir":
+              return <ElixirPlainIcon color={color} />;
+            case "kotlin":
+              return <KotlinPlainIcon color={color} />;
+            case "scala":
+              return <ScalaPlainIcon color={color} />;
+            case "jupyter":
+              return <JupyterPlainIcon color={color} />;
+            case "haskell":
+              return <HaskellPlainIcon color={color} />;
+            case "ocaml":
+              return <OcamlPlainIcon color={color} />;
+            case "swift":
+              return <SwiftPlainIcon color={color} />;
+            case "elm":
+              return <ElmPlainIcon color={color} />;
+            case "matlab-octave":
+              return <MatlabPlainIcon color={color} />;
+            default:
+              throw new Error(`Missing icon for ${language}`);
+          }
+        })()}
+      </Icon>
     </Tooltip>
   );
-
-  // const textIcon = (text: string) => (
-  //   <Tooltip title={tooltip || ""}>
-  //     <Typography className={classes.textIcon}>{text}</Typography>
-  //   </Tooltip>
-  // );
-
-  switch (language.toLowerCase() as Language | string) {
-    case "ruby":
-      return icon("devicon-ruby-plain");
-    case "python":
-      return icon("devicon-python-plain");
-    case "javascript":
-      return icon("devicon-javascript-plain");
-    case "c-plus-plus":
-      return icon("devicon-cplusplus-plain");
-    case "java":
-      return icon("devicon-java-plain");
-    case "c":
-      return icon("devicon-c-plain");
-    case "f-sharp":
-      return icon("devicon-fsharp-plain");
-    case "go":
-      return icon("devicon-go-plain");
-    case "rust":
-      return icon("devicon-rust-plain");
-    case "aarch64_assembly":
-      return icon("devicon-aarch64-plain");
-    case "c-sharp":
-      return icon("devicon-csharp-plain");
-    case "dart":
-      return icon("devicon-dart-plain");
-    case "r":
-      return icon("devicon-r-plain");
-    case "php":
-      return icon("devicon-php-plain");
-    case "elixir":
-      return icon("devicon-elixir-plain");
-    case "kotlin":
-      return icon("devicon-kotlin-plain");
-    case "scala":
-      return icon("devicon-scala-plain");
-    case "jupyter":
-      return icon("devicon-jupyter-plain-wordmark");
-    case "haskell":
-      return icon("devicon-haskell-plain");
-    case "ocaml":
-      return icon("devicon-ocaml-plain");
-    case "swift":
-      return icon("devicon-swift-plain");
-    case "elm":
-      return icon("devicon-elm-plain");
-    case "matlab-octave":
-      return icon("devicon-matlab-plain");
-    default:
-      throw new Error(`Missing icon for ${language}`);
-  }
 }

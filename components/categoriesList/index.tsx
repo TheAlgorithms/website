@@ -2,7 +2,6 @@ import {
   ButtonBase,
   Card,
   CardContent,
-  Icon,
   Link,
   Typography,
 } from "@material-ui/core";
@@ -14,7 +13,7 @@ export default function CategoriesList({
 }: {
   categories: {
     name: string;
-    icon: string;
+    icon: JSX.Element;
     href: string;
   }[];
 }) {
@@ -25,7 +24,7 @@ export default function CategoriesList({
           <NextLink href={category.href} passHref>
             <ButtonBase>
               <CardContent className={classes.cardInner}>
-                <Icon>{category.icon}</Icon>
+                {category.icon}
                 <Typography variant="h6" className={classes.text}>
                   <Link>{category.name}</Link>
                 </Typography>

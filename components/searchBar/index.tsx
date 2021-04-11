@@ -5,12 +5,12 @@ import {
   FilledInput,
   InputLabel,
   InputAdornment,
-  Icon,
   OutlinedInput,
   useMediaQuery,
   IconButton,
 } from "@material-ui/core";
 import { useRouter } from "next/router";
+import { Search } from "@material-ui/icons";
 
 function Debouncer(time: number) {
   let timeout: NodeJS.Timeout;
@@ -49,7 +49,7 @@ export default function SearchBar({
   const searchAdornment = (
     <InputAdornment position="end">
       <IconButton style={{ marginRight: -12 }} onClick={() => handleSubmit()}>
-        <Icon>search</Icon>
+        <Search />
       </IconButton>
     </InputAdornment>
   );

@@ -41,7 +41,7 @@
   margin-right: 10px !important;
 }
 
-.github i {
+.github svg {
   margin-right: 7px;
   transform: scale(1.1);
 }
@@ -52,7 +52,7 @@
   color: black !important;
 }
 
-.weblate i {
+.weblate svg {
   margin-right: 7px;
   transform: scale(1.1);
 }
