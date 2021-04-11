@@ -139,6 +139,7 @@ export default function Home({ topAlgorithms, featuredAlgorithms }) {
                     href="https://hosted.weblate.org/engage/TheAlgorithms/?utm_source=widget"
                     target="_blank"
                   >
+                    <i className="devicon-weblate-original" />
                     Weblate
                   </Button>
                   <Typography variant="h5" className={classes.title}>
@@ -190,7 +191,7 @@ export default function Home({ topAlgorithms, featuredAlgorithms }) {
               </IconButton>
             </Tooltip>
             <Tooltip title="Twitter">
-              <IconButton href="https://discord.gg/c7MnfGFGa6" target="_blank">
+            <IconButton href="https://discord.gg/c7MnfGFGa6" target="_blank">
                 <svg
                   version="1.1"
                   xmlns="http://www.w3.org/2000/svg"
@@ -213,18 +214,11 @@ export default function Home({ topAlgorithms, featuredAlgorithms }) {
             <Tooltip title={t("socialGitter")}>
               <IconButton
                 href="https://gitter.im/TheAlgorithms/"
-                target="_blank"
-              >
-                <svg
-                  version="1.1"
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 128 128"
-                >
-                  <rect x="96.8" y="25.6" width="10.2" height="51.2" />
-                  <rect x="71.2" y="25.6" width="10.2" height="102.4" />
-                  <rect x="45.6" y="25.6" width="10.2" height="102.4" />
-                  <rect x="20" y="0" width="10.2" height="76.8" />
-                </svg>
+                target="_blank">
+              <Icon
+                  className="devicon-gitter-plain"
+                  style={{ fontSize: "1em", color: "black" }}
+                />
               </IconButton>
             </Tooltip>
             <Tooltip title={t("socialDiscord")}>

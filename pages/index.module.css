@@ -52,6 +52,11 @@
   color: black !important;
 }
 
+.weblate i {
+  margin-right: 7px;
+  transform: scale(1.1);
+}
+
 .donate {
   margin-top: 20px !important;
   background-color: #f6c915 !important;
