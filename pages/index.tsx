@@ -191,7 +191,7 @@ export default function Home({ topAlgorithms, featuredAlgorithms }) {
               </IconButton>
             </Tooltip>
             <Tooltip title="Twitter">
-            <IconButton href="https://discord.gg/c7MnfGFGa6" target="_blank">
+            <IconButton href="https://twitter.com/The_Algorithms" target="_blank">
                 <svg
                   version="1.1"
                   xmlns="http://www.w3.org/2000/svg"
