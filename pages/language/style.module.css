@@ -7,3 +7,7 @@
 .titleContainer > div > a {
   margin-left: 20px !important;
 }
+
+.icon {
+  margin-right: 12px;
+}

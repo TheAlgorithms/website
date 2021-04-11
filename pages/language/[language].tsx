@@ -6,6 +6,7 @@ import Head from "components/head";
 import { getLanguage, getLanguages } from "lib/languages";
 import { getLanguageName, Language } from "lib/models";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+import LanguageIcon from "components/icon";
 import classes from "./style.module.css";
 
 export default function LanguagePage({
@@ -18,7 +19,10 @@ export default function LanguagePage({
       <Head title={getLanguageName(language.name)} />
       <Section>
         <div className={classes.titleContainer}>
-          <Typography variant="h4">{getLanguageName(language.name)}</Typography>
+          <Typography variant="h4">
+            <LanguageIcon language={language.name} className={classes.icon} />
+            {getLanguageName(language.name)}
+          </Typography>
           <div>
             <Button
               startIcon={<Icon>open_in_new</Icon>}
