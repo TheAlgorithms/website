@@ -1493,10 +1493,10 @@ des.js@^1.0.0:
     inherits "^2.0.1"
     minimalistic-assert "^1.0.0"
 
-devicon@^2.10.1:
-  version "2.10.1"
-  resolved "https://registry.yarnpkg.com/devicon/-/devicon-2.10.1.tgz#915c828223e6221976491955a737a8259b27b5f0"
-  integrity sha512-9W2Vy8BVN+MWLvrMKPtL0EgEMiYDx5gu69/HFuXiEe+tm0QhGzx7rWKlakH8RWHtQ4tzK7+AUFs9OkKko+wh3w==
+devicon@^2.11.0:
+  version "2.11.0"
+  resolved "https://registry.yarnpkg.com/devicon/-/devicon-2.11.0.tgz#63ca168b920a39201d83c45ed15a7d6a1e3ee665"
+  integrity sha512-sQ4rGJK6azpWmoM1viICEhWVuXfTsUYbZU9yBeFlmUziFKLUvD4yAovM4qFrTytcXElLEix5xdRD5gKzwEwRNA==
 
 diff@^4.0.1:
   version "4.0.2"

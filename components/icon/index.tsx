@@ -49,7 +49,7 @@ export default function LanguageIcon({
     case "c-sharp":
       return icon("devicon-csharp-plain");
     case "dart":
-      return icon("devicon-flutter-plain");
+      return icon("devicon-dart-plain");
     case "r":
       return icon("devicon-r-plain");
     case "php":

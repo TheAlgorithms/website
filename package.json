@@ -17,7 +17,7 @@
     "@material-ui/styles": "^4.11.3",
     "atob": "^2.1.2",
     "btoa": "^1.2.1",
-    "devicon": "^2.10.1",
+    "devicon": "^2.11.0",
     "dotenv": "^8.2.0",
     "highlight.js": "9.18.1",
     "katex": "^0.13.2",
