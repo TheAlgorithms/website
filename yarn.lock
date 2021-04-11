@@ -672,10 +672,10 @@ ansi-styles@^4.0.0, ansi-styles@^4.1.0:
   dependencies:
     color-convert "^2.0.1"
 
-ansi_up@^4.0.4:
-  version "4.0.4"
-  resolved "https://registry.yarnpkg.com/ansi_up/-/ansi_up-4.0.4.tgz#5b8c35f0b02e4476f3f18cf89c3bf48d15d054f6"
-  integrity sha512-vRxC8q6QY918MbehO869biJW4tiunJdjOhi5fpY6NLOliBQlZhOkKgABJKJqH+JZfb/WfjvjN1chLWI6tODerw==
+ansi_up@^5.0.0:
+  version "5.0.1"
+  resolved "https://registry.yarnpkg.com/ansi_up/-/ansi_up-5.0.1.tgz#b66839dba408d3d2f8548904f1ae6fc62d6917ef"
+  integrity sha512-HGOTjFQECRKZM9fIlGhJfR2pcK8PMUWzFOqcPwqBEnNIa4P2r0Di+g2hxCX0hL0n1NUtAHGRA+fUyA/OajZYFw==
 
 anymatch@~3.1.1:
   version "3.1.1"
@@ -3459,12 +3459,12 @@ normalize-path@^3.0.0, normalize-path@~3.0.0:
   resolved "https://registry.yarnpkg.com/normalize-path/-/normalize-path-3.0.0.tgz#0dcd69ff23a1c9b11fd0978316644a0388216a65"
   integrity sha512-6eZs5Ls3WtCisHWp9S2GUy8dqkpGi4BVSz3GaqiE6ezub0512ESztXUwUB6C6IKbQkY2Pnb/mD4WYojCRwcwLA==
 
-notebookjs@^0.6.3:
-  version "0.6.3"
-  resolved "https://registry.yarnpkg.com/notebookjs/-/notebookjs-0.6.3.tgz#fde1cea09cb8dd127007f6276fb4468602663a51"
-  integrity sha512-rVv0xMhYZrmkKzYY8r5KnBkuPoyuY7Fnyla8BjCdStOHM/9lD8P7xdjxGtxnd1YNaG5qf0nuPUVTu5EKP1ITKQ==
+notebookjs@^0.6.4:
+  version "0.6.4"
+  resolved "https://registry.yarnpkg.com/notebookjs/-/notebookjs-0.6.4.tgz#80443220ce89a2304192c37782509386793800a2"
+  integrity sha512-OcVsnab6lBaLKhtwI2nyqAX3C1h3i2GPXF5R3Sr24hB76+I5tyU6MYI1kXdQlWl8LAhcgwA+4esT7EGBxwVGyA==
   dependencies:
-    ansi_up "^4.0.4"
+    ansi_up "^5.0.0"
     dompurify "^2.2.6"
     jsdom "^16.4.0"
     marked "^2.0.0"
