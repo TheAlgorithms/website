@@ -26,12 +26,13 @@ import {
   ScalaPlainIcon,
   SwiftPlainIcon,
 } from "react-devicons";
+import classes from "./style.module.css";
 
 export default function LanguageIcon({
   language,
   tooltip,
   className = "",
-  color = "rgba(0, 0, 0, 0.26)",
+  color = "inherit",
 }: {
   language: Language;
   tooltip?: string;
@@ -40,55 +41,55 @@ export default function LanguageIcon({
 }) {
   return (
     <Tooltip className={className} title={tooltip || ""}>
-      <Icon>
+      <Icon className={classes.icon} style={{ fill: color }}>
         {(() => {
           switch (language.toLowerCase() as Language | string) {
             case "ruby":
-              return <RubyPlainIcon color={color} />;
+              return <RubyPlainIcon color="inherit" />;
             case "python":
-              return <PythonPlainIcon color={color} />;
+              return <PythonPlainIcon color="inherit" />;
             case "javascript":
-              return <JavascriptPlainIcon color={color} />;
+              return <JavascriptPlainIcon color="inherit" />;
             case "c-plus-plus":
-              return <CplusplusPlainIcon color={color} />;
+              return <CplusplusPlainIcon color="inherit" />;
             case "java":
-              return <JavaPlainIcon color={color} />;
+              return <JavaPlainIcon color="inherit" />;
             case "c":
-              return <CPlainIcon color={color} />;
+              return <CPlainIcon color="inherit" />;
             case "f-sharp":
-              return <FsharpPlainIcon color={color} />;
+              return <FsharpPlainIcon color="inherit" />;
             case "go":
-              return <GoPlainIcon color={color} />;
+              return <GoPlainIcon color="inherit" />;
             case "rust":
-              return <RustPlainIcon color={color} />;
+              return <RustPlainIcon color="inherit" />;
             case "aarch64_assembly":
-              return <Aarch64PlainIcon color={color} />;
+              return <Aarch64PlainIcon color="inherit" />;
             case "c-sharp":
-              return <CsharpPlainIcon color={color} />;
+              return <CsharpPlainIcon color="inherit" />;
             case "dart":
-              return <DartPlainIcon color={color} />;
+              return <DartPlainIcon color="inherit" />;
             case "r":
-              return <RPlainIcon color={color} />;
+              return <RPlainIcon color="inherit" />;
             case "php":
-              return <PhpPlainIcon color={color} />;
+              return <PhpPlainIcon color="inherit" />;
             case "elixir":
-              return <ElixirPlainIcon color={color} />;
+              return <ElixirPlainIcon color="inherit" />;
             case "kotlin":
-              return <KotlinPlainIcon color={color} />;
+              return <KotlinPlainIcon color="inherit" />;
             case "scala":
-              return <ScalaPlainIcon color={color} />;
+              return <ScalaPlainIcon color="inherit" />;
             case "jupyter":
-              return <JupyterPlainIcon color={color} />;
+              return <JupyterPlainIcon color="inherit" />;
             case "haskell":
-              return <HaskellPlainIcon color={color} />;
+              return <HaskellPlainIcon color="inherit" />;
             case "ocaml":
-              return <OcamlPlainIcon color={color} />;
+              return <OcamlPlainIcon color="inherit" />;
             case "swift":
-              return <SwiftPlainIcon color={color} />;
+              return <SwiftPlainIcon color="inherit" />;
             case "elm":
-              return <ElmPlainIcon color={color} />;
+              return <ElmPlainIcon color="inherit" />;
             case "matlab-octave":
-              return <MatlabPlainIcon color={color} />;
+              return <MatlabPlainIcon color="inherit" />;
             default:
               throw new Error(`Missing icon for ${language}`);
           }

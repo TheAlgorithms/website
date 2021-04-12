@@ -83,20 +83,25 @@
   display: flex;
 }
 
+.socialButtons div {
+  border-radius: 50%;
+  margin-left: 20px;
+}
+
 .socialButtons a {
   font-size: 2rem;
-  background-color: white;
-  box-shadow: 0 2px 1px -1px rgba(0, 0, 0, 0.2), 0 1px 1px 0 rgba(0, 0, 0, 0.14),
-    0 1px 3px 0 rgba(0, 0, 0, 0.12);
-  margin-left: 20px;
   padding: 17px;
 }
 
-.socialButtons a:nth-child(1) {
+.socialButtons div:nth-child(1) {
   margin-left: 0;
 }
 
 .socialButtons svg {
   height: 1em;
   width: 1em;
+}
+
+:global(.dark) .socialButtons svg {
+  fill: white;
 }
