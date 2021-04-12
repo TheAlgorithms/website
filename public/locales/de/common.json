@@ -35,5 +35,8 @@
     "socialTitle": "In Kontakt bleiben",
     "socialDiscord": "Chat auf Discord",
     "socialGitter": "Chat auf Gitter",
-    "socialGithub": "Auf GitHub beitragen"
+    "socialGithub": "Auf GitHub beitragen",
+    "search": "Suche",
+    "home": "Zurück",
+    "pageNotFound": "Seite nicht gefunden"
 }
