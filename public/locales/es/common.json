@@ -35,5 +35,8 @@
     "socialDiscord": "Hablar en Discord",
     "socialGitter": "Hablar en Gitter",
     "socialGithub": "Contribuye en GitHub",
-    "socialTitle": "Conéctate con nosotros"
+    "socialTitle": "Conéctate con nosotros",
+    "search": "Buscar",
+    "home": "Inicio",
+    "pageNotFound": "Pagina no encontrada"
 }
