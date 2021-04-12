@@ -35,5 +35,8 @@
     "contributeTitle": "Kontribui",
     "programmingLanguagesTitle": "Programlingvoj",
     "aboutUsTitle": "Pri Ni",
-    "algorithmExplanationTitle": "Kio estas Algoritmo?"
+    "algorithmExplanationTitle": "Kio estas Algoritmo?",
+    "search": "Serĉi",
+    "home": "Hejmo",
+    "pageNotFound": "Paĝo ne troviĝis"
 }
