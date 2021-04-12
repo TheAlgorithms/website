@@ -9,24 +9,28 @@ import {
 import React from "react";
 import { useRouter } from "next/router";
 import Link from "next/link";
-import ReactCountryFlag from "react-country-flag";
 import classes from "./style.module.css";
 
 const languages: { name: string; locale: string; icon: string }[] = [
   {
     name: "English",
     locale: "en",
-    icon: "GB",
+    icon: "gb",
   },
   {
     name: "Español",
     locale: "es",
-    icon: "MX",
+    icon: "mx",
   },
   {
     name: "Deutsch",
     locale: "de",
-    icon: "DE",
+    icon: "de",
+  },
+  {
+    name: "Esperanto",
+    locale: "eo",
+    icon: "eo",
   },
 ];
 
@@ -44,10 +48,10 @@ function MenuContent() {
         >
           <MenuItem selected={router.locale === language.locale}>
             <ListItemIcon>
-              <ReactCountryFlag
-                style={{ width: 30, height: 20 }}
-                countryCode={language.icon}
-                svg
+              <img
+                src={`/flags/${language.icon}.svg`}
+                alt={language.icon}
+                className={classes.icon}
               />
             </ListItemIcon>
             <ListItemText>{language.name}</ListItemText>
