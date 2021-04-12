@@ -31,5 +31,9 @@
     "aboutUsTitle": "Acerca de nosotros",
     "changeLanguageNavbar": "Cambiar idioma",
     "darkModeNavbar": "Modo oscuro",
-    "lightModeNavbar": "Modo claro"
+    "lightModeNavbar": "Modo claro",
+    "socialDiscord": "Hablar en Discord",
+    "socialGitter": "Hablar en Gitter",
+    "socialGithub": "Contribuye en GitHub",
+    "socialTitle": "Conéctate con nosotros"
 }
