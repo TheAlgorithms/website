@@ -7,12 +7,14 @@ import Section from "components/section";
 import Head from "components/head";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { Add } from "@material-ui/icons";
+import { useTranslation } from "next-i18next";
 import classes from "./search.module.css";
 
 export default function Search() {
   const router = useRouter();
   const [limit, setLimit] = useState(27);
   const [loading, setLoading] = useState(false);
+  const { t } = useTranslation("common");
 
   const algorithms = search(router.query.q as string, limit);
 
@@ -25,7 +27,9 @@ export default function Search() {
   return (
     <>
       <Head title={router.query.q && `"${router.query.q}"`} />
-      <Section title={`Search${router.query.q && ` "${router.query.q}"`}`}>
+      <Section
+        title={`${t("search")}${router.query.q && ` "${router.query.q}"`}`}
+      >
         {router.query.q && (
           <AlgorithmsList algorithms={algorithms} noCategories />
         )}
