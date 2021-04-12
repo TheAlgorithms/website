@@ -8,7 +8,6 @@ import {
 } from "@material-ui/core";
 import React from "react";
 import { useRouter } from "next/router";
-import Link from "next/link";
 import classes from "./style.module.css";
 
 const languages: { name: string; locale: string; icon: string }[] = [
@@ -40,23 +39,29 @@ function MenuContent() {
   return (
     <>
       {languages.map((language) => (
-        <Link
-          locale={language.locale}
+        <MenuItem
           key={language.locale}
-          href={router.asPath}
-          passHref
+          selected={router.locale === language.locale}
+          onClick={() => {
+            router.push(
+              {
+                pathname: router.pathname,
+                query: router.query,
+              },
+              undefined,
+              { locale: language.locale }
+            );
+          }}
         >
-          <MenuItem selected={router.locale === language.locale}>
-            <ListItemIcon>
-              <img
-                src={`/flags/${language.icon}.svg`}
-                alt={language.icon}
-                className={classes.icon}
-              />
-            </ListItemIcon>
-            <ListItemText>{language.name}</ListItemText>
-          </MenuItem>
-        </Link>
+          <ListItemIcon>
+            <img
+              src={`/flags/${language.icon}.svg`}
+              alt={language.icon}
+              className={classes.icon}
+            />
+          </ListItemIcon>
+          <ListItemText>{language.name}</ListItemText>
+        </MenuItem>
       ))}
     </>
   );
