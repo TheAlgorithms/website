@@ -41,20 +41,24 @@ export default function Home({ topAlgorithms, featuredAlgorithms }) {
       <Section title={t("topAlgorithms")}>
         <AlgorithmsList noCategories algorithms={topAlgorithms} />
       </Section>
-      <div id="about">
+      <div>
         <Section>
           <Card className={classes.card}>
             <CardContent>
               <div className={classes.twoCols}>
                 <div>
-                  <Typography variant="h5" className={classes.title}>
+                  <Typography id="about" variant="h5" className={classes.title}>
                     {t("algorithmExplanationTitle")}
                   </Typography>
                   <Typography>{t("algorithmExplanation")}</Typography>
                 </div>
-                <div id="aboutUs"/>
+                <div />
                 <div>
-                  <Typography variant="h5" className={classes.title}>
+                  <Typography
+                    id="aboutUs"
+                    variant="h5"
+                    className={classes.title}
+                  >
                     {t("aboutUsTitle")}
                   </Typography>
                   <Typography>{t("aboutUs")}</Typography>
@@ -113,9 +117,13 @@ export default function Home({ topAlgorithms, featuredAlgorithms }) {
         <Section>
           <Card className={classes.card}>
             <CardContent>
-              <div id="programmingLanguages" className={classes.twoCols}>
+              <div className={classes.twoCols}>
                 <div>
-                  <Typography variant="h5" className={classes.title}>
+                  <Typography
+                    id="programmingLanguages"
+                    variant="h5"
+                    className={classes.title}
+                  >
                     {t("programmingLanguagesTitle")}
                   </Typography>
                   <Typography>{t("programmingLanguages")}</Typography>
@@ -131,14 +139,18 @@ export default function Home({ topAlgorithms, featuredAlgorithms }) {
                   />
                 </div>
                 <div />
-                <div id="contribute">
-                  <Typography variant="h5" className={classes.title}>
+                <div>
+                  <Typography
+                    id="contribute"
+                    variant="h5"
+                    className={classes.title}
+                  >
                     {t("contributeTitle")}
                   </Typography>
                   <div className="MuiTypography-root MuiTypography-body1">
                     <SanitizedHTML allowedTags={["a"]} html={t("contribute")} />
                   </div>
-                  <div id="donate">
+                  <div>
                     <Button
                       variant="contained"
                       className={classes.github}
@@ -157,11 +169,18 @@ export default function Home({ topAlgorithms, featuredAlgorithms }) {
                       <WeblatePlainIcon color="black" />
                       Weblate
                     </Button>
-                    <Typography variant="h5" className={classes.title}>
+                    <Typography
+                      id="donate"
+                      variant="h5"
+                      className={classes.title}
+                    >
                       {t("donateTitle")}
                     </Typography>
                     <div className="MuiTypography-root MuiTypography-body1">
-                     <SanitizedHTML allowedTags={["a"]} html={t("donateText")} />
+                      <SanitizedHTML
+                        allowedTags={["a"]}
+                        html={t("donateText")}
+                      />
                     </div>
                     <Button
                       variant="contained"
