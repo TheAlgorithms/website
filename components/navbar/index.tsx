@@ -50,7 +50,7 @@ export default function Navbar({
   const menu = [
     {
       name: t("aboutTextNavbar"),
-      href: "/#about",
+      href: "/#aboutUs",
     },
     {
       name: t("donateButton"),
