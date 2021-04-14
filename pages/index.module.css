@@ -14,7 +14,8 @@
 }
 
 .title {
-  margin-top: 40px !important;
+  margin-top: -40px !important;
+  padding-top: 80px !important;
   margin-bottom: 20px !important;
 }
 

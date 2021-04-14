@@ -29,10 +29,10 @@ export default function Footer() {
         </Typography>
         <div className={classes.list}>
           <Link href="/#about">{t("algorithmExplaniationFooter")}</Link>
-          <Link href="/#about">{t("aboutUsFooter")}</Link>
-          <Link href="/#contribute">{t("programmingLanguagesTitle")}</Link>
+          <Link href="/#aboutUs">{t("aboutUsFooter")}</Link>
+          <Link href="/#programmingLanguages">{t("programmingLanguagesTitle")}</Link>
           <Link href="/#contribute">{t("contributeTitle")}</Link>
-          <Link href="/#contribute">{t("donateTitle")}</Link>
+          <Link href="/#donate">{t("donateTitle")}</Link>
         </div>
         <div className={classes.list}>
           <Link href="https://github.com/TheAlgorithms/">GitHub</Link>
