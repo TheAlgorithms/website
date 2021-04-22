@@ -44,9 +44,19 @@ let categories: { [category: string]: string[] } = {};
   const files = await Promise.all(
     // eslint-disable-next-line consistent-return
     Object.keys(Languages).map(async (language) => {
-      const fresponse = await fetch(
-        `https://raw.githubusercontent.com/TheAlgorithms/${language}/master/DIRECTORY.md`
-      );
+      let fresponse;
+      try {
+        fresponse = await fetch(
+          `https://raw.githubusercontent.com/TheAlgorithms/${language}/master/DIRECTORY.md`
+        );
+      } catch (e) {
+        console.warn(
+          `Failed to fetch ${language}/DIRECTORY.md, trying again...`
+        );
+        fresponse = await fetch(
+          `https://raw.githubusercontent.com/TheAlgorithms/${language}/master/DIRECTORY.md`
+        );
+      }
       if (fresponse.ok) {
         return [language, await fresponse.text()];
       }
@@ -156,7 +166,7 @@ function addAlgorithmFromMatch(
     algorithm = {
       slug: normalizeWeak(match[1]),
       name: match[1],
-      categories: algorithmCategories,
+      categories: algorithmCategories.map(normalizeCategory),
       implementations: {},
       code: "",
       body: {},
@@ -176,9 +186,12 @@ function equals(string1: string, string2: string) {
   if (normalize(string1) === normalize(string2)) {
     return true;
   }
-  if (aliases[normalize(string1)]) {
-    for (let i = 0; i < aliases[normalize(string1)].length; i += 1) {
-      if (normalize(string2) === normalize(aliases[normalize(string1)][i])) {
+  if (aliases.algorithms[normalize(string1)]) {
+    for (let i = 0; i < aliases.algorithms[normalize(string1)].length; i += 1) {
+      if (
+        normalize(string2) ===
+        normalize(aliases.algorithms[normalize(string1)][i])
+      ) {
         return true;
       }
     }
@@ -194,4 +207,8 @@ function b64DecodeUnicode(str) {
       .map((c) => `%${`00${c.charCodeAt(0).toString(16)}`.slice(-2)}`)
       .join("")
   );
+}
+
+function normalizeCategory(category: string) {
+  return aliases.categories[normalize(category)] || category;
 }

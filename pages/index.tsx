@@ -102,7 +102,7 @@ export default function Home({ topAlgorithms, featuredAlgorithms }) {
             {
               name: t("basicMathCategories"),
               icon: <Functions />,
-              href: "/category/maths",
+              href: "/category/math",
             },
             {
               name: t("imageProcessingCategories"),
