@@ -26,7 +26,11 @@ function MyApp({ Component, pageProps }: AppProps) {
   }, []);
 
   useEffect(() => {
-    setIsDarkTheme((localStorage.getItem("theme") || "light") === "dark");
+    setIsDarkTheme(
+      localStorage.getItem("theme")
+        ? localStorage.getItem("theme") === "dark"
+        : window.matchMedia("(prefers-color-scheme: dark)").matches
+    );
   }, []);
 
   return (
