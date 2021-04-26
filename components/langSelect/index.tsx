@@ -31,6 +31,11 @@ const languages: { name: string; locale: string; icon: string }[] = [
     locale: "eo",
     icon: "eo",
   },
+  {
+    name: "Ukrainian",
+    locale: "uk",
+    icon: "uk",
+  },
 ];
 
 function MenuContent() {
