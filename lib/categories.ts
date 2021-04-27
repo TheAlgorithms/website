@@ -4,19 +4,14 @@ import locales from "lib/locales";
 import { Algorithm } from "./models";
 import { normalize } from "./normalize";
 
-const cacheDirectory = path.join(process.cwd(), "cache");
-const algorithmsDirectory = path.join(cacheDirectory, "algorithms");
 const allAlgorithms: Algorithm[] = JSON.parse(
   fs.readFileSync(path.join("cache", "algorithms.json")).toString()
 );
 
 export function getCategories() {
   const categories = [];
-  fs.readdirSync(algorithmsDirectory).forEach((file) => {
-    const fileCategories = JSON.parse(
-      fs.readFileSync(path.join(algorithmsDirectory, file)).toString()
-    ).categories;
-    fileCategories.forEach((category: string) => {
+  allAlgorithms.forEach((algorithm) => {
+    algorithm.categories.forEach((category: string) => {
       if (!categories.find((el) => normalize(el) === normalize(category)))
         categories.push(category);
     });

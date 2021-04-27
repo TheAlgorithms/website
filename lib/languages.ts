@@ -1,7 +1,8 @@
 import fs from "fs";
 import path from "path";
 import locales from "lib/locales";
-import { Algorithm, Languages } from "./models";
+import { Algorithm } from "./models";
+import { Repositories } from "./repositories";
 import { normalize } from "./normalize";
 
 const allAlgorithms: Algorithm[] = JSON.parse(
@@ -9,7 +10,7 @@ const allAlgorithms: Algorithm[] = JSON.parse(
 );
 
 export function getLanguages() {
-  return Object.keys(Languages).flatMap((language) =>
+  return Object.keys(Repositories).flatMap((language) =>
     locales.map((locale) => ({
       params: {
         language,

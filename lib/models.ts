@@ -1,40 +1,15 @@
+import type { Language } from "./repositories";
+
 export interface Algorithm {
   slug: string;
   name: string;
   body: { [locale: string]: string };
   categories: string[];
-  implementations: { [key in Language]?: string };
-  code: string;
+  implementations: { [key in Language]?: Implementation };
 }
 
-export type Language = keyof typeof Languages;
-
-export const Languages = {
-  python: "Python",
-  javascript: "Javascript",
-  "c-plus-plus": "C++",
-  java: "Java",
-  "c-sharp": "C#",
-  c: "C",
-  haskell: "Haskell",
-  "f-sharp": "F#",
-  go: "Go",
-  rust: "Rust",
-  aarch64_assembly: "AArch64 Assembly",
-  dart: "Dart",
-  r: "R",
-  ruby: "Ruby",
-  php: "PHP",
-  elixir: "Elixir",
-  kotlin: "Kotlin",
-  scala: "Scala",
-  jupyter: "Jupyter",
-  ocaml: "OCaml",
-  swift: "Swift",
-  elm: "Elm",
-  "matlab-octave": "MATLAB Octave",
-};
-
-export function getLanguageName(language: Language) {
-  return Languages[language.toLocaleLowerCase()];
+export interface Implementation {
+  dir: string;
+  url: string;
+  code: string;
 }

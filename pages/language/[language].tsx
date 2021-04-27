@@ -4,7 +4,7 @@ import AlgorithmsList from "components/algorithmsList";
 import Section from "components/section";
 import Head from "components/head";
 import { getLanguage, getLanguages } from "lib/languages";
-import { getLanguageName, Language } from "lib/models";
+import { getLanguageName, Language } from "lib/repositories";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import LanguageIcon from "components/icon";
 import { OpenInNew } from "@material-ui/icons";

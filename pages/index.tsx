@@ -13,7 +13,7 @@ import LanguagesList from "components/languagesList";
 import { getAlgorithm } from "lib/algorithms";
 import Section from "components/section";
 import CategoriesList from "components/categoriesList";
-import { Language, Languages } from "lib/models";
+import { Language, Repositories } from "lib/repositories";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useTranslation } from "next-i18next";
 import SanitizedHTML from "react-sanitized-html";
@@ -128,7 +128,7 @@ export default function Home({ topAlgorithms, featuredAlgorithms }) {
                   </Typography>
                   <Typography>{t("programmingLanguages")}</Typography>
                   <LanguagesList
-                    languages={Object.keys(Languages).map(
+                    languages={Object.keys(Repositories).map(
                       (langName: Language) => ({
                         name: langName,
                         href: `/language/${langName}`,

@@ -1,214 +1,151 @@
-/* eslint-disable no-console */
-/* eslint-disable import/no-extraneous-dependencies */
-import ora from "ora";
-import fetch, { RequestInit } from "node-fetch";
+/* eslint-disable no-param-reassign */
+import ora, { Ora } from "ora";
+import { exec } from "child_process";
 import fs from "fs";
 import path from "path";
-import atob from "atob";
-import btoa from "btoa";
-import dotenv from "dotenv";
+import walk from "../lib/walk";
+import { Repositories, Repository } from "../lib/repositories";
+import { Algorithm } from "../lib/models";
+import {
+  normalize,
+  normalizeAlgorithm,
+  normalizeCategory,
+  normalizeTitle,
+  normalizeWeak,
+} from "../lib/normalize";
+import highlightCode from "../lib/highlight";
 import locales from "../lib/locales";
-import aliases from "../lib/aliases";
-import { Algorithm, Languages } from "../lib/models";
-import { normalize, normalizeWeak } from "../lib/normalize";
+import renderMarkdown from "../lib/markdown";
+import renderNotebook from "../lib/notebookjs";
 
-dotenv.config();
-const fetchOptions: RequestInit = {
-  headers:
-    process.env.GH_USER && process.env.GH_TOKEN
-      ? {
-          Authorization: `Basic ${btoa(
-            `${process.env.GH_USER}:${process.env.GH_TOKEN}`
-          )}`,
-        }
-      : {},
-};
-
-const fsPromises = fs.promises;
-
-const cacheDirectory = path.join(process.cwd(), "cache");
-const algorithmsDirectory = path.join(cacheDirectory, "algorithms");
-
-let algorithms: Algorithm[] = [];
+let algorithms: { [key: string]: Algorithm } = {};
 let categories: { [category: string]: string[] } = {};
+let spinner: Ora;
 
 (async () => {
-  console.log("Fetching algorithms from github\n");
-
-  if (fs.existsSync(cacheDirectory))
-    fs.rmdirSync(cacheDirectory, { recursive: true });
-  fs.mkdirSync(cacheDirectory);
-  fs.mkdirSync(algorithmsDirectory);
-
-  let spinner = ora("Fetching DIRECTORY.md files").start();
-  const files = await Promise.all(
-    // eslint-disable-next-line consistent-return
-    Object.keys(Languages).map(async (language) => {
-      let fresponse;
-      try {
-        fresponse = await fetch(
-          `https://raw.githubusercontent.com/TheAlgorithms/${language}/master/DIRECTORY.md`
+  spinner = ora("Downloading repositories").start();
+  if (fs.existsSync("tmp")) fs.rmdirSync("tmp", { recursive: true });
+  fs.mkdirSync("tmp");
+  fs.mkdirSync("tmp/repositories");
+  process.chdir("tmp/repositories");
+  await Promise.all(
+    [...Object.keys(Repositories), "algorithms-explanation"].map(
+      (repo) =>
+        new Promise((resolve) => {
+          exec(
+            `git clone https://github.com/TheAlgorithms/${repo}.git`,
+            resolve
+          );
+        })
+    )
+  );
+  spinner.succeed();
+  spinner = ora("Collecting algorithms and rendering code").start();
+  await Promise.all(
+    Object.keys(Repositories).map(async (language, index) => {
+      await sleep(index * 1000); // This is a very dumb hack to get the languages in the right order, but it works, so...
+      const repo: Repository = Repositories[language];
+      for await (const dir of walk(path.join(language, repo.baseDir))) {
+        let valid = false;
+        for (const validFilename of repo.allowedFiles) {
+          if (dir.endsWith(validFilename)) valid = true;
+        }
+        if (dir.includes("test")) continue;
+        if (!valid) continue;
+        const name = normalizeTitle(
+          dir.split("/").pop().split(".")[0].replace(/_/g, " ")
         );
-      } catch (e) {
-        console.warn(
-          `Failed to fetch ${language}/DIRECTORY.md, trying again...`
-        );
-        fresponse = await fetch(
-          `https://raw.githubusercontent.com/TheAlgorithms/${language}/master/DIRECTORY.md`
-        );
+        const nName = normalize(name);
+        const lCategories = dir
+          .split("/")
+          .slice(1, dir.split("/").length - 1)
+          .map(normalizeTitle);
+        if (!algorithms[nName]) {
+          algorithms[nName] = {
+            slug: normalizeWeak(name),
+            name,
+            categories: lCategories,
+            body: {},
+            implementations: {},
+          };
+        }
+        algorithms[nName].implementations[language] = {
+          dir: path.join(repo.baseDir, ...dir.split("/").slice(1)),
+          url: path.join(
+            `https://github.com/TheAlgorithms/${language}/tree/master`,
+            repo.baseDir,
+            ...dir.split("/").slice(1)
+          ),
+          code: highlightCode(
+            (await fs.promises.readFile(dir)).toString(),
+            language
+          ),
+        };
+        for (const category of lCategories) {
+          if (!categories[normalizeCategory(category)])
+            categories[normalizeCategory(category)] = [];
+          categories[normalizeCategory(category)].push(normalizeWeak(name));
+        }
       }
-      if (fresponse.ok) {
-        return [language, await fresponse.text()];
-      }
-      spinner.fail(`DIRECTORY.md for ${language} not found`);
-      process.exit(1);
     })
   );
-  files.forEach(([language, text]) => parseData(language, text));
   spinner.succeed();
-  spinner = ora("Fetching explanations").start();
-  const explanations = await (
-    await fetch(
-      "https://api.github.com/repos/TheAlgorithms/Algorithms-Explanation/git/trees/master?recursive=2",
-      fetchOptions
-    )
-  ).json();
-  try {
-    await Promise.all(
-      locales.flatMap(async (locale) =>
-        Promise.all(
-          explanations.tree.map(async (explanation) => {
-            const match = explanation.path.match(
-              new RegExp(`${locale}\\/(?:.+)\\/(.+)\\.md`)
-            );
-            if (match) {
-              const algorithm = algorithms.find((alg) =>
-                equals(alg.name, match[1])
-              );
-              if (algorithm) {
-                const data = await (
-                  await fetch(explanation.url, fetchOptions)
-                ).json();
-                algorithm.body[locale] = b64DecodeUnicode(data.content)
+  spinner = ora("Collecting and rendering explanations").start();
+  process.chdir("./algorithms-explanation");
+  await Promise.all(
+    locales.map(async (locale) => {
+      if (fs.existsSync(locale)) {
+        for await (const dir of walk(locale)) {
+          const match = dir.match(/(?:.+)\/(.+)\.md/);
+          if (match) {
+            const algorithm = algorithms[normalizeAlgorithm(match[1])];
+            if (algorithm) {
+              algorithm.body[locale] = await renderMarkdown(
+                (await fs.promises.readFile(dir))
+                  .toString()
                   .split("\n")
                   .slice(1)
-                  .join("\n");
-              }
+                  .join("\n")
+              );
             }
-          })
-        )
-      )
-    );
-    spinner.succeed();
-  } catch (error) {
-    spinner.fail(
-      `Error while fetching explanations: ${explanations.message || error}`
-    );
-  }
-  spinner = ora("Saving algorithms to files").start();
-
-  await Promise.all(
-    algorithms.map(async (algorithm) => {
-      await fsPromises.writeFile(
-        path.join(algorithmsDirectory, `${algorithm.slug}.json`),
-        JSON.stringify(algorithm, null, 2)
-      );
+          }
+        }
+      }
     })
   );
-
-  await fsPromises.writeFile(
-    path.join(cacheDirectory, "algorithms.json"),
-    JSON.stringify(algorithms)
+  process.chdir("..");
+  await Promise.all(
+    Object.values(algorithms).flatMap((algorithm) =>
+      Object.keys(algorithm.implementations).flatMap(async (language) => {
+        if (language === "jupyter") {
+          const render = await renderNotebook(
+            (
+              await fs.promises.readFile(
+                path.join(language, algorithm.implementations[language].dir)
+              )
+            ).toString()
+          );
+          locales.forEach((locale) => {
+            if (algorithm.body[locale]) algorithm.body[locale] += `\n${render}`;
+            else algorithm.body[locale] = render;
+          });
+        }
+      })
+    )
   );
-  await fsPromises.writeFile(
-    path.join(cacheDirectory, "categories.json"),
-    JSON.stringify(categories)
+  spinner.succeed();
+  spinner = ora("Writing algorithms to files").start();
+  process.chdir("..");
+  await fs.promises.writeFile(
+    "algorithms.json",
+    JSON.stringify(Object.values(algorithms))
   );
+  await fs.promises.writeFile("categories.json", JSON.stringify(categories));
   spinner.succeed();
 })();
 
-function parseData(lang, data) {
-  let aCategories = [];
-  data.split("\n").forEach((line) => {
-    if (line.startsWith("##")) {
-      aCategories = [line.substr(2).trim()];
-    }
-    for (let i = 1; i < 6; i += 1) {
-      if (
-        line.startsWith(`${"  ".repeat(i)}*`) ||
-        line.startsWith(`${"	".repeat(i)}*`)
-      ) {
-        const match = line
-          .substr(2 * i + 1)
-          .match(/\[(.+)\]\((.+\/(.+)(?:\..+))\)/);
-        aCategories.length = i;
-        if (match)
-          addAlgorithmFromMatch(
-            match,
-            lang,
-            aCategories.filter((el) => !!el)
-          );
-        else aCategories[i] = line.substr(2 * i + 1).trim();
-      }
-    }
+function sleep(milliseconds: number) {
+  return new Promise((resolve) => {
+    setTimeout(resolve, milliseconds);
   });
-}
-
-function addAlgorithmFromMatch(
-  match: RegExpMatchArray,
-  lang: string,
-  algorithmCategories: string[]
-) {
-  let algorithm = algorithms.find(
-    (alg) => normalize(alg.slug) === normalize(match[1])
-  );
-  if (!algorithm) {
-    algorithm = {
-      slug: normalizeWeak(match[1]),
-      name: match[1],
-      categories: algorithmCategories.map(normalizeCategory),
-      implementations: {},
-      code: "",
-      body: {},
-    };
-    algorithms.push(algorithm);
-  }
-  algorithmCategories.forEach((category) => {
-    if (categories[normalize(category)]) {
-      if (!categories[normalize(category)].includes(algorithm.slug))
-        categories[normalize(category)].push(algorithm.slug);
-    } else categories[normalize(category)] = [algorithm.slug];
-  });
-  [, , algorithm.implementations[lang]] = match;
-}
-
-function equals(string1: string, string2: string) {
-  if (normalize(string1) === normalize(string2)) {
-    return true;
-  }
-  if (aliases.algorithms[normalize(string1)]) {
-    for (let i = 0; i < aliases.algorithms[normalize(string1)].length; i += 1) {
-      if (
-        normalize(string2) ===
-        normalize(aliases.algorithms[normalize(string1)][i])
-      ) {
-        return true;
-      }
-    }
-  }
-  return false;
-}
-
-function b64DecodeUnicode(str) {
-  // Going backwards: from bytestream, to percent-encoding, to original string.
-  return decodeURIComponent(
-    atob(str)
-      .split("")
-      .map((c) => `%${`00${c.charCodeAt(0).toString(16)}`.slice(-2)}`)
-      .join("")
-  );
-}
-
-function normalizeCategory(category: string) {
-  return aliases.categories[normalize(category)] || category;
 }

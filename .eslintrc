@@ -21,9 +21,7 @@
     "plugin:import/errors",
     "plugin:import/warnings",
     "plugin:import/typescript",
-    "prettier",
-    "prettier/@typescript-eslint",
-    "prettier/react"
+    "prettier"
   ],
   "rules": {
     "react/jsx-filename-extension": [1, { "extensions": [".ts", ".tsx"] }],
@@ -51,7 +49,10 @@
     "jsx-a11y/click-events-have-key-events": "off",
     "react/require-default-props": "off",
     "linebreak-style": ["warn", "windows"],
-    "import/order": "warn"
+    "import/order": "warn",
+    "no-restricted-syntax": "off",
+    "no-nested-ternary": "off",
+    "no-continue": "off"
   },
   "settings": {
     "import/resolver": {

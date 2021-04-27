@@ -1,6 +1,6 @@
 import { Tooltip, Icon } from "@material-ui/core";
 import React from "react";
-import { Language } from "lib/models";
+import { Language } from "lib/repositories";
 import {
   Aarch64PlainIcon,
   CPlainIcon,
