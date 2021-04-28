@@ -1,25 +1,17 @@
 import fs from "fs";
 import path from "path";
 import locales from "lib/locales";
+import { normalize, normalizeWeak } from "./normalize";
 import { Algorithm } from "./models";
-import { normalize } from "./normalize";
-
-const allAlgorithms: Algorithm[] = JSON.parse(
-  fs.readFileSync(path.join("tmp", "algorithms.json")).toString()
-);
 
 export function getCategories() {
-  const categories = [];
-  allAlgorithms.forEach((algorithm) => {
-    algorithm.categories.forEach((category: string) => {
-      if (!categories.find((el) => normalize(el) === normalize(category)))
-        categories.push(category);
-    });
-  });
+  const categories: string[] = Object.keys(
+    JSON.parse(fs.readFileSync(path.join("tmp", "categories.json")).toString())
+  );
   return categories.flatMap((category) =>
     locales.map((locale) => ({
       params: {
-        category: normalize(category),
+        category: normalizeWeak(category),
       },
       locale,
     }))
@@ -27,7 +19,10 @@ export function getCategories() {
 }
 
 export function getCategory(category: string) {
-  const algorithms = [];
+  const allAlgorithms: Algorithm[] = JSON.parse(
+    fs.readFileSync(path.join("tmp", "algorithms.json")).toString()
+  );
+  const algorithms: Algorithm[] = [];
   let categoryName: string;
   allAlgorithms.forEach((algorithm) => {
     algorithm.categories.forEach((algorithmCategory) => {

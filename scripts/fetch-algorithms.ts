@@ -20,13 +20,14 @@ import renderNotebook from "../lib/notebookjs";
 
 let algorithms: { [key: string]: Algorithm } = {};
 let categories: { [category: string]: string[] } = {};
+let languages: { [language: string]: string[] } = {};
 let spinner: Ora;
 
 (async () => {
   spinner = ora("Downloading repositories").start();
-  if (fs.existsSync("tmp")) fs.rmdirSync("tmp", { recursive: true });
-  fs.mkdirSync("tmp");
-  fs.mkdirSync("tmp/repositories");
+  if (fs.existsSync("tmp")) await fs.promises.rmdir("tmp", { recursive: true });
+  await fs.promises.mkdir("tmp");
+  await fs.promises.mkdir("tmp/repositories");
   process.chdir("tmp/repositories");
   await Promise.all(
     [...Object.keys(Repositories), "algorithms-explanation"].map(
@@ -43,12 +44,14 @@ let spinner: Ora;
   spinner = ora("Collecting algorithms and rendering code").start();
   for await (const language of Object.keys(Repositories)) {
     const repo: Repository = Repositories[language];
-    for await (const dir of walk(path.join(language, repo.baseDir))) {
+    dirLoop: for await (const dir of walk(path.join(language, repo.baseDir))) {
       let valid = false;
       for (const validFilename of repo.allowedFiles) {
         if (dir.endsWith(validFilename)) valid = true;
       }
-      if (dir.includes("test")) continue;
+      for (const forbidden of ["test", "__init__"]) {
+        if (dir.includes(forbidden)) continue dirLoop;
+      }
       if (!valid) continue;
       const name = normalizeTitle(
         dir.split("/").pop().split(".")[0].replace(/_/g, " ")
@@ -66,6 +69,11 @@ let spinner: Ora;
           body: {},
           implementations: {},
         };
+        for (const category of lCategories) {
+          if (!categories[normalizeCategory(category)])
+            categories[normalizeCategory(category)] = [];
+          categories[normalizeCategory(category)].push(normalizeWeak(name));
+        }
       }
       algorithms[nName].implementations[language] = {
         dir: path.join(repo.baseDir, ...dir.split("/").slice(1)),
@@ -79,11 +87,8 @@ let spinner: Ora;
           language
         ),
       };
-      for (const category of lCategories) {
-        if (!categories[normalizeCategory(category)])
-          categories[normalizeCategory(category)] = [];
-        categories[normalizeCategory(category)].push(normalizeWeak(name));
-      }
+      if (!languages[language]) languages[language] = [];
+      languages[language].push(normalizeWeak(name));
     }
   }
   spinner.succeed();
@@ -133,6 +138,15 @@ let spinner: Ora;
   spinner.succeed();
   spinner = ora("Writing algorithms to files").start();
   process.chdir("..");
+  await fs.promises.mkdir("algorithms");
+  await Promise.all(
+    Object.values(algorithms).map(async (algorithm) => {
+      await fs.promises.writeFile(
+        path.join("algorithms", `${algorithm.slug}.json`),
+        JSON.stringify(algorithm, null, 2)
+      );
+    })
+  );
   await fs.promises.writeFile(
     "algorithms.json",
     JSON.stringify(Object.values(algorithms))
@@ -148,6 +162,7 @@ let spinner: Ora;
     )
   );
   await fs.promises.writeFile("categories.json", JSON.stringify(categories));
-  fs.rmdirSync("repositories", { recursive: true });
+  await fs.promises.writeFile("languages.json", JSON.stringify(languages));
+  await fs.promises.rmdir("repositories", { recursive: true });
   spinner.succeed();
 })();

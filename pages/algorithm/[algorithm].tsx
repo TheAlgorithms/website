@@ -7,6 +7,7 @@ import { normalize } from "lib/normalize";
 import CodePreview from "components/codePreview";
 import Head from "components/head";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+import { GetStaticPaths, GetStaticProps } from "next";
 import classes from "./algorithm.module.css";
 
 export default function AlgorithmPage({
@@ -46,21 +47,15 @@ export default function AlgorithmPage({
   );
 }
 
-export async function getStaticProps({ params, locale }) {
-  const algorithm = getAlgorithm(params.algorithm);
-  return {
-    props: {
-      algorithm,
-      locale,
-      ...(await serverSideTranslations(locale, ["common"])),
-    },
-  };
-}
+export const getStaticProps: GetStaticProps = async ({ params, locale }) => ({
+  props: {
+    algorithm: getAlgorithm(params.algorithm.toString()),
+    locale,
+    ...(await serverSideTranslations(locale, ["common"])),
+  },
+});
 
-export async function getStaticPaths() {
-  const paths = getAlgorithmSlugs();
-  return {
-    paths,
-    fallback: false,
-  };
-}
+export const getStaticPaths: GetStaticPaths = async () => ({
+  paths: getAlgorithmSlugs(),
+  fallback: false,
+});

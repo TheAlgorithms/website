@@ -2,17 +2,12 @@ import fs from "fs";
 import path from "path";
 import locales from "lib/locales";
 import type { Algorithm } from "./models";
-import { normalize } from "./normalize";
-
-const allAlgorithms: Algorithm[] = JSON.parse(
-  fs.readFileSync(path.join("tmp", "algorithms.json")).toString()
-);
 
 export function getAlgorithmSlugs() {
-  return allAlgorithms.flatMap((algorithm) =>
+  return fs.readdirSync("tmp/algorithms").flatMap((file) =>
     locales.map((locale) => ({
       params: {
-        algorithm: algorithm.slug,
+        algorithm: file.replace(".json", ""),
       },
       locale,
     }))
@@ -20,12 +15,20 @@ export function getAlgorithmSlugs() {
 }
 
 export function getAlgorithm(slug: string) {
-  const algorithm: Algorithm = allAlgorithms.find(
-    (x) => normalize(x.slug) === normalize(slug)
+  const algorithm: Algorithm = JSON.parse(
+    fs.readFileSync(path.join("tmp", "algorithms", `${slug}.json`)).toString()
   );
   return algorithm;
 }
 
 export function getAllAlgorithms() {
-  return allAlgorithms;
+  const algorithms: Algorithm[] = [];
+  fs.readdirSync("tmp/algorithms").forEach((file) => {
+    algorithms.push(
+      JSON.parse(
+        fs.readFileSync(path.join("tmp", "algorithms", file)).toString()
+      )
+    );
+  });
+  return algorithms;
 }

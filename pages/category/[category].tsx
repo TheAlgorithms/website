@@ -4,6 +4,7 @@ import { getCategories, getCategory } from "lib/categories";
 import Section from "components/section";
 import Head from "components/head";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+import { GetStaticPaths, GetStaticProps } from "next";
 
 export default function Category({ category }) {
   return (
@@ -16,20 +17,14 @@ export default function Category({ category }) {
   );
 }
 
-export async function getStaticProps({ params, locale }) {
-  const category = getCategory(params.category);
-  return {
-    props: {
-      category,
-      ...(await serverSideTranslations(locale, ["common"])),
-    },
-  };
-}
+export const getStaticProps: GetStaticProps = async ({ params, locale }) => ({
+  props: {
+    category: getCategory(params.category.toString()),
+    ...(await serverSideTranslations(locale, ["common"])),
+  },
+});
 
-export async function getStaticPaths() {
-  const paths = getCategories();
-  return {
-    paths,
-    fallback: false,
-  };
-}
+export const getStaticPaths: GetStaticPaths = async () => ({
+  paths: getCategories(),
+  fallback: false,
+});

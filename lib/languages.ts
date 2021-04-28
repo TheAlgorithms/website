@@ -5,10 +5,6 @@ import { Algorithm } from "./models";
 import { Repositories } from "./repositories";
 import { normalize } from "./normalize";
 
-const allAlgorithms: Algorithm[] = JSON.parse(
-  fs.readFileSync(path.join("tmp", "algorithms.json")).toString()
-);
-
 export function getLanguages() {
   return Object.keys(Repositories).flatMap((language) =>
     locales.map((locale) => ({
@@ -21,6 +17,9 @@ export function getLanguages() {
 }
 
 export function getLanguage(language: string) {
+  const allAlgorithms: Algorithm[] = JSON.parse(
+    fs.readFileSync(path.join("tmp", "algorithms.json")).toString()
+  );
   const algorithms = [];
   allAlgorithms.forEach((algorithm) => {
     Object.keys(algorithm.implementations).forEach((algorithmLanguage) => {

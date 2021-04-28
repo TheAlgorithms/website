@@ -8,6 +8,7 @@ import Head from "components/head";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { Add } from "@material-ui/icons";
 import { useTranslation } from "next-i18next";
+import { GetStaticProps } from "next";
 import classes from "./search.module.css";
 
 export default function Search() {
@@ -56,10 +57,8 @@ export default function Search() {
   );
 }
 
-export async function getStaticProps({ locale }) {
-  return {
-    props: {
-      ...(await serverSideTranslations(locale, ["common"])),
-    },
-  };
-}
+export const getStaticProps: GetStaticProps = async ({ locale }) => ({
+  props: {
+    ...(await serverSideTranslations(locale, ["common"])),
+  },
+});

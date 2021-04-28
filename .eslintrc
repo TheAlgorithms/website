@@ -52,7 +52,8 @@
     "import/order": "warn",
     "no-restricted-syntax": "off",
     "no-nested-ternary": "off",
-    "no-continue": "off"
+    "no-continue": "off",
+    "no-labels": "off"
   },
   "settings": {
     "import/resolver": {

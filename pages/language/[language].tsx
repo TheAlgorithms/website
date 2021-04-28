@@ -50,15 +50,12 @@ export default function LanguagePage({
   );
 }
 
-export const getStaticProps: GetStaticProps = async ({ params, locale }) => {
-  const language = getLanguage(params.language.toString());
-  return {
-    props: {
-      language,
-      ...(await serverSideTranslations(locale, ["common"])),
-    },
-  };
-};
+export const getStaticProps: GetStaticProps = async ({ params, locale }) => ({
+  props: {
+    language: getLanguage(params.language.toString()),
+    ...(await serverSideTranslations(locale, ["common"])),
+  },
+});
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const paths = getLanguages();
