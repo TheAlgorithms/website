@@ -14,7 +14,7 @@ import {
   HaskellPlainIcon,
   JavaPlainIcon,
   JavascriptPlainIcon,
-  JupyterPlainIcon,
+  JupyterPlainWordmarkIcon,
   KotlinPlainIcon,
   MatlabPlainIcon,
   OcamlPlainIcon,
@@ -79,7 +79,7 @@ export default function LanguageIcon({
             case "scala":
               return <ScalaPlainIcon color="inherit" />;
             case "jupyter":
-              return <JupyterPlainIcon color="inherit" />;
+              return <JupyterPlainWordmarkIcon color="inherit" />;
             case "haskell":
               return <HaskellPlainIcon color="inherit" />;
             case "ocaml":
