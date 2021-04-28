@@ -18,20 +18,26 @@ export function getCategories() {
   );
 }
 
-export function getCategory(category: string) {
-  const allAlgorithms: Algorithm[] = JSON.parse(
-    fs.readFileSync(path.join("tmp", "algorithms.json")).toString()
+export async function getCategory(category: string) {
+  const categories: { [category: string]: string[] } = JSON.parse(
+    fs.readFileSync(path.join("tmp", "categories.json")).toString()
   );
-  const algorithms: Algorithm[] = [];
-  let categoryName: string;
-  allAlgorithms.forEach((algorithm) => {
-    algorithm.categories.forEach((algorithmCategory) => {
-      if (normalize(category) === normalize(algorithmCategory)) {
-        categoryName = algorithmCategory;
-        algorithms.push(algorithm);
-      }
-    });
-  });
+  const categoryName = Object.keys(categories).find(
+    (x) => normalize(x) === normalize(category)
+  );
+  const items = categories[categoryName];
+  if (!items) throw new Error("Category not found");
+  const algorithms: Algorithm[] = await Promise.all(
+    items.map(async (algorithmName) =>
+      JSON.parse(
+        (
+          await fs.promises.readFile(
+            path.join("tmp", "algorithms", `${algorithmName}.json`)
+          )
+        ).toString()
+      )
+    )
+  );
   return {
     name: categoryName,
     algorithms,

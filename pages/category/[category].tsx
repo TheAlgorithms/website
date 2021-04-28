@@ -19,7 +19,7 @@ export default function Category({ category }) {
 
 export const getStaticProps: GetStaticProps = async ({ params, locale }) => ({
   props: {
-    category: getCategory(params.category.toString()),
+    category: await getCategory(params.category.toString()),
     ...(await serverSideTranslations(locale, ["common"])),
   },
 });

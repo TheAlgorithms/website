@@ -44,23 +44,34 @@ let spinner: Ora;
   spinner = ora("Collecting algorithms and rendering code").start();
   for await (const language of Object.keys(Repositories)) {
     const repo: Repository = Repositories[language];
+    languages[language] = [];
     dirLoop: for await (const dir of walk(path.join(language, repo.baseDir))) {
       let valid = false;
       for (const validFilename of repo.allowedFiles) {
         if (dir.endsWith(validFilename)) valid = true;
       }
+      if (!valid) continue;
       for (const forbidden of ["test", "__init__"]) {
         if (dir.includes(forbidden)) continue dirLoop;
       }
-      if (!valid) continue;
+      if (
+        dir.split("/").length -
+          path.join(language, repo.baseDir).split("/").length <
+        2
+      )
+        continue; // Ignore top level files
       const name = normalizeTitle(
         dir.split("/").pop().split(".")[0].replace(/_/g, " ")
       );
       const nName = normalize(name);
       const lCategories = dir
         .split("/")
-        .slice(1, dir.split("/").length - 1)
-        .map(normalizeTitle);
+        .slice(
+          path.join(language, repo.baseDir).split("/").length,
+          dir.split("/").length - 1
+        )
+        .map(normalizeTitle)
+        .map(normalizeCategory);
       if (!algorithms[nName]) {
         algorithms[nName] = {
           slug: normalizeWeak(name),
@@ -79,7 +90,6 @@ let spinner: Ora;
         dir: path.join(repo.baseDir, ...dir.split("/").slice(1)),
         url: path.join(
           `https://github.com/TheAlgorithms/${language}/tree/master`,
-          repo.baseDir,
           ...dir.split("/").slice(1)
         ),
         code: highlightCode(
@@ -87,8 +97,7 @@ let spinner: Ora;
           language
         ),
       };
-      if (!languages[language]) languages[language] = [];
-      languages[language].push(normalizeWeak(name));
+      languages[language].push(algorithms[nName].slug);
     }
   }
   spinner.succeed();

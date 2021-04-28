@@ -52,15 +52,12 @@ export default function LanguagePage({
 
 export const getStaticProps: GetStaticProps = async ({ params, locale }) => ({
   props: {
-    language: getLanguage(params.language.toString()),
+    language: await getLanguage(params.language.toString()),
     ...(await serverSideTranslations(locale, ["common"])),
   },
 });
 
-export const getStaticPaths: GetStaticPaths = async () => {
-  const paths = getLanguages();
-  return {
-    paths,
-    fallback: false,
-  };
-};
+export const getStaticPaths: GetStaticPaths = async () => ({
+  paths: getLanguages(),
+  fallback: false,
+});

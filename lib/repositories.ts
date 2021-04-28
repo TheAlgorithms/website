@@ -63,7 +63,7 @@ export const Repositories = {
   },
   r: {
     name: "R",
-    allowedFiles: [".r"],
+    allowedFiles: [".R"],
     baseDir: ".",
   },
   ruby: {
@@ -126,6 +126,6 @@ export interface Repository {
 
 export type Language = keyof typeof Repositories;
 
-export function getLanguageName(language: Language) {
+export function getLanguageName(language: Language | string) {
   return Repositories[language.toLocaleLowerCase()].name;
 }
