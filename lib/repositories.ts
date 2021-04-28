@@ -127,5 +127,5 @@ export interface Repository {
 export type Language = keyof typeof Repositories;
 
 export function getLanguageName(language: Language) {
-  return Repositories[language.toLocaleLowerCase()];
+  return Repositories[language.toLocaleLowerCase()].name;
 }

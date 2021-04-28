@@ -8,6 +8,7 @@ import { getLanguageName, Language } from "lib/repositories";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import LanguageIcon from "components/icon";
 import { OpenInNew } from "@material-ui/icons";
+import { GetStaticPaths, GetStaticProps } from "next";
 import classes from "./style.module.css";
 
 export default function LanguagePage({
@@ -49,20 +50,20 @@ export default function LanguagePage({
   );
 }
 
-export async function getStaticProps({ params, locale }) {
-  const language = getLanguage(params.language);
+export const getStaticProps: GetStaticProps = async ({ params, locale }) => {
+  const language = getLanguage(params.language.toString());
   return {
     props: {
       language,
       ...(await serverSideTranslations(locale, ["common"])),
     },
   };
-}
+};
 
-export async function getStaticPaths() {
+export const getStaticPaths: GetStaticPaths = async () => {
   const paths = getLanguages();
   return {
     paths,
     fallback: false,
   };
-}
+};

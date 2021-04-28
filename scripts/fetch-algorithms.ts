@@ -41,54 +41,51 @@ let spinner: Ora;
   );
   spinner.succeed();
   spinner = ora("Collecting algorithms and rendering code").start();
-  await Promise.all(
-    Object.keys(Repositories).map(async (language, index) => {
-      await sleep(index * 1000); // This is a very dumb hack to get the languages in the right order, but it works, so...
-      const repo: Repository = Repositories[language];
-      for await (const dir of walk(path.join(language, repo.baseDir))) {
-        let valid = false;
-        for (const validFilename of repo.allowedFiles) {
-          if (dir.endsWith(validFilename)) valid = true;
-        }
-        if (dir.includes("test")) continue;
-        if (!valid) continue;
-        const name = normalizeTitle(
-          dir.split("/").pop().split(".")[0].replace(/_/g, " ")
-        );
-        const nName = normalize(name);
-        const lCategories = dir
-          .split("/")
-          .slice(1, dir.split("/").length - 1)
-          .map(normalizeTitle);
-        if (!algorithms[nName]) {
-          algorithms[nName] = {
-            slug: normalizeWeak(name),
-            name,
-            categories: lCategories,
-            body: {},
-            implementations: {},
-          };
-        }
-        algorithms[nName].implementations[language] = {
-          dir: path.join(repo.baseDir, ...dir.split("/").slice(1)),
-          url: path.join(
-            `https://github.com/TheAlgorithms/${language}/tree/master`,
-            repo.baseDir,
-            ...dir.split("/").slice(1)
-          ),
-          code: highlightCode(
-            (await fs.promises.readFile(dir)).toString(),
-            language
-          ),
-        };
-        for (const category of lCategories) {
-          if (!categories[normalizeCategory(category)])
-            categories[normalizeCategory(category)] = [];
-          categories[normalizeCategory(category)].push(normalizeWeak(name));
-        }
+  for await (const language of Object.keys(Repositories)) {
+    const repo: Repository = Repositories[language];
+    for await (const dir of walk(path.join(language, repo.baseDir))) {
+      let valid = false;
+      for (const validFilename of repo.allowedFiles) {
+        if (dir.endsWith(validFilename)) valid = true;
       }
-    })
-  );
+      if (dir.includes("test")) continue;
+      if (!valid) continue;
+      const name = normalizeTitle(
+        dir.split("/").pop().split(".")[0].replace(/_/g, " ")
+      );
+      const nName = normalize(name);
+      const lCategories = dir
+        .split("/")
+        .slice(1, dir.split("/").length - 1)
+        .map(normalizeTitle);
+      if (!algorithms[nName]) {
+        algorithms[nName] = {
+          slug: normalizeWeak(name),
+          name,
+          categories: lCategories,
+          body: {},
+          implementations: {},
+        };
+      }
+      algorithms[nName].implementations[language] = {
+        dir: path.join(repo.baseDir, ...dir.split("/").slice(1)),
+        url: path.join(
+          `https://github.com/TheAlgorithms/${language}/tree/master`,
+          repo.baseDir,
+          ...dir.split("/").slice(1)
+        ),
+        code: highlightCode(
+          (await fs.promises.readFile(dir)).toString(),
+          language
+        ),
+      };
+      for (const category of lCategories) {
+        if (!categories[normalizeCategory(category)])
+          categories[normalizeCategory(category)] = [];
+        categories[normalizeCategory(category)].push(normalizeWeak(name));
+      }
+    }
+  }
   spinner.succeed();
   spinner = ora("Collecting and rendering explanations").start();
   process.chdir("./algorithms-explanation");
@@ -140,12 +137,17 @@ let spinner: Ora;
     "algorithms.json",
     JSON.stringify(Object.values(algorithms))
   );
+  await fs.promises.writeFile(
+    "algorithms-min.json",
+    JSON.stringify(
+      Object.values(algorithms).map((algorithm) => ({
+        name: algorithm.name,
+        slug: algorithm.slug,
+        categories: algorithm.categories,
+      }))
+    )
+  );
   await fs.promises.writeFile("categories.json", JSON.stringify(categories));
+  fs.rmdirSync("repositories", { recursive: true });
   spinner.succeed();
 })();
-
-function sleep(milliseconds: number) {
-  return new Promise((resolve) => {
-    setTimeout(resolve, milliseconds);
-  });
-}

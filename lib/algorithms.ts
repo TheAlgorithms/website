@@ -2,6 +2,7 @@ import fs from "fs";
 import path from "path";
 import locales from "lib/locales";
 import type { Algorithm } from "./models";
+import { normalize } from "./normalize";
 
 const allAlgorithms: Algorithm[] = JSON.parse(
   fs.readFileSync(path.join("tmp", "algorithms.json")).toString()
@@ -19,7 +20,9 @@ export function getAlgorithmSlugs() {
 }
 
 export function getAlgorithm(slug: string) {
-  const algorithm: Algorithm = allAlgorithms.find((x) => x.slug === slug);
+  const algorithm: Algorithm = allAlgorithms.find(
+    (x) => normalize(x.slug) === normalize(slug)
+  );
   return algorithm;
 }
 

@@ -6,7 +6,7 @@ import { Repositories } from "./repositories";
 import { normalize } from "./normalize";
 
 const allAlgorithms: Algorithm[] = JSON.parse(
-  fs.readFileSync(path.join("cache", "algorithms.json")).toString()
+  fs.readFileSync(path.join("tmp", "algorithms.json")).toString()
 );
 
 export function getLanguages() {
