@@ -88,10 +88,9 @@ let spinner: Ora;
       }
       algorithms[nName].implementations[language] = {
         dir: path.join(repo.baseDir, ...dir.split("/").slice(1)),
-        url: path.join(
-          `https://github.com/TheAlgorithms/${language}/tree/master`,
+        url: `https://github.com/TheAlgorithms/${language}/tree/master/${path.join(
           ...dir.split("/").slice(1)
-        ),
+        )}`,
         code: highlightCode(
           (await fs.promises.readFile(dir)).toString(),
           language
