@@ -19,13 +19,9 @@ export const Repositories = {
     allowedFiles: [".java"],
     baseDir: ".",
   },
-  // "c-sharp": {
-  //   name: "C#",
-  //   allowedFiles: [],
-  //   baseDir: ".",
-  //   exclude: ["test"],
-  //   skip: [],
-  // },
+  "c-sharp": {
+    name: "C#",
+  },
   c: {
     name: "C",
     allowedFiles: [".c"],
@@ -120,8 +116,8 @@ export const Repositories = {
 
 export interface Repository {
   name: string;
-  allowedFiles: string[];
-  baseDir: string;
+  allowedFiles?: string[];
+  baseDir?: string;
 }
 
 export type Language = keyof typeof Repositories;

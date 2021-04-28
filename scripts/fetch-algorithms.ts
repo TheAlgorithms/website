@@ -3,6 +3,7 @@ import ora, { Ora } from "ora";
 import { exec } from "child_process";
 import fs from "fs";
 import path from "path";
+import fetch from "node-fetch";
 import walk from "../lib/walk";
 import { Repositories, Repository } from "../lib/repositories";
 import { Algorithm } from "../lib/models";
@@ -25,7 +26,7 @@ let spinner: Ora;
 
 (async () => {
   spinner = ora("Downloading repositories").start();
-  if (fs.existsSync("tmp")) await fs.promises.rmdir("tmp", { recursive: true });
+  if (fs.existsSync("tmp")) await fs.promises.rm("tmp", { recursive: true });
   await fs.promises.mkdir("tmp");
   await fs.promises.mkdir("tmp/repositories");
   process.chdir("tmp/repositories");
@@ -42,7 +43,9 @@ let spinner: Ora;
   );
   spinner.succeed();
   spinner = ora("Collecting algorithms and rendering code").start();
-  for await (const language of Object.keys(Repositories)) {
+  for await (const language of Object.keys(Repositories).filter(
+    (x) => !!Repositories[x].baseDir
+  )) {
     const repo: Repository = Repositories[language];
     languages[language] = [];
     dirLoop: for await (const dir of walk(path.join(language, repo.baseDir))) {
@@ -99,6 +102,72 @@ let spinner: Ora;
       languages[language].push(algorithms[nName].slug);
     }
   }
+
+  // Fetch the C# repo
+  await (async () => {
+    const response = await fetch(
+      `https://raw.githubusercontent.com/TheAlgorithms/c-sharp/master/DIRECTORY.md`
+    );
+    const directory = await response.text();
+    let aCategories = [];
+    languages["c-sharp"] = [];
+    await Promise.all(
+      directory.split("\n").map(async (line) => {
+        if (line.startsWith("##")) {
+          aCategories = [line.substr(2).trim()];
+        }
+        for (let i = 1; i < 6; i += 1) {
+          if (
+            line.startsWith(`${"  ".repeat(i)}*`) ||
+            line.startsWith(`${"	".repeat(i)}*`)
+          ) {
+            const match = line
+              .substr(2 * i + 1)
+              .match(/\[(.+)\]\((.+\/(.+)(?:\..+))\)/);
+            aCategories.length = i;
+            if (match) {
+              const name = match[1];
+              const nName = normalizeAlgorithm(name);
+              if (!algorithms[nName]) {
+                algorithms[nName] = {
+                  slug: normalizeWeak(name),
+                  name,
+                  categories: aCategories.filter((x) => !!x),
+                  body: {},
+                  implementations: {},
+                };
+                for (const category of aCategories.filter((x) => !!x)) {
+                  if (!categories[normalizeCategory(category)])
+                    categories[normalizeCategory(category)] = [];
+                  categories[normalizeCategory(category)].push(
+                    normalizeWeak(name)
+                  );
+                }
+              }
+              algorithms[nName].implementations["c-sharp"] = {
+                dir: match[2].replace(
+                  "https://github.com/TheAlgorithms/C-Sharp/blob/master/",
+                  ""
+                ),
+                url: match[2],
+                code: highlightCode(
+                  await (
+                    await fetch(
+                      match[2]
+                        .replace("github.com", "raw.githubusercontent.com")
+                        .replace("blob/", "")
+                    )
+                  ).text(),
+                  "c-sharp"
+                ),
+              };
+              languages["c-sharp"].push(algorithms[nName].slug);
+            } else aCategories[i] = line.substr(2 * i + 1).trim();
+          }
+        }
+      })
+    );
+  })();
   spinner.succeed();
   spinner = ora("Collecting and rendering explanations").start();
   process.chdir("./algorithms-explanation");
@@ -171,6 +240,6 @@ let spinner: Ora;
   );
   await fs.promises.writeFile("categories.json", JSON.stringify(categories));
   await fs.promises.writeFile("languages.json", JSON.stringify(languages));
-  await fs.promises.rmdir("repositories", { recursive: true });
+  await fs.promises.rm("repositories", { recursive: true });
   spinner.succeed();
 })();

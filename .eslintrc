@@ -53,7 +53,8 @@
     "no-restricted-syntax": "off",
     "no-nested-ternary": "off",
     "no-continue": "off",
-    "no-labels": "off"
+    "no-labels": "off",
+    "no-await-in-loop": "off"
   },
   "settings": {
     "import/resolver": {
