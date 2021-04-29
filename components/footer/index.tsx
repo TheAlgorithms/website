@@ -30,7 +30,9 @@ export default function Footer() {
         <div className={classes.list}>
           <Link href="/#about">{t("algorithmExplaniationFooter")}</Link>
           <Link href="/#aboutUs">{t("aboutUsFooter")}</Link>
-          <Link href="/#programmingLanguages">{t("programmingLanguagesTitle")}</Link>
+          <Link href="/#programmingLanguages">
+            {t("programmingLanguagesTitle")}
+          </Link>
           <Link href="/#contribute">{t("contributeTitle")}</Link>
           <Link href="/#donate">{t("donateTitle")}</Link>
         </div>

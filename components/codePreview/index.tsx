@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import "highlight.js/styles/atom-one-light.css";
-import { Language } from "lib/models";
+import { Implementation } from "lib/models";
+import { Language } from "lib/repositories";
 import useBodyScroll from "hooks/bodyScroll";
 import LanguageIcon from "components/icon";
 import { Button, IconButton } from "@material-ui/core";
@@ -8,17 +9,15 @@ import { Close, OpenInNew } from "@material-ui/icons";
 import classes from "./style.module.css";
 
 export default function CodePreview({
-  code,
   implementations,
 }: {
-  code: { [language in Language]?: string };
-  implementations: { [language in Language]?: string };
+  implementations: { [language: string]: Implementation };
 }) {
   const codeRef = useRef<HTMLDivElement>();
   const [active, setActive] = useState(false);
   const [, setBodyScroll] = useBodyScroll();
   const [selectedLanguague, setSelectedLanguague] = useState(
-    Object.keys(code)[0]
+    Object.keys(implementations)[0]
   );
 
   useEffect(() => {
@@ -50,7 +49,7 @@ export default function CodePreview({
       <div className={classes.actions}>
         <Button
           startIcon={<OpenInNew />}
-          href={implementations[selectedLanguague]}
+          href={implementations[selectedLanguague].url}
           target="_blank"
         >
           View on GitHub
@@ -75,13 +74,15 @@ export default function CodePreview({
             <pre className={classes.pre}>
               <code
                 // eslint-disable-next-line react/no-danger
-                dangerouslySetInnerHTML={{ __html: code[selectedLanguague] }}
+                dangerouslySetInnerHTML={{
+                  __html: implementations[selectedLanguague].code,
+                }}
               />
             </pre>
           </div>
         )}
         <div className={classes.implementations}>
-          {Object.keys(code).map((language: Language) => (
+          {Object.keys(implementations).map((language: Language) => (
             <IconButton
               className={classes.implementation}
               key={language}
@@ -92,7 +93,9 @@ export default function CodePreview({
                 }
               }}
               href={
-                language === "jupyter" ? implementations[language] : undefined
+                language === "jupyter"
+                  ? implementations[language].url
+                  : undefined
               }
               target="_blank"
             >

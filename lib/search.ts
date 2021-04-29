@@ -1,4 +1,4 @@
-import algorithms from "cache/algorithms.json";
+import algorithms from "tmp/algorithms-min.json";
 import { normalize } from "./normalize";
 import type { Algorithm } from "./models";
 

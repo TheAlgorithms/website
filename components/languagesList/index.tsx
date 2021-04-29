@@ -1,6 +1,6 @@
 import { ButtonBase, Card, CardContent, Typography } from "@material-ui/core";
 import NextLink from "next/link";
-import { Language, getLanguageName } from "lib/models";
+import { Language, getLanguageName } from "lib/repositories";
 import LanguageIcon from "components/icon";
 import classes from "./style.module.css";
 

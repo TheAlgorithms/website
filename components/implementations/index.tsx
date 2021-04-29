@@ -1,5 +1,6 @@
 import { Tooltip, Typography, useMediaQuery } from "@material-ui/core";
-import { Language, getLanguageName } from "lib/models";
+import { Implementation } from "lib/models";
+import { Language, getLanguageName } from "lib/repositories";
 import LanguageIcon from "components/icon";
 import LanguagesList from "../languagesList";
 import classes from "./style.module.css";
@@ -9,7 +10,7 @@ export default function Implementations({
   large = false,
   className,
 }: {
-  implementations: { [key in Language]?: string };
+  implementations: { [key in Language]?: Implementation };
   large?: boolean;
   className?: string;
 }) {
@@ -22,7 +23,7 @@ export default function Implementations({
     <LanguagesList
       languages={Object.keys(implementations).map((langName: Language) => ({
         name: langName,
-        href: implementations[langName],
+        href: implementations[langName].url,
       }))}
       className={className || ""}
     />
@@ -33,7 +34,7 @@ export default function Implementations({
         .map((language: Language) => (
           <a
             key={language}
-            href={implementations[language]}
+            href={implementations[language].url}
             className={classes.icon}
           >
             <LanguageIcon

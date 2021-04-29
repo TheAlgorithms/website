@@ -31,3 +31,4 @@ yarn-error.log*
 .env.production.local
 
 /cache
+/tmp

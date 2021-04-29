@@ -1,47 +1,43 @@
 import fs from "fs";
 import path from "path";
 import locales from "lib/locales";
+import { normalize, normalizeWeak } from "./normalize";
 import { Algorithm } from "./models";
-import { normalize } from "./normalize";
-
-const cacheDirectory = path.join(process.cwd(), "cache");
-const algorithmsDirectory = path.join(cacheDirectory, "algorithms");
-const allAlgorithms: Algorithm[] = JSON.parse(
-  fs.readFileSync(path.join("cache", "algorithms.json")).toString()
-);
 
 export function getCategories() {
-  const categories = [];
-  fs.readdirSync(algorithmsDirectory).forEach((file) => {
-    const fileCategories = JSON.parse(
-      fs.readFileSync(path.join(algorithmsDirectory, file)).toString()
-    ).categories;
-    fileCategories.forEach((category: string) => {
-      if (!categories.find((el) => normalize(el) === normalize(category)))
-        categories.push(category);
-    });
-  });
+  const categories: string[] = Object.keys(
+    JSON.parse(fs.readFileSync(path.join("tmp", "categories.json")).toString())
+  );
   return categories.flatMap((category) =>
     locales.map((locale) => ({
       params: {
-        category: normalize(category),
+        category: normalizeWeak(category),
       },
       locale,
     }))
   );
 }
 
-export function getCategory(category: string) {
-  const algorithms = [];
-  let categoryName: string;
-  allAlgorithms.forEach((algorithm) => {
-    algorithm.categories.forEach((algorithmCategory) => {
-      if (normalize(category) === normalize(algorithmCategory)) {
-        categoryName = algorithmCategory;
-        algorithms.push(algorithm);
-      }
-    });
-  });
+export async function getCategory(category: string) {
+  const categories: { [category: string]: string[] } = JSON.parse(
+    fs.readFileSync(path.join("tmp", "categories.json")).toString()
+  );
+  const categoryName = Object.keys(categories).find(
+    (x) => normalize(x) === normalize(category)
+  );
+  const items = categories[categoryName];
+  if (!items) throw new Error("Category not found");
+  const algorithms: Algorithm[] = await Promise.all(
+    items.map(async (algorithmName) =>
+      JSON.parse(
+        (
+          await fs.promises.readFile(
+            path.join("tmp", "algorithms", `${algorithmName}.json`)
+          )
+        ).toString()
+      )
+    )
+  );
   return {
     name: categoryName,
     algorithms,

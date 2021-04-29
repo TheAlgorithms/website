@@ -1,15 +1,11 @@
 import fs from "fs";
 import path from "path";
 import locales from "lib/locales";
-import { Algorithm, Languages } from "./models";
-import { normalize } from "./normalize";
-
-const allAlgorithms: Algorithm[] = JSON.parse(
-  fs.readFileSync(path.join("cache", "algorithms.json")).toString()
-);
+import { Algorithm } from "./models";
+import { Repositories } from "./repositories";
 
 export function getLanguages() {
-  return Object.keys(Languages).flatMap((language) =>
+  return Object.keys(Repositories).flatMap((language) =>
     locales.map((locale) => ({
       params: {
         language,
@@ -19,15 +15,21 @@ export function getLanguages() {
   );
 }
 
-export function getLanguage(language: string) {
-  const algorithms = [];
-  allAlgorithms.forEach((algorithm) => {
-    Object.keys(algorithm.implementations).forEach((algorithmLanguage) => {
-      if (normalize(language) === normalize(algorithmLanguage)) {
-        algorithms.push(algorithm);
-      }
-    });
-  });
+export async function getLanguage(language: string) {
+  const languages: { [language: string]: string[] } = JSON.parse(
+    fs.readFileSync(path.join("tmp", "languages.json")).toString()
+  );
+  const algorithms: Algorithm[] = await Promise.all(
+    languages[language].map(async (algorithmName) =>
+      JSON.parse(
+        (
+          await fs.promises.readFile(
+            path.join("tmp", "algorithms", `${algorithmName}.json`)
+          )
+        ).toString()
+      )
+    )
+  );
   return {
     name: language,
     algorithms,
