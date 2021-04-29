@@ -1,5 +1,5 @@
 {
   "editor.tabSize": 2,
-  "files.eol": "\r\n",
-  "prettier.endOfLine": "crlf"
+  "files.eol": "\n",
+  "prettier.endOfLine": "lf"
 }

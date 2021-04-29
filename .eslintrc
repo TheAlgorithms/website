@@ -32,7 +32,7 @@
     "prettier/prettier": [
       "warn",
       {
-        "endOfLine": "crlf"
+        "endOfLine": "lf"
       }
     ],
     "react/no-unescaped-entities": "off",
@@ -48,7 +48,7 @@
     "react/react-in-jsx-scope": "off",
     "jsx-a11y/click-events-have-key-events": "off",
     "react/require-default-props": "off",
-    "linebreak-style": ["warn", "windows"],
+    "linebreak-style": ["warn", "unix"],
     "import/order": "warn",
     "no-restricted-syntax": "off",
     "no-nested-ternary": "off",
