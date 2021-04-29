@@ -1,7 +1,7 @@
 import fs from "fs";
 import path from "path";
 import locales from "lib/locales";
-import { normalize, normalizeWeak } from "./normalize";
+import { normalize } from "./normalize";
 import { Algorithm } from "./models";
 
 export function getCategories() {
@@ -11,7 +11,7 @@ export function getCategories() {
   return categories.flatMap((category) =>
     locales.map((locale) => ({
       params: {
-        category: normalizeWeak(category),
+        category: normalize(category),
       },
       locale,
     }))

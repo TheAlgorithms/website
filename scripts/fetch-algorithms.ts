@@ -21,6 +21,7 @@ import renderNotebook from "../lib/notebookjs";
 
 let algorithms: { [key: string]: Algorithm } = {};
 let categories: { [category: string]: string[] } = {};
+let categoryNames: { [category: string]: string } = {};
 let languages: { [language: string]: string[] } = {};
 let spinner: Ora;
 
@@ -84,13 +85,15 @@ let spinner: Ora;
           implementations: {},
         };
         for (const category of lCategories) {
-          if (!categories[normalizeCategory(category)])
-            categories[normalizeCategory(category)] = [];
-          categories[normalizeCategory(category)].push(normalizeWeak(name));
+          if (!categories[normalize(category)]) {
+            categories[normalize(category)] = [];
+            categoryNames[normalize(category)] = category;
+          }
+          categories[normalize(category)].push(normalizeWeak(name));
         }
       }
       algorithms[nName].implementations[language] = {
-        dir: path.join(repo.baseDir, ...dir.split("/").slice(1)),
+        dir: path.join(...dir.split("/").slice(1)),
         url: `https://github.com/TheAlgorithms/${language}/tree/master/${path.join(
           ...dir.split("/").slice(1)
         )}`,
@@ -238,7 +241,14 @@ let spinner: Ora;
       }))
     )
   );
-  await fs.promises.writeFile("categories.json", JSON.stringify(categories));
+  const outpCategories = {};
+  Object.keys(categories).forEach((key) => {
+    outpCategories[categoryNames[key]] = categories[key];
+  });
+  await fs.promises.writeFile(
+    "categories.json",
+    JSON.stringify(outpCategories)
+  );
   await fs.promises.writeFile("languages.json", JSON.stringify(languages));
   await fs.promises.rm("repositories", { recursive: true });
   spinner.succeed();
