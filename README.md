@@ -6,6 +6,11 @@
 </p>
 
 <p align="center">
+
+  <a href="https://gitpod.io/#https://github.com/TheAlgorithms/website">
+    <img src="https://img.shields.io/badge/Gitpod-Ready--to--Code-blue?logo=gitpod" height="20">
+  </a>
+
   <a href="https://lgtm.com/projects/g/TheAlgorithms/website/context:javascript">
     <img alt="Language grade: JavaScript" src="https://img.shields.io/lgtm/grade/javascript/g/TheAlgorithms/website.svg?logo=lgtm&logoWidth=18"/>
   </a>
@@ -14,8 +19,8 @@
     <img src="https://github.com/TheAlgorithms/website/actions/workflows/codeql-analysis.yml/badge.svg" height="20">
   </a>
 
-  <a href="https://gitter.im/TheAlgorithms">
-    <img src="https://img.shields.io/badge/Chat-Gitter-ff69b4.svg?label=Chat&logo=gitter" height="20">
+  <a href="https://discord.gg/c7MnfGFGa6">
+    <img src="https://img.shields.io/discord/808045925556682782.svg?logo=discord&colorB=7289DA" height="20">
   </a>
 
   <br />
@@ -28,6 +33,10 @@
 
   <a href="https://hosted.weblate.org/engage/TheAlgorithms/?utm_source=widget">
     <img src="https://hosted.weblate.org/widgets/TheAlgorithms/-/svg-badge.svg" height="20">
+  </a>
+
+  <a href="https://gitter.im/TheAlgorithms">
+    <img src="https://img.shields.io/badge/Chat-Gitter-ff69b4.svg?label=Chat&logo=gitter" height="20">
   </a>
 </p>
 
