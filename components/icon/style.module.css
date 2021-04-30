@@ -1,7 +1,7 @@
 .icon :global(img) {
   width: 24px;
   height: 24px;
-  filter: grayscale(1) invert(0.5) brightness(10000000) brightness(0.7);
+  /* filter: grayscale(1) invert(0.5) brightness(10000000) brightness(0.7); */
 }
 
 :global(.dark) .icon :global(img) {

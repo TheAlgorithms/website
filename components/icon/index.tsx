@@ -1,6 +1,7 @@
-import { Tooltip, Icon } from "@material-ui/core";
+import { Tooltip, Icon, Theme } from "@material-ui/core";
 import React from "react";
 import { Language } from "lib/repositories";
+import { useTheme } from "@material-ui/styles";
 import classes from "./style.module.css";
 
 function icon(name: string, version: string) {
@@ -16,66 +17,67 @@ export default function LanguageIcon({
   language,
   tooltip,
   className = "",
-  colored = false,
   color = "inherit",
 }: {
   language: Language;
   tooltip?: string;
   className?: string;
-  colored?: boolean;
   color?: string;
 }) {
+  const theme: Theme = useTheme();
+  const colored = theme.palette.type !== "dark";
+
   return (
     <Tooltip className={className} title={tooltip || ""}>
       <Icon className={classes.icon} style={{ fill: color }}>
         {(() => {
           switch (language.toLowerCase() as Language | string) {
             case "ruby":
-              return icon("ruby", colored ? "plain" : "original");
+              return icon("ruby", colored ? "original" : "plain");
             case "python":
-              return icon("python", "plain");
+              return icon("python", colored ? "original" : "plain");
             case "javascript":
-              return icon("javascript", "plain");
+              return icon("javascript", colored ? "original" : "plain");
             case "c-plus-plus":
-              return icon("cplusplus", "plain");
+              return icon("cplusplus", colored ? "original" : "plain");
             case "java":
-              return icon("java", "plain");
+              return icon("java", colored ? "original" : "plain");
             case "c":
-              return icon("c", "plain");
+              return icon("c", colored ? "original" : "plain");
             case "f-sharp":
-              return icon("fsharp", "plain");
+              return icon("fsharp", colored ? "original" : "plain");
             case "go":
-              return icon("go", "plain");
+              return icon("go", colored ? "original" : "plain");
             case "rust":
               return icon("rust", "plain");
             case "aarch64_assembly":
-              return icon("aarch64", "plain");
+              return icon("aarch64", colored ? "original" : "plain");
             case "c-sharp":
-              return icon("csharp", "plain");
+              return icon("csharp", colored ? "original" : "plain");
             case "dart":
-              return icon("dart", "plain");
+              return icon("dart", colored ? "original" : "plain");
             case "r":
-              return icon("r", "plain");
+              return icon("r", colored ? "original" : "plain");
             case "php":
-              return icon("php", "plain");
+              return icon("php", colored ? "original" : "plain");
             case "elixir":
-              return icon("elixir", "plain");
+              return icon("elixir", colored ? "original" : "plain");
             case "kotlin":
-              return icon("kotlin", "plain");
+              return icon("kotlin", colored ? "original" : "plain");
             case "scala":
-              return icon("scala", "plain");
+              return icon("scala", colored ? "original" : "plain");
             case "jupyter":
-              return icon("jupyter", "plain");
+              return icon("jupyter", colored ? "original" : "plain");
             case "haskell":
-              return icon("haskell", "plain");
+              return icon("haskell", colored ? "original" : "plain");
             case "ocaml":
-              return icon("ocaml", "plain");
+              return icon("ocaml", colored ? "original" : "plain");
             case "swift":
-              return icon("swift", "plain");
+              return icon("swift", colored ? "original" : "plain");
             case "elm":
-              return icon("elm", "plain");
+              return icon("elm", colored ? "original" : "plain");
             case "matlab-octave":
-              return icon("matlab", "plain");
+              return icon("matlab", colored ? "original" : "plain");
             default:
               throw new Error(`Missing icon for ${language}`);
           }
