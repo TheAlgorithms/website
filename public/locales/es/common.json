@@ -38,5 +38,6 @@
     "socialTitle": "Conéctate con nosotros",
     "search": "Buscar",
     "home": "Inicio",
-    "pageNotFound": "Pagina no encontrada"
+    "pageNotFound": "Pagina no encontrada",
+    "languages_count": "{} más"
 }
