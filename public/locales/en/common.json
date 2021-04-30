@@ -43,5 +43,6 @@
   "pageNotFound": "Page not found",
   "home": "Home",
 
-  "search": "Search"
+  "search": "Search",
+  "languages_count": "{} more"
 }
