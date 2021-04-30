@@ -1,7 +1,9 @@
-.icon {
-  fill: rgba(0, 0, 0, 0.26) !important;
+.icon :global(img) {
+  width: 24px;
+  height: 24px;
+  filter: grayscale(1) invert(0.5) brightness(10000000) brightness(0.7);
 }
 
-:global(.dark) .icon {
-  fill: rgba(255, 255, 255, 0.3) !important;
+:global(.dark) .icon :global(img) {
+  filter: grayscale(1) invert(0.5) brightness(10000000) brightness(0.5);
 }
