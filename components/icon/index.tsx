@@ -1,32 +1,17 @@
-import { Tooltip, Icon } from "@material-ui/core";
+import { Tooltip, Icon, Theme } from "@material-ui/core";
 import React from "react";
 import { Language } from "lib/repositories";
-import {
-  Aarch64PlainIcon,
-  CPlainIcon,
-  CplusplusPlainIcon,
-  CsharpPlainIcon,
-  DartPlainIcon,
-  ElixirPlainIcon,
-  ElmPlainIcon,
-  FsharpPlainIcon,
-  GoPlainIcon,
-  HaskellPlainIcon,
-  JavaPlainIcon,
-  JavascriptPlainIcon,
-  JupyterPlainWordmarkIcon,
-  KotlinPlainIcon,
-  MatlabPlainIcon,
-  OcamlPlainIcon,
-  PhpPlainIcon,
-  PythonPlainIcon,
-  RPlainIcon,
-  RubyPlainIcon,
-  RustPlainIcon,
-  ScalaPlainIcon,
-  SwiftPlainIcon,
-} from "react-devicons";
+import { useTheme } from "@material-ui/styles";
 import classes from "./style.module.css";
+
+function icon(name: string, version: string) {
+  return (
+    <img
+      src={`https://gitcdn.link/repo/devicons/devicon/master/icons/${name}/${name}-${version}.svg`}
+      alt={name}
+    />
+  );
+}
 
 export default function LanguageIcon({
   language,
@@ -39,57 +24,60 @@ export default function LanguageIcon({
   className?: string;
   color?: string;
 }) {
+  const theme: Theme = useTheme();
+  const colored = theme.palette.type !== "dark";
+
   return (
     <Tooltip className={className} title={tooltip || ""}>
       <Icon className={classes.icon} style={{ fill: color }}>
         {(() => {
           switch (language.toLowerCase() as Language | string) {
             case "ruby":
-              return <RubyPlainIcon color="inherit" />;
+              return icon("ruby", colored ? "original" : "plain");
             case "python":
-              return <PythonPlainIcon color="inherit" />;
+              return icon("python", colored ? "original" : "plain");
             case "javascript":
-              return <JavascriptPlainIcon color="inherit" />;
+              return icon("javascript", colored ? "original" : "plain");
             case "c-plus-plus":
-              return <CplusplusPlainIcon color="inherit" />;
+              return icon("cplusplus", colored ? "original" : "plain");
             case "java":
-              return <JavaPlainIcon color="inherit" />;
+              return icon("java", colored ? "original" : "plain");
             case "c":
-              return <CPlainIcon color="inherit" />;
+              return icon("c", colored ? "original" : "plain");
             case "f-sharp":
-              return <FsharpPlainIcon color="inherit" />;
+              return icon("fsharp", colored ? "original" : "plain");
             case "go":
-              return <GoPlainIcon color="inherit" />;
+              return icon("go", colored ? "original" : "plain");
             case "rust":
-              return <RustPlainIcon color="inherit" />;
+              return icon("rust", "plain");
             case "aarch64_assembly":
-              return <Aarch64PlainIcon color="inherit" />;
+              return icon("aarch64", colored ? "original" : "plain");
             case "c-sharp":
-              return <CsharpPlainIcon color="inherit" />;
+              return icon("csharp", colored ? "original" : "plain");
             case "dart":
-              return <DartPlainIcon color="inherit" />;
+              return icon("dart", colored ? "original" : "plain");
             case "r":
-              return <RPlainIcon color="inherit" />;
+              return icon("r", colored ? "original" : "plain");
             case "php":
-              return <PhpPlainIcon color="inherit" />;
+              return icon("php", colored ? "original" : "plain");
             case "elixir":
-              return <ElixirPlainIcon color="inherit" />;
+              return icon("elixir", colored ? "original" : "plain");
             case "kotlin":
-              return <KotlinPlainIcon color="inherit" />;
+              return icon("kotlin", colored ? "original" : "plain");
             case "scala":
-              return <ScalaPlainIcon color="inherit" />;
+              return icon("scala", colored ? "original" : "plain");
             case "jupyter":
-              return <JupyterPlainWordmarkIcon color="inherit" />;
+              return icon("jupyter", colored ? "original" : "plain");
             case "haskell":
-              return <HaskellPlainIcon color="inherit" />;
+              return icon("haskell", colored ? "original" : "plain");
             case "ocaml":
-              return <OcamlPlainIcon color="inherit" />;
+              return icon("ocaml", colored ? "original" : "plain");
             case "swift":
-              return <SwiftPlainIcon color="inherit" />;
+              return icon("swift", colored ? "original" : "plain");
             case "elm":
-              return <ElmPlainIcon color="inherit" />;
+              return icon("elm", colored ? "original" : "plain");
             case "matlab-octave":
-              return <MatlabPlainIcon color="inherit" />;
+              return icon("matlab", colored ? "original" : "plain");
             default:
               throw new Error(`Missing icon for ${language}`);
           }
