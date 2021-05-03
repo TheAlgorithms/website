@@ -234,11 +234,20 @@ let spinner: Ora;
   await fs.promises.writeFile(
     "algorithms-min.json",
     JSON.stringify(
-      Object.values(algorithms).map((algorithm) => ({
-        name: algorithm.name,
-        slug: algorithm.slug,
-        categories: algorithm.categories,
-      }))
+      Object.values(algorithms).map((algorithm) => {
+        const minAlgorithm = {
+          name: algorithm.name,
+          slug: algorithm.slug,
+          categories: algorithm.categories,
+          implementations: {},
+        };
+        Object.keys(algorithm.implementations).forEach((language) => {
+          minAlgorithm.implementations[language] = {
+            url: algorithm.implementations[language].url,
+          };
+        });
+        return minAlgorithm;
+      })
     )
   );
   const outpCategories = {};
