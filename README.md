@@ -68,18 +68,19 @@ Finally, run the development server:
 yarn dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the website.
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the website.\
+You can also use the [![Gitpod Ready-to-Code](https://img.shields.io/badge/Gitpod-Ready--to--Code-blue?logo=gitpod)](https://gitpod.io/#https://github.com/TheAlgorithms/website) system and easily check how your deployment looks. It will automatically run the commands mentioned above on run. Next, you'll see a window at the corner right saying that there's a port available. Click on "Open Preview", or "Open Browser".
+
+![Corner window](https://user-images.githubusercontent.com/51391473/117518491-87cf4e80-af65-11eb-9584-27e4512251d1.png)
 
 ## Contributing
 
-If you want to add a new feature or fix a bug, create a new branch or fork and commit there. Before opening a PR be sure to
+If you want to add a new feature or fix a bug, create a new branch or fork and commit there. Before opening a PR, be sure to
 
 - Run `yarn lint` and fix potential errors
 - Run `yarn build` to check if everything still builds successfully
 
-Open the pull request against `main`. Vercel will automatically create a preview deployment and the pull request will be squash merged after being reviewed by a member.
-
-If you are a member and just want to add a small fix you can also directly commit to `main` instead of opening a pull request.
+Open the pull request against `main`. Vercel will automatically create a preview deployment, and the pull request will be squash merged after being reviewed by a member.
 
 ## License
 
