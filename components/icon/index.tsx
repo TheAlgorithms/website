@@ -67,7 +67,7 @@ export default function LanguageIcon({
             case "scala":
               return icon("scala", colored ? "original" : "plain");
             case "jupyter":
-              return icon("jupyter", colored ? "original" : "plain");
+              return icon("jupyter", colored ? "original-wordmark" : "plain-wordmark");
             case "haskell":
               return icon("haskell", colored ? "original" : "plain");
             case "ocaml":
