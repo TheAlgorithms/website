@@ -132,6 +132,17 @@ let spinner: Ora;
             if (match) {
               const name = match[1];
               const nName = normalizeAlgorithm(name);
+              const dir = match[2].replace(
+                "https://github.com/TheAlgorithms/C-Sharp/blob/master/",
+                ""
+              );
+              let file: string;
+              try {
+                file = (await fs.promises.readFile(dir)).toString();
+              } catch {
+                console.warn(`Failed to get ${dir}`);
+                continue;
+              }
               if (!algorithms[nName]) {
                 algorithms[nName] = {
                   slug: normalizeWeak(name),
@@ -147,17 +158,6 @@ let spinner: Ora;
                     normalizeWeak(name)
                   );
                 }
-              }
-              const dir = match[2].replace(
-                "https://github.com/TheAlgorithms/C-Sharp/blob/master/",
-                ""
-              );
-              let file: string;
-              try {
-                file = (await fs.promises.readFile(dir)).toString();
-              } catch {
-                console.warn(`Failed to get ${dir}`);
-                continue;
               }
               algorithms[nName].implementations["c-sharp"] = {
                 dir,
