@@ -1,9 +1,9 @@
+/* eslint-disable no-console */
 /* eslint-disable no-param-reassign */
 import ora, { Ora } from "ora";
 import { exec } from "child_process";
 import fs from "fs";
 import path from "path";
-import fetch from "node-fetch";
 import walk from "../lib/walk";
 import { Repositories, Repository } from "../lib/repositories";
 import { Algorithm } from "../lib/models";
@@ -34,10 +34,13 @@ let spinner: Ora;
   await Promise.all(
     [...Object.keys(Repositories), "algorithms-explanation"].map(
       (repo) =>
-        new Promise((resolve) => {
+        new Promise<void>((resolve, reject) => {
           exec(
             `git clone https://github.com/TheAlgorithms/${repo}.git`,
-            resolve
+            (err) => {
+              if (err) reject(err);
+              else resolve();
+            }
           );
         })
     )
@@ -107,11 +110,9 @@ let spinner: Ora;
   }
 
   // Fetch the C# repo
+  process.chdir("c-sharp");
   await (async () => {
-    const response = await fetch(
-      `https://raw.githubusercontent.com/TheAlgorithms/c-sharp/master/DIRECTORY.md`
-    );
-    const directory = await response.text();
+    const directory = (await fs.promises.readFile("DIRECTORY.md")).toString();
     let aCategories = [];
     languages["c-sharp"] = [];
     await Promise.all(
@@ -147,22 +148,21 @@ let spinner: Ora;
                   );
                 }
               }
+              const dir = match[2].replace(
+                "https://github.com/TheAlgorithms/C-Sharp/blob/master/",
+                ""
+              );
+              let file: string;
+              try {
+                file = (await fs.promises.readFile(dir)).toString();
+              } catch {
+                console.warn(`Failed to get ${dir}`);
+                continue;
+              }
               algorithms[nName].implementations["c-sharp"] = {
-                dir: match[2].replace(
-                  "https://github.com/TheAlgorithms/C-Sharp/blob/master/",
-                  ""
-                ),
+                dir,
                 url: match[2],
-                code: highlightCode(
-                  await (
-                    await fetch(
-                      match[2]
-                        .replace("github.com", "raw.githubusercontent.com")
-                        .replace("blob/", "")
-                    )
-                  ).text(),
-                  "c-sharp"
-                ),
+                code: highlightCode(file, "c-sharp"),
               };
               languages["c-sharp"].push(algorithms[nName].slug);
             } else aCategories[i] = line.substr(2 * i + 1).trim();
@@ -171,6 +171,7 @@ let spinner: Ora;
       })
     );
   })();
+  process.chdir("..");
   spinner.succeed();
   spinner = ora("Collecting and rendering explanations").start();
   process.chdir("./algorithms-explanation");
