@@ -68,10 +68,9 @@ Finally, run the development server:
 yarn dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the website.\
-You can also use the [![Gitpod Ready-to-Code](https://img.shields.io/badge/Gitpod-Ready--to--Code-blue?logo=gitpod)](https://gitpod.io/#https://github.com/TheAlgorithms/website) system and easily check how your deployment looks. It will automatically run the commands mentioned above on run. Next, you'll see a window at the corner right saying that there's a port available. Click on "Open Preview", or "Open Browser".
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the website.
 
-![Corner window](https://user-images.githubusercontent.com/51391473/117518491-87cf4e80-af65-11eb-9584-27e4512251d1.png)
+Alternatively, you can also use the [Ready-to-Code Gitpod](https://gitpod.io/#https://github.com/TheAlgorithms/website) and easily check how your deployment looks. It will automatically run the commands mentioned above on run.
 
 ## Contributing
 
