@@ -5,12 +5,15 @@ import Section from "components/section";
 import Head from "components/head";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { GetStaticPaths, GetStaticProps } from "next";
+import { useTranslation } from "next-i18next";
 
 export default function Category({ category }) {
+  const cT = useTranslation("categories").t;
+
   return (
     <>
-      <Head title={category.name} />
-      <Section title={category.name}>
+      <Head title={cT(category.name)} />
+      <Section title={cT(category.name)}>
         <AlgorithmsList algorithms={category.algorithms} />
       </Section>
     </>
@@ -20,7 +23,7 @@ export default function Category({ category }) {
 export const getStaticProps: GetStaticProps = async ({ params, locale }) => ({
   props: {
     category: await getCategory(params.category.toString()),
-    ...(await serverSideTranslations(locale, ["common"])),
+    ...(await serverSideTranslations(locale, ["common", "categories"])),
   },
 });
 

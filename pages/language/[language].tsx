@@ -53,7 +53,7 @@ export default function LanguagePage({
 export const getStaticProps: GetStaticProps = async ({ params, locale }) => ({
   props: {
     language: await getLanguage(params.language.toString()),
-    ...(await serverSideTranslations(locale, ["common"])),
+    ...(await serverSideTranslations(locale, ["common", "categories"])),
   },
 });
 
