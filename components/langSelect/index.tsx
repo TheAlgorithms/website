@@ -36,6 +36,11 @@ const languages: { name: string; locale: string; icon: string }[] = [
     locale: "uk",
     icon: "uk",
   },
+  {
+    name: "Croatian",
+    locale: "hr",
+    icon: "hr",
+  }
 ];
 
 function MenuContent() {
