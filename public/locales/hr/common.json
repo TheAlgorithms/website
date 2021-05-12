@@ -35,7 +35,7 @@
     "donateTitle": "Doniraj",
     "contribute": "Radujemo se svim doprinosima u tim repozitorijima, od dodavanja vlastitih algoritama do mijenjanja ili ispravljanja postojećih. Prije nego što počneš, obavezno pročitaj upute za doprinošenje koje se nalaze u datoteci CONTRIBUTING.md u repozitoriju. Poštuj rad drugih članova, pomaži gdje možeš i pazi da koristiš najnoviju verziju programskog jezika. Nakon što pročitaš upute, dupliciraj repozitorij, izradi izmjene, a zatim ih pošalji kao zahtjev za povlačenjem. Uostalom, možeš pomoći prevoditi web-stranice pomoću <a href=\"https://hosted.weblate.org/engage/TheAlgorithms/?utm_source=widget\">Weblate</a> sustava.",
     "contributeTitle": "Doprinesi",
-    "programmingLanguages": "Podržavamo mnoge programske jezike. Svaki jezik ima svoje GitHub repozitorij u kojem je spremljen sav kod algoritama. Ovo je popis trenutačnih programskih jezika:",
+    "programmingLanguages": "Podržavamo mnoge programske jezike. Svaki jezik ima svoj GitHub repozitorij u kojem je spremljen sav kod algoritama. Ovo je popis trenutačnih programskih jezika:",
     "programmingLanguagesTitle": "Programski jezici",
     "aboutUs": "Mi smo grupa programera koji pomažu jedni drugima u stvaranju novih stvari, bilo da se radi o pisanju složenih programa ili jednostavnih algoritama za šifriranje. Cilj nam je, zajedno dokumentirati i izraditi lijepe, korisne i zanimljive algoritme pomoću kodiranja. Mi smo zajednica otvorenog koda – svatko može doprinijeti. Međusobno provjeravamo rad, komuniciramo i surađujemo u rješavanju problema. Nastojimo biti gostoljubivi i pristojni, dok istovremeno vodimo računa o tome, da naš kod udovoljava najnovijim zahtjevima suvremenog programiranja.",
     "aboutUsTitle": "O nama",
