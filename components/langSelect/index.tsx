@@ -37,7 +37,7 @@ const languages: { name: string; locale: string; icon: string }[] = [
     icon: "uk",
   },
   {
-    name: "Croatian",
+    name: "Hrvatski",
     locale: "hr",
     icon: "hr",
   }
