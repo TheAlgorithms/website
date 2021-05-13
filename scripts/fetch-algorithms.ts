@@ -280,7 +280,14 @@ let spinner: Ora;
 
 function isValidCategory(name: string) {
   if (normalize(name).match(/problem\d+/)) return false;
-  for (const exclude of ["projecteuler", "test", "init"]) {
+  for (const exclude of [
+    "projecteuler",
+    "test",
+    "init",
+    "github",
+    "ipynbcheckpoints",
+    "leetcode",
+  ]) {
     if (normalize(name).includes(exclude)) return false;
   }
   return true;
