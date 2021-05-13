@@ -8,6 +8,7 @@ import CodePreview from "components/codePreview";
 import Head from "components/head";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { GetStaticPaths, GetStaticProps } from "next";
+import Contributors from "components/contributors";
 import classes from "./algorithm.module.css";
 
 export default function AlgorithmPage({
@@ -29,6 +30,7 @@ export default function AlgorithmPage({
         ))}
       </Breadcrumbs>
       <Typography variant="h4">{algorithm.name}</Typography>
+      <Contributors contributors={algorithm.contributors} />
       {algorithm.body && (
         <>
           <div

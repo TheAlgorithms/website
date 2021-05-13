@@ -6,10 +6,18 @@ export interface Algorithm {
   body: { [locale: string]: string };
   categories: string[];
   implementations: { [key in Language]?: Implementation };
+  contributors: Contributor[];
 }
 
 export interface Implementation {
   dir: string;
   url: string;
   code: string;
+}
+
+export interface Contributor {
+  login?: string;
+  email: string;
+  name: string;
+  avatar: string;
 }
