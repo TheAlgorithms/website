@@ -32,5 +32,18 @@
     "advancedahocorasick": "Aho-Corasick Avanzado",
     "activationfunctions": "Funciones de activación",
     "acronym": "Acrónimo",
-    "abstractfactory": "Fábrica abstracta"
+    "abstractfactory": "Fábrica abstracta",
+    "developertools": "Herramientas de programación",
+    "designpatterns": "Patrones de diseño",
+    "depthfirstsearch": "Primera búsqueda profunda",
+    "decisiontree": "Árbol de decisiones",
+    "dbscan": "Dbscan",
+    "datastructures": "Estructuras de datos",
+    "datapreprocessing": "Preprocesamiento de datos",
+    "datamanipulation": "Manipulación de datos",
+    "crypto": "Cripto",
+    "cosinesimilarity": "Coseno-Similaridad",
+    "codewars": "Guerras de códigos",
+    "cll": "Cll",
+    "automaton": "Autómata"
 }
