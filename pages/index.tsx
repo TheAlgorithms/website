@@ -34,8 +34,7 @@ import {
 import classes from "./index.module.css";
 
 export default function Home({ topAlgorithms, featuredAlgorithms }) {
-  const { t } = useTranslation("common");
-  const cT = useTranslation("categories").t;
+  const { t } = useTranslation();
 
   return (
     <>
@@ -76,37 +75,37 @@ export default function Home({ topAlgorithms, featuredAlgorithms }) {
         <CategoriesList
           categories={[
             {
-              name: cT("sorts"),
+              name: t("categories:sorts"),
               icon: <Sort />,
               href: "/category/sorts",
             },
             {
-              name: cT("searches"),
+              name: t("categories:searches"),
               icon: <Search />,
               href: "/category/searches",
             },
             {
-              name: cT("dynamicprogramming"),
+              name: t("categories:dynamicprogramming"),
               icon: <OfflineBolt />,
               href: "/category/dynamicprogramming",
             },
             {
-              name: cT("ciphers"),
+              name: t("categories:ciphers"),
               icon: <EnhancedEncryption />,
               href: "/category/ciphers",
             },
             {
-              name: cT("datastructures"),
+              name: t("categories:datastructures"),
               icon: <Storage />,
               href: "/category/datastructures",
             },
             {
-              name: cT("math"),
+              name: t("categories:math"),
               icon: <Functions />,
               href: "/category/math",
             },
             {
-              name: cT("digitalimageprocessing"),
+              name: t("categories:digitalimageprocessing"),
               icon: <InsertPhoto />,
               href: "/category/digitalimageprocessing",
             },

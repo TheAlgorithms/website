@@ -19,7 +19,7 @@ export default function Implementations({
     "(max-width: 1200px) and (min-width: 700px)"
   );
   const numIcons = smallWidth ? 4 : 6;
-  const { t } = useTranslation("common");
+  const { t } = useTranslation();
 
   return large ? (
     <LanguagesList
@@ -47,7 +47,10 @@ export default function Implementations({
         ))}
       {Object.keys(implementations).length > numIcons && (
         <Tooltip
-          title={t("languages_count").replace("{}", (Object.keys(implementations).length - numIcons).toString())}
+          title={t("languages_count").replace(
+            "{}",
+            (Object.keys(implementations).length - numIcons).toString()
+          )}
         >
           <Typography color="textSecondary" className={classes.more}>
             +{Object.keys(implementations).length - numIcons}

@@ -18,7 +18,7 @@ export default function AlgorithmPage({
   algorithm: Algorithm;
   locale: string;
 }) {
-  const cT = useTranslation("categories").t;
+  const { t } = useTranslation();
 
   return (
     <div className="section container">
@@ -28,7 +28,7 @@ export default function AlgorithmPage({
         {algorithm.categories.map((category) => (
           <Typography key={category} variant="h6">
             <Link href={`/category/${normalize(category)}`}>
-              {cT(category)}
+              {t(`categories:${category}`)}
             </Link>
           </Typography>
         ))}

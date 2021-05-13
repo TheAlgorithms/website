@@ -8,12 +8,12 @@ import { GetStaticPaths, GetStaticProps } from "next";
 import { useTranslation } from "next-i18next";
 
 export default function Category({ category }) {
-  const cT = useTranslation("categories").t;
+  const { t } = useTranslation();
 
   return (
     <>
-      <Head title={cT(category.name)} />
-      <Section title={cT(category.name)}>
+      <Head title={t(`categories:${category.name}`)} />
+      <Section title={t(`categories:${category.name}`)}>
         <AlgorithmsList algorithms={category.algorithms} />
       </Section>
     </>

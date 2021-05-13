@@ -38,7 +38,7 @@ export default function Navbar({
   query: string;
   setQuery: React.Dispatch<React.SetStateAction<string>>;
 }) {
-  const { t } = useTranslation("common");
+  const { t } = useTranslation();
   const [atTop, setAtTop] = useState(false);
   const smallScreen = useMediaQuery("(max-width:800px)");
   const [menuOpen, setMenuOpen] = useState(false);

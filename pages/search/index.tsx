@@ -15,7 +15,7 @@ export default function Search() {
   const router = useRouter();
   const [limit, setLimit] = useState(27);
   const [loading, setLoading] = useState(false);
-  const { t } = useTranslation("common");
+  const { t } = useTranslation();
 
   const algorithms = search(router.query.q as string, limit);
 

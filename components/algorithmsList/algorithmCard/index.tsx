@@ -15,8 +15,7 @@ import { useTranslation } from "next-i18next";
 import classes from "./style.module.css";
 
 export default function AlgorithmCard({ algorithm }: { algorithm: Algorithm }) {
-  const { t } = useTranslation("common");
-  const cT = useTranslation("categories").t;
+  const { t } = useTranslation();
 
   return (
     <Card className={classes.root}>
@@ -29,7 +28,7 @@ export default function AlgorithmCard({ algorithm }: { algorithm: Algorithm }) {
               key={category}
             >
               <Link href={`/category/${normalize(category)}`}>
-                {cT(category)}
+                {t(`categories:${category}`)}
               </Link>
             </Typography>
           ))}
