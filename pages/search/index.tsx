@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Button } from "@material-ui/core";
 import { useRouter } from "next/router";
 import AlgorithmsList from "components/algorithmsList";
-import search from "lib/search";
+import useSearch from "hooks/search";
 import Section from "components/section";
 import Head from "components/head";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
@@ -17,7 +17,7 @@ export default function Search() {
   const [loading, setLoading] = useState(false);
   const { t } = useTranslation();
 
-  const algorithms = search(router.query.q as string, limit);
+  const algorithms = useSearch(router.query.q as string, limit);
 
   useEffect(() => {
     if (router.query.q) {
