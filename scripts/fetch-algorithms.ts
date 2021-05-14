@@ -86,6 +86,7 @@ let spinner: Ora;
           categories: lCategories,
           body: {},
           implementations: {},
+          explanationUrl: {},
         };
         for (const category of lCategories) {
           if (!categories[normalize(category)]) {
@@ -150,6 +151,7 @@ let spinner: Ora;
                   categories: aCategories.filter((x) => !!x),
                   body: {},
                   implementations: {},
+                  explanationUrl: {},
                 };
                 for (const category of aCategories.filter((x) => !!x)) {
                   if (!categories[normalizeCategory(category)])
@@ -183,6 +185,9 @@ let spinner: Ora;
           if (match) {
             const algorithm = algorithms[normalizeAlgorithm(match[1])];
             if (algorithm) {
+              algorithm.explanationUrl[
+                locale
+              ] = `https://github.com/TheAlgorithms/Algorithms-Explanation/tree/master/${dir}`;
               algorithm.body[locale] = await renderMarkdown(
                 (await fs.promises.readFile(dir))
                   .toString()

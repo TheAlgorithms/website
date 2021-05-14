@@ -1,0 +1,13 @@
+.title {
+  padding-top: 20px !important;
+  padding-bottom: 10px !important;
+}
+
+.icon {
+  transform: translateY(4px);
+  margin-right: 5px;
+}
+
+.paragraph {
+  margin-bottom: 15px !important;
+}
