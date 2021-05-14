@@ -35,5 +35,11 @@ export default {
     graph: "Graphs",
     divideconquer: "Divide And Conquer",
     string: "Strings",
+    binarytrees: "Binary Tree",
+    arrays: "Array",
+    linkedlists: "Linked List",
+    lists: "List",
+    mathematics: "Math",
+    trees: "Tree",
   },
 };

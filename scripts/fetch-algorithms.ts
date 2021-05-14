@@ -52,15 +52,13 @@ let spinner: Ora;
   )) {
     const repo: Repository = Repositories[language];
     languages[language] = [];
-    dirLoop: for await (const dir of walk(path.join(language, repo.baseDir))) {
+    for await (const dir of walk(path.join(language, repo.baseDir))) {
       let valid = false;
       for (const validFilename of repo.allowedFiles) {
         if (dir.endsWith(validFilename)) valid = true;
       }
       if (!valid) continue;
-      for (const forbidden of ["test", "__init__"]) {
-        if (dir.includes(forbidden)) continue dirLoop;
-      }
+      if (!isValidCategory(dir)) continue;
       if (
         dir.split("/").length -
           path.join(language, repo.baseDir).split("/").length <
@@ -83,16 +81,20 @@ let spinner: Ora;
         algorithms[nName] = {
           slug: normalizeWeak(name),
           name,
-          categories: lCategories,
+          categories: lCategories.map(normalize),
           body: {},
           implementations: {},
         };
         for (const category of lCategories) {
           if (!categories[normalize(category)]) {
             categories[normalize(category)] = [];
-            categoryNames[normalize(category)] = category;
           }
           categories[normalize(category)].push(normalizeWeak(name));
+        }
+      }
+      for (const category of lCategories) {
+        if (!categoryNames[normalize(category)]) {
+          categoryNames[normalize(category)] = category;
         }
       }
       algorithms[nName].implementations[language] = {
@@ -147,7 +149,7 @@ let spinner: Ora;
                 algorithms[nName] = {
                   slug: normalizeWeak(name),
                   name,
-                  categories: aCategories.filter((x) => !!x),
+                  categories: aCategories.filter((x) => !!x).map(normalize),
                   body: {},
                   implementations: {},
                 };
@@ -216,9 +218,9 @@ let spinner: Ora;
       })
     )
   );
+  process.chdir("..");
   spinner.succeed();
   spinner = ora("Writing algorithms to files").start();
-  process.chdir("..");
   await fs.promises.mkdir("algorithms");
   await Promise.all(
     Object.values(algorithms).map(async (algorithm) => {
@@ -251,15 +253,42 @@ let spinner: Ora;
       })
     )
   );
-  const outpCategories = {};
-  Object.keys(categories).forEach((key) => {
-    outpCategories[categoryNames[key]] = categories[key];
-  });
-  await fs.promises.writeFile(
-    "categories.json",
-    JSON.stringify(outpCategories)
-  );
+  await fs.promises.writeFile("categories.json", JSON.stringify(categories));
   await fs.promises.writeFile("languages.json", JSON.stringify(languages));
+  const oldLocalesCategories: { [key: string]: string } = fs.existsSync(
+    "../public/locales/en/categories.json"
+  )
+    ? JSON.parse(
+        (
+          await fs.promises.readFile("../public/locales/en/categories.json")
+        ).toString()
+      )
+    : {};
+  const localesCategories: { [key: string]: string } = {};
+  Object.keys(categoryNames)
+    .sort()
+    .forEach((key) => {
+      localesCategories[key] = oldLocalesCategories[key] || categoryNames[key];
+    });
+  await fs.promises.writeFile(
+    "../public/locales/en/categories.json",
+    JSON.stringify(localesCategories, null, 4)
+  );
   await fs.promises.rm("repositories", { recursive: true });
   spinner.succeed();
 })();
+
+function isValidCategory(name: string) {
+  if (normalize(name).match(/problem\d+/)) return false;
+  for (const exclude of [
+    "projecteuler",
+    "test",
+    "init",
+    "github",
+    "ipynbcheckpoints",
+    "leetcode",
+  ]) {
+    if (normalize(name).includes(exclude)) return false;
+  }
+  return true;
+}

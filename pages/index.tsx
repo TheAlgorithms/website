@@ -34,7 +34,7 @@ import {
 import classes from "./index.module.css";
 
 export default function Home({ topAlgorithms, featuredAlgorithms }) {
-  const { t } = useTranslation("common");
+  const { t } = useTranslation();
 
   return (
     <>
@@ -75,37 +75,37 @@ export default function Home({ topAlgorithms, featuredAlgorithms }) {
         <CategoriesList
           categories={[
             {
-              name: t("sortsCategories"),
+              name: t("categories:sorts"),
               icon: <Sort />,
               href: "/category/sorts",
             },
             {
-              name: t("searchesCategories"),
+              name: t("categories:searches"),
               icon: <Search />,
               href: "/category/searches",
             },
             {
-              name: t("dynamicProgrammingCategories"),
+              name: t("categories:dynamicprogramming"),
               icon: <OfflineBolt />,
               href: "/category/dynamicprogramming",
             },
             {
-              name: t("ciphersCategories"),
+              name: t("categories:ciphers"),
               icon: <EnhancedEncryption />,
               href: "/category/ciphers",
             },
             {
-              name: t("dataStructuresCategories"),
+              name: t("categories:datastructures"),
               icon: <Storage />,
               href: "/category/datastructures",
             },
             {
-              name: t("basicMathCategories"),
+              name: t("categories:math"),
               icon: <Functions />,
               href: "/category/math",
             },
             {
-              name: t("imageProcessingCategories"),
+              name: t("categories:digitalimageprocessing"),
               icon: <InsertPhoto />,
               href: "/category/digitalimageprocessing",
             },
@@ -284,10 +284,6 @@ export default function Home({ topAlgorithms, featuredAlgorithms }) {
 }
 
 export async function getStaticProps({ locale }) {
-  // const data = getAllAlgorithms();
-
-  // The value of the `props` key will be
-  //  passed to the `Home` component
   return {
     props: {
       topAlgorithms: [
@@ -303,7 +299,7 @@ export async function getStaticProps({ locale }) {
         getAlgorithm("bellman-ford"),
         getAlgorithm("bogo-sort"),
       ],
-      ...(await serverSideTranslations(locale, ["common"])),
+      ...(await serverSideTranslations(locale, ["common", "categories"])),
     },
   };
 }
