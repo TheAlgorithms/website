@@ -154,5 +154,20 @@
     "advancedahocorasick": "Fortgeschrittener Aho-Corasick",
     "activationfunctions": "Aktivierungsfunktionen",
     "acronym": "Akronym",
-    "abstractfactory": "Abstrakte Fabrik"
+    "abstractfactory": "Abstrakte Fabrik",
+    "singlylinkedlist": "Einzeln verknüpfte Liste",
+    "prime": "Primzahl",
+    "parsing": "Analyse",
+    "networkingflow": "Netzwerkfluss",
+    "movierecommendationsystem": "Filmempfehlungs-System",
+    "lsbbasedimagesteganography": "LSB-basierte Bildsteganographie",
+    "linkedlist": "Verknüpfte Liste",
+    "greedyapproach": "Gieriger Ansatz",
+    "greedyalgorithms": "Gierige Algorithmen",
+    "geodesy": "Geodäsie",
+    "electronics": "Elektronik",
+    "doublylinkedlist": "Doppelt verknüpfte Liste",
+    "disjointset": "Disjunkte Menge",
+    "diffiehelkeyexchange": "Diffie-Hellman Schlüsselaustausch",
+    "depthfirstsearch": "Tiefensuche"
 }
