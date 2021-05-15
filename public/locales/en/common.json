@@ -40,5 +40,13 @@
     "home": "Home",
     "search": "Search",
     "languages_count": "And {} more",
-    "contact": "Contact"
+    "contact": "Contact",
+    "addExplanation": "Add an explanation for this algorithm",
+    "addExplanationInfo": "This algorithm does not yet have a explanation. The explanations are located in the <a href=\"https://github.com/TheAlgorithms/Algorithms-Explanation/\">Algorithms-Explanation</a> repository. If you want to add an explanation, fork this repository and add the explanation as a markdown file (<a href=\"https://github.com/TheAlgorithms/Algorithms-Explanation/blob/master/en/Sorting%20Algorithms/Quick%20Sort.md/\">example</a> ). Once you are finished, you can open a pull request to merge your explanation.",
+    "editPageHelp": "If you have any issues, feel free to go on our <a href=\"https://discord.gg/c7MnfGFGa6/\">Discord</Link> server, and ask for help.",
+    "addImplementation": "Add another implementation",
+    "addImplementationInfo": "To add a implementation in another language, please visit the repository for that language and follow the instructions given in the <code>README.md</code> and <code>CONTRIBUTING.md</code>.",
+    "addImplementationMissing": "Here are the links to repositories still missing implementations:",
+    "addTranslation": "Translate this explanation",
+    "addTranslationInfo": "To translate this explanation, please visit the <a href=\"https://github.com/TheAlgorithms/Algorithms-Explanation/\">Algorithms-Explanation</a> repository. Fork this repository and add your translation as a new Markdown file based on the English <a href={algorithm.explanationUrl.en}><code>{algorithm.explanationUrl.en.split(\"/\").pop()}</code></a> in the correct folder for your locale (<code>{router.locale}</code>). When you have translated the file, you can create a new pull request to merge your translation."
 }

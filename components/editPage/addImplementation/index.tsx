@@ -8,6 +8,8 @@ import LanguagesList from "components/languagesList";
 import { Algorithm } from "lib/models";
 import { Language, Repositories } from "lib/repositories";
 import classes from "./style.module.css";
+import { useTranslation } from "next-i18next";
+import SanitizedHTML from "react-sanitized-html";
 
 export default function AddImplementation({
   algorithm,
@@ -18,19 +20,21 @@ export default function AddImplementation({
   open: boolean;
   onClose: () => void;
 }) {
+  const { t } = useTranslation("common");
   return (
     <Dialog open={open} onClose={onClose} fullWidth>
       <DialogTitle className={classes.title}>
-        Add another implementation
+        {t("addImplementation")}
       </DialogTitle>
       <DialogContent>
         <Typography className={classes.paragraph}>
-          To add a implementation in another language, please visit the
-          repository for that language and follow the instructions given in the{" "}
-          <code>README.md</code> and <code>CONTRIBUTING.md</code>.
+          <SanitizedHTML
+            allowedTags={["a", "code"]}
+            html={t("addImplementationInfo")}
+          />
         </Typography>
         <Typography className={classes.paragraph}>
-          Here are the links to repositories still missing implementations:
+          {t("addImplementationMissing")}
         </Typography>
         <LanguagesList
           languages={Object.keys(Repositories)
