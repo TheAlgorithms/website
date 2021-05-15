@@ -43,7 +43,7 @@
     "contact": "Contacto",
     "addExplanation": "Añadir una explicación para este algoritmo",
     "addExplanationInfo": "Este algoritmo aún no tiene una explicación. Las explicaciones se encuentran en el repositorio <a href=\"https://github.com/TheAlgorithms/Algorithms-Explanation/\">Algorithms-Explanation</a>. Si desea agregar una explicación, forkea el repositorio y agregue la explicación como un archivo tipo Markdown (<a href=\"https://github.com/TheAlgorithms/Algorithms-Explanation/blob/master/en/Sorting%20Algorithms/Quick%20Sort.md/\">ejemplo</a>). Una vez que haya terminado, puede abrir un pull request para combinar su explicación.",
-    "editPageHelp": "Si tiene dudas, o tiene algún problema, no dude en ir en nuestro servidor de <a href=\"https://discord.gg/c7MnfGFGa6/\">Discord</Link>, y preguntar por ayuda en nuestros canales disponibles.",
+    "editPageHelp": "Si tiene dudas, o tiene algún problema, no dude en ir en nuestro servidor de <a href=\"https://discord.gg/c7MnfGFGa6/\">Discord</a>, y preguntar por ayuda en nuestros canales disponibles.",
     "addImplementation": "Añadir una nueva implementación",
     "addImplementationInfo": "Para agregar una implementación en otro lenguaje, visite el repositorio de ese lengujae, y siga las instrucciones dadas en el <code>README.md</code> y en el <code>CONTRIBUTING.md</code>.",
     "addImplementationMissing": "Aquí están los links a los repositorios que les falta la implementación de este algoritmo:"
