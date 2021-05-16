@@ -49,5 +49,6 @@
     "addImplementationMissing": "Aquí están los links a los repositorios que les falta la implementación de este algoritmo:",
     "editPageTranslate": "Traducir explicación",
     "editPageEdit": "Editar explicación",
-    "editPageAdd": "Añadir implementación"
+    "editPageAddImplementation": "Añadir implementación",
+    "editPageAddExplanation": "Añadir explicación"
 }

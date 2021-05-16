@@ -51,5 +51,6 @@
     "addTranslationInfo": "To translate this explanation, please visit the <a href=\"https://github.com/TheAlgorithms/Algorithms-Explanation/\">Algorithms-Explanation</a> repository. Fork this repository and add your translation as a new Markdown file based on the English <a href={algorithm.explanationUrl.en}><code>{algorithm.explanationUrl.en.split(\"/\").pop()}</code></a> in the correct folder for your locale (<code>{router.locale}</code>). When you have translated the file, you can create a new pull request to merge your translation.",
     "editPageTranslate": "Translate explanation",
     "editPageEdit": "Edit explanation",
-    "editPageAdd": "Add implementation"
+    "editPageAddImplementation": "Add implementation",
+    "editPageAddExplanation": "Add explanation"
 }

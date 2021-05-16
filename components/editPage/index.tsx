@@ -54,7 +54,7 @@ export default function EditPage({ algorithm }: { algorithm: Algorithm }) {
             className={classes.button}
             onClick={() => setAddExplanationOpen(true)}
           >
-            Add explanation
+            {t("editPageAddExplanation")}
           </Button>
           <AddExplanation
             open={addExplanationOpen}
@@ -67,7 +67,7 @@ export default function EditPage({ algorithm }: { algorithm: Algorithm }) {
         className={classes.button}
         onClick={() => setAddImplementationOpen(true)}
       >
-      {t("editPageAdd")}
+      {t("editPageAddImplementation")}
       </Button>
       <AddImplementation
         algorithm={algorithm}
