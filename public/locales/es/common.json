@@ -40,5 +40,7 @@
     "home": "Inicio",
     "pageNotFound": "Pagina no encontrada",
     "languages_count": "{} más",
-    "contact": "Contacto"
+    "contact": "Contacto",
+    "viewOnGithub": "Ver en GitHub",
+    "close": "Cerrar"
 }
