@@ -17,7 +17,7 @@ import Link from "components/link";
 import { useRouter } from "next/router";
 import SearchBar from "components/searchBar";
 import LangSelect from "components/langSelect";
-import { GithubOriginalIcon } from "react-devicons";
+import GithubOriginalIcon from "react-devicons/github/original";
 import {
   Brightness7,
   Close,

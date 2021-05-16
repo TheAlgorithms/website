@@ -123,3 +123,14 @@
 .active .implementations {
   transform: translateY(0);
 }
+
+.card {
+  display: inline-block;
+  width: 48px;
+  border-radius: 50% !important;
+}
+
+.card:not(.current) {
+  background: rgba(255, 255, 255, 0) !important;
+  box-shadow: none !important;
+}

@@ -4,7 +4,7 @@ import { Implementation } from "lib/models";
 import { Language } from "lib/repositories";
 import useBodyScroll from "hooks/bodyScroll";
 import LanguageIcon from "components/icon";
-import { Button, IconButton } from "@material-ui/core";
+import { Button, Card, IconButton } from "@material-ui/core";
 import { Close, OpenInNew } from "@material-ui/icons";
 import { useTranslation } from "next-i18next";
 import classes from "./style.module.css";
@@ -85,27 +85,32 @@ export default function CodePreview({
         )}
         <div className={classes.implementations}>
           {Object.keys(implementations).map((language: Language) => (
-            <IconButton
-              className={classes.implementation}
+            <Card
               key={language}
-              onClick={() => {
-                if (language !== "jupyter") {
-                  setActive(true);
-                  setSelectedLanguague(language);
-                }
-              }}
-              href={
-                language === "jupyter"
-                  ? implementations[language].url
-                  : undefined
+              className={
+                language === selectedLanguague
+                  ? `${classes.card} ${classes.current}`
+                  : classes.card
               }
-              target="_blank"
             >
-              <LanguageIcon
-                language={language}
-                color={language === selectedLanguague ? "action" : "disabled"}
-              />
-            </IconButton>
+              <IconButton
+                className={classes.implementation}
+                onClick={() => {
+                  if (language !== "jupyter") {
+                    setActive(true);
+                    setSelectedLanguague(language);
+                  }
+                }}
+                href={
+                  language === "jupyter"
+                    ? implementations[language].url
+                    : undefined
+                }
+                target="_blank"
+              >
+                <LanguageIcon language={language} />
+              </IconButton>
+            </Card>
           ))}
         </div>
       </div>
