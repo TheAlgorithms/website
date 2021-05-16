@@ -40,5 +40,7 @@
     "aboutUs": "Mi smo grupa programera koji pomažu jedni drugima u stvaranju novih stvari, bilo da se radi o pisanju složenih programa ili jednostavnih algoritama za šifriranje. Cilj nam je, zajedno dokumentirati i izraditi lijepe, korisne i zanimljive algoritme pomoću kodiranja. Mi smo zajednica otvorenog koda – svatko može doprinijeti. Međusobno provjeravamo rad, komuniciramo i surađujemo u rješavanju problema. Nastojimo biti gostoljubivi i pristojni, dok istovremeno vodimo računa o tome, da naš kod udovoljava najnovijim zahtjevima suvremenog programiranja.",
     "aboutUsTitle": "O nama",
     "algorithmExplanation": "Algoritam je skup pravila koji uzima jedan ili više unosa, zatim izvodi unutarnje izračune i manipulacije podacima te vraća rezultat ili skup rezultata. Ukratko, algoritmi olakšavaju život. Od složenih manipulacija i mapiranja podataka, do jednostavne aritmetike, algoritmi slijede niz koraka kako bi proizveli koristan rezultat. Primjer algoritma je jednostavna funkcija koja uzima dvije vrijednosti unosa, zbraja ih i vraća njihov zbroj.",
-    "algorithmExplanationTitle": "Što je algoritam?"
+    "algorithmExplanationTitle": "Što je algoritam?",
+    "viewOnGithub": "Pogledaj na GitHubu",
+    "close": "Zatvori"
 }
