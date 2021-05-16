@@ -46,5 +46,8 @@
     "editPageHelp": "Si tiene dudas, o tiene algún problema, no dude en ir en nuestro servidor de <a href=\"https://discord.gg/c7MnfGFGa6/\">Discord</a>, y preguntar por ayuda en nuestros canales disponibles.",
     "addImplementation": "Añadir una nueva implementación",
     "addImplementationInfo": "Para agregar una implementación en otro lenguaje, visite el repositorio de ese lengujae, y siga las instrucciones dadas en el <code>README.md</code> y en el <code>CONTRIBUTING.md</code>.",
-    "addImplementationMissing": "Aquí están los links a los repositorios que les falta la implementación de este algoritmo:"
+    "addImplementationMissing": "Aquí están los links a los repositorios que les falta la implementación de este algoritmo:",
+    "editPageTranslate": "Traducir explicación",
+    "editPageEdit": "Editar explicación",
+    "editPageAdd": "Añadir implementación"
 }

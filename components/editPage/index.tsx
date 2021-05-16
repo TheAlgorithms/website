@@ -7,12 +7,14 @@ import AddExplanation from "./addExplanation";
 import AddImplementation from "./addImplementation";
 import AddTranslation from "./addTranslation";
 import classes from "./style.module.css";
+import { useTranslation } from "next-i18next";
 
 export default function EditPage({ algorithm }: { algorithm: Algorithm }) {
   const router = useRouter();
   const [addImplementationOpen, setAddImplementationOpen] = useState(false);
   const [addTranslationOpen, setAddTranslationOpen] = useState(false);
   const [addExplanationOpen, setAddExplanationOpen] = useState(false);
+  const { t } = useTranslation("common");
 
   return (
     <div className={classes.container}>
@@ -25,7 +27,7 @@ export default function EditPage({ algorithm }: { algorithm: Algorithm }) {
                 className={classes.button}
                 onClick={() => setAddTranslationOpen(true)}
               >
-                Translate explanation
+                {t("editPageTranslate")}
               </Button>
               <AddTranslation
                 algorithm={algorithm}
@@ -41,7 +43,7 @@ export default function EditPage({ algorithm }: { algorithm: Algorithm }) {
             }
           >
             <Button startIcon={<Edit />} className={classes.button}>
-              Edit explanation
+              {t("editPageEdit")}
             </Button>
           </a>
         </>
@@ -65,7 +67,7 @@ export default function EditPage({ algorithm }: { algorithm: Algorithm }) {
         className={classes.button}
         onClick={() => setAddImplementationOpen(true)}
       >
-        Add implementation
+      {t("editPageAdd")}
       </Button>
       <AddImplementation
         algorithm={algorithm}
