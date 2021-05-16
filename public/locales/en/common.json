@@ -40,5 +40,7 @@
   "home": "Home",
   "search": "Search",
   "languages_count": "And {} more",
-  "contact": "Contact"
+  "contact": "Contact",
+  "close": "Close",
+  "viewOnGithub": "View on GitHub"
 }

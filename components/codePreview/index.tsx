@@ -6,6 +6,7 @@ import useBodyScroll from "hooks/bodyScroll";
 import LanguageIcon from "components/icon";
 import { Button, IconButton } from "@material-ui/core";
 import { Close, OpenInNew } from "@material-ui/icons";
+import { useTranslation } from "next-i18next";
 import classes from "./style.module.css";
 
 export default function CodePreview({
@@ -19,6 +20,7 @@ export default function CodePreview({
   const [selectedLanguague, setSelectedLanguague] = useState(
     Object.keys(implementations)[0]
   );
+  const { t } = useTranslation("common");
 
   useEffect(() => {
     document.getElementsByTagName("html")[0].style.scrollBehavior = "smooth";
@@ -52,14 +54,14 @@ export default function CodePreview({
           href={implementations[selectedLanguague].url}
           target="_blank"
         >
-          View on GitHub
+          {t("viewOnGithub")}
         </Button>
         <Button
           variant="outlined"
           startIcon={<Close />}
           onClick={() => setActive(false)}
         >
-          Close
+          {t("close")}
         </Button>
       </div>
       <div className={classes.scrollContainer}>
