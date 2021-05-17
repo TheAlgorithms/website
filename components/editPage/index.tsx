@@ -67,7 +67,7 @@ export default function EditPage({ algorithm }: { algorithm: Algorithm }) {
         className={classes.button}
         onClick={() => setAddImplementationOpen(true)}
       >
-      {t("editPageAddImplementation")}
+        {t("editPageAddImplementation")}
       </Button>
       <AddImplementation
         algorithm={algorithm}
