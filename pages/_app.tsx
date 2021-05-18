@@ -33,8 +33,13 @@ function MyApp({ Component, pageProps }: AppProps) {
     );
   }, []);
 
+  useEffect(() => {
+    if (isDarkTheme) document.body.classList.add("dark");
+    else document.body.classList.remove("dark");
+  }, [isDarkTheme]);
+
   return (
-    <div style={{ height: "100%" }} className={isDarkTheme ? "dark" : ""}>
+    <div style={{ height: "100%" }}>
       <ThemeProvider theme={isDarkTheme ? darkTheme : lightTheme}>
         <Head />
         <CssBaseline />
