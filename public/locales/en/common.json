@@ -52,5 +52,7 @@
   "addImplementationInfo": "To add a implementation in another language, please visit the repository for that language and follow the instructions given in the <code>README.md</code> and <code>CONTRIBUTING.md</code>.",
   "addImplementationMissing": "Here are the links to repositories still missing implementations:",
   "addTranslation": "Translate this explanation",
-  "addTranslationInfo": "The explanation to this algorithm wasn't yet translated to your language. To translate this explanation, please visit the [Algorithms-Explanation] repository. Fork this repository and add your translation as a new Markdown file based on the English [<code>{ogFilename}</code>] in the correct folder for your locale (<code>{locale}</code>). When you have translated the file, you can create a new pull request to merge your translation."
+  "addTranslationInfo": "The explanation to this algorithm wasn't yet translated to your language. To translate this explanation, please visit the [Algorithms-Explanation] repository. Fork this repository and add your translation as a new Markdown file based on the English [<code>{ogFilename}</code>] in the correct folder for your locale (<code>{locale}</code>). When you have translated the file, you can create a new pull request to merge your translation.",
+  "close": "Close",
+  "viewOnGithub": "View on GitHub"
 }

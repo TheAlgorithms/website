@@ -14,10 +14,16 @@ export function getAlgorithmSlugs() {
   );
 }
 
-export function getAlgorithm(slug: string) {
+export function getAlgorithm(slug: string, minimal = false) {
   const algorithm: Algorithm = JSON.parse(
     fs.readFileSync(path.join("tmp", "algorithms", `${slug}.json`)).toString()
   );
+  if (minimal) {
+    delete algorithm.body;
+    Object.keys(algorithm.implementations).forEach((key) => {
+      algorithm.implementations[key] = "";
+    });
+  }
   return algorithm;
 }
 

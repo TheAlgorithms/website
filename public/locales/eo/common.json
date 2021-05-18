@@ -40,5 +40,7 @@
     "home": "Hejmo",
     "pageNotFound": "Paĝo ne troviĝis",
     "languages_count": "{} pli",
-    "contact": "Kontakti nin"
+    "contact": "Kontakti nin",
+    "viewOnGithub": "Vidi ĉe GitHub",
+    "close": "Fermi"
 }

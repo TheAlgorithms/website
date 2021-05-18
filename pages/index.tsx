@@ -16,11 +16,9 @@ import CategoriesList from "components/categoriesList";
 import { Language, Repositories } from "lib/repositories";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useTranslation } from "next-i18next";
-import {
-  GithubOriginalIcon,
-  GitterPlainIcon,
-  WeblatePlainIcon,
-} from "react-devicons";
+import GithubOriginalIcon from "react-devicons/github/original";
+import GitterPlainIcon from "react-devicons/gitter/plain";
+import WeblatePlainIcon from "react-devicons/weblate/plain";
 import {
   Search,
   Sort,
@@ -34,7 +32,7 @@ import Translation from "components/translation";
 import classes from "./index.module.css";
 
 export default function Home({ topAlgorithms, featuredAlgorithms }) {
-  const { t } = useTranslation("common");
+  const { t } = useTranslation();
 
   return (
     <>
@@ -75,37 +73,37 @@ export default function Home({ topAlgorithms, featuredAlgorithms }) {
         <CategoriesList
           categories={[
             {
-              name: t("sortsCategories"),
+              name: t("categories:sorts"),
               icon: <Sort />,
               href: "/category/sorts",
             },
             {
-              name: t("searchesCategories"),
+              name: t("categories:searches"),
               icon: <Search />,
               href: "/category/searches",
             },
             {
-              name: t("dynamicProgrammingCategories"),
+              name: t("categories:dynamicprogramming"),
               icon: <OfflineBolt />,
               href: "/category/dynamicprogramming",
             },
             {
-              name: t("ciphersCategories"),
+              name: t("categories:ciphers"),
               icon: <EnhancedEncryption />,
               href: "/category/ciphers",
             },
             {
-              name: t("dataStructuresCategories"),
+              name: t("categories:datastructures"),
               icon: <Storage />,
               href: "/category/datastructures",
             },
             {
-              name: t("basicMathCategories"),
+              name: t("categories:math"),
               icon: <Functions />,
               href: "/category/math",
             },
             {
-              name: t("imageProcessingCategories"),
+              name: t("categories:digitalimageprocessing"),
               icon: <InsertPhoto />,
               href: "/category/digitalimageprocessing",
             },
@@ -298,26 +296,22 @@ export default function Home({ topAlgorithms, featuredAlgorithms }) {
 }
 
 export async function getStaticProps({ locale }) {
-  // const data = getAllAlgorithms();
-
-  // The value of the `props` key will be
-  //  passed to the `Home` component
   return {
     props: {
       topAlgorithms: [
-        getAlgorithm("binary-search"),
-        getAlgorithm("quick-sort"),
-        getAlgorithm("longest-common-subsequence"),
+        getAlgorithm("binary-search", true),
+        getAlgorithm("quick-sort", true),
+        getAlgorithm("longest-common-subsequence", true),
       ],
       featuredAlgorithms: [
-        getAlgorithm("coinchange"),
-        getAlgorithm("logistic-regression"),
-        getAlgorithm("caesar-cipher"),
-        getAlgorithm("a-simple-gan"),
-        getAlgorithm("bellman-ford"),
-        getAlgorithm("bogo-sort"),
+        getAlgorithm("coinchange", true),
+        getAlgorithm("logistic-regression", true),
+        getAlgorithm("caesar-cipher", true),
+        getAlgorithm("a-simple-gan", true),
+        getAlgorithm("bellman-ford", true),
+        getAlgorithm("bogo-sort", true),
       ],
-      ...(await serverSideTranslations(locale, ["common"])),
+      ...(await serverSideTranslations(locale, ["common", "categories"])),
     },
   };
 }

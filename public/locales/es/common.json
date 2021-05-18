@@ -50,5 +50,7 @@
     "editPageTranslate": "Traducir explicación",
     "editPageEdit": "Editar explicación",
     "editPageAddImplementation": "Añadir implementación",
-    "editPageAddExplanation": "Añadir explicación"
+    "editPageAddExplanation": "Añadir explicación",
+    "viewOnGithub": "Ver en GitHub",
+    "close": "Cerrar"
 }

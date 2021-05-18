@@ -13,7 +13,7 @@ export default function Jumbo({
   query: string;
   setQuery: React.Dispatch<React.SetStateAction<string>>;
 }) {
-  const { t } = useTranslation("common");
+  const { t } = useTranslation();
   const theme = useTheme();
 
   return (

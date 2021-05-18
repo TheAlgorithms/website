@@ -6,7 +6,7 @@ import { useTranslation } from "next-i18next";
 import classes from "./404.module.css";
 
 export default function Err404() {
-  const { t } = useTranslation("common");
+  const { t } = useTranslation();
 
   return (
     <div className={classes.container}>
