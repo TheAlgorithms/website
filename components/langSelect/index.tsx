@@ -40,7 +40,7 @@ const languages: { name: string; locale: string; icon: string }[] = [
     name: "Hrvatski",
     locale: "hr",
     icon: "hr",
-  }
+  },
 ];
 
 function MenuContent() {

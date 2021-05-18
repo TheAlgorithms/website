@@ -2,12 +2,11 @@ import {
   Dialog,
   DialogContent,
   DialogTitle,
-  Link,
   Typography,
 } from "@material-ui/core";
-import classes from "./style.module.css";
+import Translation from "components/translation";
 import { useTranslation } from "next-i18next";
-import SanitizedHTML from "react-sanitized-html";
+import classes from "./style.module.css";
 
 export default function AddExplanation({
   open,
@@ -17,22 +16,24 @@ export default function AddExplanation({
   onClose: () => void;
 }) {
   const { t } = useTranslation("common");
+
   return (
     <Dialog open={open} onClose={onClose} fullWidth>
-      <DialogTitle className={classes.title}>
-        {t("addExplanation")}
-      </DialogTitle>
+      <DialogTitle className={classes.title}>{t("addExplanation")}</DialogTitle>
       <DialogContent>
         <Typography className={classes.paragraph}>
-          <SanitizedHTML
-            allowedTags={["a"]}
-            html={t("addExplanationInfo")}
-        />
+          <Translation
+            name="addExplanationInfo"
+            links={[
+              "https://github.com/TheAlgorithms/Algorithms-Explanation",
+              "https://github.com/TheAlgorithms/Algorithms-Explanation/blob/master/en/Sorting%20Algorithms/Quick%20Sort.md",
+            ]}
+          />
         </Typography>
         <Typography className={classes.paragraph}>
-          <SanitizedHTML
-            allowedTags={["a"]}
-            html={t("editPageHelp")}
+          <Translation
+            name="editPageHelp"
+            links={["https://discord.gg/c7MnfGFGa6"]}
           />
         </Typography>
       </DialogContent>

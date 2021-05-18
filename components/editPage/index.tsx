@@ -3,11 +3,11 @@ import { Add, Edit, Translate } from "@material-ui/icons";
 import { Algorithm } from "lib/models";
 import { useRouter } from "next/router";
 import React, { useState } from "react";
+import { useTranslation } from "next-i18next";
 import AddExplanation from "./addExplanation";
 import AddImplementation from "./addImplementation";
 import AddTranslation from "./addTranslation";
 import classes from "./style.module.css";
-import { useTranslation } from "next-i18next";
 
 export default function EditPage({ algorithm }: { algorithm: Algorithm }) {
   const router = useRouter();

@@ -5,11 +5,11 @@ import {
   Typography,
 } from "@material-ui/core";
 import LanguagesList from "components/languagesList";
+import Translation from "components/translation";
 import { Algorithm } from "lib/models";
 import { Language, Repositories } from "lib/repositories";
-import classes from "./style.module.css";
 import { useTranslation } from "next-i18next";
-import SanitizedHTML from "react-sanitized-html";
+import classes from "./style.module.css";
 
 export default function AddImplementation({
   algorithm,
@@ -28,10 +28,7 @@ export default function AddImplementation({
       </DialogTitle>
       <DialogContent>
         <Typography className={classes.paragraph}>
-          <SanitizedHTML
-            allowedTags={["a", "code"]}
-            html={t("addImplementationInfo")}
-          />
+          <Translation name="addImplementationInfo" />
         </Typography>
         <Typography className={classes.paragraph}>
           {t("addImplementationMissing")}
