@@ -3,6 +3,7 @@ import { Add, Edit, Translate } from "@material-ui/icons";
 import { Algorithm } from "lib/models";
 import { useRouter } from "next/router";
 import React, { useState } from "react";
+import { useTranslation } from "next-i18next";
 import AddExplanation from "./addExplanation";
 import AddImplementation from "./addImplementation";
 import AddTranslation from "./addTranslation";
@@ -13,6 +14,7 @@ export default function EditPage({ algorithm }: { algorithm: Algorithm }) {
   const [addImplementationOpen, setAddImplementationOpen] = useState(false);
   const [addTranslationOpen, setAddTranslationOpen] = useState(false);
   const [addExplanationOpen, setAddExplanationOpen] = useState(false);
+  const { t } = useTranslation("common");
 
   return (
     <div className={classes.container}>
@@ -25,7 +27,7 @@ export default function EditPage({ algorithm }: { algorithm: Algorithm }) {
                 className={classes.button}
                 onClick={() => setAddTranslationOpen(true)}
               >
-                Translate explanation
+                {t("editPageTranslate")}
               </Button>
               <AddTranslation
                 algorithm={algorithm}
@@ -41,7 +43,7 @@ export default function EditPage({ algorithm }: { algorithm: Algorithm }) {
             }
           >
             <Button startIcon={<Edit />} className={classes.button}>
-              Edit explanation
+              {t("editPageEdit")}
             </Button>
           </a>
         </>
@@ -52,7 +54,7 @@ export default function EditPage({ algorithm }: { algorithm: Algorithm }) {
             className={classes.button}
             onClick={() => setAddExplanationOpen(true)}
           >
-            Add explanation
+            {t("editPageAddExplanation")}
           </Button>
           <AddExplanation
             open={addExplanationOpen}
@@ -65,7 +67,7 @@ export default function EditPage({ algorithm }: { algorithm: Algorithm }) {
         className={classes.button}
         onClick={() => setAddImplementationOpen(true)}
       >
-        Add implementation
+        {t("editPageAddImplementation")}
       </Button>
       <AddImplementation
         algorithm={algorithm}

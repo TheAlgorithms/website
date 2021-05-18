@@ -2,9 +2,10 @@ import {
   Dialog,
   DialogContent,
   DialogTitle,
-  Link,
   Typography,
 } from "@material-ui/core";
+import Translation from "components/translation";
+import { useTranslation } from "next-i18next";
 import classes from "./style.module.css";
 
 export default function AddExplanation({
@@ -14,30 +15,26 @@ export default function AddExplanation({
   open: boolean;
   onClose: () => void;
 }) {
+  const { t } = useTranslation("common");
+
   return (
     <Dialog open={open} onClose={onClose} fullWidth>
-      <DialogTitle className={classes.title}>
-        Add an explanation for this algorithm
-      </DialogTitle>
+      <DialogTitle className={classes.title}>{t("addExplanation")}</DialogTitle>
       <DialogContent>
         <Typography className={classes.paragraph}>
-          This algorithm does not yet have a explanation. The explanations are
-          located in the{" "}
-          <Link href="https://github.com/TheAlgorithms/Algorithms-Explanation">
-            Algorithms-Explanation
-          </Link>{" "}
-          repository. If you want to add an explanation, fork this repository
-          and add the explanation as a markdown file (
-          <Link href="https://github.com/TheAlgorithms/Algorithms-Explanation/blob/master/en/Sorting%20Algorithms/Quick%20Sort.md">
-            example
-          </Link>
-          ). Once you are finished, you can open a pull request to merge your
-          explanation.
+          <Translation
+            name="addExplanationInfo"
+            links={[
+              "https://github.com/TheAlgorithms/Algorithms-Explanation",
+              "https://github.com/TheAlgorithms/Algorithms-Explanation/blob/master/en/Sorting%20Algorithms/Quick%20Sort.md",
+            ]}
+          />
         </Typography>
         <Typography className={classes.paragraph}>
-          If you have any issues, feel free to go on our{" "}
-          <Link href="https://discord.gg/c7MnfGFGa6">Discord</Link> and ask for
-          help.
+          <Translation
+            name="editPageHelp"
+            links={["https://discord.gg/c7MnfGFGa6"]}
+          />
         </Typography>
       </DialogContent>
     </Dialog>

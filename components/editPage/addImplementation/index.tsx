@@ -5,8 +5,10 @@ import {
   Typography,
 } from "@material-ui/core";
 import LanguagesList from "components/languagesList";
+import Translation from "components/translation";
 import { Algorithm } from "lib/models";
 import { Language, Repositories } from "lib/repositories";
+import { useTranslation } from "next-i18next";
 import classes from "./style.module.css";
 
 export default function AddImplementation({
@@ -18,19 +20,18 @@ export default function AddImplementation({
   open: boolean;
   onClose: () => void;
 }) {
+  const { t } = useTranslation("common");
   return (
     <Dialog open={open} onClose={onClose} fullWidth>
       <DialogTitle className={classes.title}>
-        Add another implementation
+        {t("addImplementation")}
       </DialogTitle>
       <DialogContent>
         <Typography className={classes.paragraph}>
-          To add a implementation in another language, please visit the
-          repository for that language and follow the instructions given in the{" "}
-          <code>README.md</code> and <code>CONTRIBUTING.md</code>.
+          <Translation name="addImplementationInfo" />
         </Typography>
         <Typography className={classes.paragraph}>
-          Here are the links to repositories still missing implementations:
+          {t("addImplementationMissing")}
         </Typography>
         <LanguagesList
           languages={Object.keys(Repositories)
