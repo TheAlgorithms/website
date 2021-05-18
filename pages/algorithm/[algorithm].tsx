@@ -8,6 +8,7 @@ import CodePreview from "components/codePreview";
 import Head from "components/head";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { GetStaticPaths, GetStaticProps } from "next";
+import EditPage from "components/editPage";
 import { useTranslation } from "next-i18next";
 import classes from "./algorithm.module.css";
 
@@ -39,15 +40,12 @@ export default function AlgorithmPage({
           <div
             // eslint-disable-next-line react/no-danger
             dangerouslySetInnerHTML={{
-              __html: algorithm.body[locale]
-                ? algorithm.body[locale]
-                : algorithm.body.en
-                ? algorithm.body.en
-                : "",
+              __html: algorithm.body[locale] || algorithm.body.en || "",
             }}
           />
         </>
       )}
+      <EditPage algorithm={algorithm} />
     </div>
   );
 }

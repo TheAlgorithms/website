@@ -2,9 +2,9 @@ import { Tooltip, Typography, useMediaQuery } from "@material-ui/core";
 import { Implementation } from "lib/models";
 import { Language, getLanguageName } from "lib/repositories";
 import LanguageIcon from "components/icon";
+import { useTranslation } from "next-i18next";
 import LanguagesList from "../languagesList";
 import classes from "./style.module.css";
-import { useTranslation } from "next-i18next";
 
 export default function Implementations({
   implementations,

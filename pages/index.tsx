@@ -16,7 +16,6 @@ import CategoriesList from "components/categoriesList";
 import { Language, Repositories } from "lib/repositories";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useTranslation } from "next-i18next";
-import SanitizedHTML from "react-sanitized-html";
 import GithubOriginalIcon from "react-devicons/github/original";
 import GitterPlainIcon from "react-devicons/gitter/plain";
 import WeblatePlainIcon from "react-devicons/weblate/plain";
@@ -29,6 +28,7 @@ import {
   Functions,
   InsertPhoto,
 } from "@material-ui/icons";
+import Translation from "components/translation";
 import classes from "./index.module.css";
 
 export default function Home({ topAlgorithms, featuredAlgorithms }) {
@@ -146,7 +146,12 @@ export default function Home({ topAlgorithms, featuredAlgorithms }) {
                     {t("contributeTitle")}
                   </Typography>
                   <div className="MuiTypography-root MuiTypography-body1">
-                    <SanitizedHTML allowedTags={["a"]} html={t("contribute")} />
+                    <Translation
+                      name="contribute"
+                      links={[
+                        "https://hosted.weblate.org/engage/TheAlgorithms/?utm_source=widget",
+                      ]}
+                    />
                   </div>
                   <div>
                     <Button
@@ -175,9 +180,9 @@ export default function Home({ topAlgorithms, featuredAlgorithms }) {
                       {t("donateTitle")}
                     </Typography>
                     <div className="MuiTypography-root MuiTypography-body1">
-                      <SanitizedHTML
-                        allowedTags={["a"]}
-                        html={t("donateText")}
+                      <Translation
+                        name="donateText"
+                        links={["https://liberapay.com/"]}
                       />
                     </div>
                     <Button

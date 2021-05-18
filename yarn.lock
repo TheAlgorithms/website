@@ -606,6 +606,13 @@
     "@types/scheduler" "*"
     csstype "^3.0.2"
 
+"@types/sanitize-html@^2.3.1":
+  version "2.3.1"
+  resolved "https://registry.yarnpkg.com/@types/sanitize-html/-/sanitize-html-2.3.1.tgz#094d696b83b7394b016e96342bbffa6a028795ce"
+  integrity sha512-+UT/XRluJuCunRftwO6OzG6WOBgJ+J3sROIoSJWX+7PB2FtTJTEJLrHCcNwzCQc0r60bej3WAbaigK+VZtZCGw==
+  dependencies:
+    htmlparser2 "^6.0.0"
+
 "@types/scheduler@*":
   version "0.16.1"
   resolved "https://registry.yarnpkg.com/@types/scheduler/-/scheduler-0.16.1.tgz#18845205e86ff0038517aab7a18a62a6b9f71275"
@@ -4092,11 +4099,6 @@ react-refresh@0.8.3:
   version "0.8.3"
   resolved "https://registry.yarnpkg.com/react-refresh/-/react-refresh-0.8.3.tgz#721d4657672d400c5e3c75d063c4a85fb2d5d68f"
   integrity sha512-X8jZHc7nCMjaCqoU+V2I0cOhNW+QMBwSUkeXnTi8IPe6zaRWfn60ZzvFDZqWPfmSJfjub7dDW1SP0jaHWLu/hg==
-
-react-sanitized-html@^2.0.0:
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/react-sanitized-html/-/react-sanitized-html-2.0.0.tgz#2ac300ae60e8e7cb28378b1233b9630e415d0241"
-  integrity sha512-G1n8smzDSqiHoBtvfJqcyvDKXlWTrvARRgWoSKhqeDVxxb9emO4ourS1OYnzV6yxx/G4jLqzaFSx8b6roL29Kw==
 
 react-transition-group@^4.4.0:
   version "4.4.1"
