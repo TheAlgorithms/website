@@ -40,5 +40,19 @@
     "home": "Zurück",
     "pageNotFound": "Seite nicht gefunden",
     "languages_count": "Und {} weitere",
-    "contact": "Kontakt"
+    "contact": "Kontakt",
+    "viewOnGithub": "Auf GitHub ansehen",
+    "close": "Schließen",
+    "addTranslationInfo": "Die Erklärung zu diesem Algorithmus wurde noch nicht in Ihre Sprache übersetzt. Die Übersetzungen für die Erklärungstexte befinden sich in dem [Algorithms-Explanation] Repository. Um diese Erklärung zu übersetzen, muss nun also dieses Repository geforkt werden und als neue Markdown-Datei basierend auf dem englischen [<code>{ogFilename}</code>] in den Ordner <code>{locale}</code> hinzugefügt werden. Wenn die Datei übersetzt wurde, kann ein Pull-Request geöffnet werden, um die Übersetzung zu mergen.",
+    "addTranslation": "Diese Erklärung Übersetzen",
+    "addImplementationMissing": "Hier sind Links zu Repositories, in denen der Algorithmus noch nicht implementiert wurde:",
+    "addImplementationInfo": "Um eine Implementierung in einer anderen Programmiersprache hinzuzufügen, kann das Repository für diese Sprache besucht werden. In den Dateien <code>README.md</code> und <code>CONTRIBUTING.md</code> finden sich Anweisungen, wie Algorithmen in den jeweiligen Repositories hinzugefügt werden können.",
+    "addImplementation": "Eine weitere Implementation hinzufügen",
+    "editPageHelp": "Treten irgendwelche Fragen auf, helfen wir gerne auf unserem [Discord-Server] weiter.",
+    "addExplanationInfo": "Für diesen Algorithmus gibt es noch keinen Erklärungstext. Die Erklärungen befinden sich im Repository [Algorithms-Explanations]. Um eine Erklärung hinzuzufügen, muss dieses Repository geforkt werden und die Erklärung kann dann als Markdown-Datei hinzugefügt werden ([Beispiel]). Wenn das fertig ist, kann ein Pull-Request geöffnet werden, um die Erklärung zu mergen.",
+    "addExplanation": "Erklärung für diesen Algorithmus hinzufügen",
+    "editPageTranslate": "Erklärung übersetzen",
+    "editPageAddExplanation": "Erklärung hinzufügen",
+    "editPageAddImplementation": "Implementation hinzufügen",
+    "editPageEdit": "Seite Bearbeiten"
 }
