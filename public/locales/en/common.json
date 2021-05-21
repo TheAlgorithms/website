@@ -40,6 +40,7 @@
   "home": "Home",
   "search": "Search",
   "languages_count": "And {} more",
+  "langImplementation": "{language} Implementation",
   "contact": "Contact",
   "editPageEdit": "Edit Page",
   "editPageAddImplementation": "Add Implementation",

@@ -143,7 +143,7 @@ let spinner: Ora;
               try {
                 file = (await fs.promises.readFile(dir)).toString();
               } catch {
-                console.warn(`Failed to get ${dir}`);
+                console.warn(`\nFailed to get ${dir}`);
                 continue;
               }
               if (!algorithms[nName]) {
@@ -288,12 +288,14 @@ function isValidCategory(name: string) {
   for (const exclude of [
     "projecteuler",
     "test",
-    "init",
     "github",
     "ipynbcheckpoints",
     "leetcode",
   ]) {
     if (normalize(name).includes(exclude)) return false;
+  }
+  for (const exclude of ["__init__", "mod.rs"]) {
+    if (name.includes(exclude)) return false;
   }
   return true;
 }

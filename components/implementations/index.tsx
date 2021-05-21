@@ -3,6 +3,7 @@ import { Implementation } from "lib/models";
 import { Language, getLanguageName } from "lib/repositories";
 import LanguageIcon from "components/icon";
 import { useTranslation } from "next-i18next";
+import Translation from "components/translation";
 import LanguagesList from "../languagesList";
 import classes from "./style.module.css";
 
@@ -41,7 +42,12 @@ export default function Implementations({
           >
             <LanguageIcon
               language={language}
-              tooltip={`${getLanguageName(language)} Implementation`}
+              tooltip={
+                <Translation
+                  name="langImplementation"
+                  variables={{ language: getLanguageName(language) }}
+                />
+              }
             />
           </a>
         ))}
