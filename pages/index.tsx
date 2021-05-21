@@ -301,10 +301,10 @@ export async function getStaticProps({ locale }) {
       topAlgorithms: [
         getAlgorithm("binary-search", true),
         getAlgorithm("quick-sort", true),
-        getAlgorithm("longest-common-subsequence", true),
+        getAlgorithm("fibonacci-numbers", true),
       ],
       featuredAlgorithms: [
-        getAlgorithm("coinchange", true),
+        getAlgorithm("coin-change", true),
         getAlgorithm("logistic-regression", true),
         getAlgorithm("caesar-cipher", true),
         getAlgorithm("a-simple-gan", true),
