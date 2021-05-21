@@ -54,5 +54,6 @@
     "editPageTranslate": "Erklärung übersetzen",
     "editPageAddExplanation": "Erklärung hinzufügen",
     "editPageAddImplementation": "Implementation hinzufügen",
-    "editPageEdit": "Seite Bearbeiten"
+    "editPageEdit": "Seite Bearbeiten",
+    "langImplementation": "{language} Implementation"
 }
