@@ -1,12 +1,13 @@
 import React, { useEffect, useRef, useState } from "react";
 import "highlight.js/styles/atom-one-light.css";
 import { Implementation } from "lib/models";
-import { Language } from "lib/repositories";
+import { getLanguageName, Language } from "lib/repositories";
 import useBodyScroll from "hooks/bodyScroll";
 import LanguageIcon from "components/icon";
 import { Button, Card, IconButton } from "@material-ui/core";
 import { Close, OpenInNew } from "@material-ui/icons";
 import { useTranslation } from "next-i18next";
+import Translation from "components/translation";
 import classes from "./style.module.css";
 
 export default function CodePreview({
@@ -109,6 +110,14 @@ export default function CodePreview({
                 }
                 target="_blank"
                 rel="noreferrer"
+                aria-label={
+                  ((
+                    <Translation
+                      name="langImplementation"
+                      variables={{ language: getLanguageName(language) }}
+                    />
+                  ) as unknown) as string
+                }
               >
                 <LanguageIcon language={language} />
               </IconButton>

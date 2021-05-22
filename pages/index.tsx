@@ -37,7 +37,7 @@ export default function Home({ topAlgorithms, featuredAlgorithms }) {
 
   return (
     <>
-      <Head description="GitHub's largest open-source algorithm library" />
+      <Head description="Open Source resource for learning Data Structures & Algorithms and their implementation in any Programming Language" />
       <Section title={t("topAlgorithms")}>
         <AlgorithmsList noCategories algorithms={topAlgorithms} />
       </Section>
@@ -228,6 +228,7 @@ export default function Home({ topAlgorithms, featuredAlgorithms }) {
                   href="https://github.com/TheAlgorithms"
                   target="_blank"
                   rel="noreferrer"
+                  aria-label={t("socialGithub")}
                 >
                   <Icon style={{ fontSize: "1em" }}>
                     <GithubOriginalIcon color="" />
@@ -241,6 +242,7 @@ export default function Home({ topAlgorithms, featuredAlgorithms }) {
                   href="https://twitter.com/The_Algorithms"
                   target="_blank"
                   rel="noreferrer"
+                  aria-label={t("Twitter")}
                 >
                   <svg
                     version="1.1"
@@ -268,6 +270,7 @@ export default function Home({ topAlgorithms, featuredAlgorithms }) {
                   href="https://gitter.im/TheAlgorithms/"
                   target="_blank"
                   rel="noreferrer"
+                  aria-label={t("socialGitter")}
                 >
                   <Icon style={{ fontSize: "1em" }}>
                     <GitterPlainIcon color="" />
@@ -281,6 +284,7 @@ export default function Home({ topAlgorithms, featuredAlgorithms }) {
                   href="https://discord.gg/c7MnfGFGa6"
                   target="_blank"
                   rel="noreferrer"
+                  aria-label={t("socialDiscord")}
                 >
                   <svg
                     width="71"
