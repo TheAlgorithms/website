@@ -29,6 +29,7 @@ import {
   InsertPhoto,
 } from "@material-ui/icons";
 import Translation from "components/translation";
+import Head from "components/head";
 import classes from "./index.module.css";
 
 export default function Home({ topAlgorithms, featuredAlgorithms }) {
@@ -36,6 +37,7 @@ export default function Home({ topAlgorithms, featuredAlgorithms }) {
 
   return (
     <>
+      <Head description="GitHub's largest open-source algorithm library" />
       <Section title={t("topAlgorithms")}>
         <AlgorithmsList noCategories algorithms={topAlgorithms} />
       </Section>

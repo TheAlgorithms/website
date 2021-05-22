@@ -18,7 +18,11 @@ export default function LanguagePage({
 }) {
   return (
     <>
-      <Head title={getLanguageName(language.name)} />
+      <Head
+        title={getLanguageName(language.name)}
+        description={`Algorithms implemented in ${language.name}`}
+        tags={[language.name]}
+      />
       <Section>
         <div className={classes.titleContainer}>
           <Typography variant="h4">

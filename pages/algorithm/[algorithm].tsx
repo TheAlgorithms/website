@@ -10,6 +10,7 @@ import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { GetStaticPaths, GetStaticProps } from "next";
 import EditPage from "components/editPage";
 import { useTranslation } from "next-i18next";
+import { getLanguageName } from "lib/repositories";
 import classes from "./algorithm.module.css";
 
 export default function AlgorithmPage({
@@ -23,7 +24,21 @@ export default function AlgorithmPage({
 
   return (
     <div className="section container">
-      <Head title={algorithm.name} />
+      <Head
+        title={algorithm.name}
+        description={`${algorithm.name}${
+          algorithm.body ? " explained and" : ""
+        } implemented in ${Object.keys(algorithm.implementations)
+          .map((key) => getLanguageName(key))
+          .join(", ")}`}
+        tags={[
+          algorithm.name,
+          ...(algorithm.body ? ["Explanation"] : []),
+          ...Object.keys(algorithm.implementations).map((key) =>
+            getLanguageName(key)
+          ),
+        ]}
+      />
       <CodePreview implementations={algorithm.implementations} />
       <Breadcrumbs className={classes.categories}>
         {algorithm.categories.map((category) => (
