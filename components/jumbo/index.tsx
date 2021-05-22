@@ -33,6 +33,7 @@ export default function Jumbo({
               src="/programming-1873854.webp"
               layout="fill"
               objectFit="cover"
+              alt="Background Image"
             />
           </div>
           <div className="container">

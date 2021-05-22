@@ -40,7 +40,9 @@ export default function AlgorithmCard({ algorithm }: { algorithm: Algorithm }) {
       <CardActions className={classes.actions}>
         <Implementations implementations={algorithm.implementations} />
         <Link href={`/algorithm/${algorithm.slug}`}>
-          <Button color="primary">{t("moreAlgorithmCard")}</Button>
+          <Button color="primary" aria-label={`View ${algorithm.name}`}>
+            {t("moreAlgorithmCard")}
+          </Button>
         </Link>
       </CardActions>
     </Card>

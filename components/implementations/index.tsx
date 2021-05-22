@@ -35,11 +35,7 @@ export default function Implementations({
       {Object.keys(implementations)
         .slice(0, numIcons)
         .map((language: Language) => (
-          <a
-            key={language}
-            href={implementations[language].url}
-            className={classes.icon}
-          >
+          <div key={language} className={classes.icon}>
             <LanguageIcon
               language={language}
               tooltip={
@@ -49,7 +45,7 @@ export default function Implementations({
                 />
               }
             />
-          </a>
+          </div>
         ))}
       {Object.keys(implementations).length > numIcons && (
         <Tooltip

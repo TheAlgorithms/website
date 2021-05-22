@@ -53,6 +53,7 @@ export default function CodePreview({
           startIcon={<OpenInNew />}
           href={implementations[selectedLanguague].url}
           target="_blank"
+          rel="noreferrer"
         >
           {t("viewOnGithub")}
         </Button>
@@ -107,6 +108,7 @@ export default function CodePreview({
                     : undefined
                 }
                 target="_blank"
+                rel="noreferrer"
               >
                 <LanguageIcon language={language} />
               </IconButton>

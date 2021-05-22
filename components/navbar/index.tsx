@@ -105,15 +105,21 @@ export default function Navbar({
               <IconButton
                 ref={langSelectRef}
                 onClick={() => setLangSelectOpen(true)}
+                aria-label="Select Language"
               >
                 <Translate />
               </IconButton>
-              <IconButton onClick={switchTheme}>
+              <IconButton
+                onClick={switchTheme}
+                aria-label="Switch to dark Theme"
+              >
                 {darkTheme ? <Brightness7 /> : <NightsStay />}
               </IconButton>
               <IconButton
                 href="https://github.com/TheAlgorithms"
                 target="_blank"
+                rel="noreferrer"
+                aria-label="GitHub"
               >
                 <GithubOriginalIcon color="white" />
               </IconButton>
