@@ -42,5 +42,18 @@
     "languages_count": "{} pli",
     "contact": "Kontakti nin",
     "viewOnGithub": "Vidi ĉe GitHub",
-    "close": "Fermi"
+    "close": "Fermi",
+    "addTranslationInfo": "La klarigo pri ĉi tiu algoritmo ankoraŭ ne estas tradukita en vian lingvon. Por traduki ĉi tiun klarigon, bonvolu viziti la deponejon [Algorithms-Explanation]. Forkigu ĉi tiun deponejon, kaj aldonu vian tradukon kiel novan Markdown-dosieron surbaze de la anglalingva [<code>{ogFilename}</code>] en la dosierujo por via lingvo (<code>{locale}</code>). Post kiam vi tradukos la dosieron, petu tiron por kunfandi vian tradukon.",
+    "addImplementationInfo": "Por aldoni realigon per alia programlingvo, bonvolu viziti la deponejon por tiu lingvo, kaj sekvu la instrukciojn en la dosieroj <code>README.md</code> kaj <code>CONTRIBUTING.md</code>.",
+    "addExplanationInfo": "Ĉi tiu algoritmo ankoraŭ ne havas klarigon. La klarigoj troviĝas en la deponejo [Algorithms-Explanations]. Se vi volas aldoni klarigon, forkigu ĉi tiun deponejon, kaj aldonu la klarigon kiel Markdown-dosieron ([vidu ekzemplon]). Post kiam vi finos, petu tiron por kunfandi vian klarigon.",
+    "addImplementationMissing": "Jen la ligoj al tiuj deponejoj, en kiuj ankoraŭ mankas realigoj:",
+    "addImplementation": "Aldoni alian realigon",
+    "editPageAddImplementation": "Aldoni realigon",
+    "langImplementation": "Realigo per {language}",
+    "editPageHelp": "Se vi havas problemojn, bonvolu peti helpon per nia [Discord]-servilo.",
+    "addExplanation": "Aldoni klarigon pri ĉi tiu algoritmo",
+    "addTranslation": "Traduki ĉi tiun klarigon",
+    "editPageTranslate": "Traduki klarigon",
+    "editPageAddExplanation": "Aldoni klarigon",
+    "editPageEdit": "Redakti paĝon"
 }
