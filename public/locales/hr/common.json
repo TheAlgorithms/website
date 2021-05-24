@@ -54,5 +54,6 @@
     "addExplanation": "Dodaj objašnjenje za algoritam",
     "editPageTranslate": "Prevedi objašnjenje",
     "editPageAddExplanation": "Dodaj objašnjenje",
-    "editPageEdit": "Uredi stranicu"
+    "editPageEdit": "Uredi stranicu",
+    "langImplementation": "{language} implementacija"
 }
