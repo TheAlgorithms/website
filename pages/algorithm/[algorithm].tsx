@@ -38,7 +38,6 @@ export default function AlgorithmPage({
       {algorithm.body && (
         <>
           <div
-            // eslint-disable-next-line react/no-danger
             dangerouslySetInnerHTML={{
               __html: algorithm.body[locale] || algorithm.body.en || "",
             }}
