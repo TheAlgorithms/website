@@ -35,7 +35,6 @@ export default function Home({ topAlgorithms, featuredAlgorithms }) {
   const { t } = useTranslation();
 
   return (
-    
     <>
       <Section title={t("topAlgorithms")}>
         <AlgorithmsList noCategories algorithms={topAlgorithms} />
