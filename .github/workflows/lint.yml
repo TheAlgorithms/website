@@ -20,7 +20,7 @@ jobs:
       - name: Lint
         run: yarn lint
       - name: Lint fix
-        run: yarn lint fix
+        run: yarn lint-fix
       - name: Commit fixed linting
         uses: stefanzweifel/git-auto-commit-action@v4
         with:
