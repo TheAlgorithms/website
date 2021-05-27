@@ -5,7 +5,6 @@ import ora, { Ora } from "ora";
 import { exec } from "child_process";
 import fs from "fs";
 import path from "path";
-import crypto from "crypto";
 import { Octokit } from "@octokit/core";
 import dotenv from "dotenv";
 import chalk from "chalk";
@@ -38,7 +37,7 @@ let authors: {
     name: string;
     login?: string;
     email: string;
-    avatar: string;
+    avatar?: string;
     algorithms: Algorithm[];
   };
 } = {};
@@ -261,10 +260,6 @@ let spinner: Ora;
                     authors[email] = {
                       name,
                       email,
-                      avatar: `https://www.gravatar.com/avatar/${crypto
-                        .createHash("md5")
-                        .update(email)
-                        .digest("hex")}`,
                       algorithms: [],
                     };
                   authors[email].algorithms.push(
@@ -317,6 +312,7 @@ let spinner: Ora;
     })
   );
   Object.values(authors).forEach((author) => {
+    if (author.name === "github-actions") return;
     const authorFromApi = Object.values(possibleAuthors).find(
       (x) => x.email === author.email
     );
@@ -325,16 +321,24 @@ let spinner: Ora;
       author.avatar = `${authorFromApi.avatar_url}&s=80`;
     }
     author.algorithms.forEach((algorithm) => {
-      if (
-        algorithm &&
-        !algorithm.contributors.find((x) => x.email === author.email)
-      ) {
-        const contributor = { ...author };
-        delete contributor.algorithms;
-        algorithm.contributors.push(contributor);
+      if (algorithm) {
+        const existing = algorithm.contributors.find(
+          (x) => x.email === author.email
+        );
+        if (!existing) {
+          const contributor = { ...author, commits: 1 };
+          delete contributor.algorithms;
+          algorithm.contributors.push(contributor);
+        } else {
+          existing.commits += 1;
+        }
       }
     });
   });
+  Object.values(algorithms).forEach((algorithm) =>
+    algorithm.contributors.sort((a, b) => a.commits - b.commits)
+  );
+
   console.info(`\r${requests} requests sent to GitHub API`);
   spinner.succeed();
   spinner = ora("Writing algorithms to files").start();

@@ -19,5 +19,6 @@ export interface Contributor {
   login?: string;
   email: string;
   name: string;
-  avatar: string;
+  avatar?: string;
+  commits: number;
 }

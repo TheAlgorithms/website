@@ -75,3 +75,7 @@ td {
 table {
   border-spacing: 0 !important;
 }
+
+.MuiDialog-container {
+  padding-top: 64px !important;
+}

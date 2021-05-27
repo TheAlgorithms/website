@@ -30,7 +30,7 @@ export default function AlgorithmPage({
         ))}
       </Breadcrumbs>
       <Typography variant="h4">{algorithm.name}</Typography>
-      <Contributors contributors={algorithm.contributors} />
+      <Contributors algorithm={algorithm} />
       {algorithm.body && (
         <>
           <div
