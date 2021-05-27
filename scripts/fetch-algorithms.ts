@@ -60,20 +60,20 @@ let spinner: Ora;
       if (!valid) continue;
       if (!isValidCategory(dir)) continue;
       if (
-        dir.split("/").length -
-          path.join(language, repo.baseDir).split("/").length <
+        dir.split(path.sep).length -
+          path.join(language, repo.baseDir).split(path.sep).length <
         2
       )
         continue; // Ignore top level files
       const name = normalizeTitle(
-        dir.split("/").pop().split(".")[0].replace(/_/g, " ")
+        dir.split(path.sep).pop().split(".")[0].replace(/_/g, " ")
       );
       const nName = normalize(name);
       const lCategories = dir
-        .split("/")
+        .split(path.sep)
         .slice(
-          path.join(language, repo.baseDir).split("/").length,
-          dir.split("/").length - 1
+          path.join(language, repo.baseDir).split(path.sep).length,
+          dir.split(path.sep).length - 1
         )
         .map(normalizeTitle)
         .map(normalizeCategory);
@@ -99,9 +99,9 @@ let spinner: Ora;
         }
       }
       algorithms[nName].implementations[language] = {
-        dir: path.join(...dir.split("/").slice(1)),
+        dir: path.join(...dir.split(path.sep).slice(1)),
         url: `https://github.com/TheAlgorithms/${language}/tree/master/${path.join(
-          ...dir.split("/").slice(1)
+          ...dir.split(path.sep).slice(1)
         )}`,
         code: highlightCode(
           (await fs.promises.readFile(dir)).toString(),
