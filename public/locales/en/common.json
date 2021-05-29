@@ -59,5 +59,7 @@
   "indexMetaDescription": "Open Source resource for learning Data Structures & Algorithms and their implementation in any Programming Language",
   "algorithmMetaDescription": "{algorithm} implemented in {implementations}",
   "algorithmMetaDescriptionExplained": "{algorithm} explained and implemented in {implementations}",
-  "languageMetaDescription": "Algorithms implemented in {language}"
+  "languageMetaDescription": "Algorithms implemented in {language}",
+  "noResults": "No results for",
+  "emptySearch" : "Search for an algorithm"
 }

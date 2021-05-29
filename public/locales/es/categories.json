@@ -195,5 +195,9 @@
     "robotics": "Robótica",
     "rnatranscription": "Transcripción del ARN",
     "reutersonevsrestclassifier": "Clasificador Reuters One vs Rest",
-    "restrictedtowerofhanoi": "Torre restringida de Hanoi"
+    "restrictedtowerofhanoi": "Torre restringida de Hanoi",
+    "setbackwardoraclematching": "Establecer la correspondencia de Oracle hacia atrás",
+    "numericalanalysis": "Análisis numérico",
+    "lstm": "Lstm",
+    "backwardoraclematching": "Comparación de Oracle hacia atrás"
 }

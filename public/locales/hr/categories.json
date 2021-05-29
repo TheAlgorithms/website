@@ -193,5 +193,9 @@
     "advancedahocorasick": "Napredni Aho-Corasick",
     "activationfunctions": "Funkcije za aktiviranje",
     "acronym": "Akronim",
-    "abstractfactory": "Apstraktna tvornica"
+    "abstractfactory": "Apstraktna tvornica",
+    "setbackwardoraclematching": "Postavi retrogradno Oracle poklapanje",
+    "numericalanalysis": "Numerička analiza",
+    "lstm": "Duga kratkotrajna memorija",
+    "backwardoraclematching": "Retrogradno Oracle poklapanje"
 }
