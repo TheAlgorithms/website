@@ -9,6 +9,7 @@ import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import LanguageIcon from "components/icon";
 import { OpenInNew } from "@material-ui/icons";
 import { GetStaticPaths, GetStaticProps } from "next";
+import useTranslation from "hooks/translation";
 import classes from "./style.module.css";
 
 export default function LanguagePage({
@@ -16,11 +17,13 @@ export default function LanguagePage({
 }: {
   language: { name: Language; algorithms: Algorithm[] };
 }) {
+  const t = useTranslation();
+
   return (
     <>
       <Head
         title={getLanguageName(language.name)}
-        description={`Algorithms implemented in ${language.name}`}
+        description={t("languageMetaDescription", { language: language.name })}
         tags={[language.name]}
       />
       <Section>

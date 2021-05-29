@@ -6,8 +6,7 @@ import useBodyScroll from "hooks/bodyScroll";
 import LanguageIcon from "components/icon";
 import { Button, Card, IconButton } from "@material-ui/core";
 import { Close, OpenInNew } from "@material-ui/icons";
-import { useTranslation } from "next-i18next";
-import Translation from "components/translation";
+import useTranslation from "hooks/translation";
 import classes from "./style.module.css";
 
 export default function CodePreview({
@@ -21,7 +20,7 @@ export default function CodePreview({
   const [selectedLanguague, setSelectedLanguague] = useState(
     Object.keys(implementations)[0]
   );
-  const { t } = useTranslation("common");
+  const t = useTranslation();
 
   useEffect(() => {
     document.getElementsByTagName("html")[0].style.scrollBehavior = "smooth";
@@ -110,14 +109,9 @@ export default function CodePreview({
                 }
                 target="_blank"
                 rel="noreferrer"
-                aria-label={
-                  ((
-                    <Translation
-                      name="langImplementation"
-                      variables={{ language: getLanguageName(language) }}
-                    />
-                  ) as unknown) as string
-                }
+                aria-label={t("langImplementation", {
+                  language: getLanguageName(language),
+                })}
               >
                 <LanguageIcon language={language} />
               </IconButton>

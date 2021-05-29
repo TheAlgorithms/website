@@ -1,10 +1,10 @@
 import algorithms from "tmp/algorithms-min.json";
-import { useTranslation } from "next-i18next";
+import useTranslation from "hooks/translation";
 import { normalize } from "lib/normalize";
 import type { Algorithm } from "lib/models";
 
 export default function useSearch(query: string, limit?: number) {
-  const { t } = useTranslation();
+  const t = useTranslation();
 
   if (!query) return [];
   const result = algorithms.filter(

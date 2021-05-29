@@ -3,7 +3,7 @@ import { Paper, Typography, useTheme } from "@material-ui/core";
 import { JumboThemeProvider } from "hooks/themes";
 import Image from "next/image";
 import SearchBar from "components/searchBar";
-import { useTranslation } from "next-i18next";
+import useTranslation from "hooks/translation";
 import classes from "./style.module.css";
 
 export default function Jumbo({
@@ -13,7 +13,7 @@ export default function Jumbo({
   query: string;
   setQuery: React.Dispatch<React.SetStateAction<string>>;
 }) {
-  const { t } = useTranslation();
+  const t = useTranslation();
   const theme = useTheme();
 
   return (

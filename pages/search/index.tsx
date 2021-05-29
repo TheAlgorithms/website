@@ -7,7 +7,7 @@ import Section from "components/section";
 import Head from "components/head";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { Add } from "@material-ui/icons";
-import { useTranslation } from "next-i18next";
+import useTranslation from "hooks/translation";
 import { GetStaticProps } from "next";
 import classes from "./search.module.css";
 
@@ -15,7 +15,7 @@ export default function Search() {
   const router = useRouter();
   const [limit, setLimit] = useState(27);
   const [loading, setLoading] = useState(false);
-  const { t } = useTranslation();
+  const t = useTranslation();
 
   const algorithms = useSearch(router.query.q as string, limit);
 

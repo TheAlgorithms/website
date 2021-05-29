@@ -1,5 +1,5 @@
 import { Link } from "@material-ui/core";
-import { useTranslation } from "next-i18next";
+import { useTranslation as useNextTranslation } from "next-i18next";
 import sanitizeHtml from "sanitize-html";
 
 export default function Translation({
@@ -11,7 +11,7 @@ export default function Translation({
   links?: string[];
   variables?: { [key: string]: string };
 }) {
-  const { t } = useTranslation("common");
+  const { t } = useNextTranslation("common");
 
   let str = t(name);
   Object.keys(variables).forEach((from) => {

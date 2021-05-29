@@ -2,12 +2,12 @@ import { Divider, Typography } from "@material-ui/core";
 import React, { Fragment, useMemo } from "react";
 import { Algorithm } from "lib/models";
 import { normalize } from "lib/normalize";
-import { useTranslation } from "next-i18next";
+import useTranslation from "hooks/translation";
 import AlgorithmCard from "./algorithmCard";
 import classes from "./style.module.css";
 
 export default function AlgorithmsList({ algorithms, noCategories = false }) {
-  const { t } = useTranslation();
+  const t = useTranslation();
 
   const splitAlgorithms = useMemo<{ [category: string]: Algorithm[] }>(() => {
     const ret: { [key: string]: Algorithm[] } = {};

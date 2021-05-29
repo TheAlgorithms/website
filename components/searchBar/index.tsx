@@ -1,5 +1,5 @@
 import React, { FormEvent, useEffect, useRef } from "react";
-import { useTranslation } from "next-i18next";
+import useTranslation from "hooks/translation";
 import {
   FormControl,
   FilledInput,
@@ -28,7 +28,7 @@ export default function SearchBar({
   setQuery,
   className = "",
 }) {
-  const { t } = useTranslation();
+  const t = useTranslation();
   const router = useRouter();
   const smallScreen = useMediaQuery("(max-width: 800px)");
   const inputRef = useRef<HTMLDivElement>();

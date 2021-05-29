@@ -15,7 +15,6 @@ import Section from "components/section";
 import CategoriesList from "components/categoriesList";
 import { Language, Repositories } from "lib/repositories";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
-import { useTranslation } from "next-i18next";
 import GithubOriginalIcon from "react-devicons/github/original";
 import GitterPlainIcon from "react-devicons/gitter/plain";
 import WeblatePlainIcon from "react-devicons/weblate/plain";
@@ -29,15 +28,16 @@ import {
   InsertPhoto,
 } from "@material-ui/icons";
 import Translation from "components/translation";
+import useTranslation from "hooks/translation";
 import Head from "components/head";
 import classes from "./index.module.css";
 
 export default function Home({ topAlgorithms, featuredAlgorithms }) {
-  const { t } = useTranslation();
+  const t = useTranslation();
 
   return (
     <>
-      <Head description="Open Source resource for learning Data Structures & Algorithms and their implementation in any Programming Language" />
+      <Head description={t("indexMetaDescription")} />
       <Section title={t("topAlgorithms")}>
         <AlgorithmsList noCategories algorithms={topAlgorithms} />
       </Section>

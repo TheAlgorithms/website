@@ -3,10 +3,10 @@ import AlgorithmsList from "components/algorithmsList";
 import { getAllAlgorithms } from "lib/algorithms";
 import Section from "components/section";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
-import { useTranslation } from "next-i18next";
+import useTranslation from "hooks/translation";
 
 export default function All({ algorithms }) {
-  const { t } = useTranslation();
+  const t = useTranslation();
 
   return (
     <>

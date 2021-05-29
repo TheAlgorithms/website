@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import { useTranslation } from "next-i18next";
+import useTranslation from "hooks/translation";
 import {
   AppBar,
   Toolbar,
@@ -38,7 +38,7 @@ export default function Navbar({
   query: string;
   setQuery: React.Dispatch<React.SetStateAction<string>>;
 }) {
-  const { t } = useTranslation();
+  const t = useTranslation();
   const [atTop, setAtTop] = useState(false);
   const smallScreen = useMediaQuery("(max-width:800px)");
   const [menuOpen, setMenuOpen] = useState(false);
