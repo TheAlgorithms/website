@@ -55,5 +55,7 @@
     "editPageTranslate": "Prevedi objašnjenje",
     "editPageAddExplanation": "Dodaj objašnjenje",
     "editPageEdit": "Uredi stranicu",
-    "langImplementation": "{language} implementacija"
+    "langImplementation": "{language} implementacija",
+    "emptySearch": "Traži algoritam",
+    "noResults": "Nema rezultata za"
 }
