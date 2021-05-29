@@ -55,5 +55,7 @@
     "editPageAddExplanation": "Erklärung hinzufügen",
     "editPageAddImplementation": "Implementation hinzufügen",
     "editPageEdit": "Seite Bearbeiten",
-    "langImplementation": "{language} Implementation"
+    "langImplementation": "{language} Implementation",
+    "emptySearch": "Suche ein Algorithmus",
+    "noResults": "Keine Resultate für"
 }
