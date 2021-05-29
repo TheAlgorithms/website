@@ -55,5 +55,7 @@
   "addTranslation": "Translate this explanation",
   "addTranslationInfo": "The explanation to this algorithm wasn't yet translated to your language. To translate this explanation, please visit the [Algorithms-Explanation] repository. Fork this repository and add your translation as a new Markdown file based on the English [<code>{ogFilename}</code>] in the correct folder for your locale (<code>{locale}</code>). When you have translated the file, you can create a new pull request to merge your translation.",
   "close": "Close",
-  "viewOnGithub": "View on GitHub"
+  "viewOnGithub": "View on GitHub",
+  "noResults": "No results for",
+  "emptySearch" : "Search for an algorithm"
 }

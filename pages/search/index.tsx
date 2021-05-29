@@ -18,6 +18,14 @@ export default function Search() {
   const { t } = useTranslation();
 
   const algorithms = useSearch(router.query.q as string, limit);
+  let sectionTitle = "";
+  if (algorithms.length !== 0) {
+    sectionTitle = `${t("search")} "${router.query.q}"`;
+  } else if (algorithms.length === 0 && router.query.q) {
+    sectionTitle = `${t("noResults")} "${router.query.q}"`;
+  } else {
+    sectionTitle = t("emptySearch");
+  }
 
   useEffect(() => {
     if (router.query.q) {
@@ -28,9 +36,7 @@ export default function Search() {
   return (
     <>
       <Head title={router.query.q && `"${router.query.q}"`} />
-      <Section
-        title={`${t("search")}${router.query.q && ` "${router.query.q}"`}`}
-      >
+      <Section title={sectionTitle}>
         {router.query.q && (
           <AlgorithmsList algorithms={algorithms} noCategories />
         )}
