@@ -29,7 +29,9 @@ export default function Search() {
     <>
       <Head title={router.query.q && `"${router.query.q}"`} />
       <Section
-        title={`${t("search")}${router.query.q && ` "${router.query.q}"`}`}
+        title={`${algorithms.length === 0 ? t("No results for") : t("search")}${
+          router.query.q && ` "${router.query.q}"`
+        }`}
       >
         {router.query.q && (
           <AlgorithmsList algorithms={algorithms} noCategories />
