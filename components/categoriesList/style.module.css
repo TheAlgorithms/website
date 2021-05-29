@@ -4,6 +4,9 @@
   width: fit-content;
   display: inline-block;
 }
+.cardOuter:hover{
+background-color:lightgray !important;
+}
 
 .cardInner {
   display: flex;
