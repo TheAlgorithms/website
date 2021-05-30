@@ -55,5 +55,7 @@
     "close": "Cerrar",
     "addTranslationInfo": "La explicación de este algoritmo aún no ha sido traducida a su idioma. Para traducir esta explicación, visite el repositorio [Algorithms-Explanation]. Haz un fork de este repositorio, y añade tu traducción como un nuevo archivo Markdown basado la version de inglés [<code>{ogFilename}</code>] en la carpeta correcta para tu idioma (<code>{locale}</code>). Cuando hayas traducido el archivo, puedes crear un nuevo pull request para que acepten tu traducción.",
     "addTranslation": "Traducir esta explicación",
-    "langImplementation": "Implementación de {language}"
+    "langImplementation": "Implementación de {language}",
+    "emptySearch": "Buscar un algoritmo",
+    "noResults": "No se encuentran resultadas para"
 }
