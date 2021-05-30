@@ -1,5 +1,5 @@
 import { Link } from "@material-ui/core";
-import { useTranslation as useNextTranslation } from "next-i18next";
+import { useTranslation } from "next-i18next";
 import sanitizeHtml from "sanitize-html";
 
 export default function Translation({
@@ -11,11 +11,11 @@ export default function Translation({
   links?: string[];
   variables?: { [key: string]: string };
 }) {
-  const { t } = useNextTranslation("common");
+  const { t } = useTranslation("common");
 
   let str = t(name);
   Object.keys(variables).forEach((from) => {
-    str = str.replaceAll(`{${from}}`, variables[from]);
+    str = str.replace(new RegExp(`{${from}}`, "g"), variables[from]);
   });
 
   const split = str.split(/\[.+?\]/g);
