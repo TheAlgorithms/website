@@ -15,10 +15,51 @@
 
 .background {
   pointer-events: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+  color: rgb(233, 233, 233);
+  background: black;
 }
 
-.background img {
-  z-index: -1;
+.background1 {
+  position: absolute;
+  top: 0;
+  left: 5vw;
+}
+
+.background2 {
+  position: absolute;
+  top: 100px;
+  right: -200px;
+}
+
+.background3 {
+  position: absolute;
+  bottom: 50px;
+  left: 35vw;
+  opacity: 0.5;
+}
+
+@media (max-width: 1200px) {
+  .background2 {
+    display: none;
+  }
+
+  .background3 {
+    bottom: 50px;
+    right: 0;
+    transform: translateX(50%);
+  }
+}
+
+@media (max-width: 1500px) {
+  .background3 {
+    display: none;
+  }
 }
 
 .h1 {

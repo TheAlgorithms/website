@@ -1,10 +1,11 @@
 import React from "react";
 import { Paper, Typography, useTheme } from "@material-ui/core";
 import { JumboThemeProvider } from "hooks/themes";
-import Image from "next/image";
 import SearchBar from "components/searchBar";
 import useTranslation from "hooks/translation";
 import classes from "./style.module.css";
+import "highlight.js/styles/atom-one-light.css";
+import { background1, background2, background3 } from "./renderedBackgrounds";
 
 export default function Jumbo({
   query,
@@ -29,11 +30,26 @@ export default function Jumbo({
           }}
         >
           <div className={classes.background}>
-            <Image
-              src="/programming-1873854.webp"
-              layout="fill"
-              objectFit="cover"
-              alt="Background Image"
+            <div
+              className={classes.background1}
+              // eslint-disable-next-line react/no-danger
+              dangerouslySetInnerHTML={{
+                __html: background1,
+              }}
+            />
+            <div
+              className={classes.background2}
+              // eslint-disable-next-line react/no-danger
+              dangerouslySetInnerHTML={{
+                __html: background2,
+              }}
+            />
+            <div
+              className={classes.background3}
+              // eslint-disable-next-line react/no-danger
+              dangerouslySetInnerHTML={{
+                __html: background3,
+              }}
             />
           </div>
           <div className="container">
