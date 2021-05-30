@@ -55,5 +55,7 @@
     "addTranslation": "Traduki ĉi tiun klarigon",
     "editPageTranslate": "Traduki klarigon",
     "editPageAddExplanation": "Aldoni klarigon",
-    "editPageEdit": "Redakti paĝon"
+    "editPageEdit": "Redakti paĝon",
+    "emptySearch": "Serĉi algoritmon",
+    "noResults": "Neniuj rezultoj pri"
 }
