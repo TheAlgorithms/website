@@ -1,11 +1,11 @@
 import { Paper, Typography, useTheme } from "@material-ui/core";
 import Link from "components/link";
-import { useTranslation } from "next-i18next";
+import useTranslation from "hooks/translation";
 import classes from "./style.module.css";
 
 export default function Footer() {
   const theme = useTheme();
-  const { t } = useTranslation();
+  const t = useTranslation();
 
   return (
     <Paper

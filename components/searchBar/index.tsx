@@ -1,5 +1,5 @@
 import React, { FormEvent, useEffect, useRef } from "react";
-import { useTranslation } from "next-i18next";
+import useTranslation from "hooks/translation";
 import {
   FormControl,
   FilledInput,
@@ -28,7 +28,7 @@ export default function SearchBar({
   setQuery,
   className = "",
 }) {
-  const { t } = useTranslation();
+  const t = useTranslation();
   const router = useRouter();
   const smallScreen = useMediaQuery("(max-width: 800px)");
   const inputRef = useRef<HTMLDivElement>();
@@ -48,7 +48,11 @@ export default function SearchBar({
 
   const searchAdornment = (
     <InputAdornment position="end">
-      <IconButton style={{ marginRight: -12 }} onClick={() => handleSubmit()}>
+      <IconButton
+        style={{ marginRight: -12 }}
+        onClick={() => handleSubmit()}
+        aria-label="Search"
+      >
         <Search />
       </IconButton>
     </InputAdornment>
@@ -67,20 +71,15 @@ export default function SearchBar({
       onSubmit={handleSubmit}
       className={className}
     >
-      {/* <TextField
-        variant={small ? "outlined" : "filled"}
-        size={small ? "small" : "medium"}
-        style={{ width: "100%" }}
-        label={!small ? "Search any algorithm" : ""}
-        placeholder={small ? "Search any algorithm" : ""}
-        onInput={handleInput}
-        value={query}
-        id="searchBar"
-      ></TextField> */}
-
+      {/* ESLint is broken here */}
+      {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
+      <label htmlFor="search" style={{ display: "none" }}>
+        {t("searchText")}
+      </label>
       {small ? (
         <FormControl variant="outlined" size="small">
           <OutlinedInput
+            id="search"
             onInput={handleInput}
             value={query}
             placeholder={t("searchText")}
@@ -93,6 +92,7 @@ export default function SearchBar({
           <>
             <InputLabel>{t("searchText")}</InputLabel>
             <FilledInput
+              id="search"
               onInput={handleInput}
               endAdornment={searchAdornment}
               value={query}

@@ -6,9 +6,9 @@ import {
 } from "@material-ui/core";
 import LanguagesList from "components/languagesList";
 import Translation from "components/translation";
+import useTranslation from "hooks/translation";
 import { Algorithm } from "lib/models";
 import { Language, Repositories } from "lib/repositories";
-import { useTranslation } from "next-i18next";
 import classes from "./style.module.css";
 
 export default function AddImplementation({
@@ -20,7 +20,7 @@ export default function AddImplementation({
   open: boolean;
   onClose: () => void;
 }) {
-  const { t } = useTranslation("common");
+  const t = useTranslation();
   return (
     <Dialog open={open} onClose={onClose} fullWidth>
       <DialogTitle className={classes.title}>

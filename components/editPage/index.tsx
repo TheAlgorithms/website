@@ -3,7 +3,7 @@ import { Add, Edit, Translate } from "@material-ui/icons";
 import { Algorithm } from "lib/models";
 import { useRouter } from "next/router";
 import React, { useState } from "react";
-import { useTranslation } from "next-i18next";
+import useTranslation from "hooks/translation";
 import AddExplanation from "./addExplanation";
 import AddImplementation from "./addImplementation";
 import AddTranslation from "./addTranslation";
@@ -14,7 +14,7 @@ export default function EditPage({ algorithm }: { algorithm: Algorithm }) {
   const [addImplementationOpen, setAddImplementationOpen] = useState(false);
   const [addTranslationOpen, setAddTranslationOpen] = useState(false);
   const [addExplanationOpen, setAddExplanationOpen] = useState(false);
-  const { t } = useTranslation("common");
+  const t = useTranslation();
 
   return (
     <div className={classes.container}>

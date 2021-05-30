@@ -15,7 +15,7 @@ export default function Translation({
 
   let str = t(name);
   Object.keys(variables).forEach((from) => {
-    str = str.replaceAll(`{${from}}`, variables[from]);
+    str = str.replace(new RegExp(`{${from}}`, "g"), variables[from]);
   });
 
   const split = str.split(/\[.+?\]/g);

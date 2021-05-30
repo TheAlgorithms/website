@@ -15,7 +15,6 @@ import Section from "components/section";
 import CategoriesList from "components/categoriesList";
 import { Language, Repositories } from "lib/repositories";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
-import { useTranslation } from "next-i18next";
 import GithubOriginalIcon from "react-devicons/github/original";
 import GitterPlainIcon from "react-devicons/gitter/plain";
 import WeblatePlainIcon from "react-devicons/weblate/plain";
@@ -29,13 +28,16 @@ import {
   InsertPhoto,
 } from "@material-ui/icons";
 import Translation from "components/translation";
+import useTranslation from "hooks/translation";
+import Head from "components/head";
 import classes from "./index.module.css";
 
 export default function Home({ topAlgorithms, featuredAlgorithms }) {
-  const { t } = useTranslation();
+  const t = useTranslation();
 
   return (
     <>
+      <Head description={t("indexMetaDescription")} />
       <Section title={t("topAlgorithms")}>
         <AlgorithmsList noCategories algorithms={topAlgorithms} />
       </Section>
@@ -159,6 +161,7 @@ export default function Home({ topAlgorithms, featuredAlgorithms }) {
                       className={classes.github}
                       href="https://github.com/TheAlgorithms/"
                       target="_blank"
+                      rel="noreferrer"
                     >
                       <GithubOriginalIcon color="white" />
                       GitHub
@@ -168,6 +171,7 @@ export default function Home({ topAlgorithms, featuredAlgorithms }) {
                       className={classes.weblate}
                       href="https://hosted.weblate.org/engage/TheAlgorithms/?utm_source=widget"
                       target="_blank"
+                      rel="noreferrer"
                     >
                       <WeblatePlainIcon color="black" />
                       Weblate
@@ -190,6 +194,7 @@ export default function Home({ topAlgorithms, featuredAlgorithms }) {
                       className={classes.donate}
                       href="https://liberapay.com/TheAlgorithms/donate"
                       target="_blank"
+                      rel="noreferrer"
                     >
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -222,6 +227,8 @@ export default function Home({ topAlgorithms, featuredAlgorithms }) {
                 <IconButton
                   href="https://github.com/TheAlgorithms"
                   target="_blank"
+                  rel="noreferrer"
+                  aria-label={t("socialGithub")}
                 >
                   <Icon style={{ fontSize: "1em" }}>
                     <GithubOriginalIcon color="" />
@@ -234,6 +241,8 @@ export default function Home({ topAlgorithms, featuredAlgorithms }) {
                 <IconButton
                   href="https://twitter.com/The_Algorithms"
                   target="_blank"
+                  rel="noreferrer"
+                  aria-label={t("Twitter")}
                 >
                   <svg
                     version="1.1"
@@ -260,6 +269,8 @@ export default function Home({ topAlgorithms, featuredAlgorithms }) {
                 <IconButton
                   href="https://gitter.im/TheAlgorithms/"
                   target="_blank"
+                  rel="noreferrer"
+                  aria-label={t("socialGitter")}
                 >
                   <Icon style={{ fontSize: "1em" }}>
                     <GitterPlainIcon color="" />
@@ -272,6 +283,8 @@ export default function Home({ topAlgorithms, featuredAlgorithms }) {
                 <IconButton
                   href="https://discord.gg/c7MnfGFGa6"
                   target="_blank"
+                  rel="noreferrer"
+                  aria-label={t("socialDiscord")}
                 >
                   <svg
                     width="71"

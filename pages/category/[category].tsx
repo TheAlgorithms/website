@@ -5,10 +5,10 @@ import Section from "components/section";
 import Head from "components/head";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { GetStaticPaths, GetStaticProps } from "next";
-import { useTranslation } from "next-i18next";
+import useTranslation from "hooks/translation";
 
 export default function Category({ category }) {
-  const { t } = useTranslation();
+  const t = useTranslation();
 
   return (
     <>

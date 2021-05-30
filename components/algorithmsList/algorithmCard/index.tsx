@@ -11,11 +11,11 @@ import Implementations from "components/implementations";
 import { normalize } from "lib/normalize";
 import Link from "components/link";
 import { Algorithm } from "lib/models";
-import { useTranslation } from "next-i18next";
+import useTranslation from "hooks/translation";
 import classes from "./style.module.css";
 
 export default function AlgorithmCard({ algorithm }: { algorithm: Algorithm }) {
-  const { t } = useTranslation();
+  const t = useTranslation();
 
   return (
     <Card className={classes.root}>
@@ -40,7 +40,9 @@ export default function AlgorithmCard({ algorithm }: { algorithm: Algorithm }) {
       <CardActions className={classes.actions}>
         <Implementations implementations={algorithm.implementations} />
         <Link href={`/algorithm/${algorithm.slug}`}>
-          <Button color="primary">{t("moreAlgorithmCard")}</Button>
+          <Button color="primary" aria-label={`View ${algorithm.name}`}>
+            {t("moreAlgorithmCard")}
+          </Button>
         </Link>
       </CardActions>
     </Card>

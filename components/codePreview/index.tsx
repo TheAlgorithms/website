@@ -1,12 +1,12 @@
 import React, { useEffect, useRef, useState } from "react";
 import "highlight.js/styles/atom-one-light.css";
 import { Implementation } from "lib/models";
-import { Language } from "lib/repositories";
+import { getLanguageName, Language } from "lib/repositories";
 import useBodyScroll from "hooks/bodyScroll";
 import LanguageIcon from "components/icon";
 import { Button, Card, IconButton } from "@material-ui/core";
 import { Close, OpenInNew } from "@material-ui/icons";
-import { useTranslation } from "next-i18next";
+import useTranslation from "hooks/translation";
 import classes from "./style.module.css";
 
 export default function CodePreview({
@@ -20,7 +20,7 @@ export default function CodePreview({
   const [selectedLanguague, setSelectedLanguague] = useState(
     Object.keys(implementations)[0]
   );
-  const { t } = useTranslation("common");
+  const t = useTranslation();
 
   useEffect(() => {
     document.getElementsByTagName("html")[0].style.scrollBehavior = "smooth";
@@ -53,6 +53,7 @@ export default function CodePreview({
           startIcon={<OpenInNew />}
           href={implementations[selectedLanguague].url}
           target="_blank"
+          rel="noreferrer"
         >
           {t("viewOnGithub")}
         </Button>
@@ -107,6 +108,10 @@ export default function CodePreview({
                     : undefined
                 }
                 target="_blank"
+                rel="noreferrer"
+                aria-label={t("langImplementation", {
+                  language: getLanguageName(language),
+                })}
               >
                 <LanguageIcon language={language} />
               </IconButton>

@@ -5,7 +5,7 @@ import {
   Typography,
 } from "@material-ui/core";
 import Translation from "components/translation";
-import { useTranslation } from "next-i18next";
+import useTranslation from "hooks/translation";
 import classes from "./style.module.css";
 
 export default function AddExplanation({
@@ -15,7 +15,7 @@ export default function AddExplanation({
   open: boolean;
   onClose: () => void;
 }) {
-  const { t } = useTranslation("common");
+  const t = useTranslation();
 
   return (
     <Dialog open={open} onClose={onClose} fullWidth>
