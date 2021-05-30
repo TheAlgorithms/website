@@ -6,7 +6,7 @@
 }
 
 :global(.dark) .cardOuter:hover {
-  background-color:rgb(25, 28, 31) !important;
+  background-color: rgb(25, 28, 31) !important;
 }
 
 .cardOuter:hover {
