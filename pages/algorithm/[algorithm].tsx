@@ -27,7 +27,7 @@ export default function AlgorithmPage({
       <Head
         title={algorithm.name}
         description={t(
-          algorithm.body
+          algorithm.body[locale] || algorithm.body.en
             ? "algorithmMetaDescriptionExplained"
             : "algorithmMetaDescription",
           {
