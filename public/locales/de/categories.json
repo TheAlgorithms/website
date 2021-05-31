@@ -169,5 +169,12 @@
     "doublylinkedlist": "Doppelt verknüpfte Liste",
     "disjointset": "Disjunkte Menge",
     "diffiehelkeyexchange": "Diffie-Hellman Schlüsselaustausch",
-    "depthfirstsearch": "Tiefensuche"
+    "depthfirstsearch": "Tiefensuche",
+    "gradientdescent": "Gradientenabstieg",
+    "dynamicarray": "DynamicArray",
+    "computervision": "Computer Vision",
+    "builder": "Baumeister",
+    "backwardoraclematching": "Oracle-Matching rückwärts",
+    "associativemining": "Assoziativer Bergbau",
+    "array": "Array"
 }
