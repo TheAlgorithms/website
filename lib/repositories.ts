@@ -108,7 +108,7 @@ export const Repositories = {
     baseDir: "src",
   },
   "matlab-octave": {
-    name: "MATLAB Octave",
+    name: "MATLAB",
     allowedFiles: [".m"],
     baseDir: "algorithms",
   },
