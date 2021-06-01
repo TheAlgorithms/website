@@ -48,7 +48,7 @@ export const Repositories = {
     baseDir: "src",
   },
   aarch64_assembly: {
-    name: "AArch64 Assembly",
+    name: "AArch64",
     allowedFiles: [".s"],
     baseDir: ".",
   },
