@@ -4,6 +4,8 @@ import ora, { Ora } from "ora";
 import { exec } from "child_process";
 import fs from "fs";
 import path from "path";
+import { Octokit } from "@octokit/core";
+import dotenv from "dotenv";
 import walk from "../lib/walk";
 import { Repositories, Repository } from "../lib/repositories";
 import { Algorithm } from "../lib/models";
@@ -18,6 +20,11 @@ import highlightCode from "../lib/highlight";
 import locales from "../lib/locales";
 import renderMarkdown from "../lib/markdown";
 import renderNotebook from "../lib/notebookjs";
+
+dotenv.config();
+const octokit = new Octokit(
+  process.env.GH_TOKEN ? { auth: process.env.GH_TOKEN } : {}
+);
 
 let algorithms: { [key: string]: Algorithm } = {};
 let categories: { [category: string]: string[] } = {};
@@ -176,6 +183,18 @@ let spinner: Ora;
     );
   })();
   process.chdir("..");
+
+  // Fetch stars
+  let stars: { [key: string]: number } = {};
+  await Promise.all(
+    Object.keys(Repositories).map<void>(async (repo) => {
+      const { data } = await octokit.request("GET /repos/{owner}/{repo}", {
+        owner: "TheAlgorithms",
+        repo,
+      });
+      stars[repo] = data.stargazers_count;
+    })
+  );
   spinner.succeed();
   spinner = ora("Collecting and rendering explanations").start();
   process.chdir("./algorithms-explanation");
@@ -258,6 +277,7 @@ let spinner: Ora;
       })
     )
   );
+  await fs.promises.writeFile("stars.json", JSON.stringify(stars));
   await fs.promises.writeFile("categories.json", JSON.stringify(categories));
   await fs.promises.writeFile("languages.json", JSON.stringify(languages));
   const oldLocalesCategories: { [key: string]: string } = fs.existsSync(

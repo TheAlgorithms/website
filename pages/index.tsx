@@ -30,9 +30,19 @@ import {
 import Translation from "components/translation";
 import useTranslation from "hooks/translation";
 import Head from "components/head";
+import getRepositoryStars from "lib/stars";
+import { Algorithm } from "lib/models";
 import classes from "./index.module.css";
 
-export default function Home({ topAlgorithms, featuredAlgorithms }) {
+export default function Home({
+  topAlgorithms,
+  featuredAlgorithms,
+  stars,
+}: {
+  topAlgorithms: Algorithm[];
+  featuredAlgorithms: Algorithm[];
+  stars: { [key: string]: number };
+}) {
   const t = useTranslation();
 
   return (
@@ -132,10 +142,9 @@ export default function Home({ topAlgorithms, featuredAlgorithms }) {
                       (langName: Language) => ({
                         name: langName,
                         href: `/language/${langName}`,
+                        stars: stars[langName],
                       })
                     )}
-                    className={classes.languages}
-                    outlined
                   />
                 </div>
                 <div />
@@ -309,6 +318,7 @@ export default function Home({ topAlgorithms, featuredAlgorithms }) {
 }
 
 export async function getStaticProps({ locale }) {
+  const stars = await getRepositoryStars();
   return {
     props: {
       topAlgorithms: [
@@ -325,6 +335,7 @@ export async function getStaticProps({ locale }) {
         getAlgorithm("bogo-sort", true),
       ],
       ...(await serverSideTranslations(locale, ["common", "categories"])),
+      stars,
     },
   };
 }

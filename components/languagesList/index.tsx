@@ -1,39 +1,46 @@
-import { ButtonBase, Card, CardContent, Typography } from "@material-ui/core";
-import NextLink from "next/link";
-import { Language, getLanguageName } from "lib/repositories";
+import {
+  List,
+  Paper,
+  ListItem,
+  ListItemText,
+  ListItemIcon,
+} from "@material-ui/core";
+import { Star } from "@material-ui/icons";
 import LanguageIcon from "components/icon";
+import { Language } from "lib/repositories";
+import Link from "next/link";
 import classes from "./style.module.css";
 
 export default function LanguagesList({
   languages,
-  className,
-  outlined = false,
 }: {
   languages: {
     name: Language;
     href: string;
+    stars: number;
   }[];
-  className?: string;
-  outlined?: boolean;
 }) {
   return (
-    <div className={className || ""}>
+    <List component={Paper} className={classes.container}>
       {languages.map((language) => (
-        <Card
-          variant={outlined ? "outlined" : "elevation"}
-          key={getLanguageName(language.name)}
-          className={classes.card}
-        >
-          <NextLink href={language.href} passHref>
-            <ButtonBase>
-              <CardContent className={classes.cardInner}>
+        <Link key={language.name} href={`/language/${language.name}`} passHref>
+          <a className={classes.a}>
+            <ListItem button>
+              <ListItemIcon>
                 <LanguageIcon language={language.name} />
-                <Typography>{getLanguageName(language.name)}</Typography>
-              </CardContent>
-            </ButtonBase>
-          </NextLink>
-        </Card>
+              </ListItemIcon>
+              <ListItemText>
+                <span className={classes.disabled}>TheAlgorithms / </span>
+                {language.name}
+              </ListItemText>
+              <ListItemText className={classes.stars}>
+                <Star fontSize="small" />
+                {language.stars}
+              </ListItemText>
+            </ListItem>
+          </a>
+        </Link>
       ))}
-    </div>
+    </List>
   );
 }
