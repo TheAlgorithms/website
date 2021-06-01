@@ -57,5 +57,9 @@
     "editPageAddExplanation": "Aldoni klarigon",
     "editPageEdit": "Redakti paĝon",
     "emptySearch": "Serĉi algoritmon",
-    "noResults": "Neniuj rezultoj pri"
+    "noResults": "Neniuj rezultoj pri",
+    "indexMetaDescription": "Malfermitfonta rimedo por lerni datenstrukturojn kaj algoritmojn kaj ilian realigadon per iuj ajn programlingvoj",
+    "languageMetaDescription": "Algoritmoj realigitaj per {implementations}",
+    "algorithmMetaDescriptionExplained": "{algorithm} klarigita kaj realigita per {implementations}",
+    "algorithmMetaDescription": "{algorithm} realigita per {implementations}"
 }
