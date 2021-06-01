@@ -57,5 +57,9 @@
     "addTranslation": "Traducir esta explicación",
     "langImplementation": "Implementación de {language}",
     "emptySearch": "Buscar un algoritmo",
-    "noResults": "No se encuentran resultadas para"
+    "noResults": "No se encuentran resultadas para",
+    "languageMetaDescription": "Algoritmos implementados en {language}",
+    "algorithmMetaDescriptionExplained": "{algorithm} explicado e implementado en {implementations}",
+    "algorithmMetaDescription": "Implementación de {algorithm} en {implementations}",
+    "indexMetaDescription": "Recurso de código abierto para aprender estructuras de datos y algoritmos y su implementación en cualquier lenguaje de programación"
 }
