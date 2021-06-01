@@ -22,11 +22,6 @@ export const Repositories = {
   "c-sharp": {
     name: "C#",
   },
-  c: {
-    name: "C",
-    allowedFiles: [".c"],
-    baseDir: ".",
-  },
   haskell: {
     name: "Haskell",
     allowedFiles: [".hs"],
@@ -77,6 +72,16 @@ export const Repositories = {
     allowedFiles: [".ex"],
     baseDir: "lib",
   },
+  elm: {
+    name: "Elm",
+    allowedFiles: [".elm"],
+    baseDir: "src",
+  },
+  c: {
+    name: "C",
+    allowedFiles: [".c"],
+    baseDir: ".",
+  },
   kotlin: {
     name: "Kotlin",
     allowedFiles: [".kt"],
@@ -101,11 +106,6 @@ export const Repositories = {
     name: "Swift",
     allowedFiles: [".swift"],
     baseDir: ".",
-  },
-  elm: {
-    name: "Elm",
-    allowedFiles: [".elm"],
-    baseDir: "src",
   },
   "matlab-octave": {
     name: "MATLAB",
