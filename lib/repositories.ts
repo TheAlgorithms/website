@@ -1,7 +1,12 @@
 export const Repositories = {
-  python: {
-    name: "Python",
-    allowedFiles: [".py"],
+  ruby: {
+    name: "Ruby",
+    allowedFiles: [".rb"],
+    baseDir: ".",
+  },
+  php: {
+    name: "PHP",
+    allowedFiles: [".php"],
     baseDir: ".",
   },
   javascript: {
@@ -14,32 +19,12 @@ export const Repositories = {
     allowedFiles: [".cpp", ".hpp", ".h"],
     baseDir: ".",
   },
-  java: {
-    name: "Java",
-    allowedFiles: [".java"],
-    baseDir: ".",
-  },
   "c-sharp": {
     name: "C#",
   },
-  haskell: {
-    name: "Haskell",
-    allowedFiles: [".hs"],
-    baseDir: "src",
-  },
-  "f-sharp": {
-    name: "F#",
-    allowedFiles: [".fs"],
-    baseDir: "Algorithms",
-  },
-  go: {
-    name: "Go",
-    allowedFiles: [".go"],
-    baseDir: ".",
-  },
-  rust: {
-    name: "Rust",
-    allowedFiles: [".rs"],
+  elm: {
+    name: "Elm",
+    allowedFiles: [".elm"],
     baseDir: "src",
   },
   aarch64_assembly: {
@@ -47,35 +32,25 @@ export const Repositories = {
     allowedFiles: [".s"],
     baseDir: ".",
   },
+  rust: {
+    name: "Rust",
+    allowedFiles: [".rs"],
+    baseDir: "src",
+  },
   dart: {
     name: "Dart",
     allowedFiles: [".dart"],
     baseDir: ".",
   },
-  r: {
-    name: "R",
-    allowedFiles: [".R"],
+  scala: {
+    name: "Scala",
+    allowedFiles: [".scala"],
+    baseDir: "src/main/scala",
+  },
+  java: {
+    name: "Java",
+    allowedFiles: [".java"],
     baseDir: ".",
-  },
-  ruby: {
-    name: "Ruby",
-    allowedFiles: [".rb"],
-    baseDir: ".",
-  },
-  php: {
-    name: "PHP",
-    allowedFiles: [".php"],
-    baseDir: ".",
-  },
-  elixir: {
-    name: "Elixir",
-    allowedFiles: [".ex"],
-    baseDir: "lib",
-  },
-  elm: {
-    name: "Elm",
-    allowedFiles: [".elm"],
-    baseDir: "src",
   },
   c: {
     name: "C",
@@ -86,16 +61,6 @@ export const Repositories = {
     name: "Kotlin",
     allowedFiles: [".kt"],
     baseDir: "src/main/kotlin",
-  },
-  scala: {
-    name: "Scala",
-    allowedFiles: [".scala"],
-    baseDir: "src/main/scala",
-  },
-  jupyter: {
-    name: "Jupyter",
-    allowedFiles: [".ipynb"],
-    baseDir: ".",
   },
   ocaml: {
     name: "OCaml",
@@ -111,6 +76,41 @@ export const Repositories = {
     name: "MATLAB",
     allowedFiles: [".m"],
     baseDir: "algorithms",
+  },
+  go: {
+    name: "Go",
+    allowedFiles: [".go"],
+    baseDir: ".",
+  },
+  r: {
+    name: "R",
+    allowedFiles: [".R"],
+    baseDir: ".",
+  },
+  haskell: {
+    name: "Haskell",
+    allowedFiles: [".hs"],
+    baseDir: "src",
+  },
+  python: {
+    name: "Python",
+    allowedFiles: [".py"],
+    baseDir: ".",
+  },
+  "f-sharp": {
+    name: "F#",
+    allowedFiles: [".fs"],
+    baseDir: "Algorithms",
+  },
+  elixir: {
+    name: "Elixir",
+    allowedFiles: [".ex"],
+    baseDir: "lib",
+  },
+  jupyter: {
+    name: "Jupyter",
+    allowedFiles: [".ipynb"],
+    baseDir: ".",
   },
 };
 
