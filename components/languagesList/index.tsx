@@ -17,13 +17,13 @@ export default function LanguagesList({
   languages: {
     name: Language;
     href: string;
-    stars: number;
+    stars?: number;
   }[];
 }) {
   return (
     <List component={Paper} className={classes.container}>
       {languages.map((language) => (
-        <Link key={language.name} href={`/language/${language.name}`} passHref>
+        <Link key={language.name} href={language.href} passHref>
           <a className={classes.a}>
             <ListItem button>
               <ListItemIcon>
@@ -33,10 +33,12 @@ export default function LanguagesList({
                 <span className={classes.disabled}>TheAlgorithms / </span>
                 {language.name}
               </ListItemText>
-              <ListItemText className={classes.stars}>
-                <Star fontSize="small" />
-                {language.stars}
-              </ListItemText>
+              {language.stars && (
+                <ListItemText className={classes.stars}>
+                  <Star fontSize="small" />
+                  {language.stars}
+                </ListItemText>
+              )}
             </ListItem>
           </a>
         </Link>
