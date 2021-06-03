@@ -1,5 +1,4 @@
 <!-- Add the number of the issue this pull request is closing here -->
-
 Closes #
 
 <!-- Description of the changes this pull request introduces -->
