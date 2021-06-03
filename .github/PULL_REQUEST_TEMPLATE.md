@@ -1,4 +1,4 @@
-<!-- This will automatically close the issue number mentioned when merged in main branch -->
+<!-- Add the number of the issue this pull request is closing here -->
 
 Fixes #
 
