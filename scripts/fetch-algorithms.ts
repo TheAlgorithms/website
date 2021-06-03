@@ -339,7 +339,8 @@ let spinner: Ora;
     algorithm.contributors.sort((a, b) => a.commits - b.commits)
   );
 
-  console.info(`\r${requests} requests sent to GitHub API`);
+  if (process.env.GH_TOKEN)
+    spinner.text += chalk.gray(` (${requests} requests sent to GitHub API)`);
   spinner.succeed();
   spinner = ora("Writing algorithms to files").start();
   process.chdir("..");

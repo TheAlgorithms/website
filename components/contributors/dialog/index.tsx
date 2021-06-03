@@ -1,13 +1,16 @@
 import {
   Avatar,
   Dialog,
+  DialogContent,
   DialogTitle,
   List,
   ListItem as MuiListItem,
   ListItemAvatar,
   ListItemText,
 } from "@material-ui/core";
+import { Favorite } from "@material-ui/icons";
 import { Algorithm, Contributor } from "lib/models";
+import classes from "./style.module.css";
 
 function ListItem({ contributor }: { contributor: Contributor }) {
   return (
@@ -41,27 +44,31 @@ export default function ContributorsDialog({
 }) {
   return (
     <Dialog open={open} onClose={onClose}>
-      <DialogTitle>{algorithm.name} Contributors</DialogTitle>
-      <List style={{ flexDirection: "column-reverse" }}>
-        {algorithm.contributors
-          .slice()
-          .reverse()
-          .map((contributor) => (
-            <div key={contributor.email}>
-              {contributor.login ? (
-                <a
-                  key={contributor.email}
-                  href={`https://github.com/${contributor.login}`}
-                  style={{ textDecoration: "none", color: "unset" }}
-                >
+      <DialogTitle>
+        <Favorite className={classes.heart} /> {algorithm.name} Contributors
+      </DialogTitle>
+      <DialogContent className={classes.dialogContent}>
+        <List className={classes.list}>
+          {algorithm.contributors
+            .slice()
+            .reverse()
+            .map((contributor) => (
+              <div key={contributor.email}>
+                {contributor.login ? (
+                  <a
+                    key={contributor.email}
+                    href={`https://github.com/${contributor.login}`}
+                    style={{ textDecoration: "none", color: "unset" }}
+                  >
+                    <ListItem contributor={contributor} />
+                  </a>
+                ) : (
                   <ListItem contributor={contributor} />
-                </a>
-              ) : (
-                <ListItem contributor={contributor} />
-              )}
-            </div>
-          ))}
-      </List>
+                )}
+              </div>
+            ))}
+        </List>
+      </DialogContent>
     </Dialog>
   );
 }

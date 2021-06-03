@@ -1,0 +1,21 @@
+.dialogContent {
+  display: flex;
+  padding: 0 !important;
+}
+
+.list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+@media (max-width: 600px) {
+  .list {
+    grid-template-columns: 1fr;
+  }
+}
+
+.heart {
+  color: red;
+  transform: translateY(4px);
+  margin-right: 5px;
+}
