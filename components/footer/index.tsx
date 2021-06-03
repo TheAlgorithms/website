@@ -45,6 +45,7 @@ export default function Footer() {
           <Link href="https://github.com/TheAlgorithms/website">
             {t("sourceCodeFooter")}
           </Link>
+          <Link href="/plausible">{t("analyticsFooter")}</Link>
         </div>
         <a
           className={classes.vercelLogo}

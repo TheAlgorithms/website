@@ -20,6 +20,7 @@
     "btoa": "^1.2.1",
     "dotenv": "^8.6.0",
     "highlight.js": "10.7.2",
+    "iframe-resizer-react": "^1.1.0",
     "katex": "^0.13.11",
     "next": "^10.2.2",
     "next-i18next": "^8.3.0",
