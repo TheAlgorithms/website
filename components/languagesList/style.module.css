@@ -9,7 +9,7 @@
   flex-direction: column;
   align-items: center;
   cursor: pointer;
-  padding: 10px 15px 5px 15px;
+  padding: 10px 15px 5px 15px !important;
 }
 
 .cardInner > p {

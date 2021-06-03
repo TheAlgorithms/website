@@ -70,30 +70,28 @@ let spinner: Ora;
   )) {
     const repo: Repository = Repositories[language];
     languages[language] = [];
-    dirLoop: for await (const dir of walk(path.join(language, repo.baseDir))) {
+    for await (const dir of walk(path.join(language, repo.baseDir))) {
       let valid = false;
       for (const validFilename of repo.allowedFiles) {
         if (dir.endsWith(validFilename)) valid = true;
       }
       if (!valid) continue;
-      for (const forbidden of ["test", "__init__"]) {
-        if (dir.includes(forbidden)) continue dirLoop;
-      }
+      if (!isValidCategory(dir)) continue;
       if (
-        dir.split("/").length -
-          path.join(language, repo.baseDir).split("/").length <
+        dir.split(path.sep).length -
+          path.join(language, repo.baseDir).split(path.sep).length <
         2
       )
         continue; // Ignore top level files
       const name = normalizeTitle(
-        dir.split("/").pop().split(".")[0].replace(/_/g, " ")
+        dir.split(path.sep).pop().split(".")[0].replace(/_/g, " ")
       );
       const nName = normalize(name);
       const lCategories = dir
-        .split("/")
+        .split(path.sep)
         .slice(
-          path.join(language, repo.baseDir).split("/").length,
-          dir.split("/").length - 1
+          path.join(language, repo.baseDir).split(path.sep).length,
+          dir.split(path.sep).length - 1
         )
         .map(normalizeTitle)
         .map(normalizeCategory);
@@ -101,23 +99,28 @@ let spinner: Ora;
         algorithms[nName] = {
           slug: normalizeWeak(name),
           name,
-          categories: lCategories,
+          categories: lCategories.map(normalize),
           body: {},
           implementations: {},
           contributors: [],
+          explanationUrl: {},
         };
         for (const category of lCategories) {
           if (!categories[normalize(category)]) {
             categories[normalize(category)] = [];
-            categoryNames[normalize(category)] = category;
           }
           categories[normalize(category)].push(normalizeWeak(name));
         }
       }
+      for (const category of lCategories) {
+        if (!categoryNames[normalize(category)]) {
+          categoryNames[normalize(category)] = category;
+        }
+      }
       algorithms[nName].implementations[language] = {
-        dir: path.join(...dir.split("/").slice(1)),
+        dir: path.join(...dir.split(path.sep).slice(1)),
         url: `https://github.com/TheAlgorithms/${language}/tree/master/${path.join(
-          ...dir.split("/").slice(1)
+          ...dir.split(path.sep).slice(1)
         )}`,
         code: highlightCode(
           (await fs.promises.readFile(dir)).toString(),
@@ -159,17 +162,18 @@ let spinner: Ora;
               try {
                 file = (await fs.promises.readFile(dir)).toString();
               } catch {
-                console.warn(`\rFailed to get ${dir}`);
+                console.warn(`\nFailed to get ${dir}`);
                 continue;
               }
               if (!algorithms[nName]) {
                 algorithms[nName] = {
                   slug: normalizeWeak(name),
                   name,
-                  categories: aCategories.filter((x) => !!x),
+                  categories: aCategories.filter((x) => !!x).map(normalize),
                   body: {},
                   implementations: {},
                   contributors: [],
+                  explanationUrl: {},
                 };
                 for (const category of aCategories.filter((x) => !!x)) {
                   if (!categories[normalizeCategory(category)])
@@ -203,6 +207,9 @@ let spinner: Ora;
           if (match) {
             const algorithm = algorithms[normalizeAlgorithm(match[1])];
             if (algorithm) {
+              algorithm.explanationUrl[
+                locale
+              ] = `https://github.com/TheAlgorithms/Algorithms-Explanation/tree/master/${dir}`;
               algorithm.body[locale] = await renderMarkdown(
                 (await fs.promises.readFile(dir))
                   .toString()
@@ -236,6 +243,7 @@ let spinner: Ora;
       })
     )
   );
+  process.chdir("..");
   spinner.succeed();
   spinner = ora(
     `Collecting contributors ${
@@ -343,7 +351,6 @@ let spinner: Ora;
     spinner.text += chalk.gray(` (${requests} requests sent to GitHub API)`);
   spinner.succeed();
   spinner = ora("Writing algorithms to files").start();
-  process.chdir("..");
   await fs.promises.mkdir("algorithms");
   await Promise.all(
     Object.values(algorithms).map(async (algorithm) => {
@@ -376,15 +383,44 @@ let spinner: Ora;
       })
     )
   );
-  const outpCategories = {};
-  Object.keys(categories).forEach((key) => {
-    outpCategories[categoryNames[key]] = categories[key];
-  });
-  await fs.promises.writeFile(
-    "categories.json",
-    JSON.stringify(outpCategories)
-  );
+  await fs.promises.writeFile("categories.json", JSON.stringify(categories));
   await fs.promises.writeFile("languages.json", JSON.stringify(languages));
+  const oldLocalesCategories: { [key: string]: string } = fs.existsSync(
+    "../public/locales/en/categories.json"
+  )
+    ? JSON.parse(
+        (
+          await fs.promises.readFile("../public/locales/en/categories.json")
+        ).toString()
+      )
+    : {};
+  const localesCategories: { [key: string]: string } = {};
+  Object.keys(categoryNames)
+    .sort()
+    .forEach((key) => {
+      localesCategories[key] = oldLocalesCategories[key] || categoryNames[key];
+    });
+  await fs.promises.writeFile(
+    "../public/locales/en/categories.json",
+    JSON.stringify(localesCategories, null, 4)
+  );
   await fs.promises.rm("repositories", { recursive: true });
   spinner.succeed();
 })();
+
+function isValidCategory(name: string) {
+  if (normalize(name).match(/problem\d+/)) return false;
+  for (const exclude of [
+    "projecteuler",
+    "test",
+    "github",
+    "ipynbcheckpoints",
+    "leetcode",
+  ]) {
+    if (normalize(name).includes(exclude)) return false;
+  }
+  for (const exclude of ["__init__", "mod.rs"]) {
+    if (name.includes(exclude)) return false;
+  }
+  return true;
+}

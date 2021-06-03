@@ -4,6 +4,7 @@ export interface Algorithm {
   slug: string;
   name: string;
   body: { [locale: string]: string };
+  explanationUrl: { [locale: string]: string };
   categories: string[];
   implementations: { [key in Language]?: Implementation };
   contributors: Contributor[];

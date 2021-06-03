@@ -11,6 +11,7 @@ import Navbar from "components/navbar";
 import Footer from "components/footer";
 import Head from "components/head";
 import { appWithTranslation } from "next-i18next";
+import PlausibleScript from "components/plausible";
 
 function MyApp({ Component, pageProps }: AppProps) {
   const router = useRouter();
@@ -33,11 +34,17 @@ function MyApp({ Component, pageProps }: AppProps) {
     );
   }, []);
 
+  useEffect(() => {
+    if (isDarkTheme) document.body.classList.add("dark");
+    else document.body.classList.remove("dark");
+  }, [isDarkTheme]);
+
   return (
-    <div style={{ height: "100%" }} className={isDarkTheme ? "dark" : ""}>
+    <div style={{ height: "100%" }}>
       <ThemeProvider theme={isDarkTheme ? darkTheme : lightTheme}>
         <Head />
         <CssBaseline />
+        <PlausibleScript />
         <NextNprogress
           color="#fff"
           height={2}

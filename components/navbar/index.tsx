@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import { useTranslation } from "next-i18next";
+import useTranslation from "hooks/translation";
 import {
   AppBar,
   Toolbar,
@@ -17,7 +17,7 @@ import Link from "components/link";
 import { useRouter } from "next/router";
 import SearchBar from "components/searchBar";
 import LangSelect from "components/langSelect";
-import { GithubOriginalIcon } from "react-devicons";
+import GithubOriginalIcon from "react-devicons/github/original";
 import {
   Brightness7,
   Close,
@@ -38,7 +38,7 @@ export default function Navbar({
   query: string;
   setQuery: React.Dispatch<React.SetStateAction<string>>;
 }) {
-  const { t } = useTranslation("common");
+  const t = useTranslation();
   const [atTop, setAtTop] = useState(false);
   const smallScreen = useMediaQuery("(max-width:800px)");
   const [menuOpen, setMenuOpen] = useState(false);
@@ -105,15 +105,21 @@ export default function Navbar({
               <IconButton
                 ref={langSelectRef}
                 onClick={() => setLangSelectOpen(true)}
+                aria-label="Select Language"
               >
                 <Translate />
               </IconButton>
-              <IconButton onClick={switchTheme}>
+              <IconButton
+                onClick={switchTheme}
+                aria-label="Switch to dark Theme"
+              >
                 {darkTheme ? <Brightness7 /> : <NightsStay />}
               </IconButton>
               <IconButton
                 href="https://github.com/TheAlgorithms"
                 target="_blank"
+                rel="noreferrer"
+                aria-label="GitHub"
               >
                 <GithubOriginalIcon color="white" />
               </IconButton>

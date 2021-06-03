@@ -2,11 +2,11 @@ import { Button, Typography } from "@material-ui/core";
 import React from "react";
 import NextLink from "next/link";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
-import { useTranslation } from "next-i18next";
+import useTranslation from "hooks/translation";
 import classes from "./404.module.css";
 
 export default function Err404() {
-  const { t } = useTranslation("common");
+  const t = useTranslation();
 
   return (
     <div className={classes.container}>

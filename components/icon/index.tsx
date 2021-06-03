@@ -20,7 +20,7 @@ export default function LanguageIcon({
   color = "inherit",
 }: {
   language: Language;
-  tooltip?: string;
+  tooltip?: string | JSX.Element;
   className?: string;
   color?: string;
 }) {
@@ -67,7 +67,10 @@ export default function LanguageIcon({
             case "scala":
               return icon("scala", colored ? "original" : "plain");
             case "jupyter":
-              return icon("jupyter", colored ? "original-wordmark" : "plain-wordmark");
+              return icon(
+                "jupyter",
+                colored ? "original-wordmark" : "plain-wordmark"
+              );
             case "haskell":
               return icon("haskell", colored ? "original" : "plain");
             case "ocaml":

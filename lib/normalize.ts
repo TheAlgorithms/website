@@ -35,7 +35,9 @@ export function normalizeLanguage(st: string) {
 }
 
 export function normalizeTitle(st: string) {
-  return titleCase(st.replace(/_/g, " "));
+  return titleCase(
+    (aliases.algorithms[normalize(st)] || st).replace(/_/g, " ")
+  );
 }
 
 export function normalizeCategory(st: string) {

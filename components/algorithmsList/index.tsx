@@ -2,10 +2,13 @@ import { Divider, Typography } from "@material-ui/core";
 import React, { Fragment, useMemo } from "react";
 import { Algorithm } from "lib/models";
 import { normalize } from "lib/normalize";
+import useTranslation from "hooks/translation";
 import AlgorithmCard from "./algorithmCard";
 import classes from "./style.module.css";
 
 export default function AlgorithmsList({ algorithms, noCategories = false }) {
+  const t = useTranslation();
+
   const splitAlgorithms = useMemo<{ [category: string]: Algorithm[] }>(() => {
     const ret: { [key: string]: Algorithm[] } = {};
     algorithms.forEach((algorithm: Algorithm) => {
@@ -39,7 +42,7 @@ export default function AlgorithmsList({ algorithms, noCategories = false }) {
                 variant="h6"
                 className={classes.subtitle}
               >
-                {splitAlgorithms[key][0].categories[0]}
+                {t(`categories:${splitAlgorithms[key][0].categories[0]}`)}
                 <Divider />
               </Typography>
             )}
