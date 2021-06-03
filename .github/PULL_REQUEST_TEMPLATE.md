@@ -7,7 +7,6 @@ Closes #
 **What change does this pull request introduce?**
 
 <!-- Screenshots of the final output -->
-
 **Screenshots**\
 If applicable, include screenshots of the issue you solved.
 
