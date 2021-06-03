@@ -2,7 +2,6 @@
 Closes #
 
 <!-- Description of the changes this pull request introduces -->
-
 **What change does this pull request introduce?**
 
 <!-- Screenshots of the final output -->
