@@ -243,7 +243,6 @@ let spinner: Ora;
       })
     )
   );
-  process.chdir("..");
   spinner.succeed();
   spinner = ora(
     `Collecting contributors ${
@@ -350,6 +349,8 @@ let spinner: Ora;
   if (process.env.GH_TOKEN)
     spinner.text += chalk.gray(` (${requests} requests sent to GitHub API)`);
   spinner.succeed();
+  process.chdir("..");
+
   spinner = ora("Writing algorithms to files").start();
   await fs.promises.mkdir("algorithms");
   await Promise.all(
