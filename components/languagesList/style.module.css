@@ -3,6 +3,13 @@
   margin-bottom: 10px !important;
 }
 
+@media (max-width: 600px) {
+  .container {
+    margin-left: -25px !important;
+    margin-right: -25px !important;
+  }
+}
+
 .disabled {
   color: gray;
   font-size: 0.9em;
@@ -13,9 +20,10 @@
   justify-content: flex-end;
   align-items: center;
   color: gray;
+  flex-grow: 1 !important;
 }
 
-.stars :global(svg) {
+.container :global(svg) {
   transform: translateY(3px);
   margin-right: 5px;
 }

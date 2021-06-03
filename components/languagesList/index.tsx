@@ -4,6 +4,7 @@ import {
   ListItem,
   ListItemText,
   ListItemIcon,
+  useMediaQuery,
 } from "@material-ui/core";
 import { Star } from "@material-ui/icons";
 import LanguageIcon from "components/icon";
@@ -11,15 +12,19 @@ import { Language } from "lib/repositories";
 import Link from "next/link";
 import classes from "./style.module.css";
 
+interface LanguageProp {
+  name: Language;
+  href: string;
+  stars?: number;
+}
+
 export default function LanguagesList({
   languages,
 }: {
-  languages: {
-    name: Language;
-    href: string;
-    stars?: number;
-  }[];
+  languages: LanguageProp[];
 }) {
+  const small = useMediaQuery("(max-width: 900px)");
+
   return (
     <List component={Paper} className={classes.container}>
       {languages.map((language) => (
@@ -29,11 +34,21 @@ export default function LanguagesList({
               <ListItemIcon>
                 <LanguageIcon language={language.name} />
               </ListItemIcon>
-              <ListItemText>
+              <ListItemText
+                secondary={
+                  small &&
+                  language.stars && (
+                    <>
+                      <Star fontSize="small" />
+                      {language.stars}
+                    </>
+                  )
+                }
+              >
                 <span className={classes.disabled}>TheAlgorithms / </span>
                 {language.name}
               </ListItemText>
-              {language.stars && (
+              {!small && language.stars && (
                 <ListItemText className={classes.stars}>
                   <Star fontSize="small" />
                   {language.stars}
