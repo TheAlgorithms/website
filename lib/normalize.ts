@@ -45,5 +45,5 @@ export function normalizeCategory(st: string) {
 }
 
 export function normalizeAlgorithm(st: string) {
-  return aliases.algorithms[normalize(st)] || normalize(st);
+  return normalize(aliases.algorithms[normalize(st)] || st);
 }
