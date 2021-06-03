@@ -9,3 +9,11 @@
 .actions {
   justify-content: space-between;
 }
+
+.root:hover {
+  background-color:rgb(230, 230, 230) !important;
+}
+
+:global(.dark) .root:hover {
+  background-color: rgb(25, 28, 31) !important;
+}
