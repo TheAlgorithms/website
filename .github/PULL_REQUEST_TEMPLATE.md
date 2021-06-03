@@ -4,9 +4,10 @@ Closes #
 <!-- Description of the changes this pull request introduces -->
 **What change does this pull request introduce?**
 
-<!-- Screenshots of the final output -->
+
+<!-- If applicable, include screenshots of the issue you solved -->
 **Screenshots**\
-If applicable, include screenshots of the issue you solved.
+
 
 **Checklist**
 
