@@ -64,5 +64,5 @@
   "emptySearch": "Search for an algorithm",
   "analyticsFooter": "Analytics",
   "analyticsTitle": "Analytics on this Site",
-  "analyticsText": "We use [Plausible Analytics] on this site to collect anonymous usage data. We do that you see how many people are using our website and which are the most used features, the website does not in any way track individual visitors. All the data is in aggregate only. No personal data is collected and no cookies are used. You can view all the collected data here:"
+  "analyticsText": "We use [Plausible Analytics] on this site to collect anonymous usage data to see how many people are using our website, and which are the most used features. The website does not in any way track individual visitors. All the data is in aggregate only. No personal data is collected, and no cookies are used. You can view all the collected data here:"
 }
