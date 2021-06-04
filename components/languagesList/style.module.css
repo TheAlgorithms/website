@@ -1,10 +1,25 @@
 .container {
+  display: flex;
+  flex-direction: column;
   margin-top: 20px !important;
   margin-bottom: 10px !important;
 }
 
+.sort,
+.sortReverse {
+  align-self: flex-end;
+}
+
+.sort {
+  transform: scale(-1, 1);
+}
+
+.sortReverse {
+  transform: scale(-1, -1);
+}
+
 @media (max-width: 600px) {
-  .container {
+  .list {
     margin-left: -25px !important;
     margin-right: -25px !important;
   }
@@ -23,7 +38,7 @@
   flex-grow: 1 !important;
 }
 
-.container :global(svg) {
+.list :global(svg) {
   transform: translateY(3px);
   margin-right: 5px;
 }

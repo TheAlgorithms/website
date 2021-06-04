@@ -145,6 +145,7 @@ export default function Home({
                         stars: stars[langName],
                       })
                     )}
+                    sortable
                   />
                 </div>
                 <div />
