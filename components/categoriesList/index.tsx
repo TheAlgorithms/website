@@ -20,7 +20,10 @@ export default function CategoriesList({
   return (
     <div className={classes.container}>
       {categories.map((category) => (
-        <Card key={category.name} className={classes.cardOuter}>
+        <Card
+          key={category.name}
+          className={`${classes.cardOuter} elevateOnHover`}
+        >
           <NextLink href={category.href} passHref>
             <ButtonBase>
               <CardContent className={classes.cardInner}>

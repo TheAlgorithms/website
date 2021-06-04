@@ -9,6 +9,7 @@ import {
 import React from "react";
 import Implementations from "components/implementations";
 import { normalize } from "lib/normalize";
+import NextLink from "next/link";
 import Link from "components/link";
 import { Algorithm } from "lib/models";
 import useTranslation from "hooks/translation";
@@ -18,7 +19,7 @@ export default function AlgorithmCard({ algorithm }: { algorithm: Algorithm }) {
   const t = useTranslation();
 
   return (
-    <Card className={classes.root}>
+    <Card className="elevateOnHover">
       <CardContent>
         <Breadcrumbs>
           {algorithm.categories.map((category) => (
@@ -39,11 +40,11 @@ export default function AlgorithmCard({ algorithm }: { algorithm: Algorithm }) {
       </CardContent>
       <CardActions className={classes.actions}>
         <Implementations implementations={algorithm.implementations} />
-        <Link href={`/algorithm/${algorithm.slug}`}>
+        <NextLink href={`/algorithm/${algorithm.slug}`}>
           <Button color="primary" aria-label={`View ${algorithm.name}`}>
             {t("moreAlgorithmCard")}
           </Button>
-        </Link>
+        </NextLink>
       </CardActions>
     </Card>
   );
