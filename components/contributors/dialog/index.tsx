@@ -3,13 +3,14 @@ import {
   Dialog,
   DialogContent,
   DialogTitle,
+  Icon,
   List,
   ListItem as MuiListItem,
   ListItemAvatar,
   ListItemText,
 } from "@material-ui/core";
-import { Favorite } from "@material-ui/icons";
 import { Algorithm, Contributor } from "lib/models";
+import GithubOriginalIcon from "react-devicons/github/original";
 import classes from "./style.module.css";
 
 function ListItem({ contributor }: { contributor: Contributor }) {
@@ -45,7 +46,10 @@ export default function ContributorsDialog({
   return (
     <Dialog open={open} onClose={onClose}>
       <DialogTitle>
-        <Favorite className={classes.heart} /> {algorithm.name} Contributors
+        <Icon className={classes.icon}>
+          <GithubOriginalIcon />
+        </Icon>
+        {algorithm.name} Contributors
       </DialogTitle>
       <DialogContent className={classes.dialogContent}>
         <List className={classes.list}>

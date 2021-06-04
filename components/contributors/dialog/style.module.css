@@ -14,8 +14,11 @@
   }
 }
 
-.heart {
-  color: red;
-  transform: translateY(4px);
-  margin-right: 5px;
+.icon :global(svg) {
+  transform: translateY(4px) !important;
+  margin-right: 12px;
+}
+
+:global(.dark) .icon :global(svg) {
+  fill: white !important;
 }
