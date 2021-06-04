@@ -11,7 +11,7 @@
 }
 
 .root:hover {
-  background-color:rgb(230, 230, 230) !important;
+  background-color: rgb(230, 230, 230) !important;
 }
 
 :global(.dark) .root:hover {
