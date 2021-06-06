@@ -16,6 +16,7 @@
     "@material-ui/core": "^4.11.4",
     "@material-ui/icons": "^4.11.2",
     "@material-ui/styles": "^4.11.4",
+    "@octokit/core": "^3.4.0",
     "atob": "^2.1.2",
     "btoa": "^1.2.1",
     "dotenv": "^8.6.0",
