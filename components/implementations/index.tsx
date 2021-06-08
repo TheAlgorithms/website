@@ -4,17 +4,12 @@ import { Language, getLanguageName } from "lib/repositories";
 import LanguageIcon from "components/icon";
 import Translation from "components/translation";
 import useTranslation from "hooks/translation";
-import LanguagesList from "../languagesList";
 import classes from "./style.module.css";
 
 export default function Implementations({
   implementations,
-  large = false,
-  className,
 }: {
   implementations: { [key in Language]?: Implementation };
-  large?: boolean;
-  className?: string;
 }) {
   const smallWidth = useMediaQuery(
     "(max-width: 1200px) and (min-width: 700px)"
@@ -22,15 +17,7 @@ export default function Implementations({
   const numIcons = smallWidth ? 4 : 6;
   const t = useTranslation();
 
-  return large ? (
-    <LanguagesList
-      languages={Object.keys(implementations).map((langName: Language) => ({
-        name: langName,
-        href: implementations[langName].url,
-      }))}
-      className={className || ""}
-    />
-  ) : (
+  return (
     <div className={classes.rootSmall}>
       {Object.keys(implementations)
         .slice(0, numIcons)

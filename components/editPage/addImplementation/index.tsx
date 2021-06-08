@@ -43,7 +43,6 @@ export default function AddImplementation({
               name: langName,
               href: `https://github.com/TheAlgorithms/${langName}`,
             }))}
-          outlined
         />
       </DialogContent>
     </Dialog>

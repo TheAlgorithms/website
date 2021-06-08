@@ -61,5 +61,8 @@
   "algorithmMetaDescriptionExplained": "{algorithm} explained and implemented in {implementations}",
   "languageMetaDescription": "Algorithms implemented in {language}",
   "noResults": "No results for",
-  "emptySearch" : "Search for an algorithm"
+  "emptySearch": "Search for an algorithm",
+  "analyticsFooter": "Analytics",
+  "analyticsTitle": "Analytics on this Site",
+  "analyticsText": "We use [Plausible Analytics] on this site to collect anonymous usage data to see how many people are using our website, and which are the most used features. The website does not in any way track individual visitors. All the data is in aggregate only. No personal data is collected, and no cookies are used. You can view all the collected data here:"
 }

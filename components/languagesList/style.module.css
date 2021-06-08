@@ -1,17 +1,48 @@
-.card {
-  display: inline-block;
-  margin-right: 10px;
-  margin-bottom: 10px;
-}
-
-.cardInner {
+.container {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  cursor: pointer;
-  padding: 10px 15px 5px 15px !important;
+  margin-top: 20px !important;
+  margin-bottom: 10px !important;
 }
 
-.cardInner > p {
-  margin-top: 5px;
+.sort,
+.sortReverse {
+  align-self: flex-end;
+}
+
+.sort {
+  transform: scale(-1, 1);
+}
+
+.sortReverse {
+  transform: scale(-1, -1);
+}
+
+@media (max-width: 600px) {
+  .list {
+    margin-left: -25px !important;
+    margin-right: -25px !important;
+  }
+}
+
+.disabled {
+  color: gray;
+  font-size: 0.9em;
+}
+
+.stars {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  color: gray;
+  flex-grow: 1 !important;
+}
+
+.list :global(svg) {
+  transform: translateY(3px);
+  margin-right: 5px;
+}
+
+.a {
+  all: unset;
 }

@@ -196,6 +196,18 @@ let spinner: Ora;
     );
   })();
   process.chdir("..");
+
+  // Fetch stars
+  let stars: { [key: string]: number } = {};
+  await Promise.all(
+    Object.keys(Repositories).map<void>(async (repo) => {
+      const { data } = await octokit.request("GET /repos/{owner}/{repo}", {
+        owner: "TheAlgorithms",
+        repo,
+      });
+      stars[repo] = data.stargazers_count;
+    })
+  );
   spinner.succeed();
   spinner = ora("Collecting and rendering explanations").start();
   process.chdir("./algorithms-explanation");
@@ -384,6 +396,7 @@ let spinner: Ora;
       })
     )
   );
+  await fs.promises.writeFile("stars.json", JSON.stringify(stars));
   await fs.promises.writeFile("categories.json", JSON.stringify(categories));
   await fs.promises.writeFile("languages.json", JSON.stringify(languages));
   const oldLocalesCategories: { [key: string]: string } = fs.existsSync(
