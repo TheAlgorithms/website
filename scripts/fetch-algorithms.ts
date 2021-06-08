@@ -328,12 +328,15 @@ let spinner: Ora;
         username: author.login,
       });
       author.email = data.email;
+      author.login = data.login;
     })
   );
   Object.values(authors).forEach((author) => {
     if (author.name === "github-actions") return;
     const authorFromApi = Object.values(possibleAuthors).find(
-      (x) => x.email === author.email
+      (x) =>
+        x.email === author.email ||
+        `${x.login}@users.noreply.github.com` === author.email
     );
     if (authorFromApi) {
       author.login = authorFromApi.login;
