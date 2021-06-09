@@ -64,5 +64,7 @@
     "indexMetaDescription": "Recurso de código abierto para aprender estructuras de datos y algoritmos y su implementación en cualquier lenguaje de programación",
     "analyticsText": "Utilizamos [Plausible Analytics] para recopilar datos de uso anónimos, y ver cuántas personas utilizan nuestro sitio web y cuáles son las funciones más utilizadas. El sitio web no hace ningún seguimiento de los visitantes individuales. Todos los datos son agregados. No se recogen datos personales ni se utilizan cookies. Puede ver todos los datos recogidos aquí:",
     "analyticsTitle": "Analíticas en este sitio",
-    "analyticsFooter": "Analíticas"
+    "analyticsFooter": "Analíticas",
+    "documentationLanguage": "Documentación",
+    "githubRepository": "Repositorio de GitHub"
 }
