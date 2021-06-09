@@ -37,7 +37,7 @@ export default function LanguagePage({
               startIcon={<OpenInNew />}
               href={`https://github.com/TheAlgorithms/${language.name}`}
             >
-              Github Repo
+              {t("githubRepository")}
             </Button>
             {["c", "c-plus-plus"].includes(language.name.toLowerCase()) && (
               <Button
@@ -46,7 +46,7 @@ export default function LanguagePage({
                   .replace(/^c$/, "C")
                   .replace(/^c-plus-plus$/, "C-Plus-Plus")}`}
               >
-                Documentation
+                {t("documentationLanguage")}
               </Button>
             )}
           </div>
