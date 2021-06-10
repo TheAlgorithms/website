@@ -57,13 +57,12 @@ export default function CodePreview({
         >
           {t("viewOnGithub")}
         </Button>
-        <Button
-          variant="outlined"
-          startIcon={<Close />}
+        <IconButton 
+          color="primary"
           onClick={() => setActive(false)}
         >
-          {t("close")}
-        </Button>
+          <Close />
+        </IconButton>
       </div>
       <div className={classes.scrollContainer}>
         {selectedLanguague !== "jupyter" && (
