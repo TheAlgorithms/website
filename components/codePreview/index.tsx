@@ -57,10 +57,7 @@ export default function CodePreview({
         >
           {t("viewOnGithub")}
         </Button>
-        <IconButton 
-          color="primary"
-          onClick={() => setActive(false)}
-        >
+        <IconButton color="primary" onClick={() => setActive(false)}>
           <Close />
         </IconButton>
       </div>
