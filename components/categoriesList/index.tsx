@@ -1,10 +1,4 @@
-import {
-  ButtonBase,
-  Card,
-  CardContent,
-  Link,
-  Typography,
-} from "@material-ui/core";
+import { ButtonBase, Card, CardContent, Typography } from "@material-ui/core";
 import NextLink from "next/link";
 import classes from "./style.module.css";
 
@@ -20,13 +14,19 @@ export default function CategoriesList({
   return (
     <div className={classes.container}>
       {categories.map((category) => (
-        <Card key={category.name} className={classes.cardOuter}>
+        <Card
+          key={category.name}
+          className={`${classes.cardOuter} elevateOnHover`}
+        >
           <NextLink href={category.href} passHref>
             <ButtonBase>
               <CardContent className={classes.cardInner}>
                 {category.icon}
-                <Typography variant="h6" className={classes.text}>
-                  <Link>{category.name}</Link>
+                <Typography
+                  variant="h6"
+                  className={`${classes.text} MuiLink-root MuiLink-underlineHover`}
+                >
+                  {category.name}
                 </Typography>
               </CardContent>
             </ButtonBase>

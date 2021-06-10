@@ -57,5 +57,12 @@
     "editPageAddExplanation": "Aldoni klarigon",
     "editPageEdit": "Redakti paĝon",
     "emptySearch": "Serĉi algoritmon",
-    "noResults": "Neniuj rezultoj pri"
+    "noResults": "Neniuj rezultoj pri",
+    "indexMetaDescription": "Malfermitfonta rimedo por lerni datenstrukturojn kaj algoritmojn kaj ilian realigadon per iuj ajn programlingvoj",
+    "languageMetaDescription": "Algoritmoj realigitaj per {implementations}",
+    "algorithmMetaDescriptionExplained": "{algorithm} klarigita kaj realigita per {implementations}",
+    "algorithmMetaDescription": "{algorithm} realigita per {implementations}",
+    "analyticsText": "Ni uzas [Plausible Analytics] ĉe ĉi tiu retejo por kolekti anonimajn datenojn pri uzado por scii kiom da homoj uzas nian retejon, kaj kiuj funkcioj estas la plej uzataj. La retejo neniel spuras unuopajn vizitantojn. Ĉiuj datenoj estas prigrupaj. Neniuj personaj datenoj estas kolektataj, kaj neniuj kuketoj estas uzataj. Vi povas vidi ĉiujn kolektitajn datenojn ĉi tie:",
+    "analyticsTitle": "Analiziloj ĉe ĉi tiu retejo",
+    "analyticsFooter": "Analiziloj"
 }

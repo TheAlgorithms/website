@@ -55,7 +55,11 @@
     "editPageAddExplanation": "Erklärung hinzufügen",
     "editPageAddImplementation": "Implementation hinzufügen",
     "editPageEdit": "Seite Bearbeiten",
-    "langImplementation": "{language} Implementation",
+    "langImplementation": "{language} Implementierung",
     "emptySearch": "Suche ein Algorithmus",
-    "noResults": "Keine Resultate für"
+    "noResults": "Keine Resultate für",
+    "languageMetaDescription": "Algorithmen implementiert in {language}",
+    "algorithmMetaDescriptionExplained": "{algorithm} erklärt und umgesetzt in {implementations}",
+    "algorithmMetaDescription": "{algorithm} Implementiert in {implementations}",
+    "indexMetaDescription": "Open Source-Ressource zum Erlernen von Datenstrukturen und Algorithmen und deren Implementierung in einer beliebigen Programmiersprache"
 }
