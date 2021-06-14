@@ -39,12 +39,13 @@ export default function LanguagePage({
             >
               {t("githubRepository")}
             </Button>
-            {["c", "c-plus-plus"].includes(language.name.toLowerCase()) && (
+            {["c", "c-plus-plus", "julia"].includes(language.name.toLowerCase()) && (
               <Button
                 startIcon={<OpenInNew />}
                 href={`https://thealgorithms.github.io/${language.name
                   .replace(/^c$/, "C")
-                  .replace(/^c-plus-plus$/, "C-Plus-Plus")}`}
+                  .replace(/^c-plus-plus$/, "C-Plus-Plus")
+                  .replace(/^julia$/, "Julia/dev")}`}
               >
                 {t("documentationLanguage")}
               </Button>

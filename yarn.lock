@@ -1654,6 +1654,11 @@ des.js@^1.0.0:
     inherits "^2.0.1"
     minimalistic-assert "^1.0.0"
 
+devicon@^2.12.0:
+  version "2.12.0"
+  resolved "https://registry.yarnpkg.com/devicon/-/devicon-2.12.0.tgz#a67b0defe9cff36c4c299823a4e13feb445cc46d"
+  integrity sha512-65ptoclWlugK3lNmamqrHZY2gg4FVGZamDoQT4uGSzQ1dQNMmGVughbrumVUrvC4RrfK0UQMgX10+B+BSY4NCQ==
+
 diff@^4.0.1:
   version "4.0.2"
   resolved "https://registry.yarnpkg.com/diff/-/diff-4.0.2.tgz#60f3aecb89d5fae520c11aa19efc2bb982aade7d"
