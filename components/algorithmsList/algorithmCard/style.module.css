@@ -24,6 +24,14 @@
   pointer-events: none;
 }
 
+:global(.dark) .title::after {
+  background: linear-gradient(
+    90deg,
+    rgba(32, 40, 45, 0) 0%,
+    rgba(32, 40, 45, 1) 100%
+  );
+}
+
 .actions {
   justify-content: space-between;
 }
