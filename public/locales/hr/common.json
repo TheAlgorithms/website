@@ -61,5 +61,10 @@
     "languageMetaDescription": "U {language} primijenjeni algoritmi",
     "algorithmMetaDescriptionExplained": "{algorithm} objašnjen i primijenjen u {implementations}",
     "algorithmMetaDescription": "{algorithm} primijenjen u {implementations}",
-    "indexMetaDescription": "Resurs otvorenog koda za učenje struktura podataka i algoritama te njihovu primjenu u bilo kojem programskom jeziku"
+    "indexMetaDescription": "Resurs otvorenog koda za učenje struktura podataka i algoritama te njihovu primjenu u bilo kojem programskom jeziku",
+    "analyticsText": "Na ovoj stranici koristimo [Plausible Analytics] za prikupljanje anonimnih podataka o korištenju stranice, kako bismo vidjeli koliko ljudi koristi našu web stranicu i koje su najčešće korištene funkcije. Web stranica ne prati pojedinačne posjetitelje. Svi podaci se samo zbrajaju. Ne prikupljaju se osobni podaci i ne koriste se kolačići. Sve prikupljene podatke možeš pogledati ovdje:",
+    "analyticsTitle": "Analitika na ovoj stranici",
+    "analyticsFooter": "Analitika",
+    "documentationLanguage": "Dokumentacija",
+    "githubRepository": "GitHub repozitorij"
 }

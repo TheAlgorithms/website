@@ -112,6 +112,11 @@ export const Repositories = {
     allowedFiles: [".m"],
     baseDir: "algorithms",
   },
+  julia: {
+    name: "Julia",
+    allowedFiles: [".jl"],
+    baseDir: "src",
+  },
 };
 
 export interface Repository {

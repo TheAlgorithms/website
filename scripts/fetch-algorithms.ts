@@ -215,7 +215,7 @@ let spinner: Ora;
     locales.map(async (locale) => {
       if (fs.existsSync(locale)) {
         for await (const dir of walk(locale)) {
-          const match = dir.match(/(?:.+)\/(.+)\.md/);
+          const match = dir.replace(/\\/g, "/").match(/(?:.+)\/(.+)\.md/);
           if (match) {
             const algorithm = algorithms[normalizeAlgorithm(match[1])];
             if (algorithm) {

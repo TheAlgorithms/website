@@ -37,16 +37,19 @@ export default function LanguagePage({
               startIcon={<OpenInNew />}
               href={`https://github.com/TheAlgorithms/${language.name}`}
             >
-              Github Repo
+              {t("githubRepository")}
             </Button>
-            {["c", "c-plus-plus"].includes(language.name.toLowerCase()) && (
+            {["c", "c-plus-plus", "julia"].includes(
+              language.name.toLowerCase()
+            ) && (
               <Button
                 startIcon={<OpenInNew />}
                 href={`https://thealgorithms.github.io/${language.name
                   .replace(/^c$/, "C")
-                  .replace(/^c-plus-plus$/, "C-Plus-Plus")}`}
+                  .replace(/^c-plus-plus$/, "C-Plus-Plus")
+                  .replace(/^julia$/, "Julia/dev")}`}
               >
-                Documentation
+                {t("documentationLanguage")}
               </Button>
             )}
           </div>
