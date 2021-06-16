@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable no-console */
 /* eslint-disable no-param-reassign */
 import ora, { Ora } from "ora";
@@ -6,6 +7,7 @@ import fs from "fs";
 import path from "path";
 import { Octokit } from "@octokit/core";
 import dotenv from "dotenv";
+import chalk from "chalk";
 import walk from "../lib/walk";
 import { Repositories, Repository } from "../lib/repositories";
 import { Algorithm } from "../lib/models";
@@ -30,6 +32,15 @@ let algorithms: { [key: string]: Algorithm } = {};
 let categories: { [category: string]: string[] } = {};
 let categoryNames: { [category: string]: string } = {};
 let languages: { [language: string]: string[] } = {};
+let authors: {
+  [email: string]: {
+    name: string;
+    login?: string;
+    email: string;
+    avatar?: string;
+    algorithms: Algorithm[];
+  };
+} = {};
 let spinner: Ora;
 
 (async () => {
@@ -91,6 +102,7 @@ let spinner: Ora;
           categories: lCategories.map(normalize),
           body: {},
           implementations: {},
+          contributors: [],
           explanationUrl: {},
         };
         for (const category of lCategories) {
@@ -160,6 +172,7 @@ let spinner: Ora;
                   categories: aCategories.filter((x) => !!x).map(normalize),
                   body: {},
                   implementations: {},
+                  contributors: [],
                   explanationUrl: {},
                 };
                 for (const category of aCategories.filter((x) => !!x)) {
@@ -242,8 +255,117 @@ let spinner: Ora;
       })
     )
   );
-  process.chdir("..");
   spinner.succeed();
+  spinner = ora(
+    `Collecting contributors ${
+      !process.env.GH_TOKEN ? chalk.gray("(without GitHub token)") : ""
+    }`
+  ).start();
+  let requests = 0;
+  let possibleAuthors: { [login: string]: any } = {};
+  await Promise.all(
+    Object.keys(Repositories).map<void>(
+      (repo) =>
+        new Promise<void>((resolve, reject) => {
+          exec("git log --name-status", { cwd: repo }, (err, stdout) => {
+            if (err) reject(err);
+            let author = "";
+            for (const line of stdout.split("\n")) {
+              if (line.startsWith("Author:")) author = line.slice(8);
+              if (line.startsWith("M\t") || line.startsWith("A\t")) {
+                const [, name, email] = author.match(/^(.*) <(.+)>$/);
+                if (email) {
+                  if (!authors[email])
+                    authors[email] = {
+                      name,
+                      email,
+                      algorithms: [],
+                    };
+                  authors[email].algorithms.push(
+                    algorithms[
+                      normalize(line.slice(8).split("/").pop().split(".")[0])
+                    ]
+                  );
+                }
+              }
+            }
+            async function collectContributors(page = 0) {
+              requests += 1;
+              const { data } = await octokit.request(
+                `GET /repos/{owner}/{repo}/contributors`,
+                {
+                  owner: "TheAlgorithms",
+                  repo,
+                  per_page: 100,
+                  page,
+                }
+              );
+              for (const contributor of data) {
+                if (!possibleAuthors[contributor.login])
+                  possibleAuthors[contributor.login] = contributor;
+              }
+              if (data.length === 100) {
+                await collectContributors(page + 1);
+              }
+            }
+            if (process.env.GH_TOKEN)
+              collectContributors(0).then(() => {
+                resolve();
+              });
+            else resolve();
+          });
+        })
+    )
+  );
+  // Try to get GitHub avatars and usernames (uses arround 1400/5000 requests to GitHub API)
+
+  // This is needed because the GitHub API somehow
+  // doesn't give me the user email before
+  await Promise.all(
+    Object.values(possibleAuthors).map<void>(async (author: any) => {
+      requests += 1;
+      const { data } = await octokit.request(`GET /users/{username}`, {
+        username: author.login,
+      });
+      author.email = data.email;
+      author.login = data.login;
+    })
+  );
+  Object.values(authors).forEach((author) => {
+    if (author.name === "github-actions") return;
+    const authorFromApi = Object.values(possibleAuthors).find(
+      (x) =>
+        x.email === author.email ||
+        `${x.login}@users.noreply.github.com` === author.email
+    );
+    if (authorFromApi) {
+      author.login = authorFromApi.login;
+      author.avatar = `${authorFromApi.avatar_url}&s=80`;
+    }
+    author.algorithms.forEach((algorithm) => {
+      if (algorithm) {
+        const existing = algorithm.contributors.find(
+          (x) => x.email === author.email
+        );
+        if (!existing) {
+          const contributor = { ...author, commits: 1 };
+          delete contributor.algorithms;
+          algorithm.contributors.push(contributor);
+        } else {
+          existing.commits += 1;
+        }
+      }
+    });
+  });
+  Object.values(algorithms).forEach((algorithm) =>
+    algorithm.contributors.sort((a, b) => a.commits - b.commits)
+  );
+
+  if (process.env.GH_TOKEN)
+    spinner.text += chalk.gray(` (${requests} requests sent to GitHub API)`);
+  spinner.succeed();
+  process.chdir("..");
+
   spinner = ora("Writing algorithms to files").start();
   await fs.promises.mkdir("algorithms");
   await Promise.all(
