@@ -21,7 +21,8 @@
     "plugin:import/errors",
     "plugin:import/warnings",
     "plugin:import/typescript",
-    "prettier"
+    "prettier",
+    "plugin:@next/next/recommended"
   ],
   "rules": {
     "react/jsx-filename-extension": [1, { "extensions": [".ts", ".tsx"] }],
@@ -54,7 +55,8 @@
     "no-nested-ternary": "off",
     "no-continue": "off",
     "no-labels": "off",
-    "no-await-in-loop": "off"
+    "no-await-in-loop": "off",
+    "@next/next/no-img-element": "off"
   },
   "settings": {
     "import/resolver": {
