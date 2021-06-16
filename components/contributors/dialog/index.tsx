@@ -9,11 +9,16 @@ import {
   ListItemAvatar,
   ListItemText,
 } from "@material-ui/core";
+import Translation from "components/translation";
+import useTranslation from "hooks/translation";
 import { Algorithm, Contributor } from "lib/models";
+import React from "react";
 import GithubOriginalIcon from "react-devicons/github/original";
 import classes from "./style.module.css";
 
 function ListItem({ contributor }: { contributor: Contributor }) {
+  const t = useTranslation();
+
   return (
     // Typescript is broken here
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
@@ -26,9 +31,13 @@ function ListItem({ contributor }: { contributor: Contributor }) {
       </ListItemAvatar>
       <ListItemText
         primary={contributor.name}
-        secondary={`${contributor.commits} commit${
-          contributor.commits !== 1 ? "s" : ""
-        }`}
+        secondary={
+          contributor.commits === 1
+            ? t("contributorsOneCommit")
+            : t("contributorsCommits", {
+                numberCommits: contributor.commits.toString(),
+              })
+        }
       />
     </MuiListItem>
   );
@@ -49,7 +58,10 @@ export default function ContributorsDialog({
         <Icon className={classes.icon}>
           <GithubOriginalIcon />
         </Icon>
-        {algorithm.name} Contributors
+        <Translation
+          name="contributorsTitle"
+          variables={{ algorithm: algorithm.name }}
+        />
       </DialogTitle>
       <DialogContent className={classes.dialogContent}>
         <List className={classes.list}>

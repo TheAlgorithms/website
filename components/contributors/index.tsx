@@ -1,6 +1,7 @@
 import { Avatar as MuiAvatar, Tooltip, Typography } from "@material-ui/core";
+import Translation from "components/translation";
 import { Algorithm, Contributor } from "lib/models";
-import { useState } from "react";
+import React, { useState } from "react";
 import ContributorsDialog from "./dialog";
 import classes from "./style.module.css";
 
@@ -42,7 +43,14 @@ export default function Contributors({ algorithm }: { algorithm: Algorithm }) {
             setDialogOpen(true);
           }}
         >
-          and {algorithm.contributors.length - 15} more contributors
+          <Translation
+            name="contributorsMore"
+            variables={{
+              numberContributors: (
+                algorithm.contributors.length - 15
+              ).toString(),
+            }}
+          />
         </Typography>
       )}
       <ContributorsDialog
