@@ -66,5 +66,9 @@
     "analyticsTitle": "Analíticas en este sitio",
     "analyticsFooter": "Analíticas",
     "documentationLanguage": "Documentación",
-    "githubRepository": "Repositorio de GitHub"
+    "githubRepository": "Repositorio de GitHub",
+    "contributorsCommits": "{numberCommits} commits",
+    "contributorsOneCommit": "1 commit",
+    "contributorsTitle": "Contribuidores de {algorithm}",
+    "contributorsMore": "Y {numberContributors} más contribuidores"
 }
