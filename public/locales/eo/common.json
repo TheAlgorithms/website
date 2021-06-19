@@ -66,5 +66,9 @@
     "analyticsTitle": "Analiziloj ĉe ĉi tiu retejo",
     "analyticsFooter": "Analiziloj",
     "documentationLanguage": "Dokumentaro",
-    "githubRepository": "Deponejo ĉe GitHub"
+    "githubRepository": "Deponejo ĉe GitHub",
+    "contributorsTitle": "Kontribuintoj al {algorithm}",
+    "contributorsMore": "kaj {numberContributors} pliaj kontribuintoj",
+    "contributorsCommits": "{numberCommits} enmetoj",
+    "contributorsOneCommit": "1 enmeto"
 }
