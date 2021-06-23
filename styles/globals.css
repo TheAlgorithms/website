@@ -48,6 +48,7 @@ body {
 .nb-output {
   background-color: rgba(0, 0, 0, 0.03) !important;
   padding: 0.5em;
+  display: block;
 }
 
 .dark .hljs,
