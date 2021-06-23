@@ -18,6 +18,10 @@
   transition: margin 0.2s ease;
 }
 
+:global(.dark) .avatar {
+  border: #101316 solid 2px;
+}
+
 .avatarGroup:hover .avatar {
   margin: 10px 2px 10px 0;
 }
