@@ -11,18 +11,19 @@ body,
 body {
   margin-top: 64px !important;
   height: calc(100% - 64px);
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-size: 1rem;
+  margin: 0;
+}
+
+#__next {
+  transition: background 0.4s ease;
 }
 
 *,
 *::after,
 *::before {
   box-sizing: border-box;
-}
-
-body {
-  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
-  font-size: 1rem;
-  margin: 0;
 }
 
 .section {
