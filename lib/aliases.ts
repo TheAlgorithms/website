@@ -1,4 +1,4 @@
-export default {
+const aliases = {
   algorithms: {
     ordenamientoburbuja: "Bubble Sort",
     ordenamientoradix: "Radix Sort",
@@ -50,3 +50,4 @@ export default {
     sbom: "Set Backward Oracle Matching",
   },
 };
+export default aliases;

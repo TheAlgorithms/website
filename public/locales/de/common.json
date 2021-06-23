@@ -60,5 +60,14 @@
     "languageMetaDescription": "Algorithmen implementiert in {language}",
     "algorithmMetaDescriptionExplained": "{algorithm} erklärt und umgesetzt in {implementations}",
     "algorithmMetaDescription": "{algorithm} Implementiert in {implementations}",
-    "indexMetaDescription": "Open Source-Ressource zum Erlernen von Datenstrukturen und Algorithmen und deren Implementierung in einer beliebigen Programmiersprache"
+    "indexMetaDescription": "Open Source-Ressource zum Erlernen von Datenstrukturen und Algorithmen und deren Implementierung in einer beliebigen Programmiersprache",
+    "contributorsCommits": "{numberCommits} Commits",
+    "contributorsOneCommit": "1 Commit",
+    "contributorsTitle": "Mitwirkende an \"{algorithm}\"",
+    "contributorsMore": "und {numberContributors} weitere Mitwirkende",
+    "documentationLanguage": "Dokumentation",
+    "githubRepository": "GitHub-Repository",
+    "analyticsText": "Wir verwenden [Plausible Analytics] auf dieser Website, um anonyme Nutzungsdaten zu sammeln und so zu sehen, wie viele Personen unsere Website nutzen und welche Funktionen am meisten genutzt werden. Die Website verfolgt in keiner Weise einzelne Besucher. Alle Daten werden nur in aggregierter Form erfasst. Es werden keine persönlichen Daten gesammelt, und es werden keine Cookies verwendet. Alle gesammelten Daten können hier eingesehen werden:",
+    "analyticsTitle": "Analytics auf dieser Website",
+    "analyticsFooter": "Analytics"
 }

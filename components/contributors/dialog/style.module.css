@@ -1,0 +1,24 @@
+.dialogContent {
+  display: flex;
+  padding: 0 !important;
+}
+
+.list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+@media (max-width: 600px) {
+  .list {
+    grid-template-columns: 1fr;
+  }
+}
+
+.icon :global(svg) {
+  transform: translateY(4px) !important;
+  margin-right: 12px;
+}
+
+:global(.dark) .icon :global(svg) {
+  fill: white !important;
+}

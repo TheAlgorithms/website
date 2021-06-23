@@ -63,5 +63,11 @@
     "algorithmMetaDescription": "{algorithm} realigita per {implementations}",
     "analyticsText": "Ni uzas [Plausible Analytics] ĉe ĉi tiu retejo por kolekti anonimajn datenojn pri uzado por scii kiom da homoj uzas nian retejon, kaj kiuj funkcioj estas la plej uzataj. La retejo neniel spuras unuopajn vizitantojn. Ĉiuj datenoj estas prigrupaj. Neniuj personaj datenoj estas kolektataj, kaj neniuj kuketoj estas uzataj. Vi povas vidi ĉiujn kolektitajn datenojn ĉi tie:",
     "analyticsTitle": "Analiziloj ĉe ĉi tiu retejo",
-    "analyticsFooter": "Analiziloj"
+    "analyticsFooter": "Analiziloj",
+    "documentationLanguage": "Dokumentaro",
+    "githubRepository": "Deponejo ĉe GitHub",
+    "contributorsTitle": "Kontribuintoj al {algorithm}",
+    "contributorsMore": "kaj {numberContributors} pliaj kontribuintoj",
+    "contributorsCommits": "{numberCommits} enmetoj",
+    "contributorsOneCommit": "1 enmeto"
 }

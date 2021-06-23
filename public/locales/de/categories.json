@@ -176,5 +176,10 @@
     "builder": "Baumeister",
     "backwardoraclematching": "Oracle-Matching rückwärts",
     "associativemining": "Assoziativer Bergbau",
-    "array": "Array"
+    "array": "Array",
+    "heap": "Heap",
+    "hashtable": "Hashtabelle",
+    "hashset": "Hash-Set",
+    "hashmap": "Hash Map",
+    "hashing": "Hashing"
 }

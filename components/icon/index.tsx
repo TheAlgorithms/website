@@ -81,6 +81,8 @@ export default function LanguageIcon({
               return icon("elm", colored ? "original" : "plain");
             case "matlab-octave":
               return icon("matlab", colored ? "original" : "plain");
+            case "julia":
+              return icon("julia", colored ? "original" : "plain");
             default:
               throw new Error(`Missing icon for ${language}`);
           }
