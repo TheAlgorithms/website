@@ -9,8 +9,8 @@
     "start": "next start",
     "export": "yarn build && next export",
     "fetch-algorithms": "ts-node scripts/fetch-algorithms.ts",
-    "lint": "tsc && next lint",
-    "lint-fix": "next lint --fix"
+    "lint": "tsc && eslint ./",
+    "lint-fix": "eslint ./ --fix"
   },
   "dependencies": {
     "@material-ui/core": "^4.11.4",
@@ -25,7 +25,7 @@
     "highlight.js": "^11.0.1",
     "iframe-resizer-react": "^1.1.0",
     "katex": "^0.13.11",
-    "next": "^11.0.0",
+    "next": "10",
     "next-i18next": "^8.3.0",
     "nextjs-progressbar": "^0.0.10",
     "node-fetch": "^2.6.1",
@@ -58,8 +58,8 @@
     "@typescript-eslint/parser": "^4.24.0",
     "babel-plugin-module-resolver": "^4.1.0",
     "eslint": "^7.29.0",
-    "eslint-config-next": "^11.0.0",
     "eslint-config-airbnb": "^18.2.1",
+    "eslint-config-next": "^11.0.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-import-resolver-babel-module": "^5.3.1",
     "eslint-plugin-import": "^2.23.3",
