@@ -59,7 +59,7 @@
     "noResults": "Keine Resultate für",
     "languageMetaDescription": "Algorithmen implementiert in {language}",
     "algorithmMetaDescriptionExplained": "{algorithm} erklärt und umgesetzt in {implementations}",
-    "algorithmMetaDescription": "{algorithm} Implementiert in {implementations}",
+    "algorithmMetaDescription": "{algorithm} implementiert in {implementations}",
     "indexMetaDescription": "Open Source-Ressource zum Erlernen von Datenstrukturen und Algorithmen und deren Implementierung in einer beliebigen Programmiersprache",
     "contributorsCommits": "{numberCommits} Commits",
     "contributorsOneCommit": "1 Commit",

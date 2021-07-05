@@ -65,5 +65,7 @@
     "analyticsTitle": "Analitika na ovoj stranici",
     "analyticsFooter": "Analitika",
     "documentationLanguage": "Dokumentacija",
-    "githubRepository": "GitHub repozitorij"
+    "githubRepository": "GitHub repozitorij",
+    "contributorsTitle": "{algorithm} doprinositelji",
+    "contributorsMore": "i još {numberContributors} doprinositelja"
 }
