@@ -5,6 +5,10 @@
   height: 350px;
 }
 
+.paper {
+  transition: box-shadow 0.4s ease, background 0.4s ease;
+}
+
 .scrollContainer {
   transition: height 0.4s ease;
   display: flex;
@@ -21,10 +25,13 @@
   padding-bottom: 5px;
   position: absolute;
   transform: translateY(0);
+  display: flex;
+  align-items: center;
 }
 
-.actions button {
-  margin-left: 10px;
+.closeBtn {
+  border-radius: 50% !important;
+  margin-left: 5px;
 }
 
 .code {
@@ -63,7 +70,7 @@
 
 .implementations {
   transform: translateY(-15px);
-  transition: transform 0.4s ease;
+  transition: transform 0.4s ease, padding 0.4s ease;
 }
 
 .implementation {
@@ -75,8 +82,17 @@
   height: calc(100vh - 150px);
 }
 
+:not(.active) > .paper {
+  box-shadow: none !important;
+  background: none !important;
+}
+
 .active .scrollContainer {
   height: calc(100vh - 150px);
+}
+
+.active .implementations {
+  padding: 5px 10px;
 }
 
 @media (max-width: 800px) {
@@ -97,6 +113,10 @@
 }
 
 @media (min-width: 800px) {
+  .actions {
+    margin-top: 10px;
+  }
+
   .active .actions {
     padding-top: 10px;
     padding-right: 20px;

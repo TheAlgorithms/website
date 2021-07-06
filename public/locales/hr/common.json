@@ -42,7 +42,6 @@
     "algorithmExplanation": "Algoritam je skup pravila koji uzima jedan ili više unosa, zatim izvodi unutarnje izračune i manipulacije podacima te vraća rezultat ili skup rezultata. Ukratko, algoritmi olakšavaju život. Od složenih manipulacija i mapiranja podataka, do jednostavne aritmetike, algoritmi slijede niz koraka kako bi proizveli koristan rezultat. Primjer algoritma je jednostavna funkcija koja uzima dvije vrijednosti unosa, zbraja ih i vraća njihov zbroj.",
     "algorithmExplanationTitle": "Što je algoritam?",
     "viewOnGithub": "Pogledaj na GitHubu",
-    "close": "Zatvori",
     "addTranslationInfo": "Dupliciraj ovaj repozitorij i dodaj objašnjenje kao datoteku s markdown formatiranjem na osnovi engleske verzije [<code>{ogFilename}</code>] u mapi tvog jezika (<code>{locale}</code>). Kad prevedeš datoteku, možeš otvoriti zahtjev za povlačenje kako bi se tvoj prijevod preuzeo.",
     "addTranslation": "Prevedi ovo objašnjenje",
     "editPageHelp": "Ako imaš bilo kakvih problema, zatraži pomoć na našem [Discord] poslužitelju.",

@@ -40,7 +40,7 @@ function MyApp({ Component, pageProps }: AppProps) {
   }, [isDarkTheme]);
 
   return (
-    <div style={{ height: "100%" }}>
+    <>
       <ThemeProvider theme={isDarkTheme ? darkTheme : lightTheme}>
         <Head />
         <CssBaseline />
@@ -60,7 +60,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         <Component {...pageProps} />
         <Footer />
       </ThemeProvider>
-    </div>
+    </>
   );
 }
 
