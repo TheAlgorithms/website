@@ -67,5 +67,7 @@
     "documentationLanguage": "Dokumentacija",
     "githubRepository": "GitHub repozitorij",
     "contributorsTitle": "{algorithm} doprinositelji",
-    "contributorsMore": "i još {numberContributors} doprinositelja"
+    "contributorsMore": "i još {numberContributors} doprinositelja",
+    "contributorsCommits": "{numberCommits} izmjene",
+    "contributorsOneCommit": "1 izmjena"
 }
