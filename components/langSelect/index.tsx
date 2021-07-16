@@ -41,6 +41,11 @@ const languages: { name: string; locale: string; icon: string }[] = [
     locale: "hr",
     icon: "hr",
   },
+  {
+    name: "भारत।",
+    locale: "hi",
+    icon: "hi",
+  },
 ];
 
 function MenuContent() {
