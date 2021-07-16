@@ -20,5 +20,3 @@ jobs:
         run: yarn fetch-algorithms
       - name: Lint
         run: yarn lint
-      - name: Lint fix
-        run: yarn lint-fix
