@@ -18,15 +18,7 @@ jobs:
         run: yarn
       - name: Fetch Algorithms
         run: yarn fetch-algorithms
-      - name: Commit potential new translations for categories
-        uses: stefanzweifel/git-auto-commit-action@v4
-        with:
-          commit_message: Update translations for categories
       - name: Lint
         run: yarn lint
       - name: Lint fix
         run: yarn lint-fix
-      - name: Commit fixed linting
-        uses: stefanzweifel/git-auto-commit-action@v4
-        with:
-          commit_message: Fix linting
