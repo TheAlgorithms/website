@@ -1,1 +1,10 @@
-{}
+{
+    "featuredAlgorithms": "चित्रित कलन विधि",
+    "topAlgorithms": "शीर्ष कलन विधि",
+    "donateTitle": "दान करिए",
+    "contributeTitle": "योगदान",
+    "programmingLanguages": "हम बहुत सारी प्रोग्रामिंग भाषाओं को सहयोग देते हैं| हर भाषा की खुद की गितहब रिपॉजिटरी है जहां पर कलन विधिओं के लिए सारा कोड रखा जाता है| मौजूदी प्रोग्रामिंग भाषाओं की सूची:",
+    "programmingLanguagesTitle": "प्रोग्रामिंग भाषाएँ",
+    "aboutUsTitle": "हमारे बारे में",
+    "algorithmExplanationTitle": "कलन विधि क्या है?"
+}
