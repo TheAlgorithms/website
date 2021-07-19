@@ -1,7 +1,7 @@
 import React from "react";
-import { createMuiTheme, ThemeProvider } from "@material-ui/core/styles";
+import { createTheme, ThemeProvider } from "@material-ui/core/styles";
 
-export const lightTheme = createMuiTheme({
+export const lightTheme = createTheme({
   palette: {
     type: "light",
     secondary: {
@@ -10,7 +10,7 @@ export const lightTheme = createMuiTheme({
   },
 });
 
-export const darkTheme = createMuiTheme({
+export const darkTheme = createTheme({
   palette: {
     type: "dark",
     primary: {
@@ -26,7 +26,7 @@ export const darkTheme = createMuiTheme({
   },
 });
 
-const jumboTheme = createMuiTheme({
+const jumboTheme = createTheme({
   palette: {
     type: "dark",
     primary: {

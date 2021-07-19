@@ -49,7 +49,7 @@ export default function AlgorithmCard({ algorithm }: { algorithm: Algorithm }) {
       </CardContent>
       <CardActions className={classes.actions}>
         <Implementations implementations={algorithm.implementations} />
-        <NextLink href={`/algorithm/${algorithm.slug}`}>
+        <NextLink href={`/algorithm/${algorithm.slug}`} passHref>
           <Button color="primary" aria-label={`View ${algorithm.name}`}>
             {t("moreAlgorithmCard")}
           </Button>
