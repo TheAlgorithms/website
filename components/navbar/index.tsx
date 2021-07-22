@@ -86,7 +86,7 @@ export default function Navbar({
           <Link href="/" style={{ color: "white" }}>
             <Typography variant="h6" className={classes.title}>
               <img src="/logo_t.svg" alt="The Algorithms logo" />
-              TheAlgorithms
+              The Algorithms
             </Typography>
           </Link>
           {!isHome && !smallScreen && (
