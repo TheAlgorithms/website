@@ -83,8 +83,7 @@ Open the pull request against `main`. Vercel will automatically create a preview
 
 ## License
 
-The website itself (this repository) is licensed under [MIT](https://github.com/TheAlgorithms/website/blob/main/LICENSE),\
-while all the licenses for the code on the website can be found in the respective repositories.
+The source code of website itself (this repository) is licensed under [MIT](https://github.com/TheAlgorithms/website/blob/main/LICENSE), while all the licenses for the code and explanations on the website can be found in the respective repositories.
 
 ## Learn More
 
