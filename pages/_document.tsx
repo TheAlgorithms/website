@@ -17,9 +17,9 @@ class MyDocument extends Document {
 }
 
 MyDocument.getInitialProps = async (ctx) => {
-  process.stdout.write(
-    `\r${`Building page ${ctx.asPath} (${ctx.locale})`.padEnd(60, " ")}\n`
-  );
+  // process.stdout.write(
+  //   `\r${`Building page ${ctx.asPath} (${ctx.locale})`.padEnd(60, " ")}\n`
+  // );
 
   // Render app and page and get the context of the page with collected side effects.
   const sheets = new ServerStyleSheets();

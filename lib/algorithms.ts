@@ -17,22 +17,22 @@ export async function getAlgorithmSlugs() {
 export async function getAlgorithm(slug: string, minimal = false) {
   const algorithm: Algorithm = JSON.parse(
     (
-      await fs.promises.readFile(path.join("tmp", "algorithms", `${slug}.json`))
+      await fs.promises.readFile(
+        path.join(
+          "tmp",
+          minimal ? "algorithms-min" : "algorithms",
+          `${slug}.json`
+        )
+      )
     ).toString()
   );
-  if (minimal) {
-    delete algorithm.body;
-    Object.keys(algorithm.implementations).forEach((key) => {
-      algorithm.implementations[key] = "";
-    });
-  }
   return algorithm;
 }
 
 export async function getAllAlgorithms() {
   return (await Promise.all(
     (
-      await fs.promises.readdir("tmp/algorithms")
+      await fs.promises.readdir("tmp/algorithms-min")
     ).map(async (file) =>
       JSON.parse(
         (

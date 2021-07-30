@@ -25,7 +25,7 @@ export default function LanguageIcon({
   color?: string;
 }) {
   const theme: Theme = useTheme();
-  const colored = theme.palette.type !== "dark";
+  const colored = theme?.palette.type !== "dark";
 
   return (
     <Tooltip className={className} title={tooltip || ""}>

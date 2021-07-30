@@ -24,7 +24,7 @@ export async function getLanguage(language: string) {
       JSON.parse(
         (
           await fs.promises.readFile(
-            path.join("tmp", "algorithms", `${algorithmName}.json`)
+            path.join("tmp", "algorithms-min", `${algorithmName}.json`)
           )
         ).toString()
       )

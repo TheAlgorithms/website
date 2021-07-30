@@ -376,6 +376,19 @@ let spinner: Ora;
       );
     })
   );
+  await fs.promises.mkdir("algorithms-min");
+  await Promise.all(
+    Object.values(algorithms).map(async (algorithm) => {
+      delete algorithm.body;
+      Object.keys(algorithm.implementations).forEach((key) => {
+        algorithm.implementations[key] = "";
+      });
+      await fs.promises.writeFile(
+        path.join("algorithms-min", `${algorithm.slug}.json`),
+        JSON.stringify(algorithm, null, 2)
+      );
+    })
+  );
   await fs.promises.writeFile(
     "algorithms.json",
     JSON.stringify(Object.values(algorithms))

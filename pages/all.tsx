@@ -20,7 +20,7 @@ export default function All({ algorithms }) {
 export async function getStaticProps({ locale }) {
   return {
     props: {
-      algorithms: getAllAlgorithms(),
+      algorithms: await getAllAlgorithms(),
       ...(await serverSideTranslations(locale, ["common", "categories"])),
     },
   };
