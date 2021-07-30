@@ -76,13 +76,13 @@ export default function AlgorithmPage({
 
 export const getStaticProps: GetStaticProps = async ({ params, locale }) => ({
   props: {
-    algorithm: getAlgorithm(params.algorithm.toString()),
+    algorithm: await getAlgorithm(params.algorithm.toString()),
     locale,
     ...(await serverSideTranslations(locale, ["common", "categories"])),
   },
 });
 
 export const getStaticPaths: GetStaticPaths = async () => ({
-  paths: getAlgorithmSlugs(),
+  paths: await getAlgorithmSlugs(),
   fallback: false,
 });

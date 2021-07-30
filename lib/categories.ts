@@ -4,9 +4,13 @@ import locales from "lib/locales";
 import { normalize } from "./normalize";
 import { Algorithm } from "./models";
 
-export function getCategories() {
+export async function getCategories() {
   const categories: string[] = Object.keys(
-    JSON.parse(fs.readFileSync(path.join("tmp", "categories.json")).toString())
+    JSON.parse(
+      (
+        await fs.promises.readFile(path.join("tmp", "categories.json"))
+      ).toString()
+    )
   );
   return categories.flatMap((category) =>
     locales.map((locale) => ({
@@ -20,7 +24,7 @@ export function getCategories() {
 
 export async function getCategory(category: string) {
   const categories: { [category: string]: string[] } = JSON.parse(
-    fs.readFileSync(path.join("tmp", "categories.json")).toString()
+    (await fs.promises.readFile(path.join("tmp", "categories.json"))).toString()
   );
   const categoryName = Object.keys(categories).find(
     (x) => normalize(x) === normalize(category)

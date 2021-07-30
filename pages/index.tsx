@@ -323,17 +323,17 @@ export async function getStaticProps({ locale }) {
   return {
     props: {
       topAlgorithms: [
-        getAlgorithm("binary-search", true),
-        getAlgorithm("quick-sort", true),
-        getAlgorithm("fibonacci-numbers", true),
+        await getAlgorithm("binary-search", true),
+        await getAlgorithm("quick-sort", true),
+        await getAlgorithm("fibonacci-numbers", true),
       ],
       featuredAlgorithms: [
-        getAlgorithm("coin-change", true),
-        getAlgorithm("logistic-regression", true),
-        getAlgorithm("caesar-cipher", true),
-        getAlgorithm("a-simple-gan", true),
-        getAlgorithm("bellman-ford", true),
-        getAlgorithm("bogo-sort", true),
+        await getAlgorithm("coin-change", true),
+        await getAlgorithm("logistic-regression", true),
+        await getAlgorithm("caesar-cipher", true),
+        await getAlgorithm("a-simple-gan", true),
+        await getAlgorithm("bellman-ford", true),
+        await getAlgorithm("bogo-sort", true),
       ],
       ...(await serverSideTranslations(locale, ["common", "categories"])),
       stars,

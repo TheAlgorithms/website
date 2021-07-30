@@ -28,6 +28,6 @@ export const getStaticProps: GetStaticProps = async ({ params, locale }) => ({
 });
 
 export const getStaticPaths: GetStaticPaths = async () => ({
-  paths: getCategories(),
+  paths: await getCategories(),
   fallback: false,
 });

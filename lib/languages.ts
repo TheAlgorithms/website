@@ -17,7 +17,7 @@ export function getLanguages() {
 
 export async function getLanguage(language: string) {
   const languages: { [language: string]: string[] } = JSON.parse(
-    fs.readFileSync(path.join("tmp", "languages.json")).toString()
+    (await fs.promises.readFile(path.join("tmp", "languages.json"))).toString()
   );
   const algorithms: Algorithm[] = await Promise.all(
     languages[language].map(async (algorithmName) =>

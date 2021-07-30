@@ -69,5 +69,6 @@
   "contributorsMore": "and {numberContributors} more contributors",
   "contributorsTitle": "{algorithm} Contributors",
   "contributorsOneCommit": "1 commit",
-  "contributorsCommits": "{numberCommits} commits"
+  "contributorsCommits": "{numberCommits} commits",
+  "internalServerError": "Internal Server Error"
 }
