@@ -199,5 +199,6 @@
     "setbackwardoraclematching": "Establecer la correspondencia de Oracle hacia atrás",
     "numericalanalysis": "Análisis numérico",
     "lstm": "Lstm",
-    "backwardoraclematching": "Comparación de Oracle hacia atrás"
+    "backwardoraclematching": "Comparación de Oracle hacia atrás",
+    "basic": "Básico"
 }
