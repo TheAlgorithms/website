@@ -69,5 +69,6 @@
     "contributorsTitle": "{algorithm} doprinositelji",
     "contributorsMore": "i još {numberContributors} doprinositelja",
     "contributorsCommits": "{numberCommits} izmjene",
-    "contributorsOneCommit": "1 izmjena"
+    "contributorsOneCommit": "1 izmjena",
+    "internalServerError": "Interna greška poslužitelja"
 }
