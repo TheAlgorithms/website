@@ -1,0 +1,277 @@
+<svg width="1280" height="800" version="1.1" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <clipPath id="a">
+      <path d="M0 0h4000v2500H0z" clip-rule="evenodd" />
+    </clipPath>
+  </defs>
+  <g transform="scale(.32)" clip-path="url(#a)" font-family="Courier New" font-size="13" fill="rgb(233, 233, 233)">
+    <g fill="#a0a1a7" font-style="italic">
+      <text transform="translate(25 65.625) scale(3.125)">
+        <tspan x="0 8 16 24 32 40 48 56 64 72 80 88 96 104 112 120 128 136 144 152 160 168 176 184 192 200 208 216 224 232 240 248 256 264 272 280 288 296 304 312 320 328" y="0">/* ARM assembly AARCH64 Raspberry PI 3B */</tspan>
+      </text>
+      <text transform="translate(75 118.75) scale(3.125)">
+        <tspan x="0 8 16 32 40 48 56 64 72 80 88 96 104 112 120 128 136 144 152 160 168 176 184 208 216" y="0">/* program sha256_64.s */</tspan>
+      </text>
+      <text transform="translate(75 221.88) scale(3.125)">
+        <tspan x="0 8 16 24 32 40 48 56 64 72 80 88 96 104 112 120 128 136 144 152 160 168 176 184 192 200 208 216 224 232 240 248 256 264 272 280 288 296 304 312 320 328 336 344 352" y="0">/*******************************************/</tspan>
+      </text>
+      <text transform="translate(75 275) scale(3.125)">
+        <tspan x="0 8 16 24 32 40 48 56 64 72 80 88 96 104 112 120 128 136 144 344 352" y="0">/* Constantes file */</tspan>
+      </text>
+      <text transform="translate(75 328.12) scale(3.125)">
+        <tspan x="0 8 16 24 32 40 48 56 64 72 80 88 96 104 112 120 128 136 144 152 160 168 176 184 192 200 208 216 224 232 240 248 256 264 272 280 288 296 304 312 320 328 336 344 352" y="0">/*******************************************/</tspan>
+      </text>
+      <text transform="translate(75 381.25) scale(3.125)">
+        <tspan x="0 8 16 24 32 40 48 56 64 72 80 88 96 104 112 120 128 136 144 152 160 168 176 184 192 200 208 216 224 232 240 248 256 264 272 280 288 296 304 312 320 328 336 344 352 360 368 376 384 392 400 408 416 424 432 440 448 456 464 472 480 488 496 504 512 520 528 536 544 552 560" y="0">/* for this file see task include a file in language AArch64 assembly*/</tspan>
+      </text>
+    </g>
+    <g font-weight="400">
+      <text transform="translate(75 431.25) scale(3.125)" fill="#4078f2">
+        <tspan x="0 8 16 24 32 40 48 56" y="0">.include</tspan>
+      </text>
+      <text transform="translate(300 431.25) scale(3.125)" fill="#50a14f">
+        <tspan x="0 8 16 24 32 40 48 56 64 72 80 88 96 104 112 120 128 136 144 152 160 168 176 184 192 200 208 216 224 232 240" y="0">"../includeConstantesARM64.inc"</tspan>
+      </text>
+      <text transform="translate(75 534.38) scale(3.125)" fill="#4078f2">
+        <tspan x="0 8 16 24" y="0">.equ</tspan>
+      </text>
+      <text transform="translate(200 534.38) scale(3.125)">
+        <tspan x="0 8 16 24 32 40 48 56" y="0">LGHASH,</tspan>
+      </text>
+      <text transform="translate(400 534.38) scale(3.125)" fill="#986801">
+        <tspan x="0 8" y="0">32</tspan>
+      </text>
+    </g>
+    <g fill="#a0a1a7" font-style="italic">
+      <text transform="translate(900 534.38) scale(3.125)">
+        <tspan x="0 8 16 24 32 40 48 56 64 72 80 88 96 104 112 120 128" y="0">// result length</tspan>
+      </text>
+      <text transform="translate(75 637.5) scale(3.125)">
+        <tspan x="0 8 16 24 32 40 48 56 64 72 80 88 96 104 112 120 128 136 144 152 160 168 176 184 192 200 208 216 224 232 240 248 256 264 272 280 288 296 304 312 320 328 336 344 352" y="0">/*******************************************/</tspan>
+      </text>
+      <text transform="translate(75 690.62) scale(3.125)">
+        <tspan x="0 8 16 24 32 40 48 56 64 72 80 88 96 104 352 360" y="0">/* Structures */</tspan>
+      </text>
+      <text transform="translate(75 743.75) scale(3.125)">
+        <tspan x="0 8 16 24 32 40 48 56 64 72 80 88 96 104 112 120 128 136 144 152 160 168 176 184 192 200 208 216 224 232 240 248 256 264 272 280 288 296 304 312 320 328 336 344 352 360" y="0">/********************************************/</tspan>
+      </text>
+      <text transform="translate(75 796.88) scale(3.125)">
+        <tspan x="0 8 16 24 32 40 48 56 64 72 80 88 96 104 112 120 128 136 144 152 160 176 184 192 200 208 216 224 232 240 248 264 272" y="0">/* example structure variables */</tspan>
+      </text>
+    </g>
+    <g font-weight="400">
+      <text transform="translate(175 846.88) scale(3.125)">
+        <tspan x="0 8 16 24 32 40 48 56" y="0">.struct</tspan>
+      </text>
+      <text transform="translate(400 846.88) scale(3.125)" fill="#986801">
+        <tspan x="0" y="0">0</tspan>
+      </text>
+      <text transform="translate(75 900) scale(3.125)" fill="#4078f2">
+        <tspan x="0 8 16 24 32 40" y="0">var_a:</tspan>
+      </text>
+    </g>
+    <text transform="translate(750 900) scale(3.125)" fill="#a0a1a7" font-style="italic">
+      <tspan x="0 8 16 24" y="0">// a</tspan>
+    </text>
+    <g font-weight="400">
+      <text transform="translate(175 950) scale(3.125)">
+        <tspan x="0 8 16 24 32 40 48 56 72 80 88 96 104 112 120 128" y="0">.struct var_a +</tspan>
+      </text>
+      <text transform="translate(600 950) scale(3.125)" fill="#986801">
+        <tspan x="0" y="0">4</tspan>
+      </text>
+      <text transform="translate(75 1003.1) scale(3.125)" fill="#4078f2">
+        <tspan x="0 8 16 24 32 40" y="0">var_b:</tspan>
+      </text>
+    </g>
+    <text transform="translate(750 1003.1) scale(3.125)" fill="#a0a1a7" font-style="italic">
+      <tspan x="0 8 16 24" y="0">// b</tspan>
+    </text>
+    <g font-weight="400">
+      <text transform="translate(175 1053.1) scale(3.125)">
+        <tspan x="0 8 16 24 32 40 48 56 72 80 88 96 104 112 120 128" y="0">.struct var_b +</tspan>
+      </text>
+      <text transform="translate(600 1053.1) scale(3.125)" fill="#986801">
+        <tspan x="0" y="0">4</tspan>
+      </text>
+      <text transform="translate(75 1106.2) scale(3.125)" fill="#4078f2">
+        <tspan x="0 8 16 24 32 40" y="0">var_c:</tspan>
+      </text>
+    </g>
+    <text transform="translate(750 1106.2) scale(3.125)" fill="#a0a1a7" font-style="italic">
+      <tspan x="0 8 16 24" y="0">// c</tspan>
+    </text>
+    <g font-weight="400">
+      <text transform="translate(175 1156.2) scale(3.125)">
+        <tspan x="0 8 16 24 32 40 48 56 72 80 88 96 104 112 120 128" y="0">.struct var_c +</tspan>
+      </text>
+      <text transform="translate(600 1156.2) scale(3.125)" fill="#986801">
+        <tspan x="0" y="0">4</tspan>
+      </text>
+      <text transform="translate(75 1209.4) scale(3.125)" fill="#4078f2">
+        <tspan x="0 8 16 24 32 40" y="0">var_d:</tspan>
+      </text>
+    </g>
+    <text transform="translate(750 1209.4) scale(3.125)" fill="#a0a1a7" font-style="italic">
+      <tspan x="0 8 16 24" y="0">// d</tspan>
+    </text>
+    <g font-weight="400">
+      <text transform="translate(175 1259.4) scale(3.125)">
+        <tspan x="0 8 16 24 32 40 48 56 72 80 88 96 104 112 120 128" y="0">.struct var_d +</tspan>
+      </text>
+      <text transform="translate(600 1259.4) scale(3.125)" fill="#986801">
+        <tspan x="0" y="0">4</tspan>
+      </text>
+      <text transform="translate(75 1312.5) scale(3.125)" fill="#4078f2">
+        <tspan x="0 8 16 24 32 40" y="0">var_e:</tspan>
+      </text>
+    </g>
+    <text transform="translate(750 1312.5) scale(3.125)" fill="#a0a1a7" font-style="italic">
+      <tspan x="0 8 16 24" y="0">// e</tspan>
+    </text>
+    <g font-weight="400">
+      <text transform="translate(175 1362.5) scale(3.125)">
+        <tspan x="0 8 16 24 32 40 48 56 72 80 88 96 104 112 120 128" y="0">.struct var_e +</tspan>
+      </text>
+      <text transform="translate(600 1362.5) scale(3.125)" fill="#986801">
+        <tspan x="0" y="0">4</tspan>
+      </text>
+      <text transform="translate(75 1415.6) scale(3.125)" fill="#4078f2">
+        <tspan x="0 8 16 24 32 40" y="0">var_f:</tspan>
+      </text>
+    </g>
+    <text transform="translate(750 1415.6) scale(3.125)" fill="#a0a1a7" font-style="italic">
+      <tspan x="0 8 16 24" y="0">// f</tspan>
+    </text>
+    <g font-weight="400">
+      <text transform="translate(175 1465.6) scale(3.125)">
+        <tspan x="0 8 16 24 32 40 48 56 72 80 88 96 104 112 120 128" y="0">.struct var_f +</tspan>
+      </text>
+      <text transform="translate(600 1465.6) scale(3.125)" fill="#986801">
+        <tspan x="0" y="0">4</tspan>
+      </text>
+      <text transform="translate(75 1518.8) scale(3.125)" fill="#4078f2">
+        <tspan x="0 8 16 24 32 40" y="0">var_g:</tspan>
+      </text>
+    </g>
+    <text transform="translate(750 1518.8) scale(3.125)" fill="#a0a1a7" font-style="italic">
+      <tspan x="0 8 16 24" y="0">// g</tspan>
+    </text>
+    <g font-weight="400">
+      <text transform="translate(175 1568.8) scale(3.125)">
+        <tspan x="0 8 16 24 32 40 48 56 72 80 88 96 104 112 120 128" y="0">.struct var_g +</tspan>
+      </text>
+      <text transform="translate(600 1568.8) scale(3.125)" fill="#986801">
+        <tspan x="0" y="0">4</tspan>
+      </text>
+      <text transform="translate(75 1621.9) scale(3.125)" fill="#4078f2">
+        <tspan x="0 8 16 24 32 40" y="0">var_h:</tspan>
+      </text>
+    </g>
+    <text transform="translate(750 1621.9) scale(3.125)" fill="#a0a1a7" font-style="italic">
+      <tspan x="0 8 16 24" y="0">// h</tspan>
+    </text>
+    <text transform="translate(175 1671.9) scale(3.125)" font-weight="400">
+      <tspan x="0 8 16 24 32 40 48 56 72 80 88 96 104 112 120 128" y="0">.struct var_h +</tspan>
+    </text>
+    <text transform="translate(600 1671.9) scale(3.125)" fill="#986801" font-weight="400">
+      <tspan x="0" y="0">4</tspan>
+    </text>
+    <g fill="#a0a1a7" font-style="italic">
+      <text transform="translate(75 1775) scale(3.125)">
+        <tspan x="0 8 16 24 32 40 48 56 64 72 80 88 96 104 112 120 128 136 144 152 160 168 176 184 192 200 208 216 224 232 240 248 256 264 272" y="0">/*********************************/</tspan>
+      </text>
+      <text transform="translate(75 1828.1) scale(3.125)">
+        <tspan x="0 8 16 24 32 40 48 56 64 72 80 88 96 104 112 120 128 136 144 152 264 272" y="0">/* Initialized data */</tspan>
+      </text>
+      <text transform="translate(75 1881.2) scale(3.125)">
+        <tspan x="0 8 16 24 32 40 48 56 64 72 80 88 96 104 112 120 128 136 144 152 160 168 176 184 192 200 208 216 224 232 240 248 256 264 272" y="0">/*********************************/</tspan>
+      </text>
+    </g>
+    <g fill="#4078f2" font-weight="400">
+      <text transform="translate(75 1931.2) scale(3.125)">
+        <tspan x="0 8 16 24 32" y="0">.data</tspan>
+      </text>
+      <text transform="translate(75 1981.2) scale(3.125)">
+        <tspan x="0 8 16 24 32 40 48 56 64 72 80 88 96 104" y="0">szMessRosetta:</tspan>
+      </text>
+      <text transform="translate(625 1981.2) scale(3.125)">
+        <tspan x="0 8 16 24 32 40" y="0">.asciz</tspan>
+      </text>
+    </g>
+    <g font-weight="400">
+      <text transform="translate(800 1981.2) scale(3.125)" fill="#50a14f">
+        <tspan x="0 8 16 24 32 40 48 56 64 72 80 88 96 104" y="0">"Rosetta code"</tspan>
+      </text>
+      <text transform="translate(75 2031.2) scale(3.125)" fill="#4078f2">
+        <tspan x="0 8 16 24 32 40 48 56 64 72 80 88" y="0">szMessTest1:</tspan>
+      </text>
+      <text transform="translate(650 2031.2) scale(3.125)" fill="#4078f2">
+        <tspan x="0 8 16 24 32 40" y="0">.asciz</tspan>
+      </text>
+      <text transform="translate(825 2031.2) scale(3.125)" fill="#50a14f">
+        <tspan x="0 8 16 24 32" y="0">"abc"</tspan>
+      </text>
+      <text transform="translate(75 2081.2) scale(3.125)" fill="#4078f2">
+        <tspan x="0 8 16 24 32 40 48 56 64 72 80 88" y="0">szMessSup64:</tspan>
+      </text>
+      <text transform="translate(650 2081.2) scale(3.125)" fill="#4078f2">
+        <tspan x="0 8 16 24 32 40" y="0">.ascii</tspan>
+      </text>
+      <text transform="translate(825 2081.2) scale(3.125)" fill="#50a14f">
+        <tspan x="0 8 16 24 32 40 48 56 64 72 80 88 96 104 112 120 128 136 144 152 160 168 176 184 192 200 208 216" y="0">"ABCDEFGHIJKLMNOPQRSTUVWXYZ"</tspan>
+      </text>
+      <text transform="translate(650 2131.2) scale(3.125)" fill="#4078f2">
+        <tspan x="0 8 16 24 32 40" y="0">.ascii</tspan>
+      </text>
+      <text transform="translate(825 2131.2) scale(3.125)" fill="#50a14f">
+        <tspan x="0 8 16 24 32 40 48 56 64 72 80 88 96 104 112 120 128 136 144 152 160 168 176 184 192 200 208 216" y="0">"abcdefghijklmnopqrstuvwxyz"</tspan>
+      </text>
+      <text transform="translate(650 2181.2) scale(3.125)" fill="#4078f2">
+        <tspan x="0 8 16 24 32 40" y="0">.asciz</tspan>
+      </text>
+      <text transform="translate(825 2181.2) scale(3.125)" fill="#50a14f">
+        <tspan x="0 8 16 24 32 40 48 56 64 72 80 88 96 104 112 120 128 136 144 152 160 168" y="0">"1234567890AZERTYUIOP"</tspan>
+      </text>
+      <text transform="translate(75 2231.2) scale(3.125)" fill="#4078f2">
+        <tspan x="0 8 16 24 32 40 48 56 64 72 80 88" y="0">szMessTest2:</tspan>
+      </text>
+      <text transform="translate(650 2231.2) scale(3.125)" fill="#4078f2">
+        <tspan x="0 8 16 24 32 40" y="0">.asciz</tspan>
+      </text>
+      <text transform="translate(825 2231.2) scale(3.125)" fill="#50a14f">
+        <tspan x="0 8 16 24 32 40 48 56 64 72 80 88 96 104 112 120 128 136 144 152 160 168 176 184 192 200 208 216 224 232 240 248 256 264 272 280 288 296 304 312 320 328 336 344 352 360 368 376 384 392 400 408 416 424 432 440 448 456" y="0">"abcdbcdecdefdefgefghfghighijhijkijkljklmklmnlmnomnopnopq"</tspan>
+      </text>
+      <text transform="translate(75 2281.2) scale(3.125)" fill="#4078f2">
+        <tspan x="0 8 16 24 32 40 48 56 64 72 80 88 96" y="0">szMessFinPgm:</tspan>
+      </text>
+      <text transform="translate(650 2281.2) scale(3.125)" fill="#4078f2">
+        <tspan x="0 8 16 24 32 40" y="0">.asciz</tspan>
+      </text>
+      <text transform="translate(825 2281.2) scale(3.125)" fill="#50a14f">
+        <tspan x="0 8 16 24 32 40 48 56 64 72 80 88 96 104 112 120 128 136 144" y="0">"Program End ok.\n"</tspan>
+      </text>
+      <text transform="translate(75 2331.2) scale(3.125)" fill="#4078f2">
+        <tspan x="0 8 16 24 32 40 48 56 64 72 80 88 96" y="0">szMessResult:</tspan>
+      </text>
+      <text transform="translate(650 2331.2) scale(3.125)" fill="#4078f2">
+        <tspan x="0 8 16 24 32 40" y="0">.asciz</tspan>
+      </text>
+      <text transform="translate(825 2331.2) scale(3.125)" fill="#50a14f">
+        <tspan x="0 8 16 24 32 40 48 56 64 72 80 88 96 104 112 120 128 136" y="0">"Rosetta code =&gt; "</tspan>
+      </text>
+      <text transform="translate(75 2381.2) scale(3.125)" fill="#4078f2">
+        <tspan x="0 8 16 24 32 40 48 56 64 72 80 88 96 104 112 120 128" y="0">szCarriageReturn:</tspan>
+      </text>
+      <text transform="translate(575 2381.2) scale(3.125)" fill="#4078f2">
+        <tspan x="0 8 16 24 32 40" y="0">.asciz</tspan>
+      </text>
+      <text transform="translate(750 2381.2) scale(3.125)" fill="#50a14f">
+        <tspan x="0 8 16 24" y="0">"\n"</tspan>
+      </text>
+    </g>
+    <text transform="translate(75 2484.4) scale(3.125)" fill="#a0a1a7" font-style="italic">
+      <tspan x="0 8 16 24 32 40 48 56 64 72 80 88 96 104 112 120 128 136 144 152 160 168 176 184 192" y="0">/* array constantes Hi */</tspan>
+    </text>
+  </g>
+</svg>

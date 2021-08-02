@@ -10,7 +10,7 @@ import Translation from "components/translation";
 
 export default function Plausible() {
   const theme = useTheme<typeof darkTheme>();
-  const dark = theme.palette.type === "dark";
+  const dark = theme?.palette.type === "dark";
   const t = useTranslation();
 
   return (

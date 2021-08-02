@@ -4,8 +4,6 @@ import { JumboThemeProvider } from "hooks/themes";
 import SearchBar from "components/searchBar";
 import useTranslation from "hooks/translation";
 import classes from "./style.module.css";
-import "highlight.js/styles/atom-one-light.css";
-import { background1, background2, background3 } from "./renderedBackgrounds";
 
 export default function Jumbo({
   query,
@@ -24,32 +22,29 @@ export default function Jumbo({
           className={classes.outer}
           style={{
             background:
-              theme.palette.type === "dark"
-                ? `linear-gradient(${theme.palette.background.paper}, ${theme.palette.background.paper}C0)`
+              theme?.palette.type === "dark"
+                ? `linear-gradient(${theme?.palette.background.paper}, ${theme?.palette.background.paper}C0)`
                 : "linear-gradient(#3a4852, #3a4852b7)",
           }}
         >
           <div className={classes.background}>
-            <div
+            <img
+              src="/background1.svg"
               className={classes.background1}
-              // eslint-disable-next-line react/no-danger
-              dangerouslySetInnerHTML={{
-                __html: background1,
-              }}
+              aria-hidden
+              alt=""
             />
-            <div
+            <img
+              src="/background2.svg"
               className={classes.background2}
-              // eslint-disable-next-line react/no-danger
-              dangerouslySetInnerHTML={{
-                __html: background2,
-              }}
+              aria-hidden
+              alt=""
             />
-            <div
+            <img
+              src="/background3.svg"
               className={classes.background3}
-              // eslint-disable-next-line react/no-danger
-              dangerouslySetInnerHTML={{
-                __html: background3,
-              }}
+              aria-hidden
+              alt=""
             />
           </div>
           <div className="container">

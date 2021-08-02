@@ -1,0 +1,421 @@
+<svg width="1280" height="800" version="1.1" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <clipPath id="a">
+      <path d="M0 0h4000v2500H0z" clip-rule="evenodd" />
+    </clipPath>
+  </defs>
+  <g transform="scale(.32)" clip-path="url(#a)" font-family="Courier New" font-size="13" fill="rgb(233, 233, 233)">
+    <g font-weight="400">
+      <text transform="translate(25 62.5) scale(3.125)" fill="#a626a4">
+        <tspan x="0 8 16 24 32 40 48 56" y="0">function</tspan>
+      </text>
+      <text transform="translate(250 62.5) scale(3.125)" fill="#4078f2">
+        <tspan x="0 8 16 24 32 40" y="0">change</tspan>
+      </text>
+      <text transform="translate(425 62.5) scale(3.125)">
+        <tspan x="0" y="0">(</tspan>
+      </text>
+      <text transform="translate(450 62.5) scale(3.125)">
+        <tspan x="0 8 16 24 32 40 48 56 64 72 80 88 96" y="0">coins, amount</tspan>
+      </text>
+      <text transform="translate(775 62.5) scale(3.125)">
+        <tspan x="0 8" y="0">)</tspan>
+      </text>
+      <text transform="translate(825 62.5) scale(3.125)">
+        <tspan x="0" y="0">{</tspan>
+      </text>
+      <text transform="translate(75 112.5) scale(3.125)" fill="#a626a4">
+        <tspan x="0 8 16 24 32" y="0">const</tspan>
+      </text>
+      <text transform="translate(225 112.5) scale(3.125)">
+        <tspan x="0 8 16 24 32 40 48 56 64 72 80 88 96 104 112" y="0">combinations =</tspan>
+      </text>
+      <text transform="translate(600 112.5) scale(3.125)" fill="#a626a4">
+        <tspan x="0 8 16" y="0">new</tspan>
+      </text>
+      <text transform="translate(700 112.5) scale(3.125)" fill="#c18401">
+        <tspan x="0 8 16 24 32" y="0">Array</tspan>
+      </text>
+      <text transform="translate(825 112.5) scale(3.125)">
+        <tspan x="0 8 16 24 32 40 48 56 64 72" y="0">(amount +</tspan>
+      </text>
+      <text transform="translate(1075 112.5) scale(3.125)" fill="#986801">
+        <tspan x="0" y="0">1</tspan>
+      </text>
+      <text transform="translate(1100 112.5) scale(3.125)">
+        <tspan x="0 8 16 24 32 40 48" y="0">).fill(</tspan>
+      </text>
+      <text transform="translate(1275 112.5) scale(3.125)" fill="#986801">
+        <tspan x="0" y="0">0</tspan>
+      </text>
+      <text transform="translate(1300 112.5) scale(3.125)">
+        <tspan x="0" y="0">)</tspan>
+      </text>
+      <text transform="translate(75 162.5) scale(3.125)">
+        <tspan x="0 8 16 24 32 40 48 56 64 72 80 88 96" y="0">combinations[</tspan>
+      </text>
+      <text transform="translate(400 162.5) scale(3.125)" fill="#986801">
+        <tspan x="0" y="0">0</tspan>
+      </text>
+      <text transform="translate(425 162.5) scale(3.125)">
+        <tspan x="0 8 16 24" y="0">] =</tspan>
+      </text>
+      <text transform="translate(525 162.5) scale(3.125)" fill="#986801">
+        <tspan x="0" y="0">1</tspan>
+      </text>
+      <text transform="translate(75 262.5) scale(3.125)" fill="#a626a4">
+        <tspan x="0 8 16" y="0">for</tspan>
+      </text>
+      <text transform="translate(175 262.5) scale(3.125)">
+        <tspan x="0" y="0">(</tspan>
+      </text>
+      <text transform="translate(200 262.5) scale(3.125)" fill="#a626a4">
+        <tspan x="0 8 16" y="0">let</tspan>
+      </text>
+      <text transform="translate(300 262.5) scale(3.125)">
+        <tspan x="0 8 16 24" y="0">i =</tspan>
+      </text>
+      <text transform="translate(400 262.5) scale(3.125)" fill="#986801">
+        <tspan x="0" y="0">0</tspan>
+      </text>
+      <text transform="translate(425 262.5) scale(3.125)">
+        <tspan x="0 8 16 24 32 40 48 56 64 72 80 88 96 104 112 120 128 136 144 152 160 168 176 184 192 200" y="0">; i &lt; coins.length; i++) {</tspan>
+      </text>
+      <text transform="translate(125 312.5) scale(3.125)" fill="#a626a4">
+        <tspan x="0 8 16 24 32" y="0">const</tspan>
+      </text>
+      <text transform="translate(275 312.5) scale(3.125)">
+        <tspan x="0 8 16 24 32 40 48 56 64 72 80 88 96 104 112" y="0">coin = coins[i]</tspan>
+      </text>
+      <text transform="translate(125 412.5) scale(3.125)" fill="#a626a4">
+        <tspan x="0 8 16" y="0">for</tspan>
+      </text>
+      <text transform="translate(225 412.5) scale(3.125)">
+        <tspan x="0" y="0">(</tspan>
+      </text>
+      <text transform="translate(250 412.5) scale(3.125)" fill="#a626a4">
+        <tspan x="0 8 16" y="0">let</tspan>
+      </text>
+      <text transform="translate(350 412.5) scale(3.125)">
+        <tspan x="0 8 16 24 32 40 48 56 64 72 80 88 96 104 112 120 128 136 144 152 160 168 176" y="0">j = coin; j &lt; amount +</tspan>
+      </text>
+      <text transform="translate(925 412.5) scale(3.125)" fill="#986801">
+        <tspan x="0" y="0">1</tspan>
+      </text>
+      <text transform="translate(950 412.5) scale(3.125)">
+        <tspan x="0 8 16 24 32 40 48 56" y="0">; j++) {</tspan>
+      </text>
+      <text transform="translate(175 462.5) scale(3.125)">
+        <tspan x="0 8 16 24 32 40 48 56 64 72 80 88 96 104 112 120 128 136 144 152 160 168 176 184 192 200 208 216 224 232 240 248 256 264 272 280 288 296 304 312 320" y="0">combinations[j] += combinations[j - coin]</tspan>
+      </text>
+      <text transform="translate(125 512.5) scale(3.125)">
+        <tspan x="0" y="0">}</tspan>
+      </text>
+      <text transform="translate(75 562.5) scale(3.125)">
+        <tspan x="0" y="0">}</tspan>
+      </text>
+      <text transform="translate(75 612.5) scale(3.125)" fill="#a626a4">
+        <tspan x="0 8 16 24 32 40" y="0">return</tspan>
+      </text>
+      <text transform="translate(250 612.5) scale(3.125)">
+        <tspan x="0 8 16 24 32 40 48 56 64 72 80 88 96 104 112 120 128 136 144 152" y="0">combinations[amount]</tspan>
+      </text>
+      <text transform="translate(25 662.5) scale(3.125)">
+        <tspan x="0" y="0">}</tspan>
+      </text>
+      <text transform="translate(25 762.5) scale(3.125)" fill="#a626a4">
+        <tspan x="0 8 16 24 32 40 48 56" y="0">function</tspan>
+      </text>
+      <text transform="translate(250 762.5) scale(3.125)" fill="#4078f2">
+        <tspan x="0 8 16 24 32 40 48 56 64 72 80 88" y="0">minimumCoins</tspan>
+      </text>
+      <text transform="translate(575 762.5) scale(3.125)">
+        <tspan x="0" y="0">(</tspan>
+      </text>
+      <text transform="translate(600 762.5) scale(3.125)">
+        <tspan x="0 8 16 24 32 40 48 56 64 72 80 88 96" y="0">coins, amount</tspan>
+      </text>
+      <text transform="translate(925 762.5) scale(3.125)">
+        <tspan x="0 8" y="0">)</tspan>
+      </text>
+      <text transform="translate(975 762.5) scale(3.125)">
+        <tspan x="0" y="0">{</tspan>
+      </text>
+    </g>
+    <text transform="translate(75 815.62) scale(3.125)" fill="#a0a1a7" font-style="italic">
+      <tspan x="0 8 16 24 32 40 48 56 64 72 80 88 96 104 112 120 128 136 144 152 160 168 176 184 192 200 208 216 224 232 240 248 256 264 272 280 288 296 304 312 320 328 336 344 352 360 368 376 384 392 400 408 416 424 432 440 448 456 464 472 480 488 496 504 512 520 528" y="0">// minimumCoins[i] will store the minimum coins needed for amount i</tspan>
+    </text>
+    <g font-weight="400">
+      <text transform="translate(75 865.62) scale(3.125)" fill="#a626a4">
+        <tspan x="0 8 16 24 32" y="0">const</tspan>
+      </text>
+      <text transform="translate(225 865.62) scale(3.125)">
+        <tspan x="0 8 16 24 32 40 48 56 64 72 80 88 96 104 112" y="0">minimumCoins =</tspan>
+      </text>
+      <text transform="translate(600 865.62) scale(3.125)" fill="#a626a4">
+        <tspan x="0 8 16" y="0">new</tspan>
+      </text>
+      <text transform="translate(700 865.62) scale(3.125)" fill="#c18401">
+        <tspan x="0 8 16 24 32" y="0">Array</tspan>
+      </text>
+      <text transform="translate(825 865.62) scale(3.125)">
+        <tspan x="0 8 16 24 32 40 48 56 64 72" y="0">(amount +</tspan>
+      </text>
+      <text transform="translate(1075 865.62) scale(3.125)" fill="#986801">
+        <tspan x="0" y="0">1</tspan>
+      </text>
+      <text transform="translate(1100 865.62) scale(3.125)">
+        <tspan x="0 8 16 24 32 40 48" y="0">).fill(</tspan>
+      </text>
+      <text transform="translate(1275 865.62) scale(3.125)" fill="#986801">
+        <tspan x="0" y="0">0</tspan>
+      </text>
+      <text transform="translate(1300 865.62) scale(3.125)">
+        <tspan x="0" y="0">)</tspan>
+      </text>
+      <text transform="translate(75 965.62) scale(3.125)">
+        <tspan x="0 8 16 24 32 40 48 56 64 72 80 88 96" y="0">minimumCoins[</tspan>
+      </text>
+      <text transform="translate(400 965.62) scale(3.125)" fill="#986801">
+        <tspan x="0" y="0">0</tspan>
+      </text>
+      <text transform="translate(425 965.62) scale(3.125)">
+        <tspan x="0 8 16 24" y="0">] =</tspan>
+      </text>
+      <text transform="translate(525 965.62) scale(3.125)" fill="#986801">
+        <tspan x="0" y="0">0</tspan>
+      </text>
+      <text transform="translate(75 1065.6) scale(3.125)" fill="#a626a4">
+        <tspan x="0 8 16" y="0">for</tspan>
+      </text>
+      <text transform="translate(175 1065.6) scale(3.125)">
+        <tspan x="0" y="0">(</tspan>
+      </text>
+      <text transform="translate(200 1065.6) scale(3.125)" fill="#a626a4">
+        <tspan x="0 8 16" y="0">let</tspan>
+      </text>
+      <text transform="translate(300 1065.6) scale(3.125)">
+        <tspan x="0 8 16 24" y="0">i =</tspan>
+      </text>
+      <text transform="translate(400 1065.6) scale(3.125)" fill="#986801">
+        <tspan x="0" y="0">1</tspan>
+      </text>
+      <text transform="translate(425 1065.6) scale(3.125)">
+        <tspan x="0 8 16 24 32 40 48 56 64 72 80 88 96 104 112" y="0">; i &lt; amount +</tspan>
+      </text>
+      <text transform="translate(800 1065.6) scale(3.125)" fill="#986801">
+        <tspan x="0" y="0">1</tspan>
+      </text>
+      <text transform="translate(825 1065.6) scale(3.125)">
+        <tspan x="0 8 16 24 32 40 48 56" y="0">; i++) {</tspan>
+      </text>
+      <text transform="translate(125 1115.6) scale(3.125)">
+        <tspan x="0 8 16 24 32 40 48 56 64 72 80 88 96 104 112 120 128 136" y="0">minimumCoins[i] =</tspan>
+      </text>
+      <text transform="translate(575 1115.6) scale(3.125)" fill="#c18401">
+        <tspan x="0 8 16 24 32 40" y="0">Number</tspan>
+      </text>
+      <text transform="translate(725 1115.6) scale(3.125)">
+        <tspan x="0 8 16 24 32 40 48 56 64 72 80 88 96 104 112 120 128" y="0">.MAX_SAFE_INTEGER</tspan>
+      </text>
+      <text transform="translate(75 1165.6) scale(3.125)">
+        <tspan x="0" y="0">}</tspan>
+      </text>
+      <text transform="translate(75 1215.6) scale(3.125)" fill="#a626a4">
+        <tspan x="0 8 16" y="0">for</tspan>
+      </text>
+      <text transform="translate(175 1215.6) scale(3.125)">
+        <tspan x="0" y="0">(</tspan>
+      </text>
+      <text transform="translate(200 1215.6) scale(3.125)" fill="#a626a4">
+        <tspan x="0 8 16" y="0">let</tspan>
+      </text>
+      <text transform="translate(300 1215.6) scale(3.125)">
+        <tspan x="0 8 16 24" y="0">i =</tspan>
+      </text>
+      <text transform="translate(400 1215.6) scale(3.125)" fill="#986801">
+        <tspan x="0" y="0">1</tspan>
+      </text>
+      <text transform="translate(425 1215.6) scale(3.125)">
+        <tspan x="0 8 16 24 32 40 48 56 64 72 80 88 96 104 112" y="0">; i &lt; amount +</tspan>
+      </text>
+      <text transform="translate(800 1215.6) scale(3.125)" fill="#986801">
+        <tspan x="0" y="0">1</tspan>
+      </text>
+      <text transform="translate(825 1215.6) scale(3.125)">
+        <tspan x="0 8 16 24 32 40 48 56" y="0">; i++) {</tspan>
+      </text>
+      <text transform="translate(125 1265.6) scale(3.125)" fill="#a626a4">
+        <tspan x="0 8 16" y="0">for</tspan>
+      </text>
+      <text transform="translate(225 1265.6) scale(3.125)">
+        <tspan x="0" y="0">(</tspan>
+      </text>
+      <text transform="translate(250 1265.6) scale(3.125)" fill="#a626a4">
+        <tspan x="0 8 16" y="0">let</tspan>
+      </text>
+      <text transform="translate(350 1265.6) scale(3.125)">
+        <tspan x="0 8 16 24" y="0">j =</tspan>
+      </text>
+      <text transform="translate(450 1265.6) scale(3.125)" fill="#986801">
+        <tspan x="0" y="0">0</tspan>
+      </text>
+      <text transform="translate(475 1265.6) scale(3.125)">
+        <tspan x="0 8 16 24 32 40 48 56 64 72 80 88 96 104 112 120 128 136 144 152 160 168 176 184 192 200" y="0">; j &lt; coins.length; j++) {</tspan>
+      </text>
+      <text transform="translate(175 1315.6) scale(3.125)" fill="#a626a4">
+        <tspan x="0 8 16 24 32" y="0">const</tspan>
+      </text>
+      <text transform="translate(325 1315.6) scale(3.125)">
+        <tspan x="0 8 16 24 32 40 48 56 64 72 80 88 96 104 112" y="0">coin = coins[j]</tspan>
+      </text>
+      <text transform="translate(175 1365.6) scale(3.125)" fill="#a626a4">
+        <tspan x="0 8" y="0">if</tspan>
+      </text>
+      <text transform="translate(250 1365.6) scale(3.125)">
+        <tspan x="0 8 16 24 32 40 48 56 64 72 80 88 96" y="0">(coin &lt;= i) {</tspan>
+      </text>
+      <text transform="translate(225 1415.6) scale(3.125)" fill="#a626a4">
+        <tspan x="0 8 16 24 32" y="0">const</tspan>
+      </text>
+      <text transform="translate(375 1415.6) scale(3.125)">
+        <tspan x="0 8 16 24 32 40 48 56 64 72 80 88 96 104 112 120 128 136 144 152 160 168 176 184 192 200 208 216 224 232 240" y="0">subRes = minimumCoins[i - coin]</tspan>
+      </text>
+      <text transform="translate(225 1465.6) scale(3.125)" fill="#a626a4">
+        <tspan x="0 8" y="0">if</tspan>
+      </text>
+      <text transform="translate(300 1465.6) scale(3.125)">
+        <tspan x="0 8 16 24 32 40 48 56 64 72 80 88" y="0">(subRes !==</tspan>
+      </text>
+      <text transform="translate(600 1465.6) scale(3.125)" fill="#c18401">
+        <tspan x="0 8 16 24 32 40" y="0">Number</tspan>
+      </text>
+      <text transform="translate(750 1465.6) scale(3.125)">
+        <tspan x="0 8 16 24 32 40 48 56 64 72 80 88 96 104 112 120 128 136 144 152 160 168 176 184 192 200 208 216 224 232" y="0">.MAX_SAFE_INTEGER &amp;&amp; subRes +</tspan>
+      </text>
+      <text transform="translate(1500 1465.6) scale(3.125)" fill="#986801">
+        <tspan x="0" y="0">1</tspan>
+      </text>
+      <text transform="translate(1550 1465.6) scale(3.125)">
+        <tspan x="0 8 16 24 32 40 48 56 64 72 80 88 96 104 112 120 128 136 144 152" y="0">&lt; minimumCoins[i]) {</tspan>
+      </text>
+      <text transform="translate(275 1515.6) scale(3.125)">
+        <tspan x="0 8 16 24 32 40 48 56 64 72 80 88 96 104 112 120 128 136 144 152 160 168 176 184 192 200 208" y="0">minimumCoins[i] = subRes +</tspan>
+      </text>
+      <text transform="translate(950 1515.6) scale(3.125)" fill="#986801">
+        <tspan x="0" y="0">1</tspan>
+      </text>
+      <text transform="translate(225 1565.6) scale(3.125)">
+        <tspan x="0" y="0">}</tspan>
+      </text>
+      <text transform="translate(175 1615.6) scale(3.125)">
+        <tspan x="0" y="0">}</tspan>
+      </text>
+      <text transform="translate(125 1665.6) scale(3.125)">
+        <tspan x="0" y="0">}</tspan>
+      </text>
+      <text transform="translate(75 1715.6) scale(3.125)">
+        <tspan x="0" y="0">}</tspan>
+      </text>
+      <text transform="translate(75 1765.6) scale(3.125)" fill="#a626a4">
+        <tspan x="0 8 16 24 32 40" y="0">return</tspan>
+      </text>
+      <text transform="translate(250 1765.6) scale(3.125)">
+        <tspan x="0 8 16 24 32 40 48 56 64 72 80 88 96 104 112 120 128 136 144 152" y="0">minimumCoins[amount]</tspan>
+      </text>
+      <text transform="translate(25 1815.6) scale(3.125)">
+        <tspan x="0" y="0">}</tspan>
+      </text>
+      <text transform="translate(25 1915.6) scale(3.125)" fill="#a626a4">
+        <tspan x="0 8 16 24 32 40 48 56" y="0">function</tspan>
+      </text>
+      <text transform="translate(250 1915.6) scale(3.125)" fill="#4078f2">
+        <tspan x="0 8 16 24" y="0">main</tspan>
+      </text>
+      <text transform="translate(375 1915.6) scale(3.125)">
+        <tspan x="0" y="0">(</tspan>
+      </text>
+      <text transform="translate(400 1915.6) scale(3.125)">
+        <tspan x="0 8" y="0">)</tspan>
+      </text>
+      <text transform="translate(450 1915.6) scale(3.125)">
+        <tspan x="0" y="0">{</tspan>
+      </text>
+      <text transform="translate(75 1965.6) scale(3.125)" fill="#a626a4">
+        <tspan x="0 8 16 24 32" y="0">const</tspan>
+      </text>
+      <text transform="translate(225 1965.6) scale(3.125)">
+        <tspan x="0 8 16 24 32 40 48 56 64" y="0">amount =</tspan>
+      </text>
+      <text transform="translate(450 1965.6) scale(3.125)" fill="#986801">
+        <tspan x="0 8" y="0">12</tspan>
+      </text>
+      <text transform="translate(75 2015.6) scale(3.125)" fill="#a626a4">
+        <tspan x="0 8 16 24 32" y="0">const</tspan>
+      </text>
+      <text transform="translate(225 2015.6) scale(3.125)">
+        <tspan x="0 8 16 24 32 40 48 56 64" y="0">coins = [</tspan>
+      </text>
+      <text transform="translate(450 2015.6) scale(3.125)" fill="#986801">
+        <tspan x="0" y="0">2</tspan>
+      </text>
+      <text transform="translate(475 2015.6) scale(3.125)">
+        <tspan x="0 8" y="0">,</tspan>
+      </text>
+      <text transform="translate(525 2015.6) scale(3.125)" fill="#986801">
+        <tspan x="0" y="0">4</tspan>
+      </text>
+      <text transform="translate(550 2015.6) scale(3.125)">
+        <tspan x="0 8" y="0">,</tspan>
+      </text>
+      <text transform="translate(600 2015.6) scale(3.125)" fill="#986801">
+        <tspan x="0" y="0">5</tspan>
+      </text>
+      <text transform="translate(625 2015.6) scale(3.125)">
+        <tspan x="0" y="0">]</tspan>
+      </text>
+      <text transform="translate(75 2065.6) scale(3.125)" fill="#c18401">
+        <tspan x="0 8 16 24 32 40 48" y="0">console</tspan>
+      </text>
+      <text transform="translate(250 2065.6) scale(3.125)">
+        <tspan x="0 8 16 24 32" y="0">.log(</tspan>
+      </text>
+      <text transform="translate(375 2065.6) scale(3.125)" fill="#50a14f">
+        <tspan x="0 8 16 24 32 40 48 56 64 72 80 88 96 104 112 120 128 136 144 152 160 168 176 184 192 200 208 216 224 232 240 248 256 264 272 280 288 296 304 312 320 328 336 344 352 360 368" y="0">'Number of combinations of getting change for '</tspan>
+      </text>
+      <text transform="translate(1575 2065.6) scale(3.125)">
+        <tspan x="0 8 16 24 32 40 48 56 64 72 80" y="0">+ amount +</tspan>
+      </text>
+      <text transform="translate(1850 2065.6) scale(3.125)" fill="#50a14f">
+        <tspan x="0 8 16 24 32 40 48" y="0">' is: '</tspan>
+      </text>
+      <text transform="translate(2050 2065.6) scale(3.125)">
+        <tspan x="0 8 16 24 32 40 48 56 64 72 80 88 96 104 112 120 128 136 144 152 160 168 176 184" y="0">+ change(coins, amount))</tspan>
+      </text>
+      <text transform="translate(75 2115.6) scale(3.125)" fill="#c18401">
+        <tspan x="0 8 16 24 32 40 48" y="0">console</tspan>
+      </text>
+      <text transform="translate(250 2115.6) scale(3.125)">
+        <tspan x="0 8 16 24 32" y="0">.log(</tspan>
+      </text>
+      <text transform="translate(375 2115.6) scale(3.125)" fill="#50a14f">
+        <tspan x="0 8 16 24 32 40 48 56 64 72 80 88 96 104 112 120 128 136 144 152 160 168 176 184 192 200 208 216 224 232 240 248 256 264 272 280 288 296 304 312 320 328 336 344 352 360 368" y="0">'Minimum number of coins required for amount :'</tspan>
+      </text>
+      <text transform="translate(1575 2115.6) scale(3.125)">
+        <tspan x="0 8 16 24 32 40 48 56 64 72 80" y="0">+ amount +</tspan>
+      </text>
+      <text transform="translate(1850 2115.6) scale(3.125)" fill="#50a14f">
+        <tspan x="0 8 16 24 32 40 48" y="0">' is: '</tspan>
+      </text>
+      <text transform="translate(2050 2115.6) scale(3.125)">
+        <tspan x="0 8 16 24 32 40 48 56 64 72 80 88 96 104 112 120 128 136 144 152 160 168 176 184 192 200 208 216 224 232" y="0">+ minimumCoins(coins, amount))</tspan>
+      </text>
+      <text transform="translate(25 2165.6) scale(3.125)">
+        <tspan x="0" y="0">}</tspan>
+      </text>
+      <text transform="translate(25 2265.6) scale(3.125)">
+        <tspan x="0 8 16 24 32 40" y="0">main()</tspan>
+      </text>
+    </g>
+  </g>
+</svg>

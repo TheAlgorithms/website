@@ -201,11 +201,11 @@ let spinner: Ora;
   let stars: { [key: string]: number } = {};
   await Promise.all(
     Object.keys(Repositories).map<void>(async (repo) => {
-      const { data } = await octokit.request("GET /repos/{owner}/{repo}", {
-        owner: "TheAlgorithms",
-        repo,
-      });
-      stars[repo] = data.stargazers_count;
+      // const { data } = await octokit.request("GET /repos/{owner}/{repo}", {
+      //   owner: "TheAlgorithms",
+      //   repo,
+      // });
+      stars[repo] = 0;
     })
   );
   spinner.succeed();

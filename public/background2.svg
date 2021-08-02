@@ -1,0 +1,206 @@
+<svg width="1280" height="800" version="1.1" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <clipPath id="a">
+      <path d="M0 0h4000v2500H0z" clip-rule="evenodd" />
+    </clipPath>
+  </defs>
+  <g transform="scale(.32)" clip-path="url(#a)" font-family="Courier New" font-size="13" fill="rgb(233, 233, 233)">
+    <text transform="translate(25 65.625) scale(3.125)" fill="#a0a1a7" font-style="italic">
+      <tspan x="0 8 16 24 32 40 48 56 64 72 80 88 96 104 112 120 128 136 144 152 160 168" y="0">#!/usr/bin/env python3</tspan>
+    </text>
+    <g fill="#50a14f" font-weight="400">
+      <text transform="translate(75 165.62) scale(3.125)">
+        <tspan x="0 8 16" y="0">"""</tspan>
+      </text>
+      <text transform="translate(75 215.62) scale(3.125)">
+        <tspan x="0 8 16 24 32 40 48 56 64 72 80 88 96 104 112 120 128 136 144 152 160 168 176 184 192 200 208 216 224 232 240 248 256 264 272 280 288 296 304 312 320 328 336 344 352 360 368 376 384 392 400 408 416 424 432 440 448 456 464 472 480 488" y="0">This is pure Python implementation of binary search algorithms</tspan>
+      </text>
+      <text transform="translate(75 315.62) scale(3.125)">
+        <tspan x="0 8 16 24 32 40 48 56 64 72 80 88 96 104 112 120 128 136 144 152 160 168 176 184 192 200 208 216 224 232 240 248 256 264 272" y="0">For doctests run following command:</tspan>
+      </text>
+      <text transform="translate(75 365.62) scale(3.125)">
+        <tspan x="0 8 16 24 32 40 48 56 64 72 80 88 96 104 112 120 128 136 144 152 160 168 176 184 192 200 208 216 224 232 240 248 256 264 272 280 288 296" y="0">python3 -m doctest -v binary_search.py</tspan>
+      </text>
+      <text transform="translate(75 465.62) scale(3.125)">
+        <tspan x="0 8 16 24 32 40 48 56 64 72 80 88 96 104 112 120 128 136 144 152 160 168 176" y="0">For manual testing run:</tspan>
+      </text>
+      <text transform="translate(75 515.62) scale(3.125)">
+        <tspan x="0 8 16 24 32 40 48 56 64 72 80 88 96 104 112 120 128 136 144 152 160 168 176 184" y="0">python3 binary_search.py</tspan>
+      </text>
+      <text transform="translate(75 565.62) scale(3.125)">
+        <tspan x="0 8 16" y="0">"""</tspan>
+      </text>
+    </g>
+    <g font-weight="400">
+      <text transform="translate(75 615.62) scale(3.125)" fill="#a626a4">
+        <tspan x="0 8 16 24 32 40" y="0">import</tspan>
+      </text>
+      <text transform="translate(250 615.62) scale(3.125)">
+        <tspan x="0 8 16 24 32 40" y="0">bisect</tspan>
+      </text>
+      <text transform="translate(75 665.62) scale(3.125)" fill="#a626a4">
+        <tspan x="0 8 16 24" y="0">from</tspan>
+      </text>
+      <text transform="translate(200 665.62) scale(3.125)">
+        <tspan x="0 8 16 24 32 40 48" y="0">typing</tspan>
+      </text>
+      <text transform="translate(375 665.62) scale(3.125)" fill="#a626a4">
+        <tspan x="0 8 16 24 32 40" y="0">import</tspan>
+      </text>
+      <text transform="translate(550 665.62) scale(3.125)" fill="#986801">
+        <tspan x="0 8 16 24" y="0">List</tspan>
+      </text>
+      <text transform="translate(650 665.62) scale(3.125)">
+        <tspan x="0 8" y="0">,</tspan>
+      </text>
+      <text transform="translate(700 665.62) scale(3.125)" fill="#986801">
+        <tspan x="0 8 16 24 32 40 48 56" y="0">Optional</tspan>
+      </text>
+      <text transform="translate(75 815.62) scale(3.125)" fill="#a626a4">
+        <tspan x="0 8 16" y="0">def</tspan>
+      </text>
+      <text transform="translate(175 815.62) scale(3.125)" fill="#4078f2">
+        <tspan x="0 8 16 24 32 40 48 56 64 72 80" y="0">bisect_left</tspan>
+      </text>
+      <text transform="translate(450 815.62) scale(3.125)">
+        <tspan x="0" y="0">(</tspan>
+      </text>
+      <text transform="translate(175 865.62) scale(3.125)">
+        <tspan x="0 8 16 24 32 40 48 56 64 72 80 88 96 104 112 120 128 136 144" y="0">sorted_collection:</tspan>
+      </text>
+      <text transform="translate(650 865.62) scale(3.125)" fill="#986801">
+        <tspan x="0 8 16 24" y="0">List</tspan>
+      </text>
+      <text transform="translate(750 865.62) scale(3.125)">
+        <tspan x="0" y="0">[</tspan>
+      </text>
+      <text transform="translate(775 865.62) scale(3.125)" fill="#c18401">
+        <tspan x="0 8 16" y="0">int</tspan>
+      </text>
+      <text transform="translate(850 865.62) scale(3.125)">
+        <tspan x="0 8 16 24 32 40 48 56 64" y="0">], item:</tspan>
+      </text>
+      <text transform="translate(1075 865.62) scale(3.125)" fill="#c18401">
+        <tspan x="0 8 16" y="0">int</tspan>
+      </text>
+      <text transform="translate(1150 865.62) scale(3.125)">
+        <tspan x="0 8 16 24 32 40" y="0">, lo:</tspan>
+      </text>
+      <text transform="translate(1300 865.62) scale(3.125)" fill="#c18401">
+        <tspan x="0 8 16" y="0">int</tspan>
+      </text>
+      <text transform="translate(1400 865.62) scale(3.125)">
+        <tspan x="0 8" y="0">=</tspan>
+      </text>
+      <text transform="translate(1450 865.62) scale(3.125)" fill="#986801">
+        <tspan x="0" y="0">0</tspan>
+      </text>
+      <text transform="translate(1475 865.62) scale(3.125)">
+        <tspan x="0 8 16 24 32 40" y="0">, hi:</tspan>
+      </text>
+      <text transform="translate(1625 865.62) scale(3.125)" fill="#c18401">
+        <tspan x="0 8 16" y="0">int</tspan>
+      </text>
+      <text transform="translate(1725 865.62) scale(3.125)">
+        <tspan x="0 8 16" y="0">= -</tspan>
+      </text>
+      <text transform="translate(1800 865.62) scale(3.125)" fill="#986801">
+        <tspan x="0" y="0">1</tspan>
+      </text>
+      <text transform="translate(75 915.62) scale(3.125)">
+        <tspan x="0 8 16 24 32" y="0">) -&gt;</tspan>
+      </text>
+      <text transform="translate(200 915.62) scale(3.125)" fill="#c18401">
+        <tspan x="0 8 16" y="0">int</tspan>
+      </text>
+      <text transform="translate(275 915.62) scale(3.125)">
+        <tspan x="0" y="0">:</tspan>
+      </text>
+    </g>
+    <g fill="#50a14f" font-weight="400">
+      <text transform="translate(175 965.62) scale(3.125)">
+        <tspan x="0 8 16" y="0">"""</tspan>
+      </text>
+      <text transform="translate(175 1015.6) scale(3.125)">
+        <tspan x="0 8 16 24 32 40 48 56 64 72 80 88 96 104 112 120 128 136 144 152 160 168 176 184 192 200 208 216 224 232 240 248 256 264 272 280 288 296 304 312 320 328 336 344 352 360 368 376 384 392 400 408 416 424 432 440 448 456 464 472 480 488 496 504 512 520 528 536 544 552 560 568 576 584 592 600 608 616" y="0">Locates the first element in a sorted array that is larger or equal to a given</tspan>
+      </text>
+      <text transform="translate(175 1065.6) scale(3.125)">
+        <tspan x="0 8 16 24 32 40" y="0">value.</tspan>
+      </text>
+      <text transform="translate(175 1165.6) scale(3.125)">
+        <tspan x="0 8 16 24 32 40 48 56 64 72 80 88 96 104 112 120 128 136 144 152 160 168 176 184 192 200 208 216" y="0">It has the same interface as</tspan>
+      </text>
+      <text transform="translate(175 1215.6) scale(3.125)">
+        <tspan x="0 8 16 24 32 40 48 56 64 72 80 88 96 104 112 120 128 136 144 152 160 168 176 184 192 200 208 216 224 232 240 248 256 264 272 280 288 296 304 312 320 328 336 344 352 360 368 376 384 392 400 408 416 424 432 440 448 456 464 472 480 488 496 504 512 520" y="0">https://docs.python.org/3/library/bisect.html#bisect.bisect_left .</tspan>
+      </text>
+      <text transform="translate(175 1315.6) scale(3.125)">
+        <tspan x="0 8 16 24 32 40 48 56 64 72 80 88 96 104 112 120 128 136 144 152 160 168 176 184 192 200 208 216 224 232 240 248 256 264 272 280 288 296 304 312 320 328 336 344 352 360 368 376 384 392 400 408 416 424 432 440 448 456 464 472 480 488 496 504 512 520 528 536 544 552 560 568 576 584 592 600 608 616 624 632" y="0">:param sorted_collection: some ascending sorted collection with comparable items</tspan>
+      </text>
+      <text transform="translate(175 1365.6) scale(3.125)">
+        <tspan x="0 8 16 24 32 40 48 56 64 72 80 88 96 104 112 120 128 136 144 152 160 168 176 184 192 200 208" y="0">:param item: item to bisect</tspan>
+      </text>
+      <text transform="translate(175 1415.6) scale(3.125)">
+        <tspan x="0 8 16 24 32 40 48 56 64 72 80 88 96 104 112 120 128 136 144 152 160 168 176 184 192 200 208 216 224 232 240 248 256 264 272 280 288 296 304 312 320 328 336 344 352 360 368 376 384 392 400 408 416 424 432 440 448 456 464 472 480 488 496 504 512 520 528 536" y="0">:param lo: lowest index to consider (as in sorted_collection[lo:hi])</tspan>
+      </text>
+      <text transform="translate(175 1465.6) scale(3.125)">
+        <tspan x="0 8 16 24 32 40 48 56 64 72 80 88 96 104 112 120 128 136 144 152 160 168 176 184 192 200 208 216 224 232 240 248 256 264 272 280 288 296 304 312 320 328 336 344 352 360 368 376 384 392 400 408 416 424 432 440 448 456 464 472 480 488 496 504 512 520 528 536 544 552 560 568 576 584 592 600 608 616" y="0">:param hi: past the highest index to consider (as in sorted_collection[lo:hi])</tspan>
+      </text>
+      <text transform="translate(175 1515.6) scale(3.125)">
+        <tspan x="0 8 16 24 32 40 48 56 64 72 80 88 96 104 112 120 128 136 144 152 160 168 176 184 192 200 208 216 224 232 240 248 256 264 272 280 288 296 304 312 320 328 336 344 352 360 368 376 384 392 400 408 416 424 432 440 448 456 464 472 480 488 496 504 512 520 528 536 544 552 560 568 576 584 592 600 608 616 624 632 640 648 656" y="0">:return: index i such that all values in sorted_collection[lo:i] are &lt; item and all</tspan>
+      </text>
+      <text transform="translate(275 1565.6) scale(3.125)">
+        <tspan x="0 8 16 24 32 40 48 56 64 72 80 88 96 104 112 120 128 136 144 152 160 168 176 184 192 200 208 216 224 232 240 248 256 264 272 280 288 296 304 312 320 328 336 344 352 360" y="0">values in sorted_collection[i:hi] are &gt;= item.</tspan>
+      </text>
+      <text transform="translate(175 1665.6) scale(3.125)">
+        <tspan x="0 8 16 24 32 40 48 56 64" y="0">Examples:</tspan>
+      </text>
+      <text transform="translate(175 1715.6) scale(3.125)">
+        <tspan x="0 8 16 24 32 40 48 56 64 72 80 88 96 104 112 120 128 136 144 152 160 168 176 184 192 200 208 216 224 232 240 248 256 264 272 280 288" y="0">&gt;&gt;&gt; bisect_left([0, 5, 7, 10, 15], 0)</tspan>
+      </text>
+      <text transform="translate(175 1765.6) scale(3.125)">
+        <tspan x="0" y="0">0</tspan>
+      </text>
+      <text transform="translate(175 1865.6) scale(3.125)">
+        <tspan x="0 8 16 24 32 40 48 56 64 72 80 88 96 104 112 120 128 136 144 152 160 168 176 184 192 200 208 216 224 232 240 248 256 264 272 280 288" y="0">&gt;&gt;&gt; bisect_left([0, 5, 7, 10, 15], 6)</tspan>
+      </text>
+      <text transform="translate(175 1915.6) scale(3.125)">
+        <tspan x="0" y="0">2</tspan>
+      </text>
+      <text transform="translate(175 2015.6) scale(3.125)">
+        <tspan x="0 8 16 24 32 40 48 56 64 72 80 88 96 104 112 120 128 136 144 152 160 168 176 184 192 200 208 216 224 232 240 248 256 264 272 280 288 296" y="0">&gt;&gt;&gt; bisect_left([0, 5, 7, 10, 15], 20)</tspan>
+      </text>
+      <text transform="translate(175 2065.6) scale(3.125)">
+        <tspan x="0" y="0">5</tspan>
+      </text>
+      <text transform="translate(175 2165.6) scale(3.125)">
+        <tspan x="0 8 16 24 32 40 48 56 64 72 80 88 96 104 112 120 128 136 144 152 160 168 176 184 192 200 208 216 224 232 240 248 256 264 272 280 288 296 304 312 320 328 336 344" y="0">&gt;&gt;&gt; bisect_left([0, 5, 7, 10, 15], 15, 1, 3)</tspan>
+      </text>
+      <text transform="translate(175 2215.6) scale(3.125)">
+        <tspan x="0" y="0">3</tspan>
+      </text>
+      <text transform="translate(175 2315.6) scale(3.125)">
+        <tspan x="0 8 16 24 32 40 48 56 64 72 80 88 96 104 112 120 128 136 144 152 160 168 176 184 192 200 208 216 224 232 240 248 256 264 272 280 288 296 304 312" y="0">&gt;&gt;&gt; bisect_left([0, 5, 7, 10, 15], 6, 2)</tspan>
+      </text>
+      <text transform="translate(175 2365.6) scale(3.125)">
+        <tspan x="0" y="0">2</tspan>
+      </text>
+      <text transform="translate(175 2415.6) scale(3.125)">
+        <tspan x="0 8 16" y="0">"""</tspan>
+      </text>
+    </g>
+    <g font-weight="400">
+      <text transform="translate(175 2465.6) scale(3.125)" fill="#a626a4">
+        <tspan x="0 8" y="0">if</tspan>
+      </text>
+      <text transform="translate(250 2465.6) scale(3.125)">
+        <tspan x="0 8 16 24 32" y="0">hi &lt;</tspan>
+      </text>
+      <text transform="translate(375 2465.6) scale(3.125)" fill="#986801">
+        <tspan x="0" y="0">0</tspan>
+      </text>
+      <text transform="translate(400 2465.6) scale(3.125)">
+        <tspan x="0" y="0">:</tspan>
+      </text>
+    </g>
+  </g>
+</svg>

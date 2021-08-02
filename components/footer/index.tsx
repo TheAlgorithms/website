@@ -12,8 +12,8 @@ export default function Footer() {
       className={classes.outer}
       style={{
         backgroundColor:
-          theme.palette.type === "dark"
-            ? `${theme.palette.background.paper}`
+          theme?.palette.type === "dark"
+            ? `${theme?.palette.background.paper}`
             : "#3a4852",
       }}
       square
@@ -41,7 +41,6 @@ export default function Footer() {
           <Link href="https://github.com/TheAlgorithms/">GitHub</Link>
           <Link href="https://gitter.im/TheAlgorithms/">Gitter</Link>
           <Link href="https://twitter.com/The_Algorithms">Twitter</Link>
-          <Link href="/all">{t("allAlgorithmsFooter")}</Link>
           <Link href="https://github.com/TheAlgorithms/website">
             {t("sourceCodeFooter")}
           </Link>
