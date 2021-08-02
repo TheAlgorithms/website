@@ -19,21 +19,19 @@ export default function Contributors({ algorithm }: { algorithm: Algorithm }) {
   return (
     <div className={classes.container}>
       <div className={classes.avatarGroup}>
-        {algorithm.contributors
-          .slice(algorithm.contributors.length - 15)
-          .map((contributor) => (
-            <Tooltip key={contributor.email} title={contributor.name}>
-              <div>
-                {contributor.login ? (
-                  <a href={`https://github.com/${contributor.login}`}>
-                    <Avatar contributor={contributor} />
-                  </a>
-                ) : (
+        {algorithm.contributors.slice(0, 15).map((contributor) => (
+          <Tooltip key={contributor.email} title={contributor.name}>
+            <div>
+              {contributor.login ? (
+                <a href={`https://github.com/${contributor.login}`}>
                   <Avatar contributor={contributor} />
-                )}
-              </div>
-            </Tooltip>
-          ))}
+                </a>
+              ) : (
+                <Avatar contributor={contributor} />
+              )}
+            </div>
+          </Tooltip>
+        ))}
       </div>
       {algorithm.contributors.length > 15 && (
         <Typography
