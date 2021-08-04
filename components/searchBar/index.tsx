@@ -31,7 +31,7 @@ export default function SearchBar({
   const t = useTranslation();
   const router = useRouter();
   const smallScreen = useMediaQuery("(max-width: 800px)");
-  const inputRef = useRef<HTMLDivElement>();
+  const inputRef = useRef<HTMLInputElement>();
 
   function handleInput(event: FormEvent) {
     setQuery((event.target as HTMLInputElement).value);
@@ -43,7 +43,8 @@ export default function SearchBar({
 
   function handleSubmit(event?: FormEvent) {
     if (event) event.preventDefault();
-    router.push(`/search?q=${query}`);
+    // For performance reasons the input on small screens is not controlled
+    router.push(`/search?q=${smallScreen ? inputRef.current.value : query}`);
   }
 
   const searchAdornment = (
@@ -60,7 +61,7 @@ export default function SearchBar({
 
   useEffect(() => {
     if (router.route.startsWith("/search")) {
-      inputRef.current.getElementsByTagName("input")[0].focus();
+      inputRef.current.focus();
     }
   }, [router.route]);
 
@@ -78,25 +79,43 @@ export default function SearchBar({
       </label>
       {small ? (
         <FormControl variant="outlined" size="small">
-          <OutlinedInput
-            id="search"
-            onInput={handleInput}
-            value={query}
-            placeholder={t("searchText")}
-            endAdornment={searchAdornment}
-            ref={inputRef}
-          />
+          {smallScreen ? (
+            <OutlinedInput
+              id="search"
+              placeholder={t("searchText")}
+              endAdornment={searchAdornment}
+              inputRef={inputRef}
+            />
+          ) : (
+            <OutlinedInput
+              id="search"
+              onInput={handleInput}
+              value={query}
+              placeholder={t("searchText")}
+              endAdornment={searchAdornment}
+              inputRef={inputRef}
+            />
+          )}
         </FormControl>
       ) : (
         <FormControl variant="filled" style={{ width: "100%" }} size="medium">
           <>
             <InputLabel>{t("searchText")}</InputLabel>
-            <FilledInput
-              id="search"
-              onInput={handleInput}
-              endAdornment={searchAdornment}
-              value={query}
-            />
+            {smallScreen ? (
+              <FilledInput
+                id="search"
+                endAdornment={searchAdornment}
+                inputRef={inputRef}
+              />
+            ) : (
+              <FilledInput
+                id="search"
+                onInput={handleInput}
+                value={query}
+                endAdornment={searchAdornment}
+                inputRef={inputRef}
+              />
+            )}
           </>
         </FormControl>
       )}
