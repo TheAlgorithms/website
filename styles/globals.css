@@ -14,6 +14,7 @@ body {
   font-family: "Roboto", "Helvetica", "Arial", sans-serif;
   font-size: 1rem;
   margin: 0;
+  overflow-x: hidden;
 }
 
 #__next {
