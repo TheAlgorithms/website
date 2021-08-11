@@ -51,6 +51,11 @@ const languages: { name: string; locale: string; icon: string }[] = [
   //   locale: "zh_Hans",
   //   icon: "zh",
   // },
+  {
+    name: "Italiano",
+    locale: "it",
+    icon: "it",
+  },
 ];
 
 function MenuContent() {
