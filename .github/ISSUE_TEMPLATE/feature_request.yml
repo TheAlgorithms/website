@@ -1,0 +1,23 @@
+name: Feature request
+description: Suggest an idea for this project.
+title: "[FEATURE] <description>"
+labels: [enhancement]
+body:
+  - type: textarea
+    id: description
+    attributes:
+      label: Description of the feature request
+    validations:
+      required: true
+  - type: textarea
+    id: screenshots
+    attributes:
+      label: Add screenshots of the feature request (optional)
+    validations:
+      required: false
+  - type: input
+    id: context
+    attributes:
+      label: Add any other context about the feature request here
+    validations:
+      required: false
