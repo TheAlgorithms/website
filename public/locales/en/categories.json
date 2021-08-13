@@ -42,6 +42,7 @@
     "datastructures": "Data Structures",
     "dbscan": "Dbscan",
     "decisiontree": "Decision Tree",
+    "decisiontreeregressionwithkfoldcrossvalidation": "Decision Tree Regression with K-Fold Cross Validation",
     "depthfirstsearch": "Depthfirstsearch",
     "designpatterns": "Designpatterns",
     "developertools": "Developer Tools",

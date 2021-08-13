@@ -1,0 +1,117 @@
+import Section from "components/section";
+import { GetStaticProps } from "next";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+import { useRouter } from "next/router";
+import React, { useEffect, useMemo, useState } from "react";
+import dynamic from "next/dynamic";
+import { createNewPlayground } from "lib/playground";
+import { Chip, LinearProgress, Typography } from "@material-ui/core";
+import { Algorithm } from "lib/models";
+import { Language } from "lib/repositories";
+import Alert from "@material-ui/lab/Alert";
+
+const PlaygroundEditor = dynamic(() => import("components/playgroundEditor"), {
+  ssr: false,
+});
+
+export default function CodePlayground() {
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string>();
+  const router = useRouter();
+  const params = useMemo(
+    () => new URLSearchParams(process.browser && window.location.search),
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [router]
+  );
+  const id = params.get("id");
+  const [code, setCode] = useState<string>();
+  const language: string = useMemo(() => {
+    if (!id) return { language: undefined, code: undefined };
+    const local = localStorage.getItem(id);
+    if (!local) {
+      setError("ID not found");
+      return { language: undefined, code: undefined };
+    }
+    const parsed = JSON.parse(local);
+    setLoading(false);
+    setCode(parsed.code);
+    return parsed.language;
+  }, [id]);
+
+  useEffect(() => {
+    const algorithmParam = params.get("algorithm");
+    const languageParam = params.get("language");
+    if (!id && algorithmParam && languageParam) {
+      (async () => {
+        const algorithmResponse = await fetch(
+          `/data/algorithms/${algorithmParam}.json`
+        );
+        if (!algorithmResponse.ok) {
+          setError("Invalid algorithm");
+          return;
+        }
+        const algorithm = JSON.parse(
+          await algorithmResponse.text()
+        ) as Algorithm;
+        if (!algorithm.implementations[languageParam as Language]) {
+          setError("Invalid programming language");
+          return;
+        }
+        const githubResponse = await fetch(
+          algorithm.implementations[languageParam as Language].url
+            .replace("github.com", "raw.githubusercontent.com")
+            .replace("/tree/", "/")
+            .replace("/blob/", "/")
+        );
+        if (!githubResponse.ok) {
+          setError("Invalid programming language");
+          return;
+        }
+        const githubCode = await githubResponse.text();
+        const newId = createNewPlayground(languageParam, githubCode);
+        setTimeout(() => router.replace(`/playground?id=${newId}`));
+      })();
+    } else if (!id && languageParam) {
+      const newId = createNewPlayground(languageParam, "");
+      setTimeout(() => router.replace(`/playground?id=${newId}`));
+    } else if (!id) {
+      const newId = createNewPlayground("python", "");
+      setTimeout(() => router.replace(`/playground?id=${newId}`));
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [id, language, params]);
+
+  useEffect(() => {
+    if (id && language && code)
+      localStorage.setItem(id, JSON.stringify({ language, code }));
+  }, [code, id, language]);
+
+  return (
+    <div>
+      <Section
+        title={
+          <>
+            Code Playground <Chip label="Beta" color="primary" />
+          </>
+        }
+      >
+        {loading ? (
+          <div>
+            <Typography>Loading Playground</Typography>
+            <LinearProgress />
+          </div>
+        ) : error ? (
+          <Alert severity="error">{error}</Alert>
+        ) : (
+          <PlaygroundEditor language={language} code={code} setCode={setCode} />
+        )}
+      </Section>
+    </div>
+  );
+}
+
+export const getStaticProps: GetStaticProps = async ({ locale }) => ({
+  props: {
+    ...(await serverSideTranslations(locale, ["common", "categories"])),
+  },
+});

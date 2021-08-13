@@ -7,6 +7,7 @@
 
 .paper {
   transition: box-shadow 0.4s ease, background 0.4s ease;
+  position: relative;
 }
 
 .scrollContainer {
@@ -93,6 +94,13 @@
 
 .active .implementations {
   padding: 5px 10px;
+}
+
+.tryCode {
+  position: absolute !important;
+  right: 20px;
+  bottom: 80px;
+  color: white !important;
 }
 
 @media (max-width: 800px) {

@@ -1,7 +1,7 @@
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
 // eslint-disable-next-line import/no-unresolved
-import algorithms from "tmp/algorithms-min.json";
+import algorithms from "public/data/algorithms-min.json";
 import useTranslation from "hooks/translation";
 import { normalize } from "lib/normalize";
 import type { Algorithm } from "lib/models";

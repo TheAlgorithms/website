@@ -3,6 +3,7 @@ import path from "path";
 import locales from "lib/locales";
 import { Algorithm } from "./models";
 import { Repositories } from "./repositories";
+import { DATA_DIR } from "./constants";
 
 export function getLanguages() {
   return Object.keys(Repositories).flatMap((language) =>
@@ -17,14 +18,16 @@ export function getLanguages() {
 
 export async function getLanguage(language: string) {
   const languages: { [language: string]: string[] } = JSON.parse(
-    (await fs.promises.readFile(path.join("tmp", "languages.json"))).toString()
+    (
+      await fs.promises.readFile(path.join(DATA_DIR, "languages.json"))
+    ).toString()
   );
   const algorithms: Algorithm[] = await Promise.all(
     languages[language].map(async (algorithmName) =>
       JSON.parse(
         (
           await fs.promises.readFile(
-            path.join("tmp", "algorithms-min", `${algorithmName}.json`)
+            path.join(DATA_DIR, "algorithms-min", `${algorithmName}.json`)
           )
         ).toString()
       )

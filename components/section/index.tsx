@@ -10,7 +10,7 @@ export default function Section({
   className = "",
   style = {},
 }: {
-  title?: string;
+  title?: React.ReactNode;
   children: React.ReactNode;
   more?: string;
   className?: string;
