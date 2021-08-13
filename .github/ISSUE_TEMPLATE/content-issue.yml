@@ -1,0 +1,24 @@
+name: Content issue
+description: Create a report about a content issue on the website (for example two entries
+  for the same algorithm).
+title: "[CONTENT] <description>"
+labels: [content]
+body:
+  - type: input
+    id: description
+    attributes:
+      label: Description of the content report
+    validations:
+      required: true
+  - type: textarea
+    id: screenshots
+    attributes:
+      label: Add screenshots of the content report (optional)
+    validations:
+      required: false
+  - type: input
+    id: context
+    attributes:
+      label: Add any other context about the report here
+    validations:
+      required: false
