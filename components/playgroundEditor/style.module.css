@@ -1,0 +1,32 @@
+.caption {
+  margin-top: 20px !important;
+  margin-bottom: 0 !important;
+}
+
+.editor {
+  position: relative;
+}
+
+.runBtn {
+  position: absolute !important;
+  right: 20px;
+  bottom: 10px;
+}
+
+.output {
+  background-color: black;
+  color: white;
+  padding: 7px;
+  height: 200px;
+  overflow-y: auto;
+  margin-top: 0;
+}
+
+.output * {
+  overflow-anchor: none;
+}
+
+.scrollAnchor {
+  overflow-anchor: auto;
+  height: 1px;
+}
