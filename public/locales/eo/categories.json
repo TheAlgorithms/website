@@ -201,5 +201,7 @@
     "projectrosalind": "Projekto Rosalind",
     "rnn": "Rikura neŭra reto",
     "basic": "Fundamento",
-    "arima": "Memregresa Integrita Moviĝanta Averaĝo"
+    "arima": "Memregresa Integrita Moviĝanta Averaĝo",
+    "decisiontreeregressionwithkfoldcrossvalidation": "Decidarba regreso kun k-foja intervalideckontrolo",
+    "supportvectormachine": "Subtena vektora maŝino"
 }
