@@ -203,5 +203,14 @@
     "basic": "Fundamento",
     "arima": "Memregresa Integrita Moviĝanta Averaĝo",
     "decisiontreeregressionwithkfoldcrossvalidation": "Decidarba regreso kun k-foja intervalideckontrolo",
-    "supportvectormachine": "Subtena vektora maŝino"
+    "supportvectormachine": "Subtena vektora maŝino",
+    "naivestringsearch": "Naiva tekstoserĉo",
+    "rsacipherbig": "RSA-ĉifro grandentjera",
+    "linearsearch": "Linia serĉo",
+    "diffiehellmankeyexchange": "Ŝlosilinterŝanĝo de Diffie-Hellman",
+    "breadthfirstsearch": "Larĝema trairo",
+    "binarysearch": "Duuma serĉo",
+    "rsacipher": "RSA-ĉifro",
+    "xorcipher": "Disaŭa ĉifro",
+    "set": "Aro"
 }
