@@ -12,7 +12,7 @@ export default function Implementations({
   implementations: { [key in Language]?: Implementation };
 }) {
   const smallWidth = useMediaQuery(
-    "(max-width: 1200px) and (min-width: 700px)"
+    "((max-width: 1200px) and (min-width: 700px)) or (max-width: 400px)"
   );
   const numIcons = smallWidth ? 4 : 6;
   const t = useTranslation();

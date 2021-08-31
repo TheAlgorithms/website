@@ -201,5 +201,7 @@
     "lstm": "Lstm",
     "backwardoraclematching": "Comparación de Oracle hacia atrás",
     "basic": "Básico",
-    "projectrosalind": "Proyecto Rosalyn"
+    "projectrosalind": "Proyecto Rosalyn",
+    "rnn": "RNN",
+    "arima": "ARIMA"
 }

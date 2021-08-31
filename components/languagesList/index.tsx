@@ -29,6 +29,10 @@ export default function LanguagesList({
 }) {
   const [reverse, setReverse] = useState(false);
   const small = useMediaQuery("(max-width: 900px)");
+  const stars = (language: LanguageProp) =>
+    language.stars && language.stars < 10000
+      ? language.stars.toString()
+      : `${Math.floor(language.stars / 1000)}k`;
 
   return (
     <div className={classes.container}>
@@ -56,7 +60,7 @@ export default function LanguagesList({
                       language.stars && (
                         <>
                           <Star fontSize="small" />
-                          {language.stars}
+                          {stars(language)}
                         </>
                       )
                     }
@@ -67,7 +71,7 @@ export default function LanguagesList({
                   {!small && language.stars && (
                     <ListItemText className={classes.stars}>
                       <Star fontSize="small" />
-                      {language.stars}
+                      {stars(language)}
                     </ListItemText>
                   )}
                 </ListItem>
