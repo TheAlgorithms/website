@@ -1,0 +1,6 @@
+The files in this folder were taken from the pyodide 
+npm package (https://www.npmjs.com/package/pyodide) 
+and modified for compatibility reasons.
+
+The source code can be found under
+https://github.com/pyodide/pyodide

@@ -1,6 +1,7 @@
 import { Button, LinearProgress, Typography } from "@material-ui/core";
 import Editor from "@monaco-editor/react";
 import React, { useEffect, Dispatch, SetStateAction, useState } from "react";
+import tryLoadPyodide from "lib/pyodide";
 import classes from "./style.module.css";
 
 let executeCode;
@@ -18,21 +19,15 @@ export default function PlaygroundEditor({
   const [output, setOutput] = useState<string>();
 
   useEffect(() => {
-    delete globalThis.loadPyodide;
-    const pyodideLoadScript = document.createElement("script");
-    pyodideLoadScript.src =
-      "https://cdn.jsdelivr.net/pyodide/v0.18.0/full/pyodide.js";
-    pyodideLoadScript.addEventListener("load", async () => {
-      if (!process.browser) return;
-      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-      /* @ts-ignore */
-      const loadedPyodide = await globalThis.loadPyodide({
-        indexURL: "https://cdn.jsdelivr.net/pyodide/v0.18.0/full/",
-      });
+    if (!process.browser) return;
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    /* @ts-ignore */
+    (async () => {
+      const pyodide = await tryLoadPyodide();
       globalThis.post_stdout_to_main_thread = (s) => {
         setOutput((o) => (o ? o + s : s));
       };
-      loadedPyodide.runPython(
+      pyodide.runPython(
         `from contextlib import redirect_stdout
 from js import post_stdout_to_main_thread
 
@@ -54,14 +49,13 @@ redirect_stdout(WriteStream(post_stdout_to_main_thread)).__enter__()
       executeCode = (s) => {
         try {
           setOutput((o: string) => (o ? `${o}----------------\n` : undefined));
-          loadedPyodide.runPython(`${s}`);
+          pyodide.runPython(`${s}`);
         } catch (e) {
           setOutput((o) => (o ? o + e.toString() : e.toString()));
         }
       };
       setReady(true);
-    });
-    document.body.appendChild(pyodideLoadScript);
+    })();
   }, []);
 
   return (
