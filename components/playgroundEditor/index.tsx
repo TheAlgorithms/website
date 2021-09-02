@@ -10,6 +10,7 @@ import React, {
 import tryLoadPyodide from "lib/pyodide";
 import useTranslation from "hooks/translation";
 import PlayArrow from "@material-ui/icons/PlayArrow";
+import checkWasm from "lib/wasm";
 import classes from "./style.module.css";
 
 let executeCode: (code: string) => void;
@@ -24,6 +25,7 @@ export default function PlaygroundEditor({
   setCode: Dispatch<SetStateAction<string>>;
 }) {
   const t = useTranslation();
+  const [supported, setSupported] = useState<boolean>(undefined);
   const [ready, setReady] = useState(false);
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const [pyodide, setPyodide] = useState<any>();
@@ -31,18 +33,27 @@ export default function PlaygroundEditor({
   const outputCodeRef = createRef<HTMLElement>();
 
   useEffect(() => {
+    if (typeof supported === "undefined") return;
     const welcome = document.createElement("div");
     welcome.style.maxWidth = "100%";
-    welcome.innerText = t("playgroundWelcome");
+    welcome.innerText = supported
+      ? t("playgroundWelcome")
+      : t("playgroundUnsupported");
     outputCodeRef.current.appendChild(welcome);
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [supported]);
 
   useEffect(() => {
     (async () => {
       if (!process.browser) return;
-      const loadedPyodide = await tryLoadPyodide();
-      setPyodide(loadedPyodide);
+      if (checkWasm()) {
+        setSupported(true);
+        const loadedPyodide = await tryLoadPyodide();
+        setPyodide(loadedPyodide);
+      } else {
+        setSupported(false);
+        setReady(true);
+      }
     })();
   }, []);
 
@@ -109,7 +120,7 @@ redirect_stdout(WriteStream(post_stdout_to_main_thread)).__enter__()
           theme="vs-dark"
         />
         <Button
-          disabled={!ready}
+          disabled={!ready || !supported}
           onClick={() => executeCode(code)}
           className={classes.runBtn}
           variant="contained"

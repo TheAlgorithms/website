@@ -72,5 +72,6 @@
   "internalServerError": "Internal Server Error",
   "codeplayground": "Code Playground",
   "playgroundRunCode": "Run Code",
-  "playgroundWelcome": "Welcome to the Python Code Playground 👋\n\nGet started by editing the code on the left\nside of the screen and clicking \"Run code\""
+  "playgroundWelcome": "Welcome to the Python Code Playground 👋\n\nGet started by editing the code on the left\nside of the screen and clicking \"Run code\"",
+  "playgroundUnsupported": "Your browser does not support Web Assembly\nand can thus not run the code.\n\nYou can still edit the code on the left."
 }
