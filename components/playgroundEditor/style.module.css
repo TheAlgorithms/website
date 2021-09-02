@@ -11,7 +11,7 @@
 .output {
   background-color: black;
   color: white;
-  padding: 7px;
+  padding: 10px;
   width: 30vw;
   overflow-y: auto;
   margin: 0;
@@ -52,6 +52,10 @@
 
 .output * {
   overflow-anchor: none;
+}
+
+.output :global(.error) {
+  color: rgb(255, 56, 56);
 }
 
 .scrollAnchor {

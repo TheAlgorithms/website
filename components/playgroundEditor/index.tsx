@@ -10,7 +10,7 @@ import React, {
 import tryLoadPyodide from "lib/pyodide";
 import classes from "./style.module.css";
 
-let executeCode;
+let executeCode: (code: string) => void;
 
 export default function PlaygroundEditor({
   language,
@@ -22,21 +22,28 @@ export default function PlaygroundEditor({
   setCode: Dispatch<SetStateAction<string>>;
 }) {
   const [ready, setReady] = useState(false);
-  const [output, setOutput] = useState<string>();
-  const outputRef = createRef<HTMLPreElement>();
-
-  useEffect(() => {
-    outputRef.current.scrollTo(0, outputRef.current.scrollHeight);
-  }, [output, outputRef]);
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const [pyodide, setPyodide] = useState<any>();
+  const outputPreRef = createRef<HTMLPreElement>();
+  const outputCodeRef = createRef<HTMLElement>();
 
   useEffect(() => {
     if (!process.browser) return;
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     /* @ts-ignore */
     (async () => {
-      const pyodide = await tryLoadPyodide();
+      const loadedPyodide = await tryLoadPyodide();
+      setPyodide(loadedPyodide);
+    })();
+  }, []);
+
+  useEffect(() => {
+    (async () => {
+      if (!pyodide) return;
       globalThis.post_stdout_to_main_thread = (s) => {
-        setOutput((o) => (o ? o + s : s));
+        const span = document.createElement("span");
+        span.innerText = s;
+        outputCodeRef.current.appendChild(span);
       };
       pyodide.runPython(
         `from contextlib import redirect_stdout
@@ -57,17 +64,21 @@ redirect_stdout(WriteStream(post_stdout_to_main_thread)).__enter__()
 `
       );
       // eslint-disable-next-line camelcase
-      executeCode = (s) => {
+      executeCode = (s: string) => {
         try {
-          setOutput((o: string) => (o ? `${o}----------------\n` : undefined));
+          if (outputCodeRef.current.innerHTML)
+            outputCodeRef.current.appendChild(document.createElement("hr"));
           pyodide.runPython(`${s}`);
         } catch (e) {
-          setOutput((o) => (o ? o + e.toString() : e.toString()));
+          if (outputCodeRef.current.innerHTML)
+            outputCodeRef.current.innerHTML += "<br />";
+          outputCodeRef.current.innerHTML += `<span class="error">${e}</span>`;
         }
+        outputPreRef.current.scrollTo(0, outputPreRef.current.scrollHeight);
       };
       setReady(true);
     })();
-  }, []);
+  }, [outputCodeRef, outputPreRef, pyodide]);
 
   return (
     <div className={classes.root}>
@@ -98,8 +109,8 @@ redirect_stdout(WriteStream(post_stdout_to_main_thread)).__enter__()
           Run code
         </Button>
       </div>
-      <pre className={classes.output} ref={outputRef}>
-        <code>{output}</code>
+      <pre className={classes.output} ref={outputPreRef}>
+        <code ref={outputCodeRef} />
         <div className={classes.scrollAnchor} />
       </pre>
     </div>
