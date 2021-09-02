@@ -112,6 +112,10 @@
   .active .scrollContainer {
     height: auto;
   }
+
+  .tryCode {
+    display: none !important;
+  }
 }
 
 .active .actions {

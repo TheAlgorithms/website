@@ -8,6 +8,8 @@ import React, {
   createRef,
 } from "react";
 import tryLoadPyodide from "lib/pyodide";
+import useTranslation from "hooks/translation";
+import PlayArrow from "@material-ui/icons/PlayArrow";
 import classes from "./style.module.css";
 
 let executeCode: (code: string) => void;
@@ -21,6 +23,7 @@ export default function PlaygroundEditor({
   code: string;
   setCode: Dispatch<SetStateAction<string>>;
 }) {
+  const t = useTranslation();
   const [ready, setReady] = useState(false);
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const [pyodide, setPyodide] = useState<any>();
@@ -28,10 +31,16 @@ export default function PlaygroundEditor({
   const outputCodeRef = createRef<HTMLElement>();
 
   useEffect(() => {
-    if (!process.browser) return;
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    /* @ts-ignore */
+    const welcome = document.createElement("div");
+    welcome.style.maxWidth = "100%";
+    welcome.innerText = t("playgroundWelcome");
+    outputCodeRef.current.appendChild(welcome);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  useEffect(() => {
     (async () => {
+      if (!process.browser) return;
       const loadedPyodide = await tryLoadPyodide();
       setPyodide(loadedPyodide);
     })();
@@ -67,7 +76,7 @@ redirect_stdout(WriteStream(post_stdout_to_main_thread)).__enter__()
       executeCode = (s: string) => {
         try {
           if (outputCodeRef.current.innerHTML)
-            outputCodeRef.current.appendChild(document.createElement("hr"));
+            outputCodeRef.current.innerHTML += `<span>------------------</span><br />`;
           pyodide.runPython(`${s}`);
         } catch (e) {
           if (outputCodeRef.current.innerHTML)
@@ -105,8 +114,9 @@ redirect_stdout(WriteStream(post_stdout_to_main_thread)).__enter__()
           className={classes.runBtn}
           variant="contained"
           color="primary"
+          startIcon={<PlayArrow />}
         >
-          Run code
+          {t("playgroundRunCode")}
         </Button>
       </div>
       <pre className={classes.output} ref={outputPreRef}>

@@ -10,12 +10,14 @@ import { Language } from "lib/repositories";
 import Alert from "@material-ui/lab/Alert";
 import Head from "components/head";
 import PlaygroundLayout from "layouts/playground";
+import useTranslation from "hooks/translation";
 
 const PlaygroundEditor = dynamic(() => import("components/playgroundEditor"), {
   ssr: false,
 });
 
 export default function CodePlayground() {
+  const t = useTranslation();
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string>();
   const router = useRouter();
@@ -92,7 +94,7 @@ export default function CodePlayground() {
 
   return (
     <>
-      <Head title="Code Playground" />
+      <Head title={t("codeplayground")} />
       {loading ? (
         <LinearProgress />
       ) : error ? (

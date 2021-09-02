@@ -5,7 +5,7 @@ import { getLanguageName, Language } from "lib/repositories";
 import useBodyScroll from "hooks/bodyScroll";
 import LanguageIcon from "components/icon";
 import { Button, Card, IconButton, Paper } from "@material-ui/core";
-import { Close, OpenInNew } from "@material-ui/icons";
+import { Close, OpenInNew, PlayArrow } from "@material-ui/icons";
 import useTranslation from "hooks/translation";
 import Link from "next/link";
 import classes from "./style.module.css";
@@ -148,6 +148,7 @@ export default function CodePreview({ algorithm }: { algorithm: Algorithm }) {
                 color="primary"
                 variant="contained"
                 className={classes.tryCode}
+                startIcon={<PlayArrow />}
               >
                 Try this code
               </Button>
