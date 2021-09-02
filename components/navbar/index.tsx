@@ -25,20 +25,19 @@ import {
   NightsStay,
   Translate,
 } from "@material-ui/icons";
+import { useQuery } from "hooks/query";
+import { useDarkTheme } from "hooks/darkTheme";
 import classes from "./style.module.css";
 
 export default function Navbar({
-  darkTheme,
-  setDarkTheme,
-  query,
-  setQuery,
+  position = "fixed",
+  title,
 }: {
-  darkTheme: boolean;
-  setDarkTheme: React.Dispatch<React.SetStateAction<boolean>>;
-  query: string;
-  setQuery: React.Dispatch<React.SetStateAction<string>>;
+  position?: "fixed" | "absolute" | "sticky" | "static" | "relative";
+  title?: string;
 }) {
   const t = useTranslation();
+  const [query, setQuery] = useQuery();
   const [atTop, setAtTop] = useState(false);
   const smallScreen = useMediaQuery("(max-width:800px)");
   const [menuOpen, setMenuOpen] = useState(false);
@@ -46,6 +45,7 @@ export default function Navbar({
   const [langSelectOpen, setLangSelectOpen] = useState(false);
   const router = useRouter();
   const isHome = router.route === "/";
+  const [darkTheme, setDarkTheme] = useDarkTheme();
 
   const menu = [
     {
@@ -79,14 +79,17 @@ export default function Navbar({
           ? classes.root
           : `${classes.root} ${classes.scrolled}`
       }
-      position="fixed"
+      position={position}
     >
       <JumboThemeProvider>
         <Toolbar className={`${classes.toolbar} container`}>
           <Link href="/" style={{ color: "white" }}>
             <Typography variant="h6" className={classes.title}>
               <img src="/logo_t.svg" alt="The Algorithms logo" />
-              The Algorithms
+              <div className={classes.titleBox}>
+                <div className={classes.bigTitle}>The Algorithms</div>
+                <div className={classes.smallTitle}>{title}</div>
+              </div>
             </Typography>
           </Link>
           {!isHome && !smallScreen && (

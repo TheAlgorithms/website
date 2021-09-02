@@ -32,6 +32,7 @@ import useTranslation from "hooks/translation";
 import Head from "components/head";
 import getRepositoryStars from "lib/stars";
 import { Algorithm } from "lib/models";
+import HomeLayout from "layouts/home";
 import classes from "./index.module.css";
 
 export default function Home({
@@ -317,6 +318,8 @@ export default function Home({
     </>
   );
 }
+
+Home.Layout = HomeLayout;
 
 export async function getStaticProps({ locale }) {
   const stars = await getRepositoryStars();

@@ -1,6 +1,12 @@
-import { Button, LinearProgress, Typography } from "@material-ui/core";
+import { Button, LinearProgress } from "@material-ui/core";
 import Editor from "@monaco-editor/react";
-import React, { useEffect, Dispatch, SetStateAction, useState } from "react";
+import React, {
+  useEffect,
+  Dispatch,
+  SetStateAction,
+  useState,
+  createRef,
+} from "react";
 import tryLoadPyodide from "lib/pyodide";
 import classes from "./style.module.css";
 
@@ -17,6 +23,11 @@ export default function PlaygroundEditor({
 }) {
   const [ready, setReady] = useState(false);
   const [output, setOutput] = useState<string>();
+  const outputRef = createRef<HTMLPreElement>();
+
+  useEffect(() => {
+    outputRef.current.scrollTo(0, outputRef.current.scrollHeight);
+  }, [output, outputRef]);
 
   useEffect(() => {
     if (!process.browser) return;
@@ -59,17 +70,22 @@ redirect_stdout(WriteStream(post_stdout_to_main_thread)).__enter__()
   }, []);
 
   return (
-    <>
-      <LinearProgress style={{ opacity: ready ? 0 : 1 }} />
-      <Typography variant="overline" className={classes.caption}>
-        Editor
-      </Typography>
+    <div className={classes.root}>
+      <LinearProgress
+        style={{ opacity: ready ? 0 : 1, position: "absolute" }}
+      />
       <div className={classes.editor}>
         <Editor
-          height={500}
           language={language}
           value={code}
           onChange={setCode}
+          options={{
+            automaticLayout: true,
+            padding: {
+              top: 15,
+              bottom: 15,
+            },
+          }}
           theme="vs-dark"
         />
         <Button
@@ -82,13 +98,10 @@ redirect_stdout(WriteStream(post_stdout_to_main_thread)).__enter__()
           Run code
         </Button>
       </div>
-      <Typography variant="overline" className={classes.caption}>
-        Output
-      </Typography>
-      <pre className={classes.output}>
+      <pre className={classes.output} ref={outputRef}>
         <code>{output}</code>
         <div className={classes.scrollAnchor} />
       </pre>
-    </>
+    </div>
   );
 }

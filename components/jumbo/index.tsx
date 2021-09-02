@@ -3,16 +3,12 @@ import { Paper, Typography, useTheme } from "@material-ui/core";
 import { JumboThemeProvider } from "hooks/themes";
 import SearchBar from "components/searchBar";
 import useTranslation from "hooks/translation";
+import { useQuery } from "hooks/query";
 import classes from "./style.module.css";
 
-export default function Jumbo({
-  query,
-  setQuery,
-}: {
-  query: string;
-  setQuery: React.Dispatch<React.SetStateAction<string>>;
-}) {
+export default function Jumbo() {
   const t = useTranslation();
+  const [query, setQuery] = useQuery();
   const theme = useTheme();
 
   return (

@@ -1,14 +1,15 @@
-import Section from "components/section";
 import { GetStaticProps } from "next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useRouter } from "next/router";
 import React, { useEffect, useMemo, useState } from "react";
 import dynamic from "next/dynamic";
 import { createNewPlayground } from "lib/playground";
-import { Chip, LinearProgress, Typography } from "@material-ui/core";
+import { LinearProgress } from "@material-ui/core";
 import { Algorithm } from "lib/models";
 import { Language } from "lib/repositories";
 import Alert from "@material-ui/lab/Alert";
+import Head from "components/head";
+import PlaygroundLayout from "layouts/playground";
 
 const PlaygroundEditor = dynamic(() => import("components/playgroundEditor"), {
   ssr: false,
@@ -87,28 +88,20 @@ export default function CodePlayground() {
   }, [code, id, language]);
 
   return (
-    <div>
-      <Section
-        title={
-          <>
-            Code Playground <Chip label="Beta" color="primary" />
-          </>
-        }
-      >
-        {loading ? (
-          <div>
-            <Typography>Loading Playground</Typography>
-            <LinearProgress />
-          </div>
-        ) : error ? (
-          <Alert severity="error">{error}</Alert>
-        ) : (
-          <PlaygroundEditor language={language} code={code} setCode={setCode} />
-        )}
-      </Section>
-    </div>
+    <>
+      <Head title="Code Playground" />
+      {loading ? (
+        <LinearProgress />
+      ) : error ? (
+        <Alert severity="error">{error}</Alert>
+      ) : (
+        <PlaygroundEditor language={language} code={code} setCode={setCode} />
+      )}
+    </>
   );
 }
+
+CodePlayground.Layout = PlaygroundLayout;
 
 export const getStaticProps: GetStaticProps = async ({ locale }) => ({
   props: {
