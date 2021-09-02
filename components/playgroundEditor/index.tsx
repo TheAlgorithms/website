@@ -105,7 +105,12 @@ redirect_stdout(WriteStream(post_stdout_to_main_thread)).__enter__()
   return (
     <div className={classes.root}>
       <LinearProgress
-        style={{ opacity: ready ? 0 : 1, position: "absolute" }}
+        style={{
+          opacity: ready ? 0 : 1,
+          position: "absolute",
+          width: "100%",
+          zIndex: 10000,
+        }}
       />
       <div className={classes.editor}>
         <Editor
