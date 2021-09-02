@@ -11,6 +11,7 @@ import tryLoadPyodide from "lib/pyodide";
 import useTranslation from "hooks/translation";
 import PlayArrow from "@material-ui/icons/PlayArrow";
 import checkWasm from "lib/wasm";
+import { useDarkTheme } from "hooks/darkTheme";
 import classes from "./style.module.css";
 
 let executeCode: (code: string) => void;
@@ -25,6 +26,7 @@ export default function PlaygroundEditor({
   setCode: Dispatch<SetStateAction<string>>;
 }) {
   const t = useTranslation();
+  const [darkTheme] = useDarkTheme();
   const [supported, setSupported] = useState<boolean>(undefined);
   const [ready, setReady] = useState(false);
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -117,7 +119,7 @@ redirect_stdout(WriteStream(post_stdout_to_main_thread)).__enter__()
               bottom: 15,
             },
           }}
-          theme="vs-dark"
+          theme={darkTheme ? "vs-dark" : "vs-light"}
         />
         <Button
           disabled={!ready || !supported}
