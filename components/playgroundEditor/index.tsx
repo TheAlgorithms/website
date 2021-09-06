@@ -69,7 +69,7 @@ export default function PlaygroundEditor({
         outputCodeRef.current.appendChild(span);
       };
       globalThis.input_fixed = (s: string) => {
-        globalThis.post_stdout_to_main_thread(s);
+        if (s) globalThis.post_stdout_to_main_thread(s);
         const r = prompt(s);
         globalThis.post_stdout_to_main_thread(`${r}\n`);
         return r;
