@@ -1,0 +1,64 @@
+.root {
+  display: flex;
+  height: 100%;
+}
+
+.editor {
+  position: relative;
+  width: 70vw;
+}
+
+.output {
+  background-color: black;
+  color: white;
+  padding: 10px;
+  width: 30vw;
+  overflow-y: auto;
+  margin: 0;
+}
+
+@media (max-aspect-ratio: 1/1) {
+  .root {
+    flex-direction: column;
+  }
+
+  .editor {
+    position: relative;
+    width: auto;
+    height: 70%;
+  }
+
+  .output {
+    background-color: black;
+    color: white;
+    padding: 7px;
+    width: auto;
+    height: 30%;
+    overflow-y: auto;
+    margin: 0;
+  }
+}
+
+.caption {
+  margin-top: 20px !important;
+  margin-bottom: 0 !important;
+}
+
+.runBtn {
+  position: absolute !important;
+  right: 20px;
+  bottom: 10px;
+}
+
+.output * {
+  overflow-anchor: none;
+}
+
+.output :global(.error) {
+  color: rgb(255, 56, 56);
+}
+
+.scrollAnchor {
+  overflow-anchor: auto;
+  height: 1px;
+}

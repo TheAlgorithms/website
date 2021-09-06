@@ -47,7 +47,7 @@ export default function AlgorithmPage({
           ),
         ]}
       />
-      <CodePreview implementations={algorithm.implementations} />
+      <CodePreview algorithm={algorithm} />
       <Breadcrumbs className={classes.categories}>
         {algorithm.categories.map((category) => (
           <Typography key={category} variant="h6">

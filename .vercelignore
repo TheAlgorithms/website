@@ -32,3 +32,4 @@ yarn-error.log*
 
 /cache
 /tmp
+/public/data

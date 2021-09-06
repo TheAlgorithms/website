@@ -15,7 +15,9 @@
   "dependencies": {
     "@material-ui/core": "^4.12.3",
     "@material-ui/icons": "^4.11.2",
+    "@material-ui/lab": "^4.0.0-alpha.60",
     "@material-ui/styles": "^4.11.4",
+    "@monaco-editor/react": "^4.2.1",
     "@octokit/core": "^3.4.0",
     "atob": "^2.1.2",
     "btoa": "^1.2.1",
@@ -31,6 +33,7 @@
     "node-fetch": "^2.6.1",
     "notebookjs": "^0.6.6",
     "ora": "^5.4.0",
+    "pyodide": "^0.18.0",
     "react": "^17.0.2",
     "react-devicons": "^2.11.0-rev.2",
     "react-dom": "^17.0.2",

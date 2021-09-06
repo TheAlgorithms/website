@@ -3,12 +3,13 @@ import path from "path";
 import locales from "lib/locales";
 import { normalize } from "./normalize";
 import { Algorithm } from "./models";
+import { DATA_DIR } from "./constants";
 
 export async function getCategories() {
   const categories: string[] = Object.keys(
     JSON.parse(
       (
-        await fs.promises.readFile(path.join("tmp", "categories.json"))
+        await fs.promises.readFile(path.join(DATA_DIR, "categories.json"))
       ).toString()
     )
   );
@@ -24,7 +25,9 @@ export async function getCategories() {
 
 export async function getCategory(category: string) {
   const categories: { [category: string]: string[] } = JSON.parse(
-    (await fs.promises.readFile(path.join("tmp", "categories.json"))).toString()
+    (
+      await fs.promises.readFile(path.join(DATA_DIR, "categories.json"))
+    ).toString()
   );
   const categoryName = Object.keys(categories).find(
     (x) => normalize(x) === normalize(category)
@@ -36,7 +39,7 @@ export async function getCategory(category: string) {
       JSON.parse(
         (
           await fs.promises.readFile(
-            path.join("tmp", "algorithms-min", `${algorithmName}.json`)
+            path.join(DATA_DIR, "algorithms-min", `${algorithmName}.json`)
           )
         ).toString()
       )

@@ -17,6 +17,13 @@ body {
   overflow-x: hidden;
 }
 
+@media (max-width: 600px) {
+  body {
+    margin-top: 56px !important;
+    height: calc(100% - 56px);
+  }
+}
+
 #__next {
   transition: background 0.4s ease;
 }

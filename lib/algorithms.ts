@@ -2,15 +2,17 @@ import fs from "fs";
 import path from "path";
 import locales from "lib/locales";
 import type { Algorithm } from "./models";
+import { DATA_DIR } from "./constants";
 
 export async function getAlgorithmSlugs() {
-  return (await fs.promises.readdir("tmp/algorithms")).flatMap((file) =>
-    locales.map((locale) => ({
-      params: {
-        algorithm: file.replace(".json", ""),
-      },
-      locale,
-    }))
+  return (await fs.promises.readdir(path.join(DATA_DIR, "algorithms"))).flatMap(
+    (file) =>
+      locales.map((locale) => ({
+        params: {
+          algorithm: file.replace(".json", ""),
+        },
+        locale,
+      }))
   );
 }
 
@@ -19,7 +21,7 @@ export async function getAlgorithm(slug: string, minimal = false) {
     (
       await fs.promises.readFile(
         path.join(
-          "tmp",
+          DATA_DIR,
           minimal ? "algorithms-min" : "algorithms",
           `${slug}.json`
         )
@@ -32,11 +34,11 @@ export async function getAlgorithm(slug: string, minimal = false) {
 export async function getAllAlgorithms() {
   return (await Promise.all(
     (
-      await fs.promises.readdir("tmp/algorithms-min")
+      await fs.promises.readdir(path.join(DATA_DIR, "algorithms-min"))
     ).map(async (file) =>
       JSON.parse(
         (
-          await fs.promises.readFile(path.join("tmp", "algorithms", file))
+          await fs.promises.readFile(path.join(DATA_DIR, "algorithms", file))
         ).toString()
       )
     )

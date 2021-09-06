@@ -41,6 +41,11 @@
   margin-right: 10px;
 }
 
+.smallTitle {
+  font-size: 13px;
+  margin-top: -5px;
+}
+
 .drawerSearch {
   margin-top: 70px;
   width: 225px !important;

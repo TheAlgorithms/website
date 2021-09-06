@@ -1,19 +1,17 @@
 import React, { useEffect, useRef, useState } from "react";
 import "highlight.js/styles/atom-one-light.css";
-import { Implementation } from "lib/models";
+import { Algorithm } from "lib/models";
 import { getLanguageName, Language } from "lib/repositories";
 import useBodyScroll from "hooks/bodyScroll";
 import LanguageIcon from "components/icon";
 import { Button, Card, IconButton, Paper } from "@material-ui/core";
-import { Close, OpenInNew } from "@material-ui/icons";
+import { Close, OpenInNew, PlayArrow } from "@material-ui/icons";
 import useTranslation from "hooks/translation";
+import Link from "next/link";
 import classes from "./style.module.css";
 
-export default function CodePreview({
-  implementations,
-}: {
-  implementations: { [language: string]: Implementation };
-}) {
+export default function CodePreview({ algorithm }: { algorithm: Algorithm }) {
+  const { implementations } = algorithm;
   const codeRef = useRef<HTMLDivElement>();
   const [active, setActive] = useState(false);
   const [, setBodyScroll] = useBodyScroll();
@@ -140,6 +138,22 @@ export default function CodePreview({
               </Card>
             ))}
           </div>
+
+          {active && selectedLanguague === "python" && (
+            <Link
+              href={`/playground?algorithm=${algorithm.slug}&language=python`}
+              passHref
+            >
+              <Button
+                color="primary"
+                variant="contained"
+                className={classes.tryCode}
+                startIcon={<PlayArrow />}
+              >
+                Try this code
+              </Button>
+            </Link>
+          )}
         </div>
       </Paper>
     </div>

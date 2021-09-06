@@ -45,10 +45,11 @@ let spinner: Ora;
 
 (async () => {
   spinner = ora("Downloading repositories").start();
-  if (fs.existsSync("tmp")) await fs.promises.rm("tmp", { recursive: true });
-  await fs.promises.mkdir("tmp");
-  await fs.promises.mkdir("tmp/repositories");
-  process.chdir("tmp/repositories");
+  if (fs.existsSync("public/data"))
+    await fs.promises.rm("public/data", { recursive: true });
+  await fs.promises.mkdir("public/data");
+  await fs.promises.mkdir("public/data/repositories");
+  process.chdir("public/data/repositories");
   await Promise.all(
     [...Object.keys(Repositories), "algorithms-explanation"].map(
       (repo) =>
@@ -416,12 +417,10 @@ let spinner: Ora;
   await fs.promises.writeFile("categories.json", JSON.stringify(categories));
   await fs.promises.writeFile("languages.json", JSON.stringify(languages));
   const oldLocalesCategories: { [key: string]: string } = fs.existsSync(
-    "../public/locales/en/categories.json"
+    "../locales/en/categories.json"
   )
     ? JSON.parse(
-        (
-          await fs.promises.readFile("../public/locales/en/categories.json")
-        ).toString()
+        (await fs.promises.readFile("../locales/en/categories.json")).toString()
       )
     : {};
   const localesCategories: { [key: string]: string } = {};
@@ -431,7 +430,7 @@ let spinner: Ora;
       localesCategories[key] = oldLocalesCategories[key] || categoryNames[key];
     });
   await fs.promises.writeFile(
-    "../public/locales/en/categories.json",
+    "../locales/en/categories.json",
     JSON.stringify(localesCategories, null, 4)
   );
   await fs.promises.rm("repositories", { recursive: true });
