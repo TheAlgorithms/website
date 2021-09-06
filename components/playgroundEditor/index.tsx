@@ -1,3 +1,4 @@
+/* eslint-disable no-alert */
 import { Button, LinearProgress } from "@material-ui/core";
 import Editor from "@monaco-editor/react";
 import React, {
@@ -62,15 +63,23 @@ export default function PlaygroundEditor({
   useEffect(() => {
     (async () => {
       if (!pyodide) return;
-      globalThis.post_stdout_to_main_thread = (s) => {
+      globalThis.post_stdout_to_main_thread = (s: string) => {
         const span = document.createElement("span");
         span.innerText = s;
         outputCodeRef.current.appendChild(span);
       };
+      globalThis.input_fixed = (s: string) => {
+        globalThis.post_stdout_to_main_thread(s);
+        const r = prompt(s);
+        globalThis.post_stdout_to_main_thread(`${r}\n`);
+        return r;
+      };
       pyodide.runPython(
         `from contextlib import redirect_stdout
-from js import post_stdout_to_main_thread
+from js import post_stdout_to_main_thread,input_fixed
 
+input = input_fixed
+__builtins__.input = input_fixed
 __name__ = "__main__"
 
 class WriteStream:
