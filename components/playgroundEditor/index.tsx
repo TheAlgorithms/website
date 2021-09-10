@@ -67,6 +67,7 @@ export default function PlaygroundEditor({
         const span = document.createElement("span");
         span.innerText = s;
         outputCodeRef.current.appendChild(span);
+        outputPreRef.current.scrollTo(0, outputPreRef.current.scrollHeight);
       };
       globalThis.input_fixed = (s: string) => {
         if (s) globalThis.post_stdout_to_main_thread(s);
@@ -101,11 +102,9 @@ redirect_stdout(WriteStream(post_stdout_to_main_thread)).__enter__()
             outputCodeRef.current.innerHTML += `<span>------------------</span><br />`;
           pyodide.runPython(`${s}`);
         } catch (e) {
-          if (outputCodeRef.current.innerHTML)
-            outputCodeRef.current.innerHTML += "<br />";
           outputCodeRef.current.innerHTML += `<span class="error">${e}</span>`;
+          outputPreRef.current.scrollTo(0, outputPreRef.current.scrollHeight);
         }
-        outputPreRef.current.scrollTo(0, outputPreRef.current.scrollHeight);
       };
       setReady(true);
     })();
