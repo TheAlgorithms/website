@@ -48,6 +48,7 @@ const aliases = {
     arithmeticanalysis: "Numerical Analysis",
     bom: "Backward Oracle Matching",
     sbom: "Set Backward Oracle Matching",
+    cipher: "Ciphers",
   },
 };
 export default aliases;

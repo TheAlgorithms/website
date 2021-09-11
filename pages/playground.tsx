@@ -32,13 +32,14 @@ export default function CodePlayground() {
     if (!id) return { language: undefined, code: undefined };
     const local = localStorage.getItem(id);
     if (!local) {
-      setError("ID not found");
+      setTimeout(() => setError(t("playgroundErrIdNotFound")));
       return { language: undefined, code: undefined };
     }
     const parsed = JSON.parse(local);
     setLoading(false);
     setCode(parsed.code);
     return parsed.language;
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [id]);
 
   useEffect(() => {
@@ -50,14 +51,14 @@ export default function CodePlayground() {
           `/data/algorithms/${algorithmParam}.json`
         );
         if (!algorithmResponse.ok) {
-          setError("Invalid algorithm");
+          setTimeout(() => setError(t("playgroundErrInvalidLink")));
           return;
         }
         const algorithm = JSON.parse(
           await algorithmResponse.text()
         ) as Algorithm;
         if (!algorithm.implementations[languageParam as Language]) {
-          setError("Invalid programming language");
+          setTimeout(() => setError(t("playgroundErrInvalidLink")));
           return;
         }
         const githubResponse = await fetch(
@@ -67,7 +68,7 @@ export default function CodePlayground() {
             .replace("/blob/", "/")
         );
         if (!githubResponse.ok) {
-          setError("Invalid programming language");
+          setTimeout(() => setError(t("playgroundErrInvalidLink")));
           return;
         }
         const githubCode = (await githubResponse.text())
@@ -95,10 +96,12 @@ export default function CodePlayground() {
   return (
     <>
       <Head title={t("codeplayground")} />
-      {loading ? (
+      {loading && !error ? (
         <LinearProgress />
       ) : error ? (
-        <Alert severity="error">{error}</Alert>
+        <Alert severity="error" style={{ margin: 30 }}>
+          {error}
+        </Alert>
       ) : (
         <PlaygroundEditor language={language} code={code} setCode={setCode} />
       )}

@@ -54,7 +54,7 @@ export default function Search() {
               className={classes.more}
               startIcon={<Add />}
             >
-              More
+              {t("moreAlgorithmCard")}
             </Button>
           </>
         )}

@@ -150,7 +150,7 @@ export default function CodePreview({ algorithm }: { algorithm: Algorithm }) {
                 className={classes.tryCode}
                 startIcon={<PlayArrow />}
               >
-                Try this code
+                {t("playgroundTryCode")}
               </Button>
             </Link>
           )}

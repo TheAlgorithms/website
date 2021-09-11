@@ -9,7 +9,7 @@ export default function PlaygroundLayout({
 }) {
   return (
     <div className={classes.root}>
-      <Navbar title="Code Playground" />
+      <Navbar title="Code Playground" wide />
       {children}
     </div>
   );

@@ -32,9 +32,11 @@ import classes from "./style.module.css";
 export default function Navbar({
   position = "fixed",
   title,
+  wide = false,
 }: {
   position?: "fixed" | "absolute" | "sticky" | "static" | "relative";
   title?: string;
+  wide?: boolean;
 }) {
   const t = useTranslation();
   const [query, setQuery] = useQuery();
@@ -82,7 +84,9 @@ export default function Navbar({
       position={position}
     >
       <JumboThemeProvider>
-        <Toolbar className={`${classes.toolbar} container`}>
+        <Toolbar
+          className={`${classes.toolbar} ${wide ? classes.wide : "container"}`}
+        >
           <Link href="/" style={{ color: "white" }}>
             <Typography variant="h6" className={classes.title}>
               <img src="/logo_t.svg" alt="The Algorithms logo" />
@@ -92,7 +96,7 @@ export default function Navbar({
               </div>
             </Typography>
           </Link>
-          {!isHome && !smallScreen && (
+          {!(isHome && atTop) && !smallScreen && (
             <SearchBar query={query} setQuery={setQuery} small />
           )}
           {smallScreen ? (
