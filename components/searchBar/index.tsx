@@ -89,7 +89,7 @@ export default function SearchBar({
           ) : (
             <OutlinedInput
               id="search"
-              onInput={handleInput}
+              onInput={(event: FormEvent) => handleInput(event)}
               value={query}
               placeholder={t("searchText")}
               endAdornment={searchAdornment}
@@ -110,7 +110,7 @@ export default function SearchBar({
             ) : (
               <FilledInput
                 id="search"
-                onInput={handleInput}
+                onInput={(event: FormEvent) => handleInput(event)}
                 value={query}
                 endAdornment={searchAdornment}
                 inputRef={inputRef}

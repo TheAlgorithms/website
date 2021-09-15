@@ -117,7 +117,7 @@ export default function Navbar({
                 <Translate />
               </IconButton>
               <IconButton
-                onClick={switchTheme}
+                onClick={() => switchTheme()}
                 aria-label="Switch to dark Theme"
               >
                 {darkTheme ? <Brightness7 /> : <NightsStay />}
@@ -158,7 +158,7 @@ export default function Navbar({
           <NextLink href="https://github.com/TheAlgorithms">
             <MenuItem>GitHub</MenuItem>
           </NextLink>
-          <MenuItem onClick={switchTheme}>
+          <MenuItem onClick={() => switchTheme()}>
             {darkTheme ? t("lightModeNavbar") : t("darkModeNavbar")}
           </MenuItem>
           <MenuItem onClick={() => setLangSelectOpen(true)}>
