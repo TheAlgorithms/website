@@ -212,5 +212,19 @@
     "binarysearch": "Duuma serĉo",
     "rsacipher": "RSA-ĉifro",
     "xorcipher": "Disaŭa ĉifro",
-    "set": "Aro"
+    "set": "Aro",
+    "nested": "Ingita",
+    "combination": "Kombinaĵo",
+    "conversion": "Konverto",
+    "max": "Maksimumo",
+    "textclassification": "Klasifiko de teksto",
+    "structure": "Strukturo",
+    "password": "Pasvorto",
+    "avl": "Arbo de Adelson-Velskij-Landis",
+    "diffiehellman": "Diffie-Hellman",
+    "moserdebruijnsequence": "Vico de Moser-de Bruĳn",
+    "modular": "Modula",
+    "levenshtein": "Levenŝtejn",
+    "genetic": "Genetika",
+    "dynamic": "Dinamika"
 }
