@@ -46,11 +46,11 @@ const languages: { name: string; locale: string; icon: string }[] = [
   //   locale: "hi",
   //   icon: "hi",
   // },
-  // {
-  //   name: "中文(简体)",
-  //   locale: "zh_Hans",
-  //   icon: "zh",
-  // },
+  {
+    name: "中文(简体)",
+    locale: "zh_Hans",
+    icon: "zh",
+  },
   {
     name: "Italiano",
     locale: "it",
