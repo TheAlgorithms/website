@@ -37,10 +37,12 @@ export default function EditPage({ algorithm }: { algorithm: Algorithm }) {
             </>
           )}
           <a
-            href={
+            href={(
               algorithm.explanationUrl[router.locale] ||
               algorithm.explanationUrl.en
-            }
+            )
+              .replace("/blob/", "/edit/")
+              .replace("/tree/", "/edit/")}
           >
             <Button startIcon={<Edit />} className={classes.button}>
               {t("editPageEdit")}

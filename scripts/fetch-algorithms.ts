@@ -135,30 +135,56 @@ let spinner: Ora;
   // Fetch the C# repo
   process.chdir("c-sharp");
   await (async () => {
-    const directory = (await fs.promises.readFile("DIRECTORY.md")).toString();
+    const directory = (await fs.promises.readFile("README.md")).toString();
     let aCategories = [];
     languages["c-sharp"] = [];
     await Promise.all(
       directory.split("\n").map(async (line) => {
-        if (line.startsWith("##")) {
-          aCategories = [line.substr(2).trim()];
-        }
-        for (let i = 1; i < 6; i += 1) {
+        for (let i = 0; i < 6; i += 1) {
           if (
             line.startsWith(`${"  ".repeat(i)}*`) ||
             line.startsWith(`${"	".repeat(i)}*`)
           ) {
-            const match = line
+            const algorithmMatch = line
               .substr(2 * i + 1)
-              .match(/\[(.+)\]\((.+\/(.+)(?:\..+))\)/);
+              .match(/\[(.+)\]\((.+\/(.+)(?:\.cs))\)/);
+            const categoryMatch = line
+              .substr(2 * i + 1)
+              .match(/\[(.+)\]\((.+)\)/);
             aCategories.length = i;
-            if (match) {
-              const name = match[1];
+            if (algorithmMatch) {
+              const name = algorithmMatch[1];
               const nName = normalizeAlgorithm(name);
-              const dir = match[2].replace(
+              const dir = algorithmMatch[2].replace(
                 "https://github.com/TheAlgorithms/C-Sharp/blob/master/",
                 ""
               );
+              if (!algorithms[nName]) {
+                algorithms[nName] = {
+                  slug: normalizeWeak(name),
+                  name,
+                  categories: aCategories
+                    .filter((x) => !!x && x !== "Algorithms")
+                    .map(normalize),
+                  body: {},
+                  implementations: {},
+                  contributors: [],
+                  explanationUrl: {},
+                };
+                for (const category of aCategories.filter(
+                  (x) => !!x && x !== "Algorithms"
+                )) {
+                  if (!categories[normalizeCategory(category)])
+                    categories[normalizeCategory(category)] = [];
+                  if (!categoryNames[normalize(category)]) {
+                    categoryNames[normalize(category)] = category;
+                  }
+                  categories[normalizeCategory(category)].push(
+                    normalizeWeak(name)
+                  );
+                }
+              }
+              languages["c-sharp"].push(algorithms[nName].slug);
               let file: string;
               try {
                 file = (await fs.promises.readFile(dir)).toString();
@@ -166,31 +192,15 @@ let spinner: Ora;
                 console.warn(`\nFailed to get ${dir}`);
                 continue;
               }
-              if (!algorithms[nName]) {
-                algorithms[nName] = {
-                  slug: normalizeWeak(name),
-                  name,
-                  categories: aCategories.filter((x) => !!x).map(normalize),
-                  body: {},
-                  implementations: {},
-                  contributors: [],
-                  explanationUrl: {},
-                };
-                for (const category of aCategories.filter((x) => !!x)) {
-                  if (!categories[normalizeCategory(category)])
-                    categories[normalizeCategory(category)] = [];
-                  categories[normalizeCategory(category)].push(
-                    normalizeWeak(name)
-                  );
-                }
-              }
               algorithms[nName].implementations["c-sharp"] = {
                 dir,
-                url: match[2],
+                url: algorithmMatch[2],
                 code: highlightCode(file, "c-sharp"),
               };
-              languages["c-sharp"].push(algorithms[nName].slug);
-            } else aCategories[i] = line.substr(2 * i + 1).trim();
+            } else if (categoryMatch) {
+              // eslint-disable-next-line prefer-destructuring
+              aCategories[i] = categoryMatch[1];
+            }
           }
         }
       })
