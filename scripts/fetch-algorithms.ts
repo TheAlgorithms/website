@@ -455,6 +455,7 @@ function isValidCategory(name: string) {
     "github",
     "ipynbcheckpoints",
     "leetcode",
+    "spec",
   ]) {
     if (normalize(name).includes(exclude)) return false;
   }
