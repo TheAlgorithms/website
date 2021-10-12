@@ -117,6 +117,11 @@ export const Repositories = {
     allowedFiles: [".jl"],
     baseDir: "src",
   },
+  lua: {
+    name: "Lua",
+    allowedFiles: [".lua"],
+    baseDir: ".",
+  },
 };
 
 export interface Repository {
