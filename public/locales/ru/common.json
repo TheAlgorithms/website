@@ -2,5 +2,9 @@
     "algorithmExplanationTitle": "Что такое алгоритм?",
     "programmingLanguagesTitle": "Языки программирования",
     "aboutUsTitle": "Про нас",
-    "helloAlgorithms": "Привет, алгоритмы!"
+    "helloAlgorithms": "Привет, алгоритмы!",
+    "dataStructuresCategories": "Структуры данных",
+    "aboutUsFooter": "Про нас",
+    "search": "Поиск",
+    "editPageEdit": "Редактировать страницу"
 }
