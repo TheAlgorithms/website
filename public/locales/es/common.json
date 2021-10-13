@@ -71,7 +71,7 @@
     "contributorsMore": "Y {numberContributors} más contribuidores",
     "internalServerError": "Error interno del servidor",
     "playgroundUnsupported": "Su navegador no soporta Web Assembly\ny por lo tanto no puede ejecutar el código.\n\nAún así, puede editar el código a la izquierda.",
-    "playgroundWelcome": "Bienvenido al código de la zona de juegos de Python 👋\n\nComienza editando el código en la parte izquierda\nde la pantalla y haciendo clic en \"Ejecutar código\".",
+    "playgroundWelcome": "Bienvenido al código de la zona de juegos de Python 👋\n\nComienza editando el código en la parte izquierda\nde la pantalla y haciendo clic en \"Ejecutar código\"",
     "playgroundRunCode": "Ejecutar código",
     "codeplayground": "Código de la zona de juegos",
     "playgroundTryCode": "Prueba este código",
