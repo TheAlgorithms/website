@@ -24,6 +24,9 @@ const aliases = {
     subsecuenciacomnmslarga: "Longest Common Subsequence",
     fibonacci: "Fibonacci Numbers",
     fibonaccinumber: "Fibonacci Numbers",
+    degreetoradian: "Degrees to Radians",
+    radians: "Degrees to Radians",
+    radiantodegree: "Radians to Degrees",
   },
   categories: {
     sorting: "Sorts",
