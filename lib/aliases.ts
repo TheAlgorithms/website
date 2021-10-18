@@ -27,11 +27,18 @@ const aliases = {
     degreetoradian: "Degrees to Radians",
     radians: "Degrees to Radians",
     radiantodegree: "Radians to Degrees",
+    fermatlittletheorem: "Fermats Little Theorem",
+    nthuglynumber: "Ugly Numbers",
+    hashsdbm: "SDBM",
+    sdbm: "SDBM",
+    avl: "AVL Tree",
+    avltree: "AVL Tree",
   },
   categories: {
     sorting: "Sorts",
     sorters: "Sorts",
     sort: "Sorts",
+    sortingalgorithms: "Sorts",
     searching: "Searches",
     search: "Searches",
     other: "Others",
@@ -52,6 +59,9 @@ const aliases = {
     bom: "Backward Oracle Matching",
     sbom: "Set Backward Oracle Matching",
     cipher: "Ciphers",
+    conversion: "Conversions",
+    queue: "Queues",
+    stack: "Stacks",
   },
 };
 export default aliases;

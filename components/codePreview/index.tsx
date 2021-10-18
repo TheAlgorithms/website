@@ -61,7 +61,9 @@ export default function CodePreview({ algorithm }: { algorithm: Algorithm }) {
 
   return (
     <div
-      className={`${classes.container} ${active ? classes.active : ""}`}
+      className={`${classes.container} ${active ? classes.active : ""} ${
+        selectedLanguague === "jupyter" ? classes.jupyter : ""
+      }`}
       style={
         Object.keys(implementations).length === 1 &&
         Object.keys(implementations)[0] === "jupyter"

@@ -43,6 +43,20 @@ let authors: {
 } = {};
 let spinner: Ora;
 
+// Categories where algorithms are ignored
+const categoriesToIgnore = [
+  "projecteuler",
+  "test",
+  "github",
+  "ipynbcheckpoints",
+  "leetcode",
+  "spec",
+  // Because of weird swift algorithm structure
+  "minimax",
+];
+// Categories where algorithms are included, but not the category
+const categoriesToSkip = ["main", "src", "algorithms", "problems"];
+
 (async () => {
   spinner = ora("Downloading repositories").start();
   if (fs.existsSync("public/data"))
@@ -94,8 +108,14 @@ let spinner: Ora;
           path.join(language, repo.baseDir).split(path.sep).length,
           dir.split(path.sep).length - 1
         )
+        .filter((category) => !categoriesToSkip.includes(normalize(category)))
         .map(normalizeTitle)
         .map(normalizeCategory);
+      if (
+        lCategories[lCategories.length - 1] ===
+        normalizeCategory(normalizeTitle(name))
+      )
+        lCategories.pop();
       if (!algorithms[nName]) {
         algorithms[nName] = {
           slug: normalizeWeak(name),
@@ -165,6 +185,8 @@ let spinner: Ora;
                   name,
                   categories: aCategories
                     .filter((x) => !!x && x !== "Algorithms")
+                    .map(normalizeTitle)
+                    .map(normalizeCategory)
                     .map(normalize),
                   body: {},
                   implementations: {},
@@ -207,19 +229,33 @@ let spinner: Ora;
     );
   })();
   process.chdir("..");
+  spinner.succeed();
 
+  spinner = ora("Fetching GitHub stars").start();
   // Fetch stars
   let stars: { [key: string]: number } = {};
+  let errors = [];
   await Promise.all(
     Object.keys(Repositories).map<void>(async (repo) => {
-      const { data } = await octokit.request("GET /repos/{owner}/{repo}", {
-        owner: "TheAlgorithms",
-        repo,
-      });
-      stars[repo] = data.stargazers_count;
+      let repoStars = 0;
+      try {
+        const { data } = await octokit.request("GET /repos/{owner}/{repo}", {
+          owner: "TheAlgorithms",
+          repo,
+        });
+        repoStars = data.stargazers_count;
+      } catch {
+        errors.push(repo);
+      }
+      stars[repo] = repoStars;
     })
   );
-  spinner.succeed();
+  if (errors.length > 0)
+    spinner.warn(
+      `Failed to get stars for ${errors.length} ${
+        errors.length === 1 ? "repository" : "repositories"
+      }, using 0 as values instead (likely API rate limit exceeded)`
+    );
   spinner = ora("Collecting and rendering explanations").start();
   process.chdir("./algorithms-explanation");
   await Promise.all(
@@ -449,14 +485,7 @@ let spinner: Ora;
 
 function isValidCategory(name: string) {
   if (normalize(name).match(/problem\d+/)) return false;
-  for (const exclude of [
-    "projecteuler",
-    "test",
-    "github",
-    "ipynbcheckpoints",
-    "leetcode",
-    "spec",
-  ]) {
+  for (const exclude of categoriesToIgnore) {
     if (normalize(name).includes(exclude)) return false;
   }
   for (const exclude of ["__init__", "mod.rs"]) {
