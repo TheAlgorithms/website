@@ -256,5 +256,10 @@
     "minimaxplayground": "Provejo por minimumigo de la maksimumo",
     "sources": "Fontoj",
     "stablemarriage": "Stabila geedziĝo",
-    "numeric": "Nombroj"
+    "numeric": "Nombroj",
+    "binarysearchtree": "Dubranĉa serĉarbo",
+    "morphologicaloperations": "Morfologiaj operacioj",
+    "probabilistic": "Probabla",
+    "cpuschedulingalgorithms": "Ĉefprocesoro-taskplanaj algoritmoj",
+    "greedymethods": "Avidaj metodoj"
 }
