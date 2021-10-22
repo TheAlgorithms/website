@@ -203,5 +203,7 @@
     "basic": "Básico",
     "projectrosalind": "Proyecto Rosalyn",
     "rnn": "RNN",
-    "arima": "ARIMA"
+    "arima": "ARIMA",
+    "audio": "Audio",
+    "binary": "Binario"
 }
