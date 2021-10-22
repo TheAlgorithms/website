@@ -261,5 +261,6 @@
     "morphologicaloperations": "Morfologiaj operacioj",
     "probabilistic": "Probabla",
     "cpuschedulingalgorithms": "Ĉefprocesoro-taskplanaj algoritmoj",
-    "greedymethods": "Avidaj metodoj"
+    "greedymethods": "Avidaj metodoj",
+    "matrixexponentiation": "Matrica potenco"
 }
