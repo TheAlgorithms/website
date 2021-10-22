@@ -71,6 +71,8 @@ export default function SearchBar({
       autoComplete="off"
       onSubmit={handleSubmit}
       className={className}
+      action="/search"
+      method="GET"
     >
       {/* ESLint is broken here */}
       {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
@@ -82,6 +84,7 @@ export default function SearchBar({
           {smallScreen ? (
             <OutlinedInput
               id="search"
+              name="q"
               placeholder={t("searchText")}
               endAdornment={searchAdornment}
               inputRef={inputRef}
@@ -89,6 +92,7 @@ export default function SearchBar({
           ) : (
             <OutlinedInput
               id="search"
+              name="q"
               onInput={(event: FormEvent) => handleInput(event)}
               value={query}
               placeholder={t("searchText")}
@@ -104,12 +108,14 @@ export default function SearchBar({
             {smallScreen ? (
               <FilledInput
                 id="search"
+                name="q"
                 endAdornment={searchAdornment}
                 inputRef={inputRef}
               />
             ) : (
               <FilledInput
                 id="search"
+                name="q"
                 onInput={(event: FormEvent) => handleInput(event)}
                 value={query}
                 endAdornment={searchAdornment}

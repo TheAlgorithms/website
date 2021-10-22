@@ -5,10 +5,11 @@
   "scripts": {
     "dev": "next dev",
     "debug": "NODE_OPTIONS='--inspect' next dev",
-    "build": "yarn fetch-algorithms && next build",
+    "fetch-algorithms": "ts-node scripts/fetch-algorithms.ts",
+    "build": "yarn fetch-algorithms && yarn build:next",
+    "build:next": "next build",
     "start": "next start",
     "export": "yarn build && next export",
-    "fetch-algorithms": "ts-node scripts/fetch-algorithms.ts",
     "lint": "tsc && eslint ./",
     "lint-fix": "eslint ./ --fix"
   },

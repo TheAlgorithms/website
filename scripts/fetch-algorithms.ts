@@ -256,6 +256,7 @@ const categoriesToSkip = ["main", "src", "algorithms", "problems"];
         errors.length === 1 ? "repository" : "repositories"
       }, using 0 as values instead (likely API rate limit exceeded)`
     );
+  else spinner.succeed();
   spinner = ora("Collecting and rendering explanations").start();
   process.chdir("./algorithms-explanation");
   await Promise.all(
