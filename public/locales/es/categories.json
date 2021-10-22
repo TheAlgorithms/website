@@ -17,7 +17,7 @@
     "blockchain": "Cadena de bloques",
     "bitmanipulation": "Manipulación de bits",
     "binarytrees": "Árboles binarios",
-    "binarytree": "Árbol binario",
+    "binarytree": "Árbol Binario",
     "binaryheap": "Montón binario",
     "basicsoftensorflow": "Conceptos básicos de Tensorflow",
     "bags": "Bolsas",
@@ -25,7 +25,7 @@
     "associativemining": "Minería asociativa",
     "associationalgorithms": "Algoritmos de asociación",
     "arrays": "Arreglos",
-    "array": "Arreglo",
+    "array": "Vector",
     "arithmeticanalysis": "Análisis aritmético",
     "algorithms": "Algoritmos",
     "ahocorasick": "Aho-Corasick",
@@ -205,5 +205,6 @@
     "rnn": "RNN",
     "arima": "ARIMA",
     "audio": "Audio",
-    "binary": "Binario"
+    "binary": "Binario",
+    "binarysearchtree": "Árbol Binario de Búsqueda"
 }
