@@ -29,6 +29,26 @@
   justify-content: center;
 }
 
+@media (max-width: 500px) {
+  .name {
+    text-align: center;
+  }
+
+  .logo {
+    margin: 10px;
+    justify-self: center;
+  }
+
+  .grid {
+    grid-template-areas:
+      "logo logo"
+      "name name"
+      "list list"
+      "vercel vercel";
+    grid-template-rows: auto 35px auto;
+  }
+}
+
 .vercelLogo {
   grid-area: vercel;
   justify-self: center;

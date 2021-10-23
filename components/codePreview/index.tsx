@@ -22,7 +22,11 @@ export default function CodePreview({ algorithm }: { algorithm: Algorithm }) {
 
   useEffect(() => {
     function backdropClickListener(event: MouseEvent) {
-      if ((event.target as HTMLDivElement).id === "__next") setActive(false);
+      if (
+        (event.target as HTMLDivElement).id === "__next" ||
+        (event.target as HTMLDivElement).classList.contains("section")
+      )
+        setActive(false);
     }
     document
       .getElementById("__next")
