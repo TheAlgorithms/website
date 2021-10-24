@@ -25,6 +25,12 @@
   margin-top: -25px;
 }
 
+@media (max-width: 500px) {
+  .card {
+    padding: 15px;
+  }
+}
+
 .card > div {
   margin-bottom: -40px !important;
   display: flex;
@@ -81,21 +87,24 @@
 }
 
 .socialButtons {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+@media (max-width: 450px) {
+  .socialButtons {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 .socialButtons div {
   border-radius: 50%;
-  margin-left: 20px;
 }
 
 .socialButtons a {
   font-size: 2rem;
   padding: 17px;
-}
-
-.socialButtons div:nth-child(1) {
-  margin-left: 0;
 }
 
 .socialButtons svg {
