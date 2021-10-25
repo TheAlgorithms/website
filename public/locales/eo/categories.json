@@ -262,5 +262,7 @@
     "probabilistic": "Probabla",
     "cpuschedulingalgorithms": "Ĉefprocesoro-taskplanaj algoritmoj",
     "greedymethods": "Avidaj metodoj",
-    "matrixexponentiation": "Matrica potenco"
+    "matrixexponentiation": "Matrica potenco",
+    "palindrome": "Palindromo",
+    "audiofilters": "Sonfiltriloj"
 }
