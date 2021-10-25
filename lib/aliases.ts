@@ -33,6 +33,7 @@ const aliases = {
     sdbm: "SDBM",
     avl: "AVL Tree",
     avltree: "AVL Tree",
+    aliquotsumcalculator: "Aliquot Sum",
   },
   categories: {
     sorting: "Sorts",
@@ -62,6 +63,7 @@ const aliases = {
     conversion: "Conversions",
     queue: "Queues",
     stack: "Stacks",
+    disjointsets: "Disjoint Set",
   },
 };
 export default aliases;
