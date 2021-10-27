@@ -34,6 +34,8 @@ const aliases = {
     avl: "AVL Tree",
     avltree: "AVL Tree",
     aliquotsumcalculator: "Aliquot Sum",
+    arithmetic: "Arithmetic Mean",
+    arithmeticmean: "Arithmetic Mean",
   },
   categories: {
     sorting: "Sorts",
@@ -64,6 +66,7 @@ const aliases = {
     queue: "Queues",
     stack: "Stacks",
     disjointsets: "Disjoint Set",
+    caches: "Cache"
   },
 };
 export default aliases;
