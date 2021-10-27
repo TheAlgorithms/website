@@ -315,53 +315,57 @@ const categoriesToSkip = ["main", "src", "algorithms", "problems"];
     Object.keys(Repositories).map<void>(
       (repo) =>
         new Promise<void>((resolve, reject) => {
-          exec("git log --name-status", { cwd: repo }, (err, stdout) => {
-            if (err) reject(err);
-            let author = "";
-            for (const line of stdout.split("\n")) {
-              if (line.startsWith("Author:")) author = line.slice(8);
-              if (line.startsWith("M\t") || line.startsWith("A\t")) {
-                const [, name, email] = author.match(/^(.*) <(.+)>$/);
-                if (email) {
-                  if (!authors[email])
-                    authors[email] = {
-                      name,
-                      email,
-                      algorithms: [],
-                    };
-                  authors[email].algorithms.push(
-                    algorithms[
-                      normalize(line.slice(8).split("/").pop().split(".")[0])
-                    ]
-                  );
+          exec(
+            "git log --name-status",
+            { cwd: repo, maxBuffer: 1024 * 1024 * 2 },
+            (err, stdout) => {
+              if (err) reject(err);
+              let author = "";
+              for (const line of stdout.split("\n")) {
+                if (line.startsWith("Author:")) author = line.slice(8);
+                if (line.startsWith("M\t") || line.startsWith("A\t")) {
+                  const [, name, email] = author.match(/^(.*) <(.+)>$/);
+                  if (email) {
+                    if (!authors[email])
+                      authors[email] = {
+                        name,
+                        email,
+                        algorithms: [],
+                      };
+                    authors[email].algorithms.push(
+                      algorithms[
+                        normalize(line.slice(8).split("/").pop().split(".")[0])
+                      ]
+                    );
+                  }
                 }
               }
-            }
-            async function collectContributors(page = 0) {
-              requests += 1;
-              const { data } = await octokit.request(
-                `GET /repos/{owner}/{repo}/contributors`,
-                {
-                  owner: "TheAlgorithms",
-                  repo,
-                  per_page: 100,
-                  page,
+              async function collectContributors(page = 0) {
+                requests += 1;
+                const { data } = await octokit.request(
+                  `GET /repos/{owner}/{repo}/contributors`,
+                  {
+                    owner: "TheAlgorithms",
+                    repo,
+                    per_page: 100,
+                    page,
+                  }
+                );
+                for (const contributor of data) {
+                  if (!possibleAuthors[contributor.login])
+                    possibleAuthors[contributor.login] = contributor;
                 }
-              );
-              for (const contributor of data) {
-                if (!possibleAuthors[contributor.login])
-                  possibleAuthors[contributor.login] = contributor;
+                if (data.length === 100) {
+                  await collectContributors(page + 1);
+                }
               }
-              if (data.length === 100) {
-                await collectContributors(page + 1);
-              }
+              if (process.env.GH_TOKEN)
+                collectContributors(0).then(() => {
+                  resolve();
+                });
+              else resolve();
             }
-            if (process.env.GH_TOKEN)
-              collectContributors(0).then(() => {
-                resolve();
-              });
-            else resolve();
-          });
+          );
         })
     )
   );
