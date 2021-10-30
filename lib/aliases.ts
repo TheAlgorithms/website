@@ -66,7 +66,7 @@ const aliases = {
     queue: "Queues",
     stack: "Stacks",
     disjointsets: "Disjoint Set",
-    caches: "Cache"
+    caches: "Cache",
   },
 };
 export default aliases;
