@@ -9,7 +9,7 @@
     "trie": "Pokušaj",
     "tree": "Stablo",
     "timingfunctions": "Vremenske funkcije",
-    "strings": "Znakovni nizovi",
+    "strings": "Nizovi",
     "stringcombinations": "Kombinacije znakovnih nizova",
     "statistics": "Statistika",
     "stacks": "Snopovi",
@@ -239,5 +239,11 @@
     "encoders": "Koderi",
     "graph": "Dijagram",
     "greatestcommondivisor": "Najveći zajednički djelitelj",
-    "greedymethods": "Pohlepne metode"
+    "greedymethods": "Pohlepne metode",
+    "sequences": "Slijedovi",
+    "segmenttrees": "Stabla segmenta",
+    "string": "Niz",
+    "probabilistic": "Vjerojatnost",
+    "problems": "Problemi",
+    "stablemarriage": "Stabilan brak"
 }
