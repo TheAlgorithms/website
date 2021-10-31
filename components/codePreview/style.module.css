@@ -3,11 +3,61 @@
   margin-bottom: 30px;
 }
 
+.codeBox,
+.codeBoxFullscreen {
+  position: relative;
+}
+
 .code {
   max-height: 60vh;
   overflow: auto;
   background-color: rgba(0, 0, 0, 0.03);
   padding: 20px;
+}
+
+.codeBoxFullscreen,
+.codeBoxFullscreen .code {
+  height: 100%;
+  max-height: none;
+}
+
+.fab {
+  position: absolute !important;
+  right: 10px;
+  bottom: 10px;
+}
+
+.mobileMenu a {
+  text-decoration: none;
+}
+
+.mobileMenu svg {
+  margin-right: 7px;
+}
+
+.buttonsTop {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.buttonsBottom {
+  position: absolute;
+  bottom: 15px;
+  right: 15px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.fullscreen {
+  margin: 0 10px !important;
+}
+
+.tryCode {
+  color: white !important;
 }
 
 .pre {
@@ -21,83 +71,6 @@
 
 .implementation {
   margin-right: -5px !important;
-}
-.active {
-  margin-bottom: 250px;
-  height: calc(100vh - 150px);
-}
-
-:not(.active) > .paper {
-  box-shadow: none !important;
-  background: none !important;
-}
-
-.active .scrollContainer {
-  height: calc(100vh - 150px);
-}
-
-.active .implementations {
-  padding: 5px 10px;
-}
-
-.tryCode {
-  position: absolute !important;
-  right: 20px;
-  bottom: 80px;
-  color: white !important;
-}
-
-@media (max-width: 800px) {
-  .active {
-    height: calc(100vh - 150px);
-    overflow: scroll;
-  }
-
-  .active .scrollContainer {
-    height: auto;
-  }
-
-  .tryCode {
-    display: none !important;
-  }
-}
-
-.active .actions {
-  height: 45px;
-  opacity: 1;
-  pointer-events: all;
-}
-
-@media (min-width: 800px) {
-  .actions {
-    margin-top: 10px;
-  }
-
-  .active .actions {
-    padding-top: 10px;
-    padding-right: 20px;
-    z-index: 10;
-  }
-}
-
-@media (max-width: 800px) {
-  .active .actions {
-    transform: translateY(-40px);
-  }
-}
-
-.active .code {
-  overflow: auto;
-  cursor: unset;
-}
-
-.active .code::before {
-  opacity: 0;
-  pointer-events: none;
-}
-
-.active .implementations {
-  transform: translateY(0);
 }
 
 .card {
@@ -133,4 +106,10 @@
 
 .item :global(p) {
   margin-left: 10px !important;
+}
+
+@media (max-width: 600px) {
+  .dialog {
+    margin-top: -8px !important;
+  }
 }

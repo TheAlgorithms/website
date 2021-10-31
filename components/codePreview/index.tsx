@@ -1,11 +1,16 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import "highlight.js/styles/atom-one-light.css";
 import { Algorithm } from "lib/models";
 import {
+  Button,
   Card,
+  Dialog,
+  Fab,
   FormControl,
   IconButton,
   InputLabel,
+  Link,
+  Menu,
   MenuItem,
   Select,
   Typography,
@@ -15,6 +20,14 @@ import {
 import useTranslation from "hooks/translation";
 import { getLanguageName, Language } from "lib/repositories";
 import LanguageIcon from "components/icon";
+import {
+  Fullscreen,
+  FullscreenExit,
+  MoreHoriz,
+  OpenInNew,
+  PlayArrow,
+} from "@material-ui/icons";
+import NextLink from "next/link";
 import classes from "./style.module.css";
 
 export default function CodePreview({ algorithm }: { algorithm: Algorithm }) {
@@ -24,18 +37,98 @@ export default function CodePreview({ algorithm }: { algorithm: Algorithm }) {
   );
   const t = useTranslation();
   const mobile = useMediaQuery("(max-width: 800px)");
+  const [fullScreen, setFullScreen] = useState(false);
+  const theme = useTheme();
+  const fabRef = useRef();
+  const [mobileMoreMenuOpen, setMobileMoreMenuOpen] = useState(false);
 
   return (
     <div className={`${classes.container}`}>
-      <div className={classes.code}>
-        <pre
-          className={classes.pre}
-          // eslint-disable-next-line react/no-danger
-          dangerouslySetInnerHTML={{
-            __html: implementations[selectedLanguague].code,
-          }}
-        />
+      <div className={classes.codeBox}>
+        <div className={classes.code}>
+          <pre
+            className={classes.pre}
+            // eslint-disable-next-line react/no-danger
+            dangerouslySetInnerHTML={{
+              __html: implementations[selectedLanguague].code,
+            }}
+          />
+        </div>
+        {mobile ? (
+          <>
+            <Fab
+              className={classes.fab}
+              color="primary"
+              ref={fabRef}
+              onClick={() => setMobileMoreMenuOpen(true)}
+            >
+              <MoreHoriz />
+            </Fab>
+            <Menu
+              anchorEl={fabRef.current}
+              open={mobileMoreMenuOpen}
+              onClose={() => setMobileMoreMenuOpen(false)}
+              className={classes.mobileMenu}
+            >
+              <MenuItem onClick={() => setFullScreen(true)}>
+                <Fullscreen />
+                <Typography>Fullscreen</Typography>
+              </MenuItem>
+              <Link
+                href={implementations[selectedLanguague].url}
+                target="_blank"
+                rel="noreferrer"
+              >
+                <MenuItem>
+                  <OpenInNew />
+                  <Typography>{t("viewOnGithub")}</Typography>
+                </MenuItem>
+              </Link>
+            </Menu>
+          </>
+        ) : (
+          <>
+            <div className={classes.buttonsTop}>
+              <Button
+                startIcon={<OpenInNew />}
+                href={implementations[selectedLanguague].url}
+                target="_blank"
+                rel="noreferrer"
+              >
+                {t("viewOnGithub")}
+              </Button>
+              <IconButton
+                className={classes.fullscreen}
+                style={{
+                  backgroundColor: theme.palette.primary.main,
+                  color: "white",
+                }}
+                onClick={() => setFullScreen(true)}
+              >
+                <Fullscreen />
+              </IconButton>
+            </div>
+            <div className={classes.buttonsBottom}>
+              {selectedLanguague === "python" && (
+                <NextLink
+                  href={`/playground?algorithm=${algorithm.slug}&language=python`}
+                  passHref
+                >
+                  <Button
+                    color="primary"
+                    variant="contained"
+                    className={classes.tryCode}
+                    startIcon={<PlayArrow />}
+                  >
+                    {t("playgroundTryCode")}
+                  </Button>
+                </NextLink>
+              )}
+            </div>
+          </>
+        )}
       </div>
+
       {mobile ? (
         <FormControl className={classes.mobileImplementations}>
           <InputLabel>Implementation in</InputLabel>
@@ -89,6 +182,66 @@ export default function CodePreview({ algorithm }: { algorithm: Algorithm }) {
           ))}
         </div>
       )}
+
+      <Dialog
+        fullScreen
+        open={fullScreen}
+        onClose={() => setFullScreen(false)}
+        className={classes.dialog}
+      >
+        <div className={classes.codeBoxFullscreen}>
+          <div className={classes.code}>
+            <pre
+              className={classes.pre}
+              // eslint-disable-next-line react/no-danger
+              dangerouslySetInnerHTML={{
+                __html: implementations[selectedLanguague].code,
+              }}
+            />
+          </div>
+          <div className={classes.buttonsTop}>
+            {!mobile && (
+              <Button
+                startIcon={<OpenInNew />}
+                href={implementations[selectedLanguague].url}
+                target="_blank"
+                rel="noreferrer"
+              >
+                {t("viewOnGithub")}
+              </Button>
+            )}
+            <IconButton
+              className={classes.fullscreen}
+              style={{
+                backgroundColor: theme.palette.primary.main,
+                color: "white",
+              }}
+              onClick={() => setFullScreen(false)}
+            >
+              <FullscreenExit />
+            </IconButton>
+          </div>
+          {!mobile && (
+            <div className={classes.buttonsBottom}>
+              {selectedLanguague === "python" && (
+                <NextLink
+                  href={`/playground?algorithm=${algorithm.slug}&language=python`}
+                  passHref
+                >
+                  <Button
+                    color="primary"
+                    variant="contained"
+                    className={classes.tryCode}
+                    startIcon={<PlayArrow />}
+                  >
+                    {t("playgroundTryCode")}
+                  </Button>
+                </NextLink>
+              )}
+            </div>
+          )}
+        </div>
+      </Dialog>
     </div>
   );
 }
