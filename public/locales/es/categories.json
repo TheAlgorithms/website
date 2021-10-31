@@ -206,5 +206,11 @@
     "arima": "ARIMA",
     "audio": "Audio",
     "binary": "Binario",
-    "binarysearchtree": "Árbol Binario de Búsqueda"
+    "binarysearchtree": "Árbol Binario de Búsqueda",
+    "textclassification": "Clasificación del texto",
+    "audiofilters": "Filtros de audio",
+    "cpuschedulingalgorithms": "Algoritmos de programación de CPU",
+    "datacompression": "Compresión de datos",
+    "coloring": "Coloración",
+    "comparison": "Comparación"
 }
