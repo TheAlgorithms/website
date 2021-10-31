@@ -34,5 +34,13 @@
     "donateTitle": "捐赠",
     "contributeTitle": "贡献",
     "programmingLanguages": "我们支持许多编程语言。每种语言都有自己的GitHub仓库，其中存储了所有算法代码。以下是当前的编程语言列表:",
-    "programmingLanguagesTitle": "编程语言"
+    "programmingLanguagesTitle": "编程语言",
+    "contact": "联系我们",
+    "editPageEdit": "编辑页面",
+    "addExplanation": "添加一个对此算法的讲解",
+    "editPageHelp": "如果您有任何问题，请前往我们的discord服务器求助。",
+    "addTranslation": "翻译这个讲解",
+    "viewOnGithub": "在Github上查看",
+    "noResults": "未找到搜索结果",
+    "emptySearch": "搜索一个算法"
 }
