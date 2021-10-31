@@ -59,7 +59,7 @@ export default function AlgorithmPage({
       <Typography variant="h4">{algorithm.name}</Typography>
       <Contributors algorithm={algorithm} />
       <CodePreview algorithm={algorithm} />
-      {algorithm.body && (
+      {(algorithm.body[locale] || algorithm.body.en) && (
         <>
           <Typography variant="h5">About this Algorithm</Typography>
           <div
