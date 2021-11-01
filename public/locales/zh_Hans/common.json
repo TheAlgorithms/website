@@ -42,5 +42,7 @@
     "addTranslation": "翻译这个讲解",
     "viewOnGithub": "在Github上查看",
     "noResults": "未找到搜索结果",
-    "emptySearch": "搜索一个算法"
+    "emptySearch": "搜索一个算法",
+    "playgroundTryCode": "试一下这段代码",
+    "playgroundWelcome": "欢迎来到Python 语言的世界\n\n从左边开始输入代码\n在屏幕的一侧点击“运行代码”"
 }
