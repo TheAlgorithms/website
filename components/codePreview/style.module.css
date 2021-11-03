@@ -15,6 +15,10 @@
   padding: 20px;
 }
 
+:global(.dark) .code {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
 .codeBoxFullscreen,
 .codeBoxFullscreen .code {
   height: 100%;
@@ -85,8 +89,8 @@
 }
 
 .mobileImplementations {
-  margin-top: 10px !important;
-  width: 220px;
+  width: 100%;
+  margin-top: 15px !important;
 }
 
 .item {
@@ -106,6 +110,11 @@
 
 .item :global(p) {
   margin-left: 10px !important;
+}
+
+.dialog {
+  max-width: 1200px;
+  margin: auto;
 }
 
 @media (max-width: 600px) {

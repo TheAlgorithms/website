@@ -21,8 +21,8 @@ import useTranslation from "hooks/translation";
 import { getLanguageName, Language } from "lib/repositories";
 import LanguageIcon from "components/icon";
 import {
+  Close,
   Fullscreen,
-  FullscreenExit,
   MoreHoriz,
   OpenInNew,
   PlayArrow,
@@ -200,16 +200,14 @@ export default function CodePreview({ algorithm }: { algorithm: Algorithm }) {
             />
           </div>
           <div className={classes.buttonsTop}>
-            {!mobile && (
-              <Button
-                startIcon={<OpenInNew />}
-                href={implementations[selectedLanguague].url}
-                target="_blank"
-                rel="noreferrer"
-              >
-                {t("viewOnGithub")}
-              </Button>
-            )}
+            <Button
+              startIcon={<OpenInNew />}
+              href={implementations[selectedLanguague].url}
+              target="_blank"
+              rel="noreferrer"
+            >
+              {t("viewOnGithub")}
+            </Button>
             <IconButton
               className={classes.fullscreen}
               style={{
@@ -218,7 +216,7 @@ export default function CodePreview({ algorithm }: { algorithm: Algorithm }) {
               }}
               onClick={() => setFullScreen(false)}
             >
-              <FullscreenExit />
+              <Close />
             </IconButton>
           </div>
           {!mobile && (
