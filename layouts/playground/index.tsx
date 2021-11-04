@@ -1,5 +1,6 @@
 import Navbar from "components/navbar";
 import React, { ReactNode } from "react";
+import useTranslation from "hooks/translation";
 import classes from "./style.module.css";
 
 export default function PlaygroundLayout({
@@ -7,9 +8,10 @@ export default function PlaygroundLayout({
 }: {
   children: ReactNode;
 }) {
+  const t = useTranslation();
   return (
     <div className={classes.root}>
-      <Navbar title="Code Playground" wide />
+      <Navbar title={t("codeplayground")} wide />
       {children}
     </div>
   );
