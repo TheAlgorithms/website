@@ -112,21 +112,22 @@ redirect_stderr(WriteStream(post_stdout_to_main_thread)).__enter__()
       executeCode = (s: string) => {
         xtermRef.current.terminal.writeln(
           `\x1b[0m\x1b[90m---- RESET ----\x1b[0m\x1b[?25l`,
-          () => {
-            pyodide
-              .runPythonAsync(s)
-              .then(() => {
-                xtermRef.current.terminal.writeln(
-                  `\x1b[0m\x1b[90mExited with code 0\x1b[0m\x1b[?25l`
-                );
-              })
-              .catch((e: string) => {
-                xtermRef.current.terminal.write(`\x1b[31m${e}\x1b[0m`);
-                xtermRef.current.terminal.writeln(
-                  `\x1b[0m\x1b[90mExited with code 1\x1b[0m\x1b[?25l`
-                );
-              });
-          }
+          () =>
+            setTimeout(() => {
+              pyodide
+                .runPythonAsync(s)
+                .then(() => {
+                  xtermRef.current.terminal.writeln(
+                    `\x1b[0m\x1b[90mExited with code 0\x1b[0m\x1b[?25l`
+                  );
+                })
+                .catch((e: string) => {
+                  xtermRef.current.terminal.write(`\x1b[31m${e}\x1b[0m`);
+                  xtermRef.current.terminal.writeln(
+                    `\x1b[0m\x1b[90mExited with code 1\x1b[0m\x1b[?25l`
+                  );
+                });
+            }, 10)
         );
       };
       xtermRef.current.terminal.writeln(
