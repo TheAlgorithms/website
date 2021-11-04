@@ -1,167 +1,245 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useRef, useState } from "react";
 import "highlight.js/styles/atom-one-light.css";
 import { Algorithm } from "lib/models";
-import { getLanguageName, Language } from "lib/repositories";
-import useBodyScroll from "hooks/bodyScroll";
-import LanguageIcon from "components/icon";
-import { Button, Card, IconButton, Paper } from "@material-ui/core";
-import { Close, OpenInNew, PlayArrow } from "@material-ui/icons";
+import {
+  Button,
+  Card,
+  Dialog,
+  Fab,
+  FormControl,
+  IconButton,
+  InputLabel,
+  Link,
+  Menu,
+  MenuItem,
+  Select,
+  Typography,
+  useMediaQuery,
+  useTheme,
+} from "@material-ui/core";
 import useTranslation from "hooks/translation";
-import Link from "next/link";
+import { getLanguageName, Language } from "lib/repositories";
+import LanguageIcon from "components/icon";
+import {
+  Close,
+  Fullscreen,
+  MoreHoriz,
+  OpenInNew,
+  PlayArrow,
+} from "@material-ui/icons";
+import NextLink from "next/link";
 import classes from "./style.module.css";
 
 export default function CodePreview({ algorithm }: { algorithm: Algorithm }) {
   const { implementations } = algorithm;
-  const codeRef = useRef<HTMLDivElement>();
-  const [active, setActive] = useState(false);
-  const [, setBodyScroll] = useBodyScroll();
   const [selectedLanguague, setSelectedLanguague] = useState(
     Object.keys(implementations)[0]
   );
   const t = useTranslation();
-
-  useEffect(() => {
-    function backdropClickListener(event: MouseEvent) {
-      if (
-        (event.target as HTMLDivElement).id === "__next" ||
-        (event.target as HTMLDivElement).classList.contains("section")
-      )
-        setActive(false);
-    }
-    document
-      .getElementById("__next")
-      .addEventListener("click", backdropClickListener);
-    return () => {
-      document
-        .getElementById("__next")
-        .removeEventListener("click", backdropClickListener);
-    };
-  }, []);
-
-  useEffect(() => {
-    document.getElementsByTagName("html")[0].style.scrollBehavior = "smooth";
-    document.getElementById("__next").style.backgroundColor = active
-      ? "rgba(122,122,122,0.2)"
-      : "unset";
-    setTimeout(() => {
-      if (active) {
-        window.scrollTo(0, 0);
-      } else if (codeRef.current) {
-        codeRef.current.scrollTo(0, 0);
-      }
-      setTimeout(
-        () => {
-          setBodyScroll(active);
-          document.getElementsByTagName("html")[0].style.scrollBehavior =
-            "unset";
-        },
-        active ? 400 : 0
-      );
-    });
-    return () => {
-      document.getElementById("__next").style.backgroundColor = "unset";
-    };
-  }, [active, setBodyScroll]);
+  const mobile = useMediaQuery("(max-width: 800px)");
+  const [fullScreen, setFullScreen] = useState(false);
+  const theme = useTheme();
+  const fabRef = useRef();
+  const [mobileMoreMenuOpen, setMobileMoreMenuOpen] = useState(false);
 
   return (
-    <div
-      className={`${classes.container} ${active ? classes.active : ""} ${
-        selectedLanguague === "jupyter" ? classes.jupyter : ""
-      }`}
-      style={
-        Object.keys(implementations).length === 1 &&
-        Object.keys(implementations)[0] === "jupyter"
-          ? { height: 50 }
-          : {}
-      }
-    >
-      <div className={classes.actions}>
-        <Button
-          startIcon={<OpenInNew />}
-          href={implementations[selectedLanguague].url}
-          target="_blank"
-          rel="noreferrer"
-        >
-          {t("viewOnGithub")}
-        </Button>
-        <Paper className={classes.closeBtn}>
-          <IconButton color="primary" onClick={() => setActive(false)}>
-            <Close />
-          </IconButton>
-        </Paper>
-      </div>
-      <Paper className={classes.paper}>
-        <div className={classes.scrollContainer}>
-          {selectedLanguague !== "jupyter" && (
-            <div
-              ref={codeRef}
-              className={classes.code}
-              onClick={() => setActive(true)}
-              role="button"
-              tabIndex={0}
+    <div className={`${classes.container}`}>
+      <div className={classes.codeBox}>
+        <div className={classes.code}>
+          <pre
+            className={classes.pre}
+            // eslint-disable-next-line react/no-danger
+            dangerouslySetInnerHTML={{
+              __html: implementations[selectedLanguague].code,
+            }}
+          />
+        </div>
+        {mobile ? (
+          <>
+            <Fab
+              className={classes.fab}
+              color="primary"
+              ref={fabRef}
+              onClick={() => setMobileMoreMenuOpen(true)}
             >
-              <pre className={classes.pre}>
-                <code
-                  // eslint-disable-next-line react/no-danger
-                  dangerouslySetInnerHTML={{
-                    __html: implementations[selectedLanguague].code,
-                  }}
-                />
-              </pre>
+              <MoreHoriz />
+            </Fab>
+            <Menu
+              anchorEl={fabRef.current}
+              open={mobileMoreMenuOpen}
+              onClose={() => setMobileMoreMenuOpen(false)}
+              className={classes.mobileMenu}
+            >
+              <MenuItem onClick={() => setFullScreen(true)}>
+                <Fullscreen />
+                <Typography>Fullscreen</Typography>
+              </MenuItem>
+              <Link
+                href={implementations[selectedLanguague].url}
+                target="_blank"
+                rel="noreferrer"
+              >
+                <MenuItem>
+                  <OpenInNew />
+                  <Typography>{t("viewOnGithub")}</Typography>
+                </MenuItem>
+              </Link>
+            </Menu>
+          </>
+        ) : (
+          <>
+            <div className={classes.buttonsTop}>
+              <Button
+                startIcon={<OpenInNew />}
+                href={implementations[selectedLanguague].url}
+                target="_blank"
+                rel="noreferrer"
+              >
+                {t("viewOnGithub")}
+              </Button>
+              <IconButton
+                className={classes.fullscreen}
+                style={{
+                  backgroundColor: theme.palette.primary.main,
+                  color: "white",
+                }}
+                onClick={() => setFullScreen(true)}
+              >
+                <Fullscreen />
+              </IconButton>
+            </div>
+            <div className={classes.buttonsBottom}>
+              {selectedLanguague === "python" && (
+                <NextLink
+                  href={`/playground?algorithm=${algorithm.slug}&language=python`}
+                  passHref
+                >
+                  <Button
+                    color="primary"
+                    variant="contained"
+                    className={classes.tryCode}
+                    startIcon={<PlayArrow />}
+                  >
+                    {t("playgroundTryCode")}
+                  </Button>
+                </NextLink>
+              )}
+            </div>
+          </>
+        )}
+      </div>
+
+      {mobile ? (
+        <FormControl className={classes.mobileImplementations}>
+          <InputLabel>Implementation in</InputLabel>
+          <Select value={selectedLanguague}>
+            {Object.keys(implementations).map((language) => (
+              <MenuItem
+                value={language}
+                onClick={() => setSelectedLanguague(language)}
+                key={language}
+              >
+                <div className={classes.item}>
+                  <LanguageIcon language={language} />
+                  <Typography>{getLanguageName(language)}</Typography>
+                </div>
+              </MenuItem>
+            ))}
+          </Select>
+        </FormControl>
+      ) : (
+        <div className={classes.implementations}>
+          {Object.keys(implementations).map((language: Language) => (
+            <Card
+              key={language}
+              className={
+                language === selectedLanguague
+                  ? `${classes.card} ${classes.current}`
+                  : classes.card
+              }
+            >
+              <IconButton
+                className={classes.implementation}
+                onClick={() => {
+                  if (language !== "jupyter") {
+                    setSelectedLanguague(language);
+                  }
+                }}
+                href={
+                  language === "jupyter"
+                    ? implementations[language].url
+                    : undefined
+                }
+                target="_blank"
+                rel="noreferrer"
+                aria-label={t("langImplementation", {
+                  language: getLanguageName(language),
+                })}
+              >
+                <LanguageIcon language={language} />
+              </IconButton>
+            </Card>
+          ))}
+        </div>
+      )}
+
+      <Dialog
+        fullScreen
+        open={fullScreen}
+        onClose={() => setFullScreen(false)}
+        className={classes.dialog}
+      >
+        <div className={classes.codeBoxFullscreen}>
+          <div className={classes.code}>
+            <pre
+              className={classes.pre}
+              // eslint-disable-next-line react/no-danger
+              dangerouslySetInnerHTML={{
+                __html: implementations[selectedLanguague].code,
+              }}
+            />
+          </div>
+          <div className={classes.buttonsTop}>
+            <Button
+              startIcon={<OpenInNew />}
+              href={implementations[selectedLanguague].url}
+              target="_blank"
+              rel="noreferrer"
+            >
+              {t("viewOnGithub")}
+            </Button>
+            <IconButton
+              className={classes.fullscreen}
+              style={{
+                backgroundColor: theme.palette.primary.main,
+                color: "white",
+              }}
+              onClick={() => setFullScreen(false)}
+            >
+              <Close />
+            </IconButton>
+          </div>
+          {!mobile && (
+            <div className={classes.buttonsBottom}>
+              {selectedLanguague === "python" && (
+                <NextLink
+                  href={`/playground?algorithm=${algorithm.slug}&language=python`}
+                  passHref
+                >
+                  <Button
+                    color="primary"
+                    variant="contained"
+                    className={classes.tryCode}
+                    startIcon={<PlayArrow />}
+                  >
+                    {t("playgroundTryCode")}
+                  </Button>
+                </NextLink>
+              )}
             </div>
           )}
-          <div className={classes.implementations}>
-            {Object.keys(implementations).map((language: Language) => (
-              <Card
-                key={language}
-                className={
-                  language === selectedLanguague
-                    ? `${classes.card} ${classes.current}`
-                    : classes.card
-                }
-              >
-                <IconButton
-                  className={classes.implementation}
-                  onClick={() => {
-                    if (language !== "jupyter") {
-                      setActive(true);
-                      setSelectedLanguague(language);
-                    }
-                  }}
-                  href={
-                    language === "jupyter"
-                      ? implementations[language].url
-                      : undefined
-                  }
-                  target="_blank"
-                  rel="noreferrer"
-                  aria-label={t("langImplementation", {
-                    language: getLanguageName(language),
-                  })}
-                >
-                  <LanguageIcon language={language} />
-                </IconButton>
-              </Card>
-            ))}
-          </div>
-
-          {active && selectedLanguague === "python" && (
-            <Link
-              href={`/playground?algorithm=${algorithm.slug}&language=python`}
-              passHref
-            >
-              <Button
-                color="primary"
-                variant="contained"
-                className={classes.tryCode}
-                startIcon={<PlayArrow />}
-              >
-                {t("playgroundTryCode")}
-              </Button>
-            </Link>
-          )}
         </div>
-      </Paper>
+      </Dialog>
     </div>
   );
 }

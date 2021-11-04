@@ -19,7 +19,7 @@ export default function LanguageIcon({
   className = "",
   color = "inherit",
 }: {
-  language: Language;
+  language: Language | string;
   tooltip?: string | JSX.Element;
   className?: string;
   color?: string;

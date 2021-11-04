@@ -1,163 +1,80 @@
 .container {
-  transition: height 0.4s ease, margin-bottom 0.4s ease;
-  display: flex;
-  flex-direction: column;
-  height: 350px;
+  margin-top: 20px;
+  margin-bottom: 30px;
 }
 
-.paper {
-  transition: box-shadow 0.4s ease, background 0.4s ease;
+.codeBox,
+.codeBoxFullscreen {
   position: relative;
-}
-
-.scrollContainer {
-  transition: height 0.4s ease;
-  display: flex;
-  flex-direction: column;
-  height: 350px;
-}
-
-.jupyter .scrollContainer {
-  height: unset;
-}
-
-.actions {
-  transition: height 0.4s ease, opacity 0.4s ease, transform 0.4s ease;
-  height: 0;
-  opacity: 0;
-  pointer-events: none;
-  align-self: flex-end;
-  padding-bottom: 5px;
-  position: absolute;
-  transform: translateY(0);
-  display: flex;
-  align-items: center;
-}
-
-.closeBtn {
-  border-radius: 50% !important;
-  margin-left: 5px;
 }
 
 .code {
-  background: #f2f2f2;
-  padding: 15px;
-  overflow: hidden;
-  position: relative;
-  margin-bottom: 0;
-  flex-grow: 1;
-  cursor: pointer;
-  scroll-behavior: smooth;
+  max-height: 60vh;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.03);
+  padding: 20px;
 }
 
 :global(.dark) .code {
-  background: #0000002c;
+  background-color: rgba(0, 0, 0, 0.2);
 }
 
-.code::before {
+.codeBoxFullscreen,
+.codeBoxFullscreen .code {
+  height: 100%;
+  max-height: none;
+}
+
+.fab {
+  position: absolute !important;
+  right: 10px;
+  bottom: 10px;
+}
+
+.mobileMenu a {
+  text-decoration: none;
+}
+
+.mobileMenu svg {
+  margin-right: 7px;
+}
+
+.buttonsTop {
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  content: "";
-  background: linear-gradient(
-    180deg,
-    rgba(255, 255, 255, 0) 50%,
-    rgba(250, 250, 250, 1) 100%
-  );
-  transition: opacity 0.4s ease;
+  top: 15px;
+  right: 15px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
 }
 
-:global(.dark) .code::before {
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0) 50%, #101316 100%);
+.buttonsBottom {
+  position: absolute;
+  bottom: 15px;
+  right: 15px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.fullscreen {
+  margin: 0 10px !important;
+}
+
+.tryCode {
+  color: white !important;
+}
+
+.pre {
+  font-size: 13px;
+  margin: 0;
 }
 
 .implementations {
-  transform: translateY(-15px);
-  transition: transform 0.4s ease, padding 0.4s ease;
+  margin-top: 10px;
 }
 
 .implementation {
   margin-right: -5px !important;
-}
-
-.active {
-  margin-bottom: 250px;
-  height: calc(100vh - 150px);
-}
-
-:not(.active) > .paper {
-  box-shadow: none !important;
-  background: none !important;
-}
-
-.active .scrollContainer {
-  height: calc(100vh - 150px);
-}
-
-.active .implementations {
-  padding: 5px 10px;
-}
-
-.tryCode {
-  position: absolute !important;
-  right: 20px;
-  bottom: 80px;
-  color: white !important;
-}
-
-@media (max-width: 800px) {
-  .active {
-    height: calc(100vh - 150px);
-    overflow: scroll;
-  }
-
-  .active .scrollContainer {
-    height: auto;
-  }
-
-  .tryCode {
-    display: none !important;
-  }
-}
-
-.active .actions {
-  height: 45px;
-  opacity: 1;
-  pointer-events: all;
-}
-
-@media (min-width: 800px) {
-  .actions {
-    margin-top: 10px;
-  }
-
-  .active .actions {
-    padding-top: 10px;
-    padding-right: 20px;
-    z-index: 10;
-  }
-}
-
-@media (max-width: 800px) {
-  .active .actions {
-    transform: translateY(-40px);
-  }
-}
-
-.active .code {
-  overflow: auto;
-  cursor: unset;
-}
-
-.active .code::before {
-  opacity: 0;
-  pointer-events: none;
-}
-
-.active .implementations {
-  transform: translateY(0);
 }
 
 .card {
@@ -169,4 +86,39 @@
 .card:not(.current) {
   background: rgba(255, 255, 255, 0) !important;
   box-shadow: none !important;
+}
+
+.mobileImplementations {
+  width: 100%;
+  margin-top: 15px !important;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+}
+
+:global(.MuiInputBase-input) .item {
+  margin-left: 5px;
+}
+
+:global(.MuiPopover-paper) .item :global(img) {
+  width: 0.8em;
+  height: 0.8em;
+  transform: translateY(-0.2em);
+}
+
+.item :global(p) {
+  margin-left: 10px !important;
+}
+
+.dialog {
+  max-width: 1200px;
+  margin: auto;
+}
+
+@media (max-width: 600px) {
+  .dialog {
+    margin-top: -8px !important;
+  }
 }

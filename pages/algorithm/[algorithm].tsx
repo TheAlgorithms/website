@@ -47,7 +47,6 @@ export default function AlgorithmPage({
           ),
         ]}
       />
-      <CodePreview algorithm={algorithm} />
       <Breadcrumbs className={classes.categories}>
         {algorithm.categories.map((category) => (
           <Typography key={category} variant="h6">
@@ -59,8 +58,10 @@ export default function AlgorithmPage({
       </Breadcrumbs>
       <Typography variant="h4">{algorithm.name}</Typography>
       <Contributors algorithm={algorithm} />
-      {algorithm.body && (
+      <CodePreview algorithm={algorithm} />
+      {(algorithm.body[locale] || algorithm.body.en) && (
         <>
+          <Typography variant="h5">{t("aboutThisAlgorithm")}</Typography>
           <div
             // eslint-disable-next-line react/no-danger
             dangerouslySetInnerHTML={{
