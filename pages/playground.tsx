@@ -74,7 +74,7 @@ export default function CodePlayground() {
         const githubCode = (await githubResponse.text())
           // Remove doctest because it doesn't work with pyodide
           .replace(/[ \t]*import doctest *\n{1,2}/g, "")
-          .replace(/[ \t]*doctest.testmod\(\) *\n{1,2}/g, "");
+          .replace(/[ \t]*doctest\.testmod\(.*\).*\n{1,2}/g, "");
         const newId = createNewPlayground(languageParam, githubCode);
         setTimeout(() => router.replace(`/playground?id=${newId}`));
       })();

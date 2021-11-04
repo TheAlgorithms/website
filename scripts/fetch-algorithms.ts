@@ -43,6 +43,8 @@ let authors: {
 } = {};
 let spinner: Ora;
 
+// Algorithms which are ignored
+const algorithmsToIgnore = ["rungradientdescent"];
 // Categories where algorithms are ignored
 const categoriesToIgnore = [
   "projecteuler",
@@ -102,6 +104,7 @@ const categoriesToSkip = ["main", "src", "algorithms", "problems"];
         dir.split(path.sep).pop().split(".")[0].replace(/_/g, " ")
       );
       const nName = normalize(name);
+      if (algorithmsToIgnore.includes(nName)) continue;
       const lCategories = dir
         .split(path.sep)
         .slice(

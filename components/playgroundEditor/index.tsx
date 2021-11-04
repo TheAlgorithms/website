@@ -6,16 +6,20 @@ import React, {
   Dispatch,
   SetStateAction,
   useState,
-  createRef,
+  useRef,
+  useMemo,
 } from "react";
 import tryLoadPyodide from "lib/pyodide";
 import useTranslation from "hooks/translation";
 import PlayArrow from "@material-ui/icons/PlayArrow";
 import checkWasm from "lib/wasm";
 import { useDarkTheme } from "hooks/darkTheme";
+import { XTerm } from "xterm-for-react";
+import { FitAddon } from "xterm-addon-fit";
 import classes from "./style.module.css";
 
 let executeCode: (code: string) => void;
+let loading = false;
 
 export default function PlaygroundEditor({
   language,
@@ -30,45 +34,42 @@ export default function PlaygroundEditor({
   const [darkTheme] = useDarkTheme();
   const [supported, setSupported] = useState<boolean>(undefined);
   const [ready, setReady] = useState(false);
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const [pyodide, setPyodide] = useState<any>();
-  const outputPreRef = createRef<HTMLPreElement>();
-  const outputCodeRef = createRef<HTMLElement>();
+  const xtermRef = useRef<XTerm>();
+  const fitAddon = useMemo(() => new FitAddon(), []);
+
+  function resizeHandler() {
+    fitAddon.fit();
+  }
 
   useEffect(() => {
-    if (typeof supported === "undefined") return;
-    const welcome = document.createElement("div");
-    welcome.style.maxWidth = "100%";
-    welcome.innerText = supported
-      ? t("playgroundWelcome")
-      : t("playgroundUnsupported");
-    outputCodeRef.current.appendChild(welcome);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [supported]);
+    resizeHandler();
+    window.addEventListener("resize", resizeHandler);
+    return () => {
+      window.removeEventListener("resize", resizeHandler);
+    };
+  });
 
   useEffect(() => {
     (async () => {
+      if (loading) return;
+      loading = true;
       if (!process.browser) return;
-      if (checkWasm()) {
-        setSupported(true);
-        const loadedPyodide = await tryLoadPyodide();
-        setPyodide(loadedPyodide);
-      } else {
+      xtermRef.current.terminal.writeln(`${t("playgroundWelcome")}\n`);
+      if (!checkWasm()) {
         setSupported(false);
         setReady(true);
+        xtermRef.current.terminal.writeln(t("playgroundUnsupported"));
+        return;
       }
-    })();
-  }, []);
-
-  useEffect(() => {
-    (async () => {
-      if (!pyodide) return;
-      globalThis.post_stdout_to_main_thread = (s: string) => {
-        const span = document.createElement("span");
-        span.innerText = s;
-        outputCodeRef.current.appendChild(span);
-        outputPreRef.current.scrollTo(0, outputPreRef.current.scrollHeight);
-      };
+      setSupported(true);
+      xtermRef.current.terminal.write(
+        `${t("playgroundLoadingPackage", {
+          package: "python",
+        })} ...`
+      );
+      const pyodide = await tryLoadPyodide();
+      globalThis.post_stdout_to_main_thread = (text: string) =>
+        xtermRef.current.terminal.write(text);
       globalThis.input_fixed = (s: string) => {
         if (s) globalThis.post_stdout_to_main_thread(s);
         const r = prompt(s);
@@ -76,7 +77,7 @@ export default function PlaygroundEditor({
         return r;
       };
       pyodide.runPython(
-        `from contextlib import redirect_stdout
+        `from contextlib import redirect_stdout,redirect_stderr
 from js import post_stdout_to_main_thread,input_fixed
 
 input = input_fixed
@@ -93,22 +94,47 @@ class WriteStream:
     self.write_handler(text)
 
 redirect_stdout(WriteStream(post_stdout_to_main_thread)).__enter__()
+redirect_stderr(WriteStream(post_stdout_to_main_thread)).__enter__()
 `
       );
+      const imports = code.matchAll(/^ *(?:import|from)\s+(\S+)/gm);
+      if (imports) {
+        for (const match of imports) {
+          xtermRef.current.terminal.write(
+            `\r${t("playgroundLoadingPackage", {
+              package: match[1],
+            })} ...              `
+          );
+          await pyodide.loadPackage(match[1]);
+        }
+      }
       // eslint-disable-next-line camelcase
       executeCode = (s: string) => {
-        try {
-          if (outputCodeRef.current.innerHTML)
-            outputCodeRef.current.innerHTML += `<span>------------------</span><br />`;
-          pyodide.runPython(`${s}`);
-        } catch (e) {
-          outputCodeRef.current.innerHTML += `<span class="error">${e}</span>`;
-          outputPreRef.current.scrollTo(0, outputPreRef.current.scrollHeight);
-        }
+        xtermRef.current.terminal.writeln(
+          `\x1b[0m\x1b[90m---- RESET ----\x1b[0m\x1b[?25l`,
+          () => {
+            pyodide
+              .runPythonAsync(s)
+              .then(() => {
+                xtermRef.current.terminal.writeln(
+                  `\x1b[0m\x1b[90mExited with code 0\x1b[0m\x1b[?25l`
+                );
+              })
+              .catch((e: string) => {
+                xtermRef.current.terminal.write(`\x1b[31m${e}\x1b[0m`);
+                xtermRef.current.terminal.writeln(
+                  `\x1b[0m\x1b[90mExited with code 1\x1b[0m\x1b[?25l`
+                );
+              });
+          }
+        );
       };
+      xtermRef.current.terminal.writeln(
+        `\r${t("playgroundReady")}                    \n\x1b[?25l`
+      );
       setReady(true);
     })();
-  }, [outputCodeRef, outputPreRef, pyodide]);
+  }, [code, t]);
 
   return (
     <div className={classes.root}>
@@ -145,10 +171,22 @@ redirect_stdout(WriteStream(post_stdout_to_main_thread)).__enter__()
           {t("playgroundRunCode")}
         </Button>
       </div>
-      <pre className={classes.output} ref={outputPreRef}>
-        <code ref={outputCodeRef} />
-        <div className={classes.scrollAnchor} />
-      </pre>
+      <div className={classes.output}>
+        <XTerm
+          className={classes.xterm}
+          ref={xtermRef}
+          options={{ convertEol: true }}
+          addons={[fitAddon]}
+          onKey={(event) => {
+            if (event.domEvent.ctrlKey && event.domEvent.code === "KeyC") {
+              event.domEvent.preventDefault();
+              navigator.clipboard.writeText(
+                xtermRef.current.terminal.getSelection()
+              );
+            }
+          }}
+        />
+      </div>
     </div>
   );
 }
