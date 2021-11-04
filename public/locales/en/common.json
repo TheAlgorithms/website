@@ -73,9 +73,11 @@
   "codeplayground": "Code Playground",
   "playgroundRunCode": "Run Code",
   "playgroundTryCode": "Try this Code",
-  "playgroundWelcome": "Welcome to the Python Code Playground 👋\n\nGet started by editing the code on the left\nside of the screen and clicking \"Run code\"",
+  "playgroundWelcome": "Welcome to the Python Code Playground 👋",
   "playgroundUnsupported": "Your browser does not support Web Assembly\nand can thus not run the code.\n\nYou can still edit the code on the left.",
   "playgroundErrIdNotFound": "The Playground ID was not found",
   "playgroundErrInvalidLink": "The Playground Link is invalid",
-  "aboutThisAlgorithm": "About this Algorithm"
+  "aboutThisAlgorithm": "About this Algorithm",
+  "playgroundLoadingPackage": "Loading {package}",
+  "playgroundReady": "Ready! Get started by editing the code on the\nleft side of the screen and clicking \"Run code\""
 }
