@@ -33,4 +33,4 @@ yarn-error.log*
 /cache
 /tmp
 /public/data
-.tsconfig.tsbuildinfo
+tsconfig.tsbuildinfo

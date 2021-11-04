@@ -6,4 +6,4 @@ cache
 out
 /tmp
 /public/data
-.tsconfig.tsbuildinfo
+tsconfig.tsbuildinfo
