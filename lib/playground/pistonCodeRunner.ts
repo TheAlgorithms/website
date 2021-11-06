@@ -1,4 +1,3 @@
-import { Repositories } from "lib/repositories";
 import CodeRunner from "./codeRunner";
 
 const API_BASE_URL = "https://emkc.org/api/v2/piston";
@@ -62,7 +61,7 @@ export default class PistonCodeRunner extends CodeRunner {
         version: this.runtimeVersion,
         files: [
           {
-            name: `code${Repositories[this.language].allowedFiles[0]}`,
+            // name: `code${Repositories[this.language].allowedFiles[0]}`,
             content: code,
           },
         ],

@@ -19,7 +19,16 @@ import PythonCodeRunner from "lib/playground/pythonCodeRunner";
 import PistonCodeRunner from "lib/playground/pistonCodeRunner";
 import classes from "./style.module.css";
 
-let loading = false;
+function getMonacoLanguageName(language: string) {
+  switch (language) {
+    case "c-plus-plus":
+      return "cpp";
+    case "c-sharp":
+      return "cs";
+    default:
+      return language;
+  }
+}
 
 export default function PlaygroundEditor({
   language,
@@ -57,28 +66,23 @@ export default function PlaygroundEditor({
   }, []);
   const fitAddon = useMemo(() => new FitAddon(), []);
 
-  function resizeHandler() {
-    fitAddon.fit();
-  }
-
   useEffect(() => {
+    function resizeHandler() {
+      fitAddon.fit();
+    }
     resizeHandler();
     window.addEventListener("resize", resizeHandler);
     return () => {
       window.removeEventListener("resize", resizeHandler);
     };
-  });
+  }, [fitAddon]);
 
   useEffect(() => {
     (async () => {
-      if (loading) return;
-      loading = true;
-      if (!process.browser) return;
       xtermRef.current.terminal.writeln(`${t("playgroundWelcome")}\n`);
-
-      setReady(true);
     })();
-  }, [code, t]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <div className={classes.root}>
@@ -92,7 +96,7 @@ export default function PlaygroundEditor({
       />
       <div className={classes.editor}>
         <Editor
-          language={language}
+          language={getMonacoLanguageName(language)}
           value={code}
           onChange={setCode}
           options={{
