@@ -267,5 +267,6 @@
     "audiofilters": "Sonfiltriloj",
     "minimumspanningtree": "Minimuma ampleksanta arbo",
     "financial": "Financa",
-    "manacher": "Algoritmo de Manacher"
+    "manacher": "Algoritmo de Manacher",
+    "slidingwindow": "Glitanta fenestro"
 }
