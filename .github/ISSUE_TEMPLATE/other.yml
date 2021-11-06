@@ -1,5 +1,5 @@
 name: Other
-description: Open an issue about something else PLEASE do not create blank issues.
+description: Open an issue about something else. PLEASE do not create blank issues.
 title: "[OTHER] <description>"
 body:
   - type: markdown
@@ -15,7 +15,7 @@ body:
   - type: textarea
     id: extrainfo
     attributes:
-      label: Additional information
+      label: Additional information/context
       description: Is there anything else we should know about this issue?
     validations:
       required: false

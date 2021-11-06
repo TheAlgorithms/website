@@ -7,17 +7,20 @@ body:
     id: description
     attributes:
       label: Description of the bug
+      description: Provide a detailed description of the bug you're encountering
     validations:
       required: true
   - type: textarea
     id: screenshots
     attributes:
-      label: Add screenshots of the bug (optional)
+      label: Add screenshots of the bug (if applicable)
+      description: Add any screenshots where we can see the bug
     validations:
       required: false
-  - type: input
+  - type: textarea
     id: context
     attributes:
-      label: Add any other context about the problem here
+      label: Additional information/context
+      description: Is there anything else we should know about this bug?
     validations:
       required: false

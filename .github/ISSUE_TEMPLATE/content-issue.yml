@@ -8,17 +8,20 @@ body:
     id: description
     attributes:
       label: Description of the content report
+      description: Provide a detailed description of the content error you found
     validations:
       required: true
   - type: textarea
     id: screenshots
     attributes:
-      label: Add screenshots of the content report (optional)
+      label: Add screenshots of the content report (if applicable)
+      description: Add any screenshots where we can see the error
     validations:
       required: false
-  - type: input
+  - type: textarea
     id: context
     attributes:
-      label: Add any other context about the report here
+      label: Additional information/context
+      description: Is there anything else we should know about this content report?
     validations:
       required: false

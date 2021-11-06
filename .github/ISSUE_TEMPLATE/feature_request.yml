@@ -7,17 +7,19 @@ body:
     id: description
     attributes:
       label: Description of the feature request
+      description: Provide a detailed description of the change or addition you are proposing
     validations:
       required: true
   - type: textarea
     id: screenshots
     attributes:
-      label: Add screenshots of the feature request (optional)
+      label: Add screenshots of the feature request (if applicable)
     validations:
       required: false
-  - type: input
+  - type: textarea
     id: context
     attributes:
-      label: Add any other context about the feature request here
+      label: Additional information/context
+      description: Is there anything else we should know about this feature?
     validations:
       required: false
