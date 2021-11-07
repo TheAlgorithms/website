@@ -196,9 +196,10 @@ const categoriesToSkip = ["main", "src", "algorithms", "problems"];
                   contributors: [],
                   explanationUrl: {},
                 };
-                for (const category of aCategories.filter(
-                  (x) => !!x && x !== "Algorithms"
-                )) {
+                for (const category of aCategories
+                  .filter((x) => !!x && x !== "Algorithms")
+                  .map(normalizeTitle)
+                  .map(normalizeCategory)) {
                   if (!categories[normalizeCategory(category)])
                     categories[normalizeCategory(category)] = [];
                   if (!categoryNames[normalize(category)]) {
