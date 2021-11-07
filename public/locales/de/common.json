@@ -70,8 +70,14 @@
     "analyticsTitle": "Analytics auf dieser Website",
     "analyticsFooter": "Analytics",
     "playgroundUnsupported": "Ihr Browser unterstützt keine Web Assembly\nund kann daher den Code nicht ausführen.\n\nSie können den Code auf der linken Seite\ntrotzdem bearbeiten.",
-    "playgroundWelcome": "Willkommen auf dem Python Code Playground 👋\n\nUm zu starten, auf der linken Seite den Code bearbeiten\nund dann auf \"Code ausführen\" klicken",
+    "playgroundWelcome": "Willkommen auf dem Code Playground von TheAlgorithms 👋",
     "playgroundRunCode": "Code ausführen",
     "codeplayground": "Code-Spielplatz",
-    "internalServerError": "Interner Serverfehler"
+    "internalServerError": "Interner Server-Fehler",
+    "playgroundLoadingPackage": "{package} wird geladen",
+    "playgroundReady": "Bereit! Um zu beginnen, einfach den Code auf der linken Seite\nbearbeiten und dann auf den Knopf \"Code ausführen\" klicken",
+    "playgroundTryCode": "Diesen Code ausprobieren",
+    "playgroundErrIdNotFound": "Die Playground-ID wurde nicht gefunden",
+    "playgroundErrInvalidLink": "Der Playground-Link ist ungültig",
+    "aboutThisAlgorithm": "Über diesen Algorithmus"
 }

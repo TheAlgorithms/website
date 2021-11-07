@@ -67,6 +67,7 @@ const aliases = {
     stack: "Stacks",
     disjointsets: "Disjoint Set",
     caches: "Cache",
+    knapsackproblem: "Knapsack",
   },
 };
 export default aliases;

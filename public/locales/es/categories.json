@@ -214,5 +214,15 @@
     "coloring": "Coloración",
     "comparison": "Comparación",
     "decisiontreeregressionwithkfoldcrossvalidation": "Regresión de árbol de decisión con validación cruzada K-Fold",
-    "decomposition": "Descomposición"
+    "decomposition": "Descomposición",
+    "financial": "Financiero",
+    "greedymethods": "Métodos codiciosos",
+    "knapsackproblem": "Problema Knapsack",
+    "structure": "Estructura",
+    "greatestcommondivisor": "Máximo común divisor",
+    "graph": "Gráfico",
+    "diffiehellman": "Diffiehellman",
+    "dynamic": "Dinámico",
+    "encoders": "Codificadores",
+    "factorization": "Factorización"
 }
