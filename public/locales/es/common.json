@@ -76,5 +76,7 @@
     "codeplayground": "Código de la zona de juegos",
     "playgroundTryCode": "Prueba este código",
     "playgroundErrIdNotFound": "No se encontró el ID del Playground",
-    "playgroundErrInvalidLink": "El enlace del Playground no es válido"
+    "playgroundErrInvalidLink": "El enlace del Playground no es válido",
+    "playgroundLoadingPackage": "Cargando {package}",
+    "aboutThisAlgorithm": "Acerca de este algoritmo"
 }
