@@ -1,3 +1,16 @@
 tasks:
   - init: yarn && yarn fetch-algorithms
     command: yarn dev
+
+github:
+  prebuilds:
+    addBadge: true
+    addComment: false
+    addCheck: false
+    master: true
+    branches: true
+    pullRequestsFromForks: true
+
+vscode:
+  extensions:
+    - davidanson.vscode-markdownlint
