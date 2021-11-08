@@ -73,7 +73,7 @@
     "playgroundErrInvalidLink": "La Kodproveja ligilo ne validas",
     "playgroundErrIdNotFound": "La Kodproveja identigilo ne troviĝis",
     "playgroundUnsupported": "Via TTT-legilo ne subtenas WebAssembly\nkaj tial ne povas lanĉi la kodon.\n\nVi tamen povas redakti la kodon en la maldekstro.",
-    "playgroundWelcome": "Bonvenon al la Kodprovejo de Python 👋",
+    "playgroundWelcome": "Bonvenon al la Kodprovejo de TheAlgorithms 👋",
     "codeplayground": "Kodprovejo",
     "playgroundTryCode": "Elprovi ĉi tiun kodon",
     "playgroundRunCode": "Ruli kodon",
