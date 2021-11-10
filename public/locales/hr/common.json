@@ -73,8 +73,11 @@
     "playgroundErrInvalidLink": "Poveznica na igralište nije ispravna",
     "playgroundErrIdNotFound": "ID igrališta nije pronađen",
     "playgroundUnsupported": "Tvoj preglednik ne podržava Web Assembly\ni stoga ne može pokrenuti kôd.\n\nKôd na lijevoj strani svejedno možeš promijeniti.",
-    "playgroundWelcome": "Pozdrav na igralištu za Python kôd 👋\n\nPromijeni kôd na lijevoj strani\nekrana i pritisni „Pokreni kôd”",
+    "playgroundWelcome": "Pozdrav na TheAlgorithms igralištu za kodiranje 👋",
     "playgroundTryCode": "Probaj ovaj kôd",
     "playgroundRunCode": "Pokreni kôd",
-    "codeplayground": "Igralište za kodiranje"
+    "codeplayground": "Igralište za kodiranje",
+    "playgroundLoadingPackage": "Učitava se {package}",
+    "playgroundReady": "Gotovo! Započni uređivanjem koda na\nlijevoj strani ekrana i pritisni „Pokreni kôd”",
+    "aboutThisAlgorithm": "Informacije ovom algoritmu"
 }
