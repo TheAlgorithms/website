@@ -13,6 +13,7 @@ import {
   Menu,
   MenuItem,
   Select,
+  Tooltip,
   Typography,
   useMediaQuery,
   useTheme,
@@ -150,35 +151,41 @@ export default function CodePreview({ algorithm }: { algorithm: Algorithm }) {
       ) : (
         <div className={classes.implementations}>
           {Object.keys(implementations).map((language: Language) => (
-            <Card
+            <Tooltip
               key={language}
-              className={
-                language === selectedLanguague
-                  ? `${classes.card} ${classes.current}`
-                  : classes.card
-              }
+              title={t("langImplementation", {
+                language: getLanguageName(language),
+              })}
             >
-              <IconButton
-                className={classes.implementation}
-                onClick={() => {
-                  if (language !== "jupyter") {
-                    setSelectedLanguague(language);
-                  }
-                }}
-                href={
-                  language === "jupyter"
-                    ? implementations[language].url
-                    : undefined
+              <Card
+                className={
+                  language === selectedLanguague
+                    ? `${classes.card} ${classes.current}`
+                    : classes.card
                 }
-                target="_blank"
-                rel="noreferrer"
-                aria-label={t("langImplementation", {
-                  language: getLanguageName(language),
-                })}
               >
-                <LanguageIcon language={language} />
-              </IconButton>
-            </Card>
+                <IconButton
+                  className={classes.implementation}
+                  onClick={() => {
+                    if (language !== "jupyter") {
+                      setSelectedLanguague(language);
+                    }
+                  }}
+                  href={
+                    language === "jupyter"
+                      ? implementations[language].url
+                      : undefined
+                  }
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label={t("langImplementation", {
+                    language: getLanguageName(language),
+                  })}
+                >
+                  <LanguageIcon language={language} />
+                </IconButton>
+              </Card>
+            </Tooltip>
           ))}
         </div>
       )}
