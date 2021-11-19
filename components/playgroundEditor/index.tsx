@@ -9,17 +9,26 @@ import React, {
   useRef,
   useMemo,
 } from "react";
-import tryLoadPyodide from "lib/pyodide";
 import useTranslation from "hooks/translation";
 import PlayArrow from "@material-ui/icons/PlayArrow";
-import checkWasm from "lib/wasm";
 import { useDarkTheme } from "hooks/darkTheme";
 import { XTerm } from "xterm-for-react";
 import { FitAddon } from "xterm-addon-fit";
+import CodeRunner from "lib/playground/codeRunner";
+import PythonCodeRunner from "lib/playground/pythonCodeRunner";
+import PistonCodeRunner from "lib/playground/pistonCodeRunner";
 import classes from "./style.module.css";
 
-let executeCode: (code: string) => void;
-let loading = false;
+function getMonacoLanguageName(language: string) {
+  switch (language) {
+    case "c-plus-plus":
+      return "cpp";
+    case "c-sharp":
+      return "cs";
+    default:
+      return language;
+  }
+}
 
 export default function PlaygroundEditor({
   language,
@@ -32,110 +41,48 @@ export default function PlaygroundEditor({
 }) {
   const t = useTranslation();
   const [darkTheme] = useDarkTheme();
-  const [supported, setSupported] = useState<boolean>(undefined);
-  const [ready, setReady] = useState(false);
   const xtermRef = useRef<XTerm>();
+  const [ready, setReady] = useState(false);
+  const [disabled, setDisabled] = useState(false);
+  const codeRunner = useMemo<CodeRunner>(() => {
+    let runner: CodeRunner;
+    switch (language) {
+      case "python":
+        runner = new PythonCodeRunner(xtermRef, t);
+        break;
+
+      default:
+        runner = new PistonCodeRunner(xtermRef, t);
+        break;
+    }
+    setTimeout(() => {
+      runner.load(code, language).then((r) => {
+        setReady(true);
+        setDisabled(!r);
+      });
+    });
+    return runner;
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
   const fitAddon = useMemo(() => new FitAddon(), []);
 
-  function resizeHandler() {
-    fitAddon.fit();
-  }
-
   useEffect(() => {
+    function resizeHandler() {
+      fitAddon.fit();
+    }
     resizeHandler();
     window.addEventListener("resize", resizeHandler);
     return () => {
       window.removeEventListener("resize", resizeHandler);
     };
-  });
+  }, [fitAddon]);
 
   useEffect(() => {
     (async () => {
-      if (loading) return;
-      loading = true;
-      if (!process.browser) return;
       xtermRef.current.terminal.writeln(`${t("playgroundWelcome")}\n`);
-      if (!checkWasm()) {
-        setSupported(false);
-        setReady(true);
-        xtermRef.current.terminal.writeln(t("playgroundUnsupported"));
-        return;
-      }
-      setSupported(true);
-      xtermRef.current.terminal.write(
-        `${t("playgroundLoadingPackage", {
-          package: "python",
-        })} ...`
-      );
-      const pyodide = await tryLoadPyodide();
-      globalThis.post_stdout_to_main_thread = (text: string) =>
-        xtermRef.current.terminal.write(text);
-      globalThis.input_fixed = (s: string) => {
-        if (s) globalThis.post_stdout_to_main_thread(s);
-        const r = prompt(s);
-        globalThis.post_stdout_to_main_thread(`${r}\n`);
-        return r;
-      };
-      pyodide.runPython(
-        `from contextlib import redirect_stdout,redirect_stderr
-from js import post_stdout_to_main_thread,input_fixed
-
-input = input_fixed
-__builtins__.input = input_fixed
-__name__ = "__main__"
-
-class WriteStream:
-  """A utility class so we can specify our own handlers for writes to sdout, stderr"""
-
-  def __init__(self, write_handler):
-    self.write_handler = write_handler
-
-  def write(self, text):
-    self.write_handler(text)
-
-redirect_stdout(WriteStream(post_stdout_to_main_thread)).__enter__()
-redirect_stderr(WriteStream(post_stdout_to_main_thread)).__enter__()
-`
-      );
-      const imports = code.matchAll(/^ *(?:import|from)\s+(\S+)/gm);
-      if (imports) {
-        for (const match of imports) {
-          xtermRef.current.terminal.write(
-            `\r${t("playgroundLoadingPackage", {
-              package: match[1],
-            })} ...              `
-          );
-          await pyodide.loadPackage(match[1]);
-        }
-      }
-      // eslint-disable-next-line camelcase
-      executeCode = (s: string) => {
-        xtermRef.current.terminal.writeln(
-          `\x1b[0m\x1b[90m---- RESET ----\x1b[0m\x1b[?25l`,
-          () =>
-            setTimeout(() => {
-              pyodide
-                .runPythonAsync(s)
-                .then(() => {
-                  xtermRef.current.terminal.writeln(
-                    `\x1b[0m\x1b[90mExited with code 0\x1b[0m\x1b[?25l`
-                  );
-                })
-                .catch((e: string) => {
-                  xtermRef.current.terminal.write(`\x1b[31m${e}\x1b[0m`);
-                  xtermRef.current.terminal.writeln(
-                    `\x1b[0m\x1b[90mExited with code 1\x1b[0m\x1b[?25l`
-                  );
-                });
-            }, 10)
-        );
-      };
-      xtermRef.current.terminal.writeln(
-        `\r${t("playgroundReady")}                    \n\x1b[?25l`
-      );
-      setReady(true);
     })();
-  }, [code, t]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <div className={classes.root}>
@@ -149,7 +96,7 @@ redirect_stderr(WriteStream(post_stdout_to_main_thread)).__enter__()
       />
       <div className={classes.editor}>
         <Editor
-          language={language}
+          language={getMonacoLanguageName(language)}
           value={code}
           onChange={setCode}
           options={{
@@ -162,8 +109,13 @@ redirect_stderr(WriteStream(post_stdout_to_main_thread)).__enter__()
           theme={darkTheme ? "vs-dark" : "vs-light"}
         />
         <Button
-          disabled={!ready || !supported}
-          onClick={() => executeCode(code)}
+          disabled={!ready || disabled}
+          onClick={() => {
+            setDisabled(true);
+            codeRunner.run(code).finally(() => {
+              setDisabled(false);
+            });
+          }}
           className={classes.runBtn}
           variant="contained"
           color="primary"

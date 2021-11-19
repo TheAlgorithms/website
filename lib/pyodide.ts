@@ -8,5 +8,11 @@ export default async function tryLoadPyodide() {
       indexURL: "https://cdn.jsdelivr.net/pyodide/v0.18.0/full/",
     });
   }
-  return pyodide;
+  return pyodide as Pyodide;
+}
+
+export interface Pyodide {
+  runPython: (code: string) => string;
+  runPythonAsync: (code: string) => Promise<string>;
+  loadPackage: (name: string) => Promise<void>;
 }

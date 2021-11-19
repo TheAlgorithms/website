@@ -110,21 +110,19 @@ export default function CodePreview({ algorithm }: { algorithm: Algorithm }) {
               </IconButton>
             </div>
             <div className={classes.buttonsBottom}>
-              {selectedLanguague === "python" && (
-                <NextLink
-                  href={`/playground?algorithm=${algorithm.slug}&language=python`}
-                  passHref
+              <NextLink
+                href={`/playground?algorithm=${algorithm.slug}&language=${selectedLanguague}`}
+                passHref
+              >
+                <Button
+                  color="primary"
+                  variant="contained"
+                  className={classes.tryCode}
+                  startIcon={<PlayArrow />}
                 >
-                  <Button
-                    color="primary"
-                    variant="contained"
-                    className={classes.tryCode}
-                    startIcon={<PlayArrow />}
-                  >
-                    {t("playgroundTryCode")}
-                  </Button>
-                </NextLink>
-              )}
+                  {t("playgroundTryCode")}
+                </Button>
+              </NextLink>
             </div>
           </>
         )}
