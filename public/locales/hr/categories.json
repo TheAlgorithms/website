@@ -17,7 +17,7 @@
     "stack": "Snop",
     "src": "Izvor",
     "specializedstructure": "Specijalizirana struktura",
-    "spanningtree": "Razapinjuće stablo",
+    "spanningtree": "Razmaknuto stablo",
     "sorts": "Razvrstavanje",
     "sortingalgorithms": "Algoritmi za razvrstavanje",
     "singlylinkedlist": "Jednostruko povezana lista",
@@ -245,5 +245,9 @@
     "string": "Niz",
     "probabilistic": "Vjerojatnost",
     "problems": "Problemi",
-    "stablemarriage": "Stabilan brak"
+    "stablemarriage": "Stabilan brak",
+    "slidingwindow": "Klizni prozor",
+    "financial": "Financije",
+    "manacher": "Manacher",
+    "minimumspanningtree": "Najmanje razmaknuto stablo"
 }

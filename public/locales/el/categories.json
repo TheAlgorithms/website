@@ -1,0 +1,16 @@
+{
+    "activationfunctions": "Συναρτήσεις Ενεργοποίησης",
+    "array": "Πίνακας",
+    "audio": "Ακουστικό",
+    "audiofilters": "Ακουστικά φίλτρα",
+    "automaton": "Αυτόματο",
+    "backtracking": "Οπισθοδρόμηση",
+    "basic": "Βασικό",
+    "basicsoftensorflow": "Τα βασικά του Tensorflow",
+    "binary": "Δυαδικό",
+    "binaryheap": "Δυαδική στοίβα",
+    "binarysearchtree": "Δυαδικό Δέντρο Αναζήτησης",
+    "booleanalgebra": "Άλγεβρα Μπουλ",
+    "binarytree": "Δυαδικό Δένδρο",
+    "computervision": "Μηχανική Όραση"
+}
