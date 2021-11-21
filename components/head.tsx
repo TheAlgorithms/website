@@ -1,4 +1,5 @@
 import NextHead from "next/head";
+import locales from "lib/locales";
 
 export default function Head({
   title,
@@ -19,14 +20,15 @@ export default function Head({
       <meta property="og:image" content="/logo_t.svg" />
       <meta property="og:url" content="https://the-algorithms.com" />
       <meta property="og:type" content="website" />
-      <meta property="og:locale" content="en_US" />
-      <meta property="og:locale:alternate" content="de_DE" />
-      <meta property="og:locale:alternate" content="es_MX" />
-      <meta property="og:locale:alternate" content="eo" />
-      <meta property="og:locale:alternate" content="uk" />
-      <meta property="og:locale:alternate" content="hr" />
-      <meta property="og:locale:alternate" content="zh_Hans" />
-      <meta property="og:locale:alternate" content="it" />
+      {locales.map((locale) => (
+        <meta
+          property={
+            router.locale === locale ? "og:locale" : "og:locale:alternative"
+          }
+          content={locale}
+          key={locale}
+        />
+      ))}
       <script type="application/ld+json">
         {`{
   "@context": "https://schema.org",
