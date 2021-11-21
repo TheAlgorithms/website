@@ -1,5 +1,6 @@
 import NextHead from "next/head";
 import locales from "lib/locales";
+import { useRouter } from "next/router";
 
 export default function Head({
   title,
