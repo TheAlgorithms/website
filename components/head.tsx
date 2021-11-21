@@ -11,6 +11,7 @@ export default function Head({
   description?: string;
   tags?: string[];
 }) {
+  const router = useRouter();
   return (
     <NextHead>
       <title>{title ? `${title} - The Algorithms` : "The Algorithms"}</title>
