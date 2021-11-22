@@ -1,4 +1,6 @@
 import NextHead from "next/head";
+import locales from "lib/locales";
+import { useRouter } from "next/router";
 
 export default function Head({
   title,
@@ -9,6 +11,7 @@ export default function Head({
   description?: string;
   tags?: string[];
 }) {
+  const router = useRouter();
   return (
     <NextHead>
       <title>{title ? `${title} - The Algorithms` : "The Algorithms"}</title>
@@ -19,6 +22,15 @@ export default function Head({
       <meta property="og:image" content="/logo_t.svg" />
       <meta property="og:url" content="https://the-algorithms.com" />
       <meta property="og:type" content="website" />
+      {locales.map((locale) => (
+        <meta
+          property={
+            router.locale === locale ? "og:locale" : "og:locale:alternative"
+          }
+          content={locale}
+          key={locale}
+        />
+      ))}
       <script type="application/ld+json">
         {`{
   "@context": "https://schema.org",
