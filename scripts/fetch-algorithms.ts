@@ -115,8 +115,8 @@ const categoriesToSkip = ["main", "src", "algorithms", "problems"];
         .map(normalizeTitle)
         .map(normalizeCategory);
       if (
-        lCategories[lCategories.length - 1] ===
-        normalizeCategory(normalizeTitle(name))
+        normalize(lCategories[lCategories.length - 1]) ===
+        normalize(normalizeCategory(normalizeTitle(name)))
       )
         lCategories.pop();
       if (!algorithms[nName]) {

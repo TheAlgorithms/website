@@ -17,7 +17,7 @@ export const Repositories = {
   java: {
     name: "Java",
     allowedFiles: [".java"],
-    baseDir: ".",
+    baseDir: "src/main/java/com/thealgorithms",
   },
   "c-sharp": {
     name: "C#",
