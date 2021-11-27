@@ -44,8 +44,13 @@ const languages: { name: string; locale: string; icon: string }[] = [
   // {
   //   name: "भारत।",
   //   locale: "hi",
-  //   icon: "hi",
+  //   icon: "india",
   // },
+  {
+    name: "Malayalam",
+    locale: "ml",
+    icon: "india",
+  },
   {
     name: "中文(简体)",
     locale: "zh_Hans",
