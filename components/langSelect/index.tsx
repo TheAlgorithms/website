@@ -12,19 +12,14 @@ import classes from "./style.module.css";
 
 const languages: { name: string; locale: string; icon: string }[] = [
   {
-    name: "English",
-    locale: "en",
-    icon: "gb",
-  },
-  {
-    name: "Español",
-    locale: "es",
-    icon: "mx",
-  },
-  {
     name: "Deutsch",
     locale: "de",
     icon: "de",
+  },
+  {
+    name: "English",
+    locale: "en",
+    icon: "gb",
   },
   {
     name: "Esperanto",
@@ -32,34 +27,39 @@ const languages: { name: string; locale: string; icon: string }[] = [
     icon: "eo",
   },
   {
-    name: "Ukrainian",
-    locale: "uk",
-    icon: "uk",
+    name: "Español",
+    locale: "es",
+    icon: "mx",
   },
+  // {
+  //   name: "Hindi",
+  //   locale: "hi",
+  //   icon: "india",
+  // },
   {
     name: "Hrvatski",
     locale: "hr",
     icon: "hr",
   },
-  // {
-  //   name: "भारत।",
-  //   locale: "hi",
-  //   icon: "india",
-  // },
+  {
+    name: "Italiano",
+    locale: "it",
+    icon: "it",
+  },
   {
     name: "Malayalam",
     locale: "ml",
     icon: "india",
   },
   {
+    name: "Ukrainian",
+    locale: "uk",
+    icon: "uk",
+  },
+  {
     name: "中文(简体)",
     locale: "zh_Hans",
     icon: "zh",
-  },
-  {
-    name: "Italiano",
-    locale: "it",
-    icon: "it",
   },
 ];
 
