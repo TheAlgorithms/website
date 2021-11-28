@@ -209,7 +209,7 @@
     "nested": "Ugnježdeni",
     "moserdebruijnsequence": "Moserdebruijn sekvenca",
     "modular": "Modularni",
-    "max": "Maks",
+    "max": "Maks.",
     "levenshtein": "Levenshtein",
     "genetic": "Genetski",
     "dynamic": "Dinamički",
@@ -229,7 +229,7 @@
     "matrixexponentiation": "Eksponencija tablice",
     "numeric": "Numeričko",
     "other": "Drugo",
-    "palindrome": "Palindrome",
+    "palindrome": "Palindrom",
     "pi": "PI",
     "audio": "Zvuk",
     "binary": "Binarno",
@@ -249,5 +249,12 @@
     "slidingwindow": "Klizni prozor",
     "financial": "Financije",
     "manacher": "Manacher",
-    "minimumspanningtree": "Najmanje razmaknuto stablo"
+    "minimumspanningtree": "Najmanje razmaknuto stablo",
+    "pangram": "Pangram",
+    "min": "Min.",
+    "armstrong": "Armstrong",
+    "pascal": "Pascal",
+    "nodes": "Čvorovi",
+    "catalan": "Katalanski brojevi",
+    "devutils": "Alati za razvoj"
 }
