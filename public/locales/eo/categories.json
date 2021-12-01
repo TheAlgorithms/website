@@ -271,5 +271,9 @@
     "slidingwindow": "Glitanta fenestro",
     "devutils": "Programistaj utilaĵoj",
     "min": "Minimumo",
-    "nodes": "Nodoj"
+    "nodes": "Nodoj",
+    "armstrong": "Nombro de Armstrong",
+    "pascal": "Paskala triangulo",
+    "catalan": "Nombro de Catalan",
+    "pangram": "Ĉiuliteraĵo"
 }
