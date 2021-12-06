@@ -73,7 +73,7 @@ export default function CodePreview({ algorithm }: { algorithm: Algorithm }) {
             >
               <MenuItem onClick={() => setFullScreen(true)}>
                 <Fullscreen />
-                <Typography>Fullscreen</Typography>
+                <Typography>{t("fullscreen")}</Typography>
               </MenuItem>
               <Link
                 href={implementations[selectedLanguague].url}
