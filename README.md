@@ -20,7 +20,7 @@
   </a>
 
   <a href="https://discord.gg/c7MnfGFGa6">
-    <img src="https://img.shields.io/discord/808045925556682782.svg?logo=discord&colorB=7289DA" height="20">
+    <img src="https://img.shields.io/discord/808045925556682782.svg?logo=discord&colorB=5865F2" height="20">
   </a>
 
   <br />
