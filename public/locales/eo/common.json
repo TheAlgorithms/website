@@ -79,5 +79,6 @@
     "playgroundRunCode": "Ruli kodon",
     "playgroundLoadingPackage": "Ŝargante {package}",
     "playgroundReady": "Pretas! Komencu redaktante la kodon en la maldekstra\nflanko de la ekrano kaj alklakante «Ruli kodon»",
-    "aboutThisAlgorithm": "Pri ĉi tiu algoritmo"
+    "aboutThisAlgorithm": "Pri ĉi tiu algoritmo",
+    "fullscreen": "Plenekrana reĝimo"
 }
