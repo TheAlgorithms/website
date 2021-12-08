@@ -12,7 +12,7 @@ github:
   prebuilds:
     addBadge: true
     addComment: false
-    addCheck: false
+    addCheck: true
     master: true
     branches: true
     pullRequestsFromForks: true
