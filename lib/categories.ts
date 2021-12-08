@@ -18,7 +18,7 @@ export async function getCategories() {
       params: {
         category: normalize(category),
       },
-      locale,
+      locale: locale.code,
     }))
   );
 }

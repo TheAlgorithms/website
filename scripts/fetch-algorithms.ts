@@ -265,16 +265,16 @@ const categoriesToSkip = ["main", "src", "algorithms", "problems"];
   process.chdir("./algorithms-explanation");
   await Promise.all(
     locales.map(async (locale) => {
-      if (fs.existsSync(locale)) {
-        for await (const dir of walk(locale)) {
+      if (fs.existsSync(locale.code)) {
+        for await (const dir of walk(locale.code)) {
           const match = dir.replace(/\\/g, "/").match(/(?:.+)\/(.+)\.md/);
           if (match) {
             const algorithm = algorithms[normalizeAlgorithm(match[1])];
             if (algorithm) {
               algorithm.explanationUrl[
-                locale
+                locale.code
               ] = `https://github.com/TheAlgorithms/Algorithms-Explanation/tree/master/${dir}`;
-              algorithm.body[locale] = await renderMarkdown(
+              algorithm.body[locale.code] = await renderMarkdown(
                 (await fs.promises.readFile(dir))
                   .toString()
                   .split("\n")
@@ -300,8 +300,9 @@ const categoriesToSkip = ["main", "src", "algorithms", "problems"];
             ).toString()
           );
           locales.forEach((locale) => {
-            if (algorithm.body[locale]) algorithm.body[locale] += `\n${render}`;
-            else algorithm.body[locale] = render;
+            if (algorithm.body[locale.code])
+              algorithm.body[locale.code] += `\n${render}`;
+            else algorithm.body[locale.code] = render;
           });
         }
       })

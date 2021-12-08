@@ -11,7 +11,7 @@ export async function getAlgorithmSlugs() {
         params: {
           algorithm: file.replace(".json", ""),
         },
-        locale,
+        locale: locale.code,
       }))
   );
 }

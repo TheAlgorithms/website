@@ -25,10 +25,12 @@ export default function Head({
       {locales.map((locale) => (
         <meta
           property={
-            router.locale === locale ? "og:locale" : "og:locale:alternative"
+            router.locale === locale.code
+              ? "og:locale"
+              : "og:locale:alternative"
           }
-          content={locale}
-          key={locale}
+          content={locale.code}
+          key={locale.code}
         />
       ))}
       <script type="application/ld+json">

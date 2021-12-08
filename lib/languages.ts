@@ -11,7 +11,7 @@ export function getLanguages() {
       params: {
         language,
       },
-      locale,
+      locale: locale.code,
     }))
   );
 }
