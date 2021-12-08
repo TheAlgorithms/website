@@ -79,5 +79,6 @@
     "playgroundTryCode": "Diesen Code ausprobieren",
     "playgroundErrIdNotFound": "Die Playground-ID wurde nicht gefunden",
     "playgroundErrInvalidLink": "Der Playground-Link ist ungültig",
-    "aboutThisAlgorithm": "Über diesen Algorithmus"
+    "aboutThisAlgorithm": "Über diesen Algorithmus",
+    "fullscreen": "Vollbild"
 }
