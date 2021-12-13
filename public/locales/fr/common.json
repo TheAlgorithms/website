@@ -1,1 +1,13 @@
-{}
+{
+    "algorithmExplanationTitle": "Qu'est-ce qu'un Algorithme ?",
+    "aboutUsTitle": "À propos",
+    "programmingLanguagesTitle": "Langages de programmation",
+    "contributeTitle": "Contribuer",
+    "donateTitle": "Faire un don",
+    "topAlgorithms": "Les meilleurs algorithmes",
+    "featuredAlgorithms": "Algorithmes mis en avant",
+    "topCategories": "Meilleures catégories",
+    "searchesCategories": "Rechercher",
+    "dynamicProgrammingCategories": "Programmation Dynamique",
+    "sortsCategories": "Trier"
+}
