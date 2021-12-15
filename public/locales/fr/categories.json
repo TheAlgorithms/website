@@ -1,1 +1,5 @@
-{}
+{
+    "activationfunctions": "Fonctions d'activation",
+    "ahocorasick": "Aho-Corasick",
+    "arima": "ARIMA"
+}
