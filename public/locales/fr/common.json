@@ -54,7 +54,7 @@
     "contributorsCommits": "{numberCommits} commits",
     "internalServerError": "Erreur interne du serveur",
     "playgroundRunCode": "Exécuter le code",
-    "playgroundUnsupported": "Votre navigateur ne prend pas en charge Web Assembly\n et ne peut donc pas exécuter le code.\n \nVous pouvez toujours modifier le code sur la gauche.",
+    "playgroundUnsupported": "Votre navigateur ne prend pas en charge Web Assembly\net ne peut donc pas exécuter le code.\n \nVous pouvez toujours modifier le code sur la gauche.",
     "playgroundErrIdNotFound": "L'identifiant Playground ID n'a pas été trouvé",
     "playgroundErrInvalidLink": "Le lien Playground est invalide",
     "aboutThisAlgorithm": "À propos de cet Algorithme",
