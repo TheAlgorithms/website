@@ -79,5 +79,6 @@
     "codeplayground": "Igralište za kodiranje",
     "playgroundLoadingPackage": "Učitava se {package}",
     "playgroundReady": "Gotovo! Započni uređivanjem koda na\nlijevoj strani ekrana i pritisni „Pokreni kôd”",
-    "aboutThisAlgorithm": "Informacije ovom algoritmu"
+    "aboutThisAlgorithm": "Informacije ovom algoritmu",
+    "fullscreen": "Cjeloekranski prikaz"
 }
