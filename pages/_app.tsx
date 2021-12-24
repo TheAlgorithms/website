@@ -11,6 +11,7 @@ import PlausibleScript from "components/plausible";
 import { QueryProvider } from "hooks/query";
 import { DarkThemeProvider } from "hooks/darkTheme";
 import DefaultLayout from "layouts/default";
+import { NextQueryParamProvider } from "next-query-params";
 
 function MyApp({ Component, pageProps }: AppProps) {
   const [isDarkTheme, setIsDarkTheme] = useState(false);
@@ -31,17 +32,19 @@ function MyApp({ Component, pageProps }: AppProps) {
       <DarkThemeProvider value={[isDarkTheme, setIsDarkTheme]}>
         <ThemeProvider theme={isDarkTheme ? darkTheme : lightTheme}>
           <QueryProvider>
-            <Head />
-            <CssBaseline />
-            <PlausibleScript />
-            <NextNprogress
-              color="#fff"
-              height={2}
-              options={{ showSpinner: false }}
-            />
-            <Layout>
-              <Component {...pageProps} />
-            </Layout>
+            <NextQueryParamProvider>
+              <Head />
+              <CssBaseline />
+              <PlausibleScript />
+              <NextNprogress
+                color="#fff"
+                height={2}
+                options={{ showSpinner: false }}
+              />
+              <Layout>
+                <Component {...pageProps} />
+              </Layout>
+            </NextQueryParamProvider>
           </QueryProvider>
         </ThemeProvider>
       </DarkThemeProvider>

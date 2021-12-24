@@ -29,12 +29,14 @@ import {
   PlayArrow,
 } from "@material-ui/icons";
 import NextLink from "next/link";
+import { StringParam, useQueryParam, withDefault } from "next-query-params";
 import classes from "./style.module.css";
 
 export default function CodePreview({ algorithm }: { algorithm: Algorithm }) {
   const { implementations } = algorithm;
-  const [selectedLanguague, setSelectedLanguague] = useState(
-    Object.keys(implementations)[0]
+  const [selectedLanguague, setSelectedLanguague] = useQueryParam(
+    "lang",
+    withDefault(StringParam, Object.keys(implementations)[0])
   );
   const t = useTranslation();
   const mobile = useMediaQuery("(max-width: 800px)");
