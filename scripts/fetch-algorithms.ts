@@ -44,7 +44,7 @@ let authors: {
 let spinner: Ora;
 
 // Algorithms which are ignored
-const algorithmsToIgnore = ["rungradientdescent"];
+const algorithmsToIgnore = ["rungradientdescent", "class"];
 // Categories where algorithms are ignored
 const categoriesToIgnore = [
   "projecteuler",
@@ -55,7 +55,6 @@ const categoriesToIgnore = [
   "spec",
   // Because of weird swift algorithm structure
   "minimax",
-  "class",
 ];
 // Categories where algorithms are included, but not the category
 const categoriesToSkip = ["main", "src", "algorithms", "problems"];
