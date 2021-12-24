@@ -55,6 +55,7 @@ const categoriesToIgnore = [
   "spec",
   // Because of weird swift algorithm structure
   "minimax",
+  "class",
 ];
 // Categories where algorithms are included, but not the category
 const categoriesToSkip = ["main", "src", "algorithms", "problems"];
