@@ -256,5 +256,8 @@
     "pascal": "Pascal",
     "nodes": "Čvorovi",
     "catalan": "Katalanski brojevi",
-    "devutils": "Alati za razvoj"
+    "devutils": "Alati za razvoj",
+    "stackwithsinglylinkedlist": "Snop s pojedinačno povezanim popisom",
+    "checksum": "Kontrolni zbroj",
+    "random": "Slučajno"
 }
