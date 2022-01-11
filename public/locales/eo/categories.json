@@ -275,5 +275,8 @@
     "armstrong": "Nombro de Armstrong",
     "pascal": "Paskala triangulo",
     "catalan": "Nombro de Catalan",
-    "pangram": "Ĉiuliteraĵo"
+    "pangram": "Ĉiuliteraĵo",
+    "checksum": "Kontrolsumo",
+    "random": "Hazardo",
+    "stackwithsinglylinkedlist": "Stako per unuoble ligita listo"
 }
