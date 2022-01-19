@@ -2,7 +2,7 @@
   <a href="https://the-algorithms.com">
     <img src="./public/logo_t.gif" height="100">
   </a>
-  <h1 align="center"><a href="https://github.com/TheAlgorithms/">The Algorithms</a> official website</h1>
+  <h1 align="center"><a href="https://github.com/TheAlgorithms/">The Algorithms</a> Official Website</h1>
 </p>
 
 <p align="center">
