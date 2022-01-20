@@ -78,5 +78,7 @@
     "playgroundUnsupported": "你的浏览器不支持Web Assembly\n因此不能运行代码。\n\n你仍然可以编辑左侧代码。",
     "playgroundErrIdNotFound": "游乐场ID未找到",
     "playgroundErrInvalidLink": "游乐场链接已失效",
-    "aboutThisAlgorithm": "关于这个算法"
+    "aboutThisAlgorithm": "关于这个算法",
+    "editPageTranslate": "翻译注释",
+    "fullscreen": "全屏"
 }
