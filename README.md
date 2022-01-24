@@ -1,8 +1,8 @@
 <p align="center">
   <a href="https://the-algorithms.com">
-    <img src="./public/logo_t.svg" height="100">
+    <img src="https://user-images.githubusercontent.com/73777108/150716450-24845b69-48c1-4d7b-a641-cf2f853c2b53.gif" height="100">
   </a>
-  <h1 align="center"><a href="https://github.com/TheAlgorithms/">The Algorithms</a> official website</h1>
+  <h1 align="center"><a href="https://github.com/TheAlgorithms/">The Algorithms</a> Official Website</h1>
 </p>
 
 <p align="center">
