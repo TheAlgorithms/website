@@ -5,7 +5,7 @@ export default function PlausibleScript() {
     <Head>
       <script
         key="plausible-script"
-        src="https://plausible.the-algorithms.com/js/plausible.js"
+        src="https://plausible.shorsh.de/js/plausible.js"
         async
         defer
         data-domain="the-algorithms.com"

@@ -21,7 +21,7 @@ export default function Plausible() {
       <IframeResizer
         frameBorder={0}
         loading="lazy"
-        src={`https://plausible.the-algorithms.com/share/the-algorithms.com?auth=4kqE5dFIzOd7p0ehAfdYB&embed=true&theme=${
+        src={`https://plausible.shorsh.de/share/the-algorithms.com?auth=4kqE5dFIzOd7p0ehAfdYB&embed=true&theme=${
           dark ? "dark" : "light"
         }&background=%23fff0`}
       />
