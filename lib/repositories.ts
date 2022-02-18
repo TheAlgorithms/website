@@ -120,7 +120,7 @@ export const Repositories = {
   lua: {
     name: "Lua",
     allowedFiles: [".lua"],
-    baseDir: ".",
+    baseDir: "src",
   },
 };
 
