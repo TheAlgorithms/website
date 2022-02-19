@@ -49,6 +49,7 @@ const algorithmsToIgnore = ["rungradientdescent", "class"];
 const categoriesToIgnore = [
   "projecteuler",
   "test",
+  "tests",
   "github",
   "ipynbcheckpoints",
   "leetcode",
@@ -103,6 +104,10 @@ const categoriesToSkip = ["main", "src", "algorithms", "problems"];
       const name = normalizeTitle(
         dir.split(path.sep).pop().split(".")[0].replace(/_/g, " ")
       );
+      for (const namePart of name.split(" "))
+        if (normalize(namePart) === "test" || normalize(namePart) === "tests")
+          valid = false;
+      if (!valid) continue;
       const nName = normalize(name);
       if (algorithmsToIgnore.includes(nName)) continue;
       const lCategories = dir
@@ -498,11 +503,11 @@ const categoriesToSkip = ["main", "src", "algorithms", "problems"];
 
 function isValidCategory(name: string) {
   if (normalize(name).match(/problem\d+/)) return false;
-  for (const exclude of categoriesToIgnore) {
-    if (normalize(name).includes(exclude)) return false;
-  }
-  for (const exclude of ["__init__", "mod.rs"]) {
-    if (name.includes(exclude)) return false;
-  }
+  for (const exclude of categoriesToIgnore)
+    for (const category of name.split("/"))
+      if (normalize(category) === normalize(exclude)) return false;
+  for (const exclude of ["__init__", "mod.rs"])
+    for (const category of name.split("/"))
+      if (category === exclude) return false;
   return true;
 }
