@@ -1,15 +1,12 @@
-import Head from "next/head";
+import Script from "next/script";
 
 export default function PlausibleScript() {
   return (
-    <Head>
-      <script
-        key="plausible-script"
-        src="https://plausible.shorsh.de/js/plausible.js"
-        async
-        defer
-        data-domain="the-algorithms.com"
-      />
-    </Head>
+    <Script
+      key="plausible-script"
+      src="https://plausible.shorsh.de/js/plausible.js"
+      data-domain="the-algorithms.com"
+      strategy="lazyOnload"
+    />
   );
 }

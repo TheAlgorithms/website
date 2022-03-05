@@ -58,7 +58,10 @@ export default function AlgorithmPage({
       </Breadcrumbs>
       <Typography variant="h4">{algorithm.name}</Typography>
       <Contributors algorithm={algorithm} />
-      <CodePreview algorithm={algorithm} />
+      {algorithm.implementations &&
+        Object.values(algorithm.implementations).length > 0 && (
+          <CodePreview algorithm={algorithm} />
+        )}
       {(algorithm.body[locale] || algorithm.body.en) && (
         <>
           <Typography variant="h5">{t("aboutThisAlgorithm")}</Typography>
