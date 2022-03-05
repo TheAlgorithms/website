@@ -1,0 +1,21 @@
+{
+    "checksum": "Контрольная сумма",
+    "ciphers": "Шифры",
+    "classificationalgorithms": "Алгоритмы классификации",
+    "clientserver": "Клиент-сервер",
+    "cll": "CLL",
+    "clusteringalgorithms": "Алгоритмы кластеризации",
+    "crypto": "Крипто",
+    "datacompression": "Сжатие данных",
+    "datastructures": "Структуры данных",
+    "developertools": "Инструменты разработчика",
+    "dictionary": "Словарь",
+    "discretemathematics": "Дискретная математика",
+    "dynamicprogramming": "Динамическое программирование",
+    "strings": "Строки",
+    "webprogramming": "Веб-программирование",
+    "structure": "Структура",
+    "series": "Серия",
+    "searches": "Поиски",
+    "scripts": "Скрипты"
+}
