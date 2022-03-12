@@ -224,7 +224,7 @@
     "morphologicaloperations": "Morfološke operacije",
     "audiofilters": "Filtri zvuka",
     "cpuschedulingalgorithms": "Algoritmi planiranja CPU-a",
-    "datacompression": "Kompresija podataka",
+    "datacompression": "Komprimiranje podataka",
     "decomposition": "Dekompozicija",
     "matrixexponentiation": "Eksponencija tablice",
     "numeric": "Numeričko",
@@ -259,5 +259,13 @@
     "devutils": "Alati za razvoj",
     "stackwithsinglylinkedlist": "Snop s pojedinačno povezanim popisom",
     "checksum": "Kontrolni zbroj",
-    "random": "Slučajno"
+    "random": "Slučajno",
+    "crc": "CRC",
+    "dynamiccoinchange": "Dinamičko mijenjanje kovanica",
+    "imagedata": "Podaci slike",
+    "images": "Slike",
+    "localweightedlearning": "Lokalno ponderirano učenje",
+    "outputdata": "Podaci rezultata",
+    "sortedset": "Razvrstani skup",
+    "sum": "Zbroj"
 }
