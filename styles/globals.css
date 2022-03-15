@@ -102,3 +102,25 @@ table {
     0 1px 1px 0 rgba(0, 0, 0, 0.05), 0 1px 3px 0 rgba(0, 0, 0, 0.05),
     0 0.5rem 1rem rgba(0, 0, 0, 0.13);
 }
+
+html {
+  --scrollbar-background: #fafafa;
+  --scrollbar-thumb: #3a4852;
+}
+
+html.dark {
+  --scrollbar-background: #101316;
+  --scrollbar-thumb: rgb(32, 40, 45);
+}
+
+html {
+  scrollbar-color: var(--scrollbar-thumb) var(--scrollbar-background);
+}
+
+html::-webkit-scrollbar {
+  background-color: var(--scrollbar-background);
+}
+
+html::-webkit-scrollbar-thumb {
+  background: var(--scrollbar-thumb);
+}

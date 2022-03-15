@@ -29,8 +29,9 @@ export function DarkThemeProvider({
   }, [setDarkTheme]);
 
   useEffect(() => {
-    if (darkTheme) document.body.classList.add("dark");
-    else document.body.classList.remove("dark");
+    if (darkTheme)
+      document.getElementsByTagName("html")[0].classList.add("dark");
+    else document.getElementsByTagName("html")[0].classList.remove("dark");
   }, [darkTheme]);
 
   return (
