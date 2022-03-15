@@ -15,8 +15,8 @@ nb.highlighter = (
 
 export default async function renderNotebook(code: string) {
   try {
-    const notebook = nb.parse(JSON.parse(code));
-    const render: HTMLDivElement = notebook.render();
+    let notebook = nb.parse(JSON.parse(code));
+    var render: HTMLDivElement = notebook.render();
     return render.outerHTML as string;
   } catch {
     return "";
