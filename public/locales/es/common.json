@@ -79,5 +79,6 @@
     "playgroundErrInvalidLink": "El enlace del Playground no es válido",
     "playgroundLoadingPackage": "Cargando {package}",
     "aboutThisAlgorithm": "Acerca de este algoritmo",
-    "playgroundReady": "¡Listo! Empieza editando el código en la\nlado izquierdo de la pantalla y haciendo clic en \"Ejecutar código\""
+    "playgroundReady": "¡Listo! Empieza editando el código en la\nlado izquierdo de la pantalla y haciendo clic en \"Ejecutar código\"",
+    "fullscreen": "Pantalla completa"
 }
