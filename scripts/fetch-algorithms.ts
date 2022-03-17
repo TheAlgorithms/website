@@ -59,6 +59,7 @@ const categoriesToIgnore = [
 ];
 // Categories where algorithms are included, but not the category
 const categoriesToSkip = ["main", "src", "algorithms", "problems"];
+const validRepos = ["repo1", "repo2"];
 
 (async () => {
   spinner = ora("Downloading repositories").start();
@@ -71,13 +72,15 @@ const categoriesToSkip = ["main", "src", "algorithms", "problems"];
     [...Object.keys(Repositories), "algorithms-explanation"].map(
       (repo) =>
         new Promise<void>((resolve, reject) => {
-          exec(
-            `git clone https://github.com/TheAlgorithms/${repo}.git`,
-            (err) => {
-              if (err) reject(err);
-              else resolve();
-            }
-          );
+          if (repo in validRepos) {
+            exec(
+              `git clone https://github.com/TheAlgorithms/${repo}.git`,
+              (err) => {
+                if (err) reject(err);
+                else resolve();
+              }
+            );
+          }
         })
     )
   );
