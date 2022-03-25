@@ -78,7 +78,7 @@
     "addImplementationMissing": "Вот ссылки на репозитории, у которых всё ещё отсутствуют реализации:",
     "algorithmMetaDescription": "{algorithm} реализован на {implementations}",
     "algorithmMetaDescriptionExplained": "{algorithm} объяснен и реализован на {implementations}",
-    "playgroundErrIdNotFound": "Идентификатор площадки для экспериментов не найден",
+    "playgroundErrIdNotFound": "Playground ID не найден",
     "indexMetaDescription": "Ресурс с открытым исходным кодом для изучения структур данных и алгоритмов и их реализации на любом языке программирования",
     "playgroundErrInvalidLink": "Ссылка на площадку для экспериментов недействительна"
 }
