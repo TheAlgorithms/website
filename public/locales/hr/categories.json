@@ -25,7 +25,7 @@
     "sieveoferatosthenes": "Eratostenovo sito",
     "sieve": "Sito",
     "shuntingyard": "Shunting Yard",
-    "series": "Slijedovi",
+    "series": "Serije",
     "searches": "Pretrage",
     "sdbmhash": "Sdbm Hash",
     "scripts": "Skripta",
@@ -34,7 +34,7 @@
     "sbom": "Sbom",
     "rsabig": "rsaBig",
     "rsa": "Rsa",
-    "rotation": "Zamjenjivanje",
+    "rotation": "Rotacija",
     "rot13": "Rot13",
     "romantointeger": "Rimski u prirodni broj",
     "robotics": "Robotika",
@@ -267,5 +267,6 @@
     "localweightedlearning": "Lokalno ponderirano učenje",
     "outputdata": "Podaci rezultata",
     "sortedset": "Razvrstani skup",
-    "sum": "Zbroj"
+    "sum": "Zbroj",
+    "shufflers": "Miješanje"
 }
