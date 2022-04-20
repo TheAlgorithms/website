@@ -68,5 +68,13 @@
     "contributorsMore": "va yana {numberContributors} ishtirokchi",
     "codeplayground": "Kod maydoni",
     "playgroundLoadingPackage": "{paket} yuklanmoqda",
-    "fullscreen": "To'liq ekran"
+    "fullscreen": "To'liq ekran",
+    "playgroundReady": "Tayyor! Kodni tahrirlash orqali boshlang\nekranning chap tomonini bosing va \"Kodni ishga tushirish\" tugmasini bosing",
+    "contribute": "Biz sizni ushbu omborlarga hissa qo'shishingizni tavsiya qilamiz. Agar sizda qo'shmoqchi bo'lgan algoritm, o'zgartirish yoki tuzatmoqchi bo'lgan xato bo'lsa, iltimos, shunday qiling. Lekin buni amalga oshirishdan oldin, ombordagi CONTRIBUTING.md da joylashgan hissa qo‘shish bo‘yicha ko‘rsatmalarni o‘qib chiqqaningizga ishonch hosil qiling. Siz hurmatli, foydali va tilning eng soʻnggi versiyasidan foydalanayotganingizga ishonch hosil qiling. Himoya bo'yicha ko'rsatmalarni o'qib chiqqandan so'ng, iltimos, omborni o'chiring, o'zgartirishlaringiz ustida ishlang va keyin ularni pull requests sifatida yuboring. Shuningdek, veb-saytni [Weblate] yordamida tarjima qilishda yordam berishingiz mumkin. Agar qo'shmoqchi bo'lgan boshqa tillaringiz yoki tuzatmoqchi bo'lgan satrlaringiz bo'lsa, o'z hissangizni qo'shishingiz mumkin.",
+    "addTranslationInfo": "Bu algoritmning tushuntirishi hali sizning tilingizga tarjima qilinmagan. Ushbu tushuntirishni tarjima qilish uchun [Algoritmlar-Izoh] omboriga tashrif buyuring. Ushbu omborni yoping va tarjimangizni ingliz tilidagi [<code>{ogFilename}</code>] asosidagi yangi Markdown fayli sifatida mahalliy tilingizga mos jildga (<code>{locale}</code>) qo'shing. Faylni tarjima qilganingizdan so'ng, tarjimangizni birlashtirish uchun yangi pull requestni yaratishingiz mumkin.",
+    "playgroundRunCode": "Kodni ishga tushirish",
+    "playgroundErrIdNotFound": "Playground ID topilmadi",
+    "playgroundErrInvalidLink": "Playground havolasi yaroqsiz",
+    "analyticsText": "Biz ushbu saytda [Plausible Analytics] dan veb-saytimizdan qancha odam foydalanayotgani va qaysi funksiyalar eng koʻp foydalanilayotganini koʻrish uchun anonim foydalanish maʼlumotlarini toʻplash uchun foydalanamiz. Veb-sayt hech qanday tarzda individual tashrif buyuruvchilarni kuzatmaydi. Barcha ma'lumotlar faqat jamlangan. Hech qanday shaxsiy ma'lumotlar yig'ilmaydi va hech qanday cookie-fayllardan foydalanilmaydi. Bu yerda siz barcha toʻplangan maʼlumotlarni koʻrishingiz mumkin:",
+    "playgroundUnsupported": "Brauzeringiz Web Assemblyni qo'llab-quvvatlamaydi\nva shuning uchun kodni ishga tushira olmaydi.\n\nSiz hali ham chapdagi kodni tahrirlashingiz mumkin."
 }
