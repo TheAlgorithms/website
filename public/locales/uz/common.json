@@ -51,5 +51,22 @@
     "donateText": "Bizni qo'llab-quvvatlashingizning yana bir usuli - [Liberapay] orqali xayriya qilish. Hatto kichik xayriya ham juda qadrlanadi. Xayriya qilish demak, siz bizning ishimizni qadrlaysiz va yoqtirasiz. Agar bizning ishimiz sizga yoqmasa, xayriya qilishning hojati yo'q. Agar xayriya qilsangiz, eng yaxshi aʼzolar Algoritmlar loyihalariga qoʻshimcha hissa qoʻshishlari mumkin boʻladi. Biz hammadan, hamma joydan, miqdoridan qat'iy nazar xayr-ehsonlarni qadrlaymiz.",
     "editPageAddImplementation": "Amalga oshirish",
     "addExplanationInfo": "Ushbu algoritm hali tushuntirishga ega emas. Tushuntirishlar [Algorithms-Explanations] omborida joylashgan. Agar siz tushuntirish qo'shmoqchi bo'lsangiz, ushbu omborni ajratib oling va tushuntirishni belgilash fayli sifatida qo'shing ([example]). Tugatganingizdan so'ng, tushuntirishingizni birlashtirish uchun tortishish so'rovini ochishingiz mumkin.",
-    "addImplementationMissing": "Hali ham amalga oshirilmagan omborlarga havolalar:"
+    "addImplementationMissing": "Hali ham amalga oshirilmagan omborlarga havolalar:",
+    "languageMetaDescription": "Algoritmlar {language} tilida",
+    "playgroundTryCode": "Ushbu kodni sinab ko'ring",
+    "playgroundWelcome": "TheAlgoritms kodli maydoniga xush kelibsiz 👋",
+    "aboutThisAlgorithm": "Bu algoritm haqida",
+    "indexMetaDescription": "Ma'lumotlar tuzilmalari va algoritmlarini o'rganish va ularni istalgan dasturlash tilida amalga oshirish uchun ochiq manba manbasi",
+    "noResults": "uchun hech qanday natija topilmadi",
+    "contributorsTitle": "{algoritm} hissa qoʻshuvchilar",
+    "emptySearch": "Algoritmni qidiring",
+    "analyticsFooter": "Analitika",
+    "analyticsTitle": "Ushbu saytdagi tahlillar",
+    "githubRepository": "GitHub ombori",
+    "documentationLanguage": "Hujjatlar",
+    "internalServerError": "Serverdagi ichki xatolik",
+    "contributorsMore": "va yana {numberContributors} ishtirokchi",
+    "codeplayground": "Kod maydoni",
+    "playgroundLoadingPackage": "{paket} yuklanmoqda",
+    "fullscreen": "To'liq ekran"
 }
