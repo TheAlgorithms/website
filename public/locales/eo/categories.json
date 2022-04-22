@@ -278,5 +278,15 @@
     "pangram": "Ĉiuliteraĵo",
     "checksum": "Kontrolsumo",
     "random": "Hazardo",
-    "stackwithsinglylinkedlist": "Stako per unuoble ligita listo"
+    "stackwithsinglylinkedlist": "Stako per unuoble ligita listo",
+    "constraints": "Limigoj",
+    "longestincreasingsubsequence": "Plej longa kreskanta subvico",
+    "sortedset": "Ordita aro",
+    "shufflers": "Miksiloj",
+    "imagedata": "Bilda dateno",
+    "dynamiccoinchange": "Dinamika monera ŝanĝo",
+    "outputdata": "Eligita dateno",
+    "images": "Bildoj",
+    "sum": "Sumo",
+    "localweightedlearning": "Loka pondita lernado"
 }
