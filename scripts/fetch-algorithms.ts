@@ -44,7 +44,7 @@ let authors: {
 let spinner: Ora;
 
 // Algorithms which are ignored
-const algorithmsToIgnore = ["rungradientdescent", "class"];
+const algorithmsToIgnore = ["rungradientdescent", "class", "init"];
 // Categories where algorithms are ignored
 const categoriesToIgnore = [
   "projecteuler",
