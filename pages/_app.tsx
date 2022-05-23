@@ -7,7 +7,6 @@ import { AppProps } from "next/app";
 import { lightTheme, darkTheme } from "hooks/themes";
 import Head from "components/head";
 import { appWithTranslation } from "next-i18next";
-import PlausibleScript from "components/plausible";
 import { QueryProvider } from "hooks/query";
 import { DarkThemeProvider } from "hooks/darkTheme";
 import DefaultLayout from "layouts/default";
@@ -35,7 +34,6 @@ function MyApp({ Component, pageProps }: AppProps) {
             <NextQueryParamProvider>
               <Head />
               <CssBaseline />
-              <PlausibleScript />
               <NextNprogress
                 color="#fff"
                 height={2}
