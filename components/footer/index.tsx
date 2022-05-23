@@ -35,7 +35,6 @@ export default function Footer() {
           </Link>
           <Link href="/#contribute">{t("contributeTitle")}</Link>
           <Link href="/#donate">{t("donateTitle")}</Link>
-          <Link href="mailto:hello@the-algorithms.com">{t("contact")}</Link>
         </div>
         <div className={classes.list}>
           <Link href="https://github.com/TheAlgorithms/">GitHub</Link>
@@ -44,7 +43,7 @@ export default function Footer() {
           <Link href="https://github.com/TheAlgorithms/website">
             {t("sourceCodeFooter")}
           </Link>
-          <Link href="/plausible">{t("analyticsFooter")}</Link>
+          <Link href="mailto:hello@the-algorithms.com">{t("contact")}</Link>
         </div>
         <a
           className={classes.vercelLogo}
