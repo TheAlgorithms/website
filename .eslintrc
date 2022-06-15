@@ -57,7 +57,8 @@
     "no-labels": "off",
     "no-await-in-loop": "off",
     "@next/next/no-img-element": "off",
-    "import/prefer-default-export": "warn"
+    "import/prefer-default-export": "warn",
+    "no-console": "off"
   },
   "settings": {
     "import/resolver": {

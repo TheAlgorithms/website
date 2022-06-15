@@ -9,7 +9,7 @@ import { Octokit } from "@octokit/core";
 import dotenv from "dotenv";
 import chalk from "chalk";
 import walk from "../lib/walk";
-import { Repositories, Repository } from "../lib/repositories";
+import { Language, Repositories, Repository } from "../lib/repositories";
 import { Algorithm } from "../lib/models";
 import {
   normalize,
@@ -85,7 +85,7 @@ const categoriesToSkip = ["main", "src", "algorithms", "problems"];
   spinner = ora("Collecting algorithms and rendering code").start();
   for await (const language of Object.keys(Repositories).filter(
     (x) => !!Repositories[x].baseDir
-  )) {
+  ) as Language[]) {
     const repo: Repository = Repositories[language];
     languages[language] = [];
     for await (const dir of walk(path.join(language, repo.baseDir))) {
@@ -307,11 +307,7 @@ const categoriesToSkip = ["main", "src", "algorithms", "problems"];
               )
             ).toString()
           );
-          locales.forEach((locale) => {
-            if (algorithm.body[locale.code])
-              algorithm.body[locale.code] += `\n${render}`;
-            else algorithm.body[locale.code] = render;
-          });
+          algorithm.body.all = render;
         }
       })
     )

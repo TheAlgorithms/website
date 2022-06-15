@@ -62,13 +62,15 @@ export default function AlgorithmPage({
         Object.values(algorithm.implementations).length > 0 && (
           <CodePreview algorithm={algorithm} />
         )}
-      {(algorithm.body[locale] || algorithm.body.en) && (
+      {(algorithm.body[locale] || algorithm.body.en || algorithm.body.all) && (
         <>
           <Typography variant="h5">{t("aboutThisAlgorithm")}</Typography>
           <div
             // eslint-disable-next-line react/no-danger
             dangerouslySetInnerHTML={{
-              __html: algorithm.body[locale] || algorithm.body.en || "",
+              __html:
+                (algorithm.body[locale] || algorithm.body.en || "") +
+                (algorithm.body.all || ""),
             }}
           />
         </>
