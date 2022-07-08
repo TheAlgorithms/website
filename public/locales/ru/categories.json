@@ -61,7 +61,7 @@
     "nested": "Вложенные",
     "numbertheory": "Тория чисел",
     "numericalmethods": "Численные методы",
-    "numpy": "Numpy",
+    "numpy": "NumPy",
     "outputdata": "Вывод данных",
     "palindrome": "Палиндромы",
     "problems": "Задачи",
@@ -97,7 +97,7 @@
     "list": "Список",
     "probabilistic": "Вероятностные",
     "sum": "Сумма",
-    "datapreprocessing": "Подготовка данных",
+    "datapreprocessing": "Предобработка данных",
     "dynamicarray": "Динамические массивы",
     "geneticalgorithm": "Генетические алгоритмы",
     "forecasting": "Прогнозирование",
@@ -124,5 +124,6 @@
     "power": "Возведение в степень",
     "pascal": "Pascal",
     "random": "Случайность",
-    "filetransfer": "Передача файлов"
+    "filetransfer": "Передача файлов",
+    "binaryheap": "Двоичная куча"
 }
