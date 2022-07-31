@@ -270,5 +270,7 @@
     "sum": "Zbroj",
     "shufflers": "Miješanje",
     "longestincreasingsubsequence": "Najduži rastući podslijed",
-    "constraints": "Ograničenja"
+    "constraints": "Ograničenja",
+    "distances": "Udaljenosti",
+    "esolang": "Ezoterični programski jezici"
 }
