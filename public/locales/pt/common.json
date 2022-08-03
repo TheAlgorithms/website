@@ -1,1 +1,19 @@
-{}
+{
+    "aboutUsTitle": "Sobre nós",
+    "contributeTitle": "Contribua",
+    "donateTitle": "Faça doação",
+    "topAlgorithms": "Melhores algoritmos",
+    "featuredAlgorithms": "Algoritmos em destaque",
+    "dynamicProgrammingCategories": "Programação dinâmica",
+    "ciphersCategories": "Cifras",
+    "helloAlgorithms": "Olá, algorithms!",
+    "algorithmExplanationTitle": "O que é um Algoritmo?",
+    "topCategories": "Melhores categorias",
+    "programmingLanguagesTitle": "Linguagens de programação",
+    "programmingLanguages": "Nós suportamos várias linguagens de programação. Cada linguagem tem o seu próprio repositório no GitHub, onde todo o código do algorithms é armazenado. Aqui está a lista atual das linguagens de programação:",
+    "searchesCategories": "Pesquisas",
+    "dataStructuresCategories": "Estrutura de dados",
+    "imageProcessingCategories": "Processamento de imagem",
+    "basicMathCategories": "Matemática básica",
+    "sortsCategories": "Classificações"
+}
