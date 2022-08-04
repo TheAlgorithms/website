@@ -34,7 +34,7 @@
     "next-i18next": "^8.10.0",
     "next-query-params": "^2.2.1",
     "nextjs-progressbar": "^0.0.13",
-    "node-fetch": "^3.2.4",
+    "node-fetch": "^3.2.10",
     "notebookjs": "^0.6.7",
     "ora": "<6.0.0",
     "pyodide": "^0.18.2",
