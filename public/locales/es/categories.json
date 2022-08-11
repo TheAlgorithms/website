@@ -44,7 +44,7 @@
     "crypto": "Cripto",
     "cosinesimilarity": "Similaridad del coseno",
     "codewars": "Guerras de códigos",
-    "cll": "Cll",
+    "cll": "CLL",
     "automaton": "Autómata",
     "hashing": "Hashing",
     "greedyapproach": "Enfoque codicioso",
@@ -211,7 +211,7 @@
     "audiofilters": "Filtros de audio",
     "cpuschedulingalgorithms": "Algoritmos de programación de CPU",
     "datacompression": "Compresión de datos",
-    "coloring": "Coloración",
+    "coloring": "Colorear",
     "comparison": "Comparación",
     "decisiontreeregressionwithkfoldcrossvalidation": "Árbol de decisión regresivo con validación cruzada K-Fold",
     "decomposition": "Descomposición",
@@ -243,5 +243,8 @@
     "palindrome": "Palíndromo",
     "password": "Contraseña",
     "probabilistic": "Probabilístico",
-    "problems": "Problemas"
+    "problems": "Problemas",
+    "distances": "Distancias",
+    "esolang": "Esolang",
+    "dynamiccoinchange": "Cambio dinámico de monedas"
 }
