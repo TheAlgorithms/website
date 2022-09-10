@@ -12,5 +12,14 @@
     "binarysearchtree": "Δυαδικό Δέντρο Αναζήτησης",
     "booleanalgebra": "Άλγεβρα Μπουλ",
     "binarytree": "Δυαδικό Δένδρο",
-    "computervision": "Μηχανική Όραση"
+    "computervision": "Μηχανική Όραση",
+    "armstrong": "Άρμστρονγκ",
+    "bags": "Τσάντες",
+    "ahocorasick": "Άχο-Κορασίκ",
+    "arima": "ΑΡΙΜΑ",
+    "associationalgorithms": "Αλγόριθμοι-συσχέτισης",
+    "associativemining": "Συσχετιστική εξόρυξη",
+    "bitmanipulation": "Χειραγώγηση Bit",
+    "blockchain": "Αλυσίδα Μπλοκ",
+    "buffers": "Απομονωτές"
 }
