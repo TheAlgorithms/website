@@ -6,7 +6,8 @@ import classes from "./style.module.css";
 export default function Footer() {
   const theme = useTheme();
   const t = useTranslation();
-
+  const currentYear = new Date().getFullYear();
+  
   return (
     <Paper
       className={classes.outer}
@@ -25,7 +26,7 @@ export default function Footer() {
           alt="The Algorithms logo"
         />
         <Typography className={classes.name}>
-          &#169; The Algorithms 2022
+          &#169; The Algorithms {currentYear}
         </Typography>
         <div className={classes.list}>
           <Link href="/#about">{t("algorithmExplaniationFooter")}</Link>
