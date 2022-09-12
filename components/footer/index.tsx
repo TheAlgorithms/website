@@ -25,7 +25,7 @@ export default function Footer() {
           alt="The Algorithms logo"
         />
         <Typography className={classes.name}>
-          &#169; The Algorithms 2021
+          &#169; The Algorithms 2022
         </Typography>
         <div className={classes.list}>
           <Link href="/#about">{t("algorithmExplaniationFooter")}</Link>
