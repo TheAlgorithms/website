@@ -250,5 +250,20 @@
     "levenshtein": "Levenshtein",
     "constraints": "Restricciones",
     "longestincreasingsubsequence": "Subsecuencia Creciente Mas Larga",
-    "armstrong": "Armstrong"
+    "armstrong": "Armstrong",
+    "minimumspanningtree": "Árbol Recubridor Mínimo",
+    "sequences": "Secuencias",
+    "sortedset": "Set Ordenado",
+    "pi": "PI",
+    "stablemarriage": "Matrimonio Estable",
+    "pascal": "Pascal",
+    "random": "Aleatorio",
+    "moserdebruijnsequence": "Moserdebruijnsequence",
+    "manacher": "Manacher",
+    "pangram": "Pangram",
+    "segmenttrees": "Árboles de Segmento",
+    "shufflers": "Barajadores",
+    "slidingwindow": "Ventana Deslizante",
+    "stackwithsinglylinkedlist": "Stack con Singly Linked List",
+    "sum": "Suma"
 }
