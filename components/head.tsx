@@ -19,9 +19,25 @@ export default function Head({
       {description && <meta name="description" content={description} />}
       <meta name="keywords" content={["The Algorithms", ...tags].join(", ")} />
       <meta charSet="utf-8" />
-      <meta property="og:image" content="/logo_t.svg" />
+      <meta
+        property="og:image"
+        content="https://the-algorithms.com/og-image.png"
+      />
       <meta property="og:url" content="https://the-algorithms.com" />
       <meta property="og:type" content="website" />
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta property="twitter:domain" content="the-algorithms.com" />
+      <meta property="twitter:url" content="https://the-algorithms.com/" />
+      <meta
+        name="twitter:title"
+        content={title ? `${title} - The Algorithms` : "The Algorithms"}
+      />
+      <meta
+        name="twitter:image"
+        content="https://the-algorithms.com/og-image.png"
+      />
+      {description && <meta name="twitter:description" content={description} />}
+
       {locales.map((locale) => (
         <meta
           property={
