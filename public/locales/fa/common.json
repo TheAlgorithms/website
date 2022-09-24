@@ -1,3 +1,65 @@
 {
-    "algorithmExplanationTitle": "الگوریتم چیست؟"
+    "algorithmExplanationTitle": "الگوریتم چیست؟",
+    "aboutUsTitle": "درباره ما",
+    "programmingLanguages": "ما از بسیاری از زبان‌های برنامه‌نویسی پشتیبانی می‌کنیم. هر زبان مخزن گیت‌هاب مربوط به خود دارد، که در آن تمام کدهای الگوریتم‌ها ذخیره می‌شود. در اینجا فهرستی از زبان‌های برنامه‌نویسی فعلی را می‌توانید مشاهده کنید:",
+    "programmingLanguagesTitle": "زبان‌های برنامه‌نویسی",
+    "contributeTitle": "مشارکت",
+    "donateTitle": "کمک مالی",
+    "topAlgorithms": "الگوریتم‌های برتر",
+    "featuredAlgorithms": "الگوریتم‌های ویژه",
+    "topCategories": "دسته‌بندی‌های برتر",
+    "sortsCategories": "مرتب‌سازی‌ها",
+    "searchesCategories": "جستجوها",
+    "dynamicProgrammingCategories": "برنامه‌نویسی پویا",
+    "dataStructuresCategories": "ساختمان داده‌ها",
+    "basicMathCategories": "ریاضی پایه",
+    "imageProcessingCategories": "پردازش تصویر",
+    "ciphersCategories": "رمز گذاری",
+    "searchText": "جستجوی الگوریتم",
+    "aboutTextNavbar": "درباره",
+    "moreAlgorithmCard": "بیشتر",
+    "lightModeNavbar": "حالت روشن",
+    "darkModeNavbar": "حالت تیره",
+    "changeLanguageNavbar": "تغییر زبان",
+    "socialGithub": "در گیت‌هاب مشارکت کنید",
+    "socialGitter": "گفتگو در Gitter",
+    "socialDiscord": "گفتگو در دیسکورد",
+    "pageNotFound": "صفحه یافت نشد",
+    "home": "صفحه اصلی",
+    "search": "جستجوی",
+    "languages_count": "و {} مورد دیگر",
+    "contact": "تماس با ما",
+    "editPageEdit": "ویرایش صفحه",
+    "editPageAddExplanation": "افزودن توضیح",
+    "editPageTranslate": "ترجمه توضیح",
+    "addExplanation": "توضیحی برای این الگوریتم اضافه کنید",
+    "editPageAddImplementation": "افزودن پیاده‌ساز",
+    "langImplementation": "پیاده‌‌سازی با {language}",
+    "addImplementation": "افزودن پیاده‌ساز دیگر",
+    "viewOnGithub": "مشاهده در گیت‌هاب",
+    "noResults": "هیچ نتیجه‌ای وجود ندارد برای",
+    "emptySearch": "جستجوی الگوریتم",
+    "githubRepository": "مخزن گیت‌هاب",
+    "documentationLanguage": "مستندات",
+    "contributorsMore": "و {numberContributors} مشارکت‌کننده دیگر",
+    "contributorsTitle": "مشارکت کنندگان {algorithm}",
+    "playgroundRunCode": "اجرای کد",
+    "playgroundTryCode": "امتحان این کد",
+    "playgroundWelcome": "به زمین‌بازی کد TheAlgorithms خوش آمدید 👋",
+    "playgroundUnsupported": "مرورگر شما از Web Assembly پشتیبانی نمی‌کند\nبه همین دلیل نمی‌تواند، کد را اجرا کند.\n\nهمچنان می‌توانید کد سمت چپ را ویرایش کنید.",
+    "playgroundErrIdNotFound": "با این شناسه هیچ زمین‌بازی پیدا نشد",
+    "playgroundErrInvalidLink": "پیوند زمین‌بازی معتبر نیست",
+    "aboutThisAlgorithm": "درباره این الگوریتم",
+    "playgroundLoadingPackage": "بارگذاری {package}",
+    "playgroundReady": "آماده‌ایم! با ویرایش کد سمت چپ صفحه \nنمایش و کلیک بر روی «اجرای کد» شروع کنید",
+    "fullscreen": "تمام صفحه",
+    "helloAlgorithms": "سلام، الگوریتم‌ها!",
+    "welcomeTitle": "به بزرگترین کتابخانه الگوریتم متن‌باز گیت‌هاب خوش آمدید",
+    "algorithmExplaniationFooter": "الگوریتم چیست؟",
+    "aboutUsFooter": "درباره ما",
+    "socialTitle": "ارتباط با ما",
+    "sourceCodeFooter": "کد منبع",
+    "donateButton": "کمک مالی",
+    "internalServerError": "خطای سرور داخلی",
+    "codeplayground": "زمین‌بازی کد"
 }
