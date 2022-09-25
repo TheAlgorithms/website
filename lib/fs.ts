@@ -27,11 +27,10 @@ export async function dataGetFile(filename: string) {
       return (
         await s3.getObject({ Bucket: "thealgorithms", Key: filename }).promise()
       ).Body.toString("utf-8");
-    } else {
-      return (
-        await fs.promises.readFile(path.join(DATA_DIR, filename))
-      ).toString();
     }
+    return (
+      await fs.promises.readFile(path.join(DATA_DIR, filename))
+    ).toString();
   } catch (e) {
     return undefined;
   }
@@ -46,7 +45,6 @@ export async function dataGetDir(directory: string) {
         .listObjects({ Bucket: "thealgorithms", Prefix: directory })
         .promise()
     ).Contents.map((x) => x.Key.slice(directory.length));
-  } else {
-    return await fs.promises.readdir(path.join(DATA_DIR, directory));
   }
+  return await fs.promises.readdir(path.join(DATA_DIR, directory));
 }
