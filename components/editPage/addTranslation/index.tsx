@@ -45,7 +45,7 @@ export default function AddTranslation({
         <Typography className={classes.paragraph}>
           <Translation
             name="editPageHelp"
-            links={["https://discord.gg/c7MnfGFGa6"]}
+            links={["https://the-algorithms.com/discord/"]}
           />
         </Typography>
       </DialogContent>

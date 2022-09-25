@@ -7,7 +7,7 @@ export default function Shortlink() {
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
   const URLs = {
-    discord: "https://discord.gg/c7MnfGFGa6",
+    discord: "https://the-algorithms.com/discord/",
   };
   if (context.params.shortlink && URLs[context.params.shortlink.toString()])
     return {

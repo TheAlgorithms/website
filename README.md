@@ -19,7 +19,7 @@
     <img src="https://github.com/TheAlgorithms/website/actions/workflows/codeql-analysis.yml/badge.svg" height="20">
   </a>
 
-  <a href="https://discord.gg/c7MnfGFGa6">
+  <a href="https://the-algorithms.com/discord/">
     <img src="https://img.shields.io/discord/808045925556682782.svg?logo=discord&colorB=5865F2" height="20">
   </a>
 
