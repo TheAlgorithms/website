@@ -2,7 +2,7 @@ import React from "react";
 import { Typography, Breadcrumbs } from "@material-ui/core";
 import Link from "components/link";
 import type { Algorithm } from "lib/models";
-import { getAlgorithmSlugs, getAlgorithm } from "lib/algorithms";
+import { getAlgorithm } from "lib/algorithms";
 import { normalize } from "lib/normalize";
 import CodePreview from "components/codePreview";
 import Head from "components/head";
@@ -80,15 +80,19 @@ export default function AlgorithmPage({
   );
 }
 
-export const getStaticProps: GetStaticProps = async ({ params, locale }) => ({
-  props: {
-    algorithm: await getAlgorithm(params.algorithm.toString()),
-    locale,
-    ...(await serverSideTranslations(locale, ["common", "categories"])),
-  },
-});
+export const getStaticProps: GetStaticProps = async ({ params, locale }) => {
+  const algorithm = await getAlgorithm(params.algorithm.toString());
+  if (!algorithm) return { notFound: true };
+  return {
+    props: {
+      algorithm,
+      locale,
+      ...(await serverSideTranslations(locale, ["common", "categories"])),
+    },
+  };
+};
 
 export const getStaticPaths: GetStaticPaths = async () => ({
-  paths: await getAlgorithmSlugs(),
-  fallback: false,
+  paths: [],
+  fallback: "blocking",
 });

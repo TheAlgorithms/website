@@ -13,6 +13,7 @@
     "bags": "Bags",
     "basic": "Basic",
     "basicsoftensorflow": "Basics of Tensorflow",
+    "biginteger": "Big Integer",
     "binary": "Binary",
     "binaryheap": "Binary Heap",
     "binarysearchtree": "Binary Search Tree",
@@ -30,6 +31,7 @@
     "clientserver": "Client Server",
     "cll": "CLL",
     "clusteringalgorithms": "Clustering Algorithms",
+    "cn": "Cn",
     "codewars": "Codewars",
     "coloring": "Coloring",
     "comparison": "Comparison",
@@ -116,6 +118,7 @@
     "minimizationofpolynomialfunction": "Minimization of Polynomial Function",
     "minimumspanningtree": "Minimum Spanning Tree",
     "modular": "Modular",
+    "modulararithmetic": "Modular Arithmetic",
     "morphologicaloperations": "Morphological Operations",
     "moserdebruijnsequence": "Moserdebruijnsequence",
     "naturallanguageprocessing": "Natural Language Processing",
@@ -184,6 +187,7 @@
     "timingfunctions": "Timing-Functions",
     "tree": "Tree",
     "tries": "Tries",
+    "utils": "Utils",
     "vectors": "Vectors",
     "webprogramming": "Web Programming"
 }
