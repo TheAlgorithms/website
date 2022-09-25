@@ -39,12 +39,13 @@ export async function dataGetFile(filename: string) {
 export async function dataGetDir(directory: string) {
   const s3 = S3();
   if (s3) {
-    if (!directory.endsWith("/")) directory += "/";
+    let prefix = directory;
+    if (!prefix.endsWith("/")) prefix += "/";
     return (
       await s3
-        .listObjects({ Bucket: "thealgorithms", Prefix: directory })
+        .listObjects({ Bucket: "thealgorithms", Prefix: prefix })
         .promise()
-    ).Contents.map((x) => x.Key.slice(directory.length));
+    ).Contents.map((x) => x.Key.slice(prefix.length));
   }
-  return await fs.promises.readdir(path.join(DATA_DIR, directory));
+  return fs.promises.readdir(path.join(DATA_DIR, directory));
 }
