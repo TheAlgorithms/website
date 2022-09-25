@@ -10,6 +10,7 @@ import React from "react";
 import { useRouter } from "next/router";
 import locales from "lib/locales";
 import classes from "./style.module.css";
+import { Warning } from "@material-ui/icons";
 
 function MenuContent() {
   const router = useRouter();
@@ -41,6 +42,12 @@ function MenuContent() {
           <ListItemText>{locale.name}</ListItemText>
         </MenuItem>
       ))}
+      <MenuItem disabled>
+        <ListItemIcon>
+          <Warning />
+        </ListItemIcon>
+        <ListItemText>Localization is temporarily disabled</ListItemText>
+      </MenuItem>
     </>
   );
 }
