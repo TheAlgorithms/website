@@ -8,3 +8,11 @@ export default async function* walk(dir: string): AsyncGenerator<string> {
     else if (d.isFile()) yield entry;
   }
 }
+
+export async function asyncWalk(dir: string) {
+  const ret: string[] = [];
+  for await (const file of walk(dir)) {
+    ret.push(file);
+  }
+  return ret;
+}
