@@ -20,14 +20,18 @@ export default function Category({ category }) {
   );
 }
 
-export const getStaticProps: GetStaticProps = async ({ params, locale }) => ({
-  props: {
-    category: await getCategory(params.category.toString()),
-    ...(await serverSideTranslations(locale, ["common", "categories"])),
-  },
-});
+export const getStaticProps: GetStaticProps = async ({ params, locale }) => {
+  const category = await getCategory(params.category.toString());
+  if (!category) return { notFound: true };
+  return {
+    props: {
+      category,
+      ...(await serverSideTranslations(locale, ["common", "categories"])),
+    },
+  };
+};
 
 export const getStaticPaths: GetStaticPaths = async () => ({
-  paths: await getCategories(),
-  fallback: false,
+  paths: [],
+  fallback: "blocking",
 });
