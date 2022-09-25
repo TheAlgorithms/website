@@ -292,7 +292,7 @@ export default function Home({
             <Tooltip title={t("socialDiscord")}>
               <Card>
                 <IconButton
-                  href="https://discord.gg/c7MnfGFGa6"
+                  href="https://the-algorithms.com/discord/"
                   target="_blank"
                   rel="noreferrer"
                   aria-label={t("socialDiscord")}
