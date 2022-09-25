@@ -9,7 +9,7 @@ import { Octokit } from "@octokit/core";
 import dotenv from "dotenv";
 import chalk from "chalk";
 import AWS from "aws-sdk";
-import walk, { asyncWalk } from "../lib/walk";
+import { walk, asyncWalk } from "../lib/fs";
 import { Language, Repositories, Repository } from "../lib/repositories";
 import { Algorithm } from "../lib/models";
 import {
@@ -496,46 +496,54 @@ const categoriesToSkip = ["main", "src", "algorithms", "problems"];
   );
   await fs.promises.rm("repositories", { recursive: true });
   spinner.succeed();
-  if (process.env.AWS_ACCESS_KEY_ID && process.env.AWS_SECRET_ACCESS_KEY) {
+  if (process.env.S3_ACCESS_KEY_ID && process.env.S3_SECRET_ACCESS_KEY) {
     spinner = ora("Uploading results to AWS S3 [Clearing bucket]").start();
     const s3 = new AWS.S3({
-      accessKeyId: process.env.AWS_ACCESS_KEY_ID,
-      secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
+      accessKeyId: process.env.S3_ACCESS_KEY_ID,
+      secretAccessKey: process.env.S3_SECRET_ACCESS_KEY,
     });
     // Clear the whole bucket
-    await s3
-      .deleteObjects({
-        Bucket: "the-algorithms",
-        Delete: {
-          Objects: (
-            await s3
-              .listObjects({
-                Bucket: "thealgorithms",
-              })
-              .promise()
-          ).Contents.map((x) => ({ Key: x.Key })),
-        },
-      })
-      .promise();
-    // Upload the new files
-    const files = await asyncWalk("data");
-    let uploaded = 0;
-    const total = files.length;
-    await Promise.all(
-      files.map((file) =>
-        s3
-          .upload({
+    {
+      const currentObjects = (
+        await s3
+          .listObjects({
             Bucket: "thealgorithms",
-            Key: file,
-            Body: file,
           })
           .promise()
-          .then(() => {
-            uploaded += 1;
-            spinner.text = `Uploading results to AWS S3 [Uploaded ${uploaded}/${total}]`;
+      ).Contents.map((x) => ({ Key: x.Key }));
+      if (currentObjects.length !== 0) {
+        await s3
+          .deleteObjects({
+            Bucket: "thealgorithms",
+            Delete: {
+              Objects: currentObjects,
+            },
           })
-      )
-    );
+          .promise();
+      }
+    }
+    // Upload the new files
+    {
+      const files = await asyncWalk(".");
+      let uploaded = 0;
+      const total = files.length;
+      spinner.text = `Uploading results to AWS S3 [Uploaded ${uploaded}/${total}]`;
+      await Promise.all(
+        files.map(async (file) =>
+          s3
+            .upload({
+              Bucket: "thealgorithms",
+              Key: file,
+              Body: await fs.promises.readFile(file),
+            })
+            .promise()
+            .then(() => {
+              uploaded += 1;
+              spinner.text = `Uploading results to AWS S3 [Uploaded ${uploaded}/${total}]`;
+            })
+        )
+      );
+    }
     spinner.succeed();
   }
 })();
