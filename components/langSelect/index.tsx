@@ -10,40 +10,39 @@ import React from "react";
 import { useRouter } from "next/router";
 import { i18n } from "next-i18next";
 import { Warning } from "@material-ui/icons";
-import classes from "./style.module.css";
 import getLocales from "lib/getLocales";
+import classes from "./style.module.css";
 
 function MenuContent() {
   const router = useRouter();
 
   return (
     <>
-      {getLocales()
-        .map((locale) => (
-          <MenuItem
-            key={locale.code}
-            selected={router.locale === locale.code}
-            onClick={() => {
-              router.push(
-                {
-                  pathname: router.pathname,
-                  query: router.query,
-                },
-                undefined,
-                { locale: locale.code }
-              );
-            }}
-          >
-            <ListItemIcon>
-              <img
-                src={`/flags/${locale.icon}.svg`}
-                alt={locale.icon}
-                className={classes.icon}
-              />
-            </ListItemIcon>
-            <ListItemText>{locale.name}</ListItemText>
-          </MenuItem>
-        ))}
+      {getLocales().map((locale) => (
+        <MenuItem
+          key={locale.code}
+          selected={router.locale === locale.code}
+          onClick={() => {
+            router.push(
+              {
+                pathname: router.pathname,
+                query: router.query,
+              },
+              undefined,
+              { locale: locale.code }
+            );
+          }}
+        >
+          <ListItemIcon>
+            <img
+              src={`/flags/${locale.icon}.svg`}
+              alt={locale.icon}
+              className={classes.icon}
+            />
+          </ListItemIcon>
+          <ListItemText>{locale.name}</ListItemText>
+        </MenuItem>
+      ))}
       {i18n.languages.length <= 1 && (
         <MenuItem disabled>
           <ListItemIcon>
