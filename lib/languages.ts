@@ -1,12 +1,12 @@
 import path from "path";
-import locales from "lib/locales";
 import { Algorithm } from "./models";
 import { Repositories } from "./repositories";
 import { dataGetFile } from "./fs";
+import getLocales from "./getLocales";
 
 export function getLanguages() {
   return Object.keys(Repositories).flatMap((language) =>
-    locales.map((locale) => ({
+    getLocales().map((locale) => ({
       params: {
         language,
       },

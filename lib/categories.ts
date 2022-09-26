@@ -1,15 +1,15 @@
 import path from "path";
-import locales from "lib/locales";
 import { normalize } from "./normalize";
 import { Algorithm } from "./models";
 import { dataGetFile } from "./fs";
+import getLocales from "./getLocales";
 
 export async function getCategories() {
   const categories: string[] = Object.keys(
     JSON.parse((await dataGetFile("categories.json")).toString())
   );
   return categories.flatMap((category) =>
-    locales.map((locale) => ({
+    getLocales().map((locale) => ({
       params: {
         category: normalize(category),
       },

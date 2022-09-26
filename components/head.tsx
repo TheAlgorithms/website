@@ -1,5 +1,5 @@
+import getLocales from "lib/getLocales";
 import NextHead from "next/head";
-import locales from "lib/locales";
 import { useRouter } from "next/router";
 
 export default function Head({
@@ -38,7 +38,7 @@ export default function Head({
       />
       {description && <meta name="twitter:description" content={description} />}
 
-      {locales.map((locale) => (
+      {getLocales().map((locale) => (
         <meta
           property={
             router.locale === locale.code

@@ -1,13 +1,13 @@
 import fs from "fs";
 import path from "path";
-import locales from "lib/locales";
 import type { Algorithm } from "./models";
 import { DATA_DIR } from "./constants";
 import { dataGetDir, dataGetFile } from "./fs";
+import getLocales from "./getLocales";
 
 export async function getAlgorithmSlugs() {
   return (await dataGetDir("algorithms")).flatMap((file) =>
-    locales.map((locale) => ({
+    getLocales().map((locale) => ({
       params: {
         algorithm: file.replace(".json", ""),
       },

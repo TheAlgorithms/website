@@ -8,18 +8,17 @@ import {
 } from "@material-ui/core";
 import React from "react";
 import { useRouter } from "next/router";
-import locales from "lib/locales";
 import { i18n } from "next-i18next";
 import { Warning } from "@material-ui/icons";
 import classes from "./style.module.css";
+import getLocales from "lib/getLocales";
 
 function MenuContent() {
   const router = useRouter();
 
   return (
     <>
-      {locales
-        .filter((locale) => i18n.languages.includes(locale.code))
+      {getLocales()
         .map((locale) => (
           <MenuItem
             key={locale.code}
