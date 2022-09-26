@@ -7,7 +7,7 @@ export default function Footer() {
   const theme = useTheme();
   const t = useTranslation();
   const currentYear = new Date().getFullYear();
-  
+
   return (
     <Paper
       className={classes.outer}

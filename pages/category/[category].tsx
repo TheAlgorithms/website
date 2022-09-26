@@ -32,7 +32,10 @@ export const getStaticProps: GetStaticProps = async ({ params, locale }) => {
   };
 };
 
-export const getStaticPaths: GetStaticPaths = async () => ((!process.env.VERCEL || awsAvailable()) ? {
-  paths: [],
-  fallback: "blocking",
-} : { paths: await getCategories(), fallback: null });
+export const getStaticPaths: GetStaticPaths = async () =>
+  !process.env.VERCEL || awsAvailable()
+    ? {
+        paths: [],
+        fallback: "blocking",
+      }
+    : { paths: await getCategories(), fallback: null };

@@ -10,8 +10,8 @@ import LanguageIcon from "components/icon";
 import { OpenInNew } from "@material-ui/icons";
 import { GetStaticPaths, GetStaticProps } from "next";
 import useTranslation from "hooks/translation";
-import classes from "./style.module.css";
 import { awsAvailable } from "lib/aws";
+import classes from "./style.module.css";
 
 export default function LanguagePage({
   language,
@@ -43,16 +43,16 @@ export default function LanguagePage({
             {["c", "c-plus-plus", "julia"].includes(
               language.name.toLowerCase()
             ) && (
-                <Button
-                  startIcon={<OpenInNew />}
-                  href={`https://thealgorithms.github.io/${language.name
-                    .replace(/^c$/, "C")
-                    .replace(/^c-plus-plus$/, "C-Plus-Plus")
-                    .replace(/^julia$/, "Julia/dev")}`}
-                >
-                  {t("documentationLanguage")}
-                </Button>
-              )}
+              <Button
+                startIcon={<OpenInNew />}
+                href={`https://thealgorithms.github.io/${language.name
+                  .replace(/^c$/, "C")
+                  .replace(/^c-plus-plus$/, "C-Plus-Plus")
+                  .replace(/^julia$/, "Julia/dev")}`}
+              >
+                {t("documentationLanguage")}
+              </Button>
+            )}
           </div>
         </div>
         <AlgorithmsList algorithms={language.algorithms} />
@@ -72,7 +72,10 @@ export const getStaticProps: GetStaticProps = async ({ params, locale }) => {
   };
 };
 
-export const getStaticPaths: GetStaticPaths = async () => ((!process.env.VERCEL || awsAvailable()) ? {
-  paths: [],
-  fallback: "blocking",
-} : { paths: await getLanguages(), fallback: null });
+export const getStaticPaths: GetStaticPaths = async () =>
+  !process.env.VERCEL || awsAvailable()
+    ? {
+        paths: [],
+        fallback: "blocking",
+      }
+    : { paths: await getLanguages(), fallback: null };

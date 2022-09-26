@@ -12,8 +12,8 @@ import Contributors from "components/contributors";
 import EditPage from "components/editPage";
 import { getLanguageName } from "lib/repositories";
 import useTranslation from "hooks/translation";
-import classes from "./algorithm.module.css";
 import { awsAvailable } from "lib/aws";
+import classes from "./algorithm.module.css";
 
 export default function AlgorithmPage({
   algorithm,
@@ -93,7 +93,10 @@ export const getStaticProps: GetStaticProps = async ({ params, locale }) => {
   };
 };
 
-export const getStaticPaths: GetStaticPaths = async () => ((!process.env.VERCEL || awsAvailable()) ? {
-  paths: [],
-  fallback: "blocking",
-} : { paths: await getAlgorithmSlugs(), fallback: null });
+export const getStaticPaths: GetStaticPaths = async () =>
+  !process.env.VERCEL || awsAvailable()
+    ? {
+        paths: [],
+        fallback: "blocking",
+      }
+    : { paths: await getAlgorithmSlugs(), fallback: null };
