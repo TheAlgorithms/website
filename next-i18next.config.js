@@ -1,16 +1,12 @@
 /* eslint-disable */
 const path = require("path");
-require("dotenv").config();
+const getLocales = require("./getLocales")
 
 const locales = require("./lib/locales");
 module.exports = {
   i18n: {
     defaultLocale: "en",
-    locales:
-      !process.env.VERCEL ||
-      (process.env.S3_ACCESS_KEY_ID && process.env.S3_SECRET_ACCESS_KEY)
-        ? locales.map((locale) => locale.code)
-        : ["en"],
+    locales: getLocales(),
     localePath: path.resolve("./public/locales"),
   },
 };
