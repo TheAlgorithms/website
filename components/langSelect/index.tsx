@@ -18,7 +18,7 @@ function MenuContent() {
 
   return (
     <>
-      {getLocales().map((locale) => (
+      {getLocales(i18n).map((locale) => (
         <MenuItem
           key={locale.code}
           selected={router.locale === locale.code}

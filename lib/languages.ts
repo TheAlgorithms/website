@@ -3,10 +3,11 @@ import { Algorithm } from "./models";
 import { Repositories } from "./repositories";
 import { dataGetFile } from "./fs";
 import getLocales from "./getLocales";
+import { i18n } from "next-i18next";
 
 export function getLanguages() {
   return Object.keys(Repositories).flatMap((language) =>
-    getLocales().map((locale) => ({
+    getLocales(i18n).map((locale) => ({
       params: {
         language,
       },

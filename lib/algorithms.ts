@@ -4,10 +4,11 @@ import type { Algorithm } from "./models";
 import { DATA_DIR } from "./constants";
 import { dataGetDir, dataGetFile } from "./fs";
 import getLocales from "./getLocales";
+import { i18n } from "next-i18next";
 
 export async function getAlgorithmSlugs() {
   return (await dataGetDir("algorithms")).flatMap((file) =>
-    getLocales().map((locale) => ({
+    getLocales(i18n).map((locale) => ({
       params: {
         algorithm: file.replace(".json", ""),
       },

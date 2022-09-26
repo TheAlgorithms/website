@@ -3,13 +3,14 @@ import { normalize } from "./normalize";
 import { Algorithm } from "./models";
 import { dataGetFile } from "./fs";
 import getLocales from "./getLocales";
+import { i18n } from "next-i18next";
 
 export async function getCategories() {
   const categories: string[] = Object.keys(
     JSON.parse((await dataGetFile("categories.json")).toString())
   );
   return categories.flatMap((category) =>
-    getLocales().map((locale) => ({
+    getLocales(i18n).map((locale) => ({
       params: {
         category: normalize(category),
       },
