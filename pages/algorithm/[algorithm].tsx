@@ -2,7 +2,7 @@ import React from "react";
 import { Typography, Breadcrumbs } from "@material-ui/core";
 import Link from "components/link";
 import type { Algorithm } from "lib/models";
-import { getAlgorithm } from "lib/algorithms";
+import { getAlgorithm, getAlgorithmSlugs } from "lib/algorithms";
 import { normalize } from "lib/normalize";
 import CodePreview from "components/codePreview";
 import Head from "components/head";
@@ -13,6 +13,7 @@ import EditPage from "components/editPage";
 import { getLanguageName } from "lib/repositories";
 import useTranslation from "hooks/translation";
 import classes from "./algorithm.module.css";
+import { awsAvailable } from "lib/aws";
 
 export default function AlgorithmPage({
   algorithm,
@@ -92,7 +93,7 @@ export const getStaticProps: GetStaticProps = async ({ params, locale }) => {
   };
 };
 
-export const getStaticPaths: GetStaticPaths = async () => ({
+export const getStaticPaths: GetStaticPaths = async () => ((!process.env.VERCEL || awsAvailable()) ? {
   paths: [],
   fallback: "blocking",
-});
+} : { paths: await getAlgorithmSlugs(), fallback: null });

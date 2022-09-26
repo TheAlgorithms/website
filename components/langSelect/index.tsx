@@ -10,13 +10,15 @@ import React from "react";
 import { useRouter } from "next/router";
 import locales from "lib/locales";
 import classes from "./style.module.css";
+import { i18n } from "next-i18next"
+import { Warning } from "@material-ui/icons";
 
 function MenuContent() {
   const router = useRouter();
 
   return (
     <>
-      {locales.map((locale) => (
+      {locales.filter(locale => i18n.languages.includes(locale.code)).map((locale) => (
         <MenuItem
           key={locale.code}
           selected={router.locale === locale.code}
@@ -41,6 +43,14 @@ function MenuContent() {
           <ListItemText>{locale.name}</ListItemText>
         </MenuItem>
       ))}
+      {
+        i18n.languages.length <= 1 && <MenuItem disabled>
+          <ListItemIcon>
+            <Warning />
+          </ListItemIcon>
+          <ListItemText>Localization is disabled on Preview Deployments</ListItemText>
+        </MenuItem>
+      }
     </>
   );
 }
