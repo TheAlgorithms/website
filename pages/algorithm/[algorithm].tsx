@@ -99,4 +99,4 @@ export const getStaticPaths: GetStaticPaths = async () =>
         paths: [],
         fallback: "blocking",
       }
-    : { paths: await getAlgorithmSlugs(), fallback: null };
+    : { paths: await getAlgorithmSlugs(), fallback: false };

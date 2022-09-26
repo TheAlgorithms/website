@@ -78,4 +78,4 @@ export const getStaticPaths: GetStaticPaths = async () =>
         paths: [],
         fallback: "blocking",
       }
-    : { paths: await getLanguages(), fallback: null };
+    : { paths: await getLanguages(), fallback: false };

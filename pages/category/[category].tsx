@@ -38,4 +38,4 @@ export const getStaticPaths: GetStaticPaths = async () =>
         paths: [],
         fallback: "blocking",
       }
-    : { paths: await getCategories(), fallback: null };
+    : { paths: await getCategories(), fallback: false };
