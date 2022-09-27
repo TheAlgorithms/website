@@ -1,1 +1,17 @@
-{}
+{
+    "audiofilters": "فلاتر الصوت",
+    "basic": "أساسي",
+    "basicsoftensorflow": "أساسيات Tensorflow",
+    "automaton": "آلي",
+    "binaryheap": "ثنائية Heap",
+    "ahocorasick": "أهو كوراسيك",
+    "arima": "أريما",
+    "armstrong": "ارمسترونج",
+    "array": "مصفوفة",
+    "associationalgorithms": "رابطة الخوارزميات",
+    "audio": "الصوت",
+    "bags": "حقائب",
+    "biginteger": "عدد صحيح كبير",
+    "binary": "الثنائية",
+    "activationfunctions": "وظائف التنشيط"
+}
