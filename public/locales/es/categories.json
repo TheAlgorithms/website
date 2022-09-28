@@ -265,5 +265,8 @@
     "shufflers": "Barajadores",
     "slidingwindow": "Ventana Deslizante",
     "stackwithsinglylinkedlist": "Stack con Singly Linked List",
-    "sum": "Suma"
+    "sum": "Suma",
+    "utils": "Utils",
+    "biginteger": "Gran número entero",
+    "cn": "Cn"
 }
