@@ -1,6 +1,6 @@
 {
-    "featuredAlgorithms": "चित्रित कलन विधि",
-    "topAlgorithms": "शीर्ष कलन विधि",
+    "featuredAlgorithms": "विशेष रुप से प्रदर्शित एल्गोरिथ्म",
+    "topAlgorithms": "शीर्ष एल्गोरिदम",
     "donateTitle": "दान करिए",
     "contributeTitle": "योगदान",
     "programmingLanguages": "हम बहुत सारी प्रोग्रामिंग भाषाओं को सहयोग देते हैं| हर भाषा की खुद की गितहब रिपॉजिटरी है जहां पर कलन विधिओं के लिए सारा कोड रखा जाता है| मौजूदी प्रोग्रामिंग भाषाओं की सूची:",
@@ -12,7 +12,7 @@
     "addExplanation": "इस अल्गोरिथम की व्याख्या जोड़े",
     "addImplementation": "कोई और कार्यान्वयन जोड़े",
     "addImplementationInfo": "किसी अन्य भाषा में कार्यान्वयन जोड़ने के लिए, कृपया उस भाषा के भंडार पर जाएं और README.md और CONTRIBUTING.md में दिए गए निर्देशों का पालन करें।",
-    "topCategories": "अव्वल श्रेणीयां",
+    "topCategories": "शीर्ष श्रेणियां",
     "sortsCategories": "छंटनी",
     "searchesCategories": "खोज",
     "dynamicProgrammingCategories": "गत्यात्मिक कार्यक्रम निर्माण",
@@ -24,7 +24,7 @@
     "welcomeTitle": "GitHub की सबसे बड़ी विवृत -स्त्रोत एल्गोरिथम संग्रालय में आपका स्वागत है",
     "searchText": "कोई भी अल्गोरिथम ढूंढें",
     "socialDiscord": "Discord पर बात करे",
-    "sourceCodeFooter": "स्त्रोत नियमसंगृह",
+    "sourceCodeFooter": "स्रोत कोड",
     "donateButton": "दान करे",
     "algorithmExplaniationFooter": "अल्गोरिथम क्या है?",
     "aboutUsFooter": "हमारे बारे में",
@@ -54,5 +54,9 @@
     "viewOnGithub": "GitHub पर देखे",
     "addTranslation": "इस व्याख्या का अनुवादन करे",
     "addTranslationInfo": "इस एल्गोरिथम की व्याख्या का अभी तक आपकी भाषा में अनुवाद नहीं किया गया है। इस व्याख्या का अनुवाद करने के लिए, कृपया [एल्गोरिदम-स्पष्टीकरण] रिपॉजिटरी पर जाएँ। इस रिपॉजिटरी को फोर्क करें और अपने स्थान के लिए सही फ़ोल्डर में अंग्रेज़ी [<code>{ogFilename}</code>] पर आधारित एक नई मार्कडाउन फ़ाइल के रूप में अपना अनुवाद जोड़ें (<code>{locale}</code>)। जब आपने फ़ाइल का अनुवाद कर लिया है, तो आप अपने अनुवाद को मर्ज करने के लिए एक नया पुल अनुरोध बना सकते हैं।",
-    "aboutTextNavbar": "विषय में"
+    "aboutTextNavbar": "विषय में",
+    "darkModeNavbar": "अँधेरा प्रणाली",
+    "languages_count": "{} और जोड़ें",
+    "algorithmMetaDescriptionExplained": "{algorithm} को {implementations} में समझाया और लागू किया गया",
+    "noResults": "कोई परिणाम नहीं है इसके लिए"
 }
