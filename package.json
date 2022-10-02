@@ -2,6 +2,10 @@
   "name": "thealgorithms",
   "version": "0.1.0",
   "private": true,
+  "description": "The Algorithms website providing GitHub's largest open-source algorithm library.",
+  "repository": "https://github.com/TheAlgorithms/website.git",
+  "author": "Malte Jürgens <maltejur@dismail.de>",
+  "license": "MIT",
   "scripts": {
     "dev": "next dev",
     "debug": "NODE_OPTIONS='--inspect' next dev",
