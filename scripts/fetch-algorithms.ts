@@ -226,10 +226,7 @@ const categoriesToSkip = ["main", "src", "algorithms", "problems"];
               }
               algorithms[nName].implementations["c-sharp"] = {
                 dir,
-                url: path.join(
-                  "https://github.com/TheAlgorithms/C-Sharp/tree/master",
-                  algorithmMatch[2]
-                ),
+                url: `https://github.com/TheAlgorithms/C-Sharp/tree/master${algorithmMatch[2].slice(1)}`,
                 code: highlightCode(file, "c-sharp"),
               };
             } else if (categoryMatch) {
