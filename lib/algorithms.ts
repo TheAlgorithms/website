@@ -1,19 +1,17 @@
 import fs from "fs";
 import path from "path";
-import locales from "lib/locales";
 import type { Algorithm } from "./models";
 import { DATA_DIR } from "./constants";
 import { dataGetDir, dataGetFile } from "./fs";
 
 export async function getAlgorithmSlugs() {
-  return (await dataGetDir("algorithms")).flatMap((file) =>
-    locales.map((locale) => ({
-      params: {
-        algorithm: file.replace(".json", ""),
-      },
-      locale: locale.code,
-    }))
-  );
+  // This function is only used when localization is disabled,
+  // so only the english URLs get returned.
+  return (await dataGetDir("algorithms")).map((file) => ({
+    params: {
+      algorithm: file.replace(".json", ""),
+    },
+  }));
 }
 
 export async function getAlgorithm(slug: string, minimal = false) {
