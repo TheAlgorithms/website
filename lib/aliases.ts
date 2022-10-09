@@ -47,6 +47,8 @@ const aliases = {
     armstrongnumbers: "Armstrong Number",
     armstrong: "Armstrong Number",
     isarmstrong: "Armstrong Number",
+    xor: "XOR Cipher",
+    xorcipher: "XOR Cipher",
   },
   categories: {
     sorting: "Sorts",
