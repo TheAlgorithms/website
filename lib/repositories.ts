@@ -125,7 +125,7 @@ export const Repositories = {
   typescript: {
     name: "TypeScript",
     allowedFiles: [".ts"],
-    baseDir: "./",
+    baseDir: ".",
   },
 };
 
