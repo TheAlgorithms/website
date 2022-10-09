@@ -1,7 +1,7 @@
-// eslint-disable-next-line import/no-extraneous-dependencies
-import { i18n as I18NextClient } from "i18next";
 import locales from "lib/locales";
+import { useRouter } from "next/router";
 
-export default function useLocales(i18n: I18NextClient) {
-  return locales.filter((locale) => i18n.languages.includes(locale.code));
+export default function useLocales() {
+  const router = useRouter();
+  return locales.filter((locale) => router.locales.includes(locale.code));
 }

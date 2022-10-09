@@ -10,12 +10,11 @@ import React from "react";
 import { useRouter } from "next/router";
 import { Warning } from "@material-ui/icons";
 import useLocales from "hooks/locales";
-import { i18n } from "next-i18next";
 import classes from "./style.module.css";
 
 function MenuContent() {
   const router = useRouter();
-  const locales = useLocales(i18n);
+  const locales = useLocales();
 
   return (
     <>
