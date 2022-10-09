@@ -1,8 +1,8 @@
 {
+    "a5": "A 5",
     "activationfunctions": "Activation Functions",
     "ahocorasick": "Aho-Corasick",
     "arima": "ARIMA",
-    "armstrong": "Armstrong",
     "array": "Array",
     "associationalgorithms": "Association-Algorithms",
     "associativemining": "Associative Mining",
@@ -47,6 +47,7 @@
     "datamanipulation": "Data Manipulation",
     "datapreprocessing": "Data Preprocessing",
     "datastructures": "Data Structures",
+    "date": "Date",
     "decisiontreeregressionwithkfoldcrossvalidation": "Decision Tree Regression with K-Fold Cross Validation",
     "decomposition": "Decomposition",
     "developertools": "Developer Tools",
