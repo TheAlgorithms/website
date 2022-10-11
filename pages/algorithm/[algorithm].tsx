@@ -2,7 +2,7 @@ import React from "react";
 import { Typography, Breadcrumbs } from "@material-ui/core";
 import Link from "components/link";
 import type { Algorithm } from "lib/models";
-import { getAlgorithm } from "lib/algorithms";
+import { getAlgorithm, getAlgorithmSlugs } from "lib/algorithms";
 import { normalize } from "lib/normalize";
 import CodePreview from "components/codePreview";
 import Head from "components/head";
@@ -12,6 +12,7 @@ import Contributors from "components/contributors";
 import EditPage from "components/editPage";
 import { getLanguageName } from "lib/repositories";
 import useTranslation from "hooks/translation";
+import { shouldUseISR } from "lib/aws";
 import classes from "./algorithm.module.css";
 
 export default function AlgorithmPage({
@@ -92,7 +93,13 @@ export const getStaticProps: GetStaticProps = async ({ params, locale }) => {
   };
 };
 
-export const getStaticPaths: GetStaticPaths = async () => ({
-  paths: [],
-  fallback: "blocking",
-});
+export const getStaticPaths: GetStaticPaths = async () =>
+  shouldUseISR
+    ? {
+        paths: [],
+        fallback: "blocking",
+      }
+    : {
+        paths: await getAlgorithmSlugs(),
+        fallback: false,
+      };

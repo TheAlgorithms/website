@@ -122,6 +122,11 @@ export const Repositories = {
     allowedFiles: [".lua"],
     baseDir: "src",
   },
+  typescript: {
+    name: "TypeScript",
+    allowedFiles: [".ts"],
+    baseDir: ".",
+  },
 };
 
 export interface Repository {

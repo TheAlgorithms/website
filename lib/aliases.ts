@@ -44,6 +44,11 @@ const aliases = {
     stackusingsinglylinkedlist: "Stack with Singly Linked List",
     linkedliststack: "Stack with Singly Linked List",
     linkedstack: "Stack with Singly Linked List",
+    armstrongnumbers: "Armstrong Number",
+    armstrong: "Armstrong Number",
+    isarmstrong: "Armstrong Number",
+    xor: "XOR Cipher",
+    xorcipher: "XOR Cipher",
   },
   categories: {
     sorting: "Sorts",

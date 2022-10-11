@@ -1,21 +1,19 @@
 import path from "path";
-import locales from "lib/locales";
 import { normalize } from "./normalize";
 import { Algorithm } from "./models";
 import { dataGetFile } from "./fs";
 
 export async function getCategories() {
+  // This function is only used when localization is disabled,
+  // so only the english URLs get returned.
   const categories: string[] = Object.keys(
     JSON.parse((await dataGetFile("categories.json")).toString())
   );
-  return categories.flatMap((category) =>
-    locales.map((locale) => ({
-      params: {
-        category: normalize(category),
-      },
-      locale: locale.code,
-    }))
-  );
+  return categories.flatMap((category) => ({
+    params: {
+      category: normalize(category),
+    },
+  }));
 }
 
 export async function getCategory(category: string) {
