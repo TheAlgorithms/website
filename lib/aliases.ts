@@ -49,6 +49,8 @@ const aliases = {
     isarmstrong: "Armstrong Number",
     xor: "XOR Cipher",
     xorcipher: "XOR Cipher",
+    sudoku: "Sudoku Solver",
+    sudokusolver: "Sudoku Solver",
   },
   categories: {
     sorting: "Sorts",
