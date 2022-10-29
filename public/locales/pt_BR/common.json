@@ -52,5 +52,9 @@
     "noResults": "Não foram encontrados resultados para",
     "emptySearch": "Buscar um algoritmo",
     "playgroundRunCode": "Executar código",
-    "languageMetaDescription": "Algoritmos implementados em {language}"
+    "languageMetaDescription": "Algoritmos implementados em {language}",
+    "editPageHelp": "Em caso de problemas, fique à vontade para pedir ajuda através do nosso servidor do [Discord].",
+    "addImplementationInfo": "Para adicionar implementação em outra língua, visite o repositório desta e siga as instruções em <code>README.md</code> and <code>CONTRIBUTING.md</code>.",
+    "addTranslation": "Traduza essa explicação",
+    "addImplementationMissing": "Veja a seguir os links para os repositórios que ainda necessitam de implementações:"
 }
