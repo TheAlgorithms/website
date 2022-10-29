@@ -46,5 +46,11 @@
     "donateText": "Outra maneira de nos ajudar é fazendo uma doação via [Liberapay]. Até uma doação pequena é muito bem recebida. Ao doar, significa que você preza e gosta do nosso trabalho. Se você não gosta do nosso trabalho, não há necessidade de doar. Se você doar, os maiores membros terão possibilidade de contribuir mais ainda para os projetos do The Algorithms. Nós recebemos bem doações de todos, de qualquer lugar, não importa a quantia.",
     "languages_count": "E {} mais",
     "langImplementation": "Implementação {language}",
-    "addExplanationInfo": "Esse algoritmo ainda não tem uma explicação. Explicações são encontradas no repositório [Algorithms-Explanations]. Se você quer adicionar uma explicação, faça uma fork deste repositório e adiciona uma explicação como um arquivo markdown([exemplo]). Uma vez terminado, você pode abrir um pull request para fazer um merge da sua explicação."
+    "addExplanationInfo": "Esse algoritmo ainda não tem uma explicação. Explicações são encontradas no repositório [Algorithms-Explanations]. Se você quer adicionar uma explicação, faça uma fork deste repositório e adiciona uma explicação como um arquivo markdown([exemplo]). Uma vez terminado, você pode abrir um pull request para fazer um merge da sua explicação.",
+    "addImplementation": "Adicionar outra implementação",
+    "viewOnGithub": "Ver no GitHub",
+    "noResults": "Não foram encontrados resultados para",
+    "emptySearch": "Buscar um algoritmo",
+    "playgroundRunCode": "Executar código",
+    "languageMetaDescription": "Algoritmos implementados em {language}"
 }
