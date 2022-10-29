@@ -120,6 +120,11 @@ export default function Home({
               icon: <InsertPhoto />,
               href: "/category/digitalimageprocessing",
             },
+            {
+              name: t("categories:strings"),
+              icon: <TextSnippet />,
+              href: "/category/strings",
+            },
           ]}
         />
       </Section>
