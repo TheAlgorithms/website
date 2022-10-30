@@ -26,6 +26,7 @@ import {
   Storage,
   Functions,
   InsertPhoto,
+  FormatQuote,
 } from "@material-ui/icons";
 import Translation from "components/translation";
 import useTranslation from "hooks/translation";
@@ -122,7 +123,7 @@ export default function Home({
             },
             {
               name: t("categories:strings"),
-              icon: <TextSnippet />,
+              icon: <FormatQuote />,
               href: "/category/strings",
             },
           ]}
