@@ -6,6 +6,7 @@ import Head from "components/head";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { GetStaticPaths, GetStaticProps } from "next";
 import useTranslation from "hooks/translation";
+import { shouldUseISR } from "lib/aws";
 
 export default function Category({ category }) {
   const t = useTranslation();
@@ -31,7 +32,13 @@ export const getStaticProps: GetStaticProps = async ({ params, locale }) => {
   };
 };
 
-export const getStaticPaths: GetStaticPaths = async () => ({
-  paths: [],
-  fallback: "blocking",
-});
+export const getStaticPaths: GetStaticPaths = async () =>
+  shouldUseISR
+    ? {
+        paths: [],
+        fallback: "blocking",
+      }
+    : {
+        paths: await getCategories(),
+        fallback: false,
+      };

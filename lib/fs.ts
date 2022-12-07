@@ -2,7 +2,6 @@ import fs from "fs";
 import path from "path";
 import { S3 } from "./aws";
 import { DATA_DIR } from "./constants";
-import AWS from "aws-sdk";
 
 export async function* walk(dir: string): AsyncGenerator<string> {
   for await (const d of await fs.promises.opendir(dir)) {

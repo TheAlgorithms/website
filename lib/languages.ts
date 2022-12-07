@@ -1,18 +1,16 @@
 import path from "path";
-import locales from "lib/locales";
 import { Algorithm } from "./models";
 import { Repositories } from "./repositories";
 import { dataGetFile } from "./fs";
 
 export function getLanguages() {
-  return Object.keys(Repositories).flatMap((language) =>
-    locales.map((locale) => ({
-      params: {
-        language,
-      },
-      locale: locale.code,
-    }))
-  );
+  // This function is only used when localization is disabled,
+  // so only the english URLs get returned.
+  return Object.keys(Repositories).flatMap((language) => ({
+    params: {
+      language,
+    },
+  }));
 }
 
 export async function getLanguage(language: string) {

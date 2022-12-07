@@ -10,6 +10,7 @@ import LanguageIcon from "components/icon";
 import { OpenInNew } from "@material-ui/icons";
 import { GetStaticPaths, GetStaticProps } from "next";
 import useTranslation from "hooks/translation";
+import { shouldUseISR } from "lib/aws";
 import classes from "./style.module.css";
 
 export default function LanguagePage({
@@ -71,7 +72,13 @@ export const getStaticProps: GetStaticProps = async ({ params, locale }) => {
   };
 };
 
-export const getStaticPaths: GetStaticPaths = async () => ({
-  paths: [],
-  fallback: "blocking",
-});
+export const getStaticPaths: GetStaticPaths = async () =>
+  shouldUseISR
+    ? {
+        paths: [],
+        fallback: "blocking",
+      }
+    : {
+        paths: getLanguages(),
+        fallback: false,
+      };

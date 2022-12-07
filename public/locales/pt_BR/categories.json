@@ -1,1 +1,7 @@
-{}
+{
+    "audio": "Audio",
+    "ahocorasick": "Aho-Corasick",
+    "basicsoftensorflow": "Conceitos básicos de Tensorflow",
+    "audiofilters": "Filtros de audio",
+    "blockchain": "Blockchain"
+}

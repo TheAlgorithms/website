@@ -8,11 +8,13 @@ import {
 } from "@material-ui/core";
 import React from "react";
 import { useRouter } from "next/router";
-import locales from "lib/locales";
+import { Warning } from "@material-ui/icons";
+import useLocales from "hooks/locales";
 import classes from "./style.module.css";
 
 function MenuContent() {
   const router = useRouter();
+  const locales = useLocales();
 
   return (
     <>
@@ -41,6 +43,16 @@ function MenuContent() {
           <ListItemText>{locale.name}</ListItemText>
         </MenuItem>
       ))}
+      {locales.length === 1 && (
+        <MenuItem disabled>
+          <ListItemIcon>
+            <Warning />
+          </ListItemIcon>
+          <ListItemText>
+            Localization is disabled for preview deployments.
+          </ListItemText>
+        </MenuItem>
+      )}
     </>
   );
 }

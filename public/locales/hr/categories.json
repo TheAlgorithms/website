@@ -272,5 +272,10 @@
     "longestincreasingsubsequence": "Najduži rastući podslijed",
     "constraints": "Ograničenja",
     "distances": "Udaljenosti",
-    "esolang": "Ezoterični programski jezici"
+    "esolang": "Ezoterični programski jezici",
+    "biginteger": "Dugački cijeli broj",
+    "utils": "Uslužni programi",
+    "cn": "Cn",
+    "a5": "A 5",
+    "date": "Datum"
 }
