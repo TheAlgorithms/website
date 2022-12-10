@@ -4,8 +4,8 @@ import { JumboThemeProvider } from "hooks/themes";
 import SearchBar from "components/searchBar";
 import useTranslation from "hooks/translation";
 import { useQuery } from "hooks/query";
+import Typewriter from "typewriter-effect";
 import classes from "./style.module.css";
-import Typewriter from "typewriter-effect"
 
 export default function Jumbo() {
   const t = useTranslation();
@@ -46,15 +46,15 @@ export default function Jumbo() {
           </div>
           <div className="container">
             <div className={classes.h1}>
-              <Typewriter 
-                  options={{loop:true}}
-                  onInit={(typewriter)=>{
-                    typewriter
+              <Typewriter
+                options={{ loop: true }}
+                onInit={(typewriter) => {
+                  typewriter
                     .typeString(t("helloAlgorithms"))
                     .pauseFor(2000)
                     .deleteAll()
-                    .start()
-                  }}
+                    .start();
+                }}
               />
             </div>
             <Typography className={classes.h2}>{t("welcomeTitle")}</Typography>
