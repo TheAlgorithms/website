@@ -11,14 +11,6 @@
     <img src="https://img.shields.io/badge/Gitpod-Ready--to--Code-blue?logo=gitpod" height="20">
   </a>
 
-  <a href="https://lgtm.com/projects/g/TheAlgorithms/website/context:javascript">
-    <img alt="Language grade: JavaScript" src="https://img.shields.io/lgtm/grade/javascript/g/TheAlgorithms/website.svg?logo=lgtm&logoWidth=18"/>
-  </a>
-
-  <a href="https://github.com/TheAlgorithms/website/actions/workflows/codeql-analysis.yml">
-    <img src="https://github.com/TheAlgorithms/website/actions/workflows/codeql-analysis.yml/badge.svg" height="20">
-  </a>
-
   <a href="https://the-algorithms.com/discord/">
     <img src="https://img.shields.io/discord/808045925556682782.svg?logo=discord&colorB=5865F2" height="20">
   </a>
@@ -28,8 +20,6 @@
   <a href="https://liberapay.com/TheAlgorithms">
     <img src="https://img.shields.io/liberapay/receives/TheAlgorithms.svg?logo=liberapay" height="20">
   </a>
-
-  <img src="https://img.shields.io/github/repo-size/TheAlgorithms/website?color=blue" height="20">
 
   <a href="https://hosted.weblate.org/engage/TheAlgorithms/?utm_source=widget">
     <img src="https://hosted.weblate.org/widgets/TheAlgorithms/-/svg-badge.svg" height="20">
