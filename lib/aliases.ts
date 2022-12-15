@@ -64,6 +64,12 @@ const aliases = {
     prime: "Prime",
     checkprime: "Prime",
     primecheck: "Prime",
+    anagram: "Anagram",
+    anagrams: "Anagram",
+    checkanagram: "Check Anagram",
+    checkanagrams: "Check Anagram",
+    detectanagrams: "Check Anagram",
+    anagramchecker: "Check Anagram"
   },
   categories: {
     sorting: "Sorts",
