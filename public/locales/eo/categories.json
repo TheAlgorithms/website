@@ -295,5 +295,17 @@
     "biginteger": "Granda entjero",
     "cn": "Cn",
     "date": "Dato",
-    "a5": "A 5"
+    "a5": "A 5",
+    "bit": "Bito",
+    "distance": "Distanco",
+    "entities": "Entoj",
+    "leetcode": "LeetCode",
+    "ipynbcheckpoints": ".ipynb-kontrolpunktoj",
+    "polynomials": "Polinomoj",
+    "piecewise": "Po-peca difino",
+    "processschedulingalgorithms": "Procezplanaj algoritmoj",
+    "test": "Testo",
+    "structures": "Strukturoj",
+    "tests": "Testoj",
+    "uint53": "53-bita sensignuma entjero"
 }
