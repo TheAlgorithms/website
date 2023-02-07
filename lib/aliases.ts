@@ -69,7 +69,11 @@ const aliases = {
     checkanagram: "Check Anagram",
     checkanagrams: "Check Anagram",
     detectanagrams: "Check Anagram",
-    anagramchecker: "Check Anagram"
+    anagramchecker: "Check Anagram",
+    eulerstotient: "Euler's Totient",
+    eulerstotientfunction: "Euler's Totient",
+    eulertotient: "Euler's Totient",
+    a000010eulerstotient: "Euler's Totient"
   },
   categories: {
     sorting: "Sorts",
