@@ -1,5 +1,5 @@
 {
-    "socialGithub": "GitHub'da katkıda bulunun",
+    "socialGithub": "GitHub'a katkıda bulunun",
     "socialDiscord": "Discord'da sohbete katıl",
     "donateTitle": "Bağış Yapın",
     "algorithmExplanationTitle": "Algoritma nedir?",
@@ -16,7 +16,7 @@
     "basicMathCategories": "Temel Matematik",
     "imageProcessingCategories": "Görüntü İşleme",
     "helloAlgorithms": "Merhaba, algoritmalar!",
-    "searchText": "Algoritma arayın",
+    "searchText": "Herhangi bir algoritma arayın",
     "aboutTextNavbar": "Hakkımızda",
     "algorithmExplaniationFooter": "Algoritma nedir?",
     "aboutUsFooter": "Hakkımızda",
@@ -35,5 +35,14 @@
     "donateButton": "Bağış yapın",
     "socialTitle": "Bizimle iletişime geçin",
     "socialGitter": "Gitter'da sohbete katıl",
-    "pageNotFound": "Sayfa bulunamadı"
+    "pageNotFound": "Sayfa bulunamadı",
+    "donateText": "Bizi desteklemenin başka bir yolu da [Liberapay] üzerinden bağış yapmaktır. Küçük bir bağış bile çok makbule geçer. Bağış yaparak, işimizi takdir ettiğiniz ve beğendiğiniz anlamına gelir. Çalışmalarımızı beğenmediyseniz, bağış yapmanıza gerek yok. Bağış yaparsanız, en iyi üyeler algoritma projelerine daha fazla katkıda bulunabilecek. Miktarı ne olursa olsun herkesten, her yerden bağışları takdir ediyoruz.",
+    "editPageTranslate": "Açıklamayı Çevir",
+    "contribute": "Bu depolara katkıda bulunmanızı öneririz. Eklemek istediğiniz bir algoritma, yapmak istediğiniz bir değişiklik veya düzeltmek istediğiniz bir hata varsa lütfen yapın. Ancak bunu yapmadan önce depodaki CONTRIBUTING.md'de bulunan katkıda bulunma yönergelerini okuduğunuzdan emin olun. Saygılı, yardımsever olduğunuzdan ve dilin en son sürümünü kullandığınızdan emin olun. Katkı yönergelerini okuduktan sonra, lütfen havuzu çatallayın, değişiklikleriniz üzerinde çalışın ve ardından bunları bir çekme isteği olarak gönderin. Ayrıca [Weblate] kullanarak web sitesini çevirmemize yardımcı olabilirsiniz. Eklemek istediğiniz başka diller veya düzeltmek istediğiniz dizeler varsa, katkıda bulunabilirsiniz.",
+    "moreAlgorithmCard": "Daha",
+    "langImplementation": "{dil} Uygulama",
+    "editPageEdit": "Sayfayı düzenle",
+    "editPageAddImplementation": "Uygulama ekle",
+    "editPageAddExplanation": "Açıklama Ekle",
+    "addExplanation": "Bu algoritma için bir açıklama ekleyin"
 }
