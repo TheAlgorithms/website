@@ -1,1 +1,26 @@
-{}
+{
+    "algorithmExplanationTitle": "アルゴリズムとは？",
+    "programmingLanguagesTitle": "プログラミング言語",
+    "topAlgorithms": "トップ・アルゴリズム",
+    "topCategories": "トップカテゴリー",
+    "sortsCategories": "ソート",
+    "searchesCategories": "探索",
+    "dynamicProgrammingCategories": "動的計画法",
+    "ciphersCategories": "暗号",
+    "dataStructuresCategories": "データ構造",
+    "basicMathCategories": "基礎数学",
+    "imageProcessingCategories": "画像処理",
+    "helloAlgorithms": "こんにちは、アルゴリズム！",
+    "featuredAlgorithms": "おすすめのアルゴリズム",
+    "algorithmExplaniationFooter": "アルゴリズムとは？",
+    "sourceCodeFooter": "ソースコード",
+    "donateButton": "寄付",
+    "changeLanguageNavbar": "言語を変更する",
+    "lightModeNavbar": "ライトモード",
+    "darkModeNavbar": "ダークモード",
+    "search": "検索",
+    "home": "ホーム",
+    "socialDiscord": "Discordでのチャット",
+    "socialGitter": "Gitterでのチャット",
+    "welcomeTitle": "GitHub最大のオープンソース・アルゴリズム・ライブラリーへようこそ"
+}
