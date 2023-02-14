@@ -233,5 +233,6 @@
     "datacompression": "Datenkompression",
     "decisiontreeregressionwithkfoldcrossvalidation": "Entscheidungsbaum-Regression mit K-Fold Cross Validation",
     "decomposition": "Decomposition",
-    "diffiehellman": "Diffie Hellman"
+    "diffiehellman": "Diffie Hellman",
+    "checksum": "Prüfsumme"
 }
