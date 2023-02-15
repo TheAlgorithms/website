@@ -1,6 +1,6 @@
 {
     "activationfunctions": "Fonctions d'activation",
-    "ahocorasick": "Aho-Corasick",
+    "ahocorasick": "Algorithme d'Aho-Corasick",
     "arima": "ARIMA",
     "checksum": "Somme de contrôle",
     "ciphers": "Chiffrement",
@@ -108,7 +108,7 @@
     "decisiontreeregressionwithkfoldcrossvalidation": "Régression par arbre de décision avec validation croisée K-Fold",
     "devutils": "Devutils",
     "diffiehellman": "Diffie-Hellman",
-    "dithering": "Dithering",
+    "dithering": "Dither",
     "divideandconquer": "Diviser pour régner",
     "dynamic": "Dynamique",
     "dynamiccoinchange": "Problème de la monnaie dynamique",
