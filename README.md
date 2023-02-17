@@ -25,7 +25,7 @@
     <img src="https://hosted.weblate.org/widgets/TheAlgorithms/-/svg-badge.svg" height="20">
   </a>
 
-  <a href="https://gitter.im/TheAlgorithms">
+  <a href="https://matrix.to/#/#TheAlgorithms_community:gitter.im">
     <img src="https://img.shields.io/badge/Chat-Gitter-ff69b4.svg?label=Chat&logo=gitter" height="20">
   </a>
 </p>
