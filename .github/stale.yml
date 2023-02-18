@@ -45,7 +45,7 @@ pulls:
   closeComment: >
     Please ping one of the maintainers once you commit the changes requested
     or make improvements on the code. If this is not the case and you need
-    some help, feel free to ask for help in our [Gitter](https://gitter.im/TheAlgorithms)
+    some help, feel free to ask for help in our [Gitter](https://matrix.to/#/#TheAlgorithms_community:gitter.im)
     channel. Thank you for your contributions!
 issues:
   # Comment to post when marking as stale. Set to `false` to disable
@@ -57,4 +57,4 @@ issues:
   closeComment: >
     Please ping one of the maintainers once you add more information and updates here.
     If this is not the case and you need some help, feel free to ask for help
-    in our [Gitter](https://gitter.im/TheAlgorithms) channel. Thank you for your contributions!
+    in our [Gitter](https://matrix.to/#/#TheAlgorithms_community:gitter.im) channel. Thank you for your contributions!

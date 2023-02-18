@@ -284,7 +284,7 @@ export default function Home({
             <Tooltip title={t("socialGitter")}>
               <Card>
                 <IconButton
-                  href="https://gitter.im/TheAlgorithms/"
+                  href="https://matrix.to/#/#TheAlgorithms_community:gitter.im"
                   target="_blank"
                   rel="noreferrer"
                   aria-label={t("socialGitter")}
