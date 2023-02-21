@@ -87,5 +87,10 @@
     "basicsoftensorflow": "Basi di Tensorflow",
     "biginteger": "Big Integer (intero grande)",
     "comparison": "Comparazione",
-    "binary": "Binario"
+    "binary": "Binario",
+    "arima": "ARIMA",
+    "ahocorasick": "Aho-Corasick",
+    "a5": "A 5",
+    "ai": "AI",
+    "bit": "bit"
 }
