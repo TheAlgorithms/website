@@ -184,5 +184,22 @@
     "utils": "유틸리티",
     "vectors": "벡터",
     "webprogramming": "웹 프로그래밍",
-    "bitmanipulation": "비트 조작"
+    "bitmanipulation": "비트 조작",
+    "distance": "거리",
+    "biginteger": "빅인티저",
+    "bit": "비트",
+    "board": "보드",
+    "entities": "엔티티",
+    "gamemodel": "게임 모델",
+    "minimax": "최소극대화",
+    "model": "모델",
+    "player": "플레이어",
+    "polynomials": "다항식",
+    "processschedulingalgorithms": "프로세스 스케쥴링 알고리즘",
+    "test": "테스트",
+    "sources": "소스",
+    "structures": "구조",
+    "tests": "테스트",
+    "trie": "트라이",
+    "view": "뷰"
 }
