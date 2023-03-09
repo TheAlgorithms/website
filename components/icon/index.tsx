@@ -87,6 +87,8 @@ export default function LanguageIcon({
               return icon("lua", colored ? "original" : "plain");
             case "typescript":
               return icon("typescript", colored ? "original" : "plain");
+            case "zig":
+              return icon("zig", colored ? "original" : "plain");
             default:
               throw new Error(`Missing icon for ${language}`);
           }
