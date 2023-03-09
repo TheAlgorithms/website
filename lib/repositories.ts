@@ -127,6 +127,11 @@ export const Repositories = {
     allowedFiles: [".ts"],
     baseDir: ".",
   },
+  zig: {
+    name: "Zig",
+    allowedFiles: [".zig"],
+    baseDir: ".",
+  },
 };
 
 export interface Repository {
