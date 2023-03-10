@@ -46,7 +46,7 @@
     "associativemining": "연합 채굴",
     "audio": "오디오",
     "audiofilters": "오디오 필터",
-    "automaton": "자동화",
+    "automaton": "오토마톤",
     "backtracking": "백트랙킹",
     "basic": "베이직",
     "basicsoftensorflow": "Tensorflow 기본",
@@ -201,5 +201,7 @@
     "structures": "구조",
     "tests": "테스트",
     "trie": "트라이",
-    "view": "뷰"
+    "view": "뷰",
+    "distances": "거리",
+    "electronics": "일렉트로닉스"
 }
