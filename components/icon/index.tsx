@@ -89,6 +89,8 @@ export default function LanguageIcon({
               return icon("typescript", colored ? "original" : "plain");
             case "zig":
               return icon("zig", colored ? "original" : "original");
+            case "nim":
+              return icon("nim", colored ? "original" : "plain");
             default:
               throw new Error(`Missing icon for ${language}`);
           }

@@ -37,6 +37,11 @@ export const Repositories = {
     allowedFiles: [".fs"],
     baseDir: "Algorithms",
   },
+  nim: {
+    name: "Nim",
+    allowedFiles: [".nim"],
+    baseDir: ".",
+  },
   go: {
     name: "Go",
     allowedFiles: [".go"],
