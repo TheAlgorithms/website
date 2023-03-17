@@ -7,7 +7,7 @@ import classes from "./style.module.css";
 function icon(name: string, version: string) {
   return (
     <img
-      src={`https://cdn.jsdelivr.net/gh/devicons/devicon/icons/${name}/${name}-${version}.svg`}
+      src={`https://rawcdn.githack.com/devicons/devicon/develop/icons/${name}/${name}-${version}.svg`}
       alt={name}
     />
   );
@@ -89,6 +89,8 @@ export default function LanguageIcon({
               return icon("typescript", colored ? "original" : "plain");
             case "zig":
               return icon("zig", colored ? "original" : "original");
+            case "nim":
+              return icon("nim", colored ? "original" : "plain");
             default:
               throw new Error(`Missing icon for ${language}`);
           }
