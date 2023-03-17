@@ -203,5 +203,16 @@
     "trie": "트라이",
     "view": "뷰",
     "distances": "거리",
-    "electronics": "일렉트로닉스"
+    "electronics": "일렉트로닉스",
+    "a5": "A 5",
+    "date": "날짜",
+    "bags": "가방들",
+    "ai": "인공지능",
+    "financial": "금융의",
+    "ipynbcheckpoints": ".Ipynb Checkpoints",
+    "leetcode": "리트코드",
+    "minimaxplayground": "Minimax.playground",
+    "piecewise": "단편적으로",
+    "prophet": "예언자",
+    "uint53": "Uint 53"
 }
