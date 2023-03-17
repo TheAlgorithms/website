@@ -90,7 +90,7 @@ export default function LanguageIcon({
             case "zig":
               return icon("zig", colored ? "original" : "original");
             case "nim":
-              return icon("nim", colored ? "original" : "plain");
+              return icon("nim", colored ? "original" : "original");
             default:
               throw new Error(`Missing icon for ${language}`);
           }
