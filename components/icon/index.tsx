@@ -7,7 +7,7 @@ import classes from "./style.module.css";
 function icon(name: string, version: string) {
   return (
     <img
-      src={`https://cdn.jsdelivr.net/gh/devicons/devicon/icons/${name}/${name}-${version}.svg`}
+      src={`https://rawcdn.githack.com/devicons/devicon/develop/icons/${name}/${name}-${version}.svg`}
       alt={name}
     />
   );
