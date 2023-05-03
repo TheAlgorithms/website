@@ -1,4 +1,4 @@
-import React, { FormEvent, useEffect, useRef } from "react";
+import React, { FormEvent, useEffect, useRef, useState } from "react";
 import useTranslation from "hooks/translation";
 import {
   FormControl,
@@ -32,9 +32,25 @@ export default function SearchBar({
   const router = useRouter();
   const smallScreen = useMediaQuery("(max-width: 800px)");
   const inputRef = useRef<HTMLInputElement>();
+  // Input validation
+  const [isEmpty, setIsEmpty] = useState(!query);
+  const [isError, setIsError] = useState(false);
 
   function handleInput(event: FormEvent) {
     setQuery((event.target as HTMLInputElement).value);
+
+    // When input value is null, set error & empty state to `true` and do nothing.
+    if (!(event.target as HTMLInputElement).value) {
+      setIsEmpty(true);
+      setIsError(true);
+      return;
+    }
+
+    // When input value is not null, reset error & empty state to `false`.
+    // And also debounce the router push.
+    setIsError(false);
+    setIsEmpty(false);
+
     if (!smallScreen)
       debounce(() => {
         router.push(`/search?q=${(event.target as HTMLInputElement).value}`);
@@ -43,6 +59,18 @@ export default function SearchBar({
 
   function handleSubmit(event?: FormEvent) {
     if (event) event.preventDefault();
+
+    // When input value is null, set error & empty state to `true` and do nothing.
+    if (!query || !inputRef.current.value) {
+      setIsError(true);
+      setIsEmpty(true);
+      return;
+    }
+
+    // When input value is not null, reset error & empty state to `false` and push the route.
+    setIsError(false);
+    setIsEmpty(false);
+
     // For performance reasons the input on small screens is not controlled
     router.push(`/search?q=${smallScreen ? inputRef.current.value : query}`);
   }
@@ -53,6 +81,7 @@ export default function SearchBar({
         style={{ marginRight: -12 }}
         onClick={() => handleSubmit()}
         aria-label="Search"
+        disabled={isEmpty}
       >
         <Search />
       </IconButton>
@@ -88,6 +117,7 @@ export default function SearchBar({
               placeholder={t("searchText")}
               endAdornment={searchAdornment}
               inputRef={inputRef}
+              error={isError}
             />
           ) : (
             <OutlinedInput
@@ -98,6 +128,7 @@ export default function SearchBar({
               placeholder={t("searchText")}
               endAdornment={searchAdornment}
               inputRef={inputRef}
+              error={isError}
             />
           )}
         </FormControl>
@@ -111,6 +142,7 @@ export default function SearchBar({
                 name="q"
                 endAdornment={searchAdornment}
                 inputRef={inputRef}
+                error={isError}
               />
             ) : (
               <FilledInput
@@ -120,6 +152,7 @@ export default function SearchBar({
                 value={query}
                 endAdornment={searchAdornment}
                 inputRef={inputRef}
+                error={isError}
               />
             )}
           </>
