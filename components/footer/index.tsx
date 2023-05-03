@@ -39,7 +39,9 @@ export default function Footer() {
         </div>
         <div className={classes.list}>
           <Link href="https://github.com/TheAlgorithms/">GitHub</Link>
-          <Link href="https://matrix.to/#/#TheAlgorithms_community:gitter.im">Gitter</Link>
+          <Link href="https://matrix.to/#/#TheAlgorithms_community:gitter.im">
+            Gitter
+          </Link>
           <Link href="https://twitter.com/The_Algorithms">Twitter</Link>
           <Link href="https://github.com/TheAlgorithms/website">
             {t("sourceCodeFooter")}

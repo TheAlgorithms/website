@@ -73,7 +73,7 @@ const aliases = {
     eulerstotient: "Euler's Totient",
     eulerstotientfunction: "Euler's Totient",
     eulertotient: "Euler's Totient",
-    a000010eulerstotient: "Euler's Totient"
+    a000010eulerstotient: "Euler's Totient",
   },
   categories: {
     sorting: "Sorts",
