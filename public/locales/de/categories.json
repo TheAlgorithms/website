@@ -234,5 +234,8 @@
     "decisiontreeregressionwithkfoldcrossvalidation": "Entscheidungsbaum-Regression mit K-Fold Cross Validation",
     "decomposition": "Decomposition",
     "diffiehellman": "Diffie Hellman",
-    "checksum": "Prüfsumme"
+    "checksum": "Prüfsumme",
+    "a5": "A 5",
+    "ai": "KI",
+    "date": "Datum"
 }
