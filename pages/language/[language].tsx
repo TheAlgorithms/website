@@ -15,8 +15,10 @@ import classes from "./style.module.css";
 
 export default function LanguagePage({
   language,
+  languageKey,
 }: {
   language: { name: Language; algorithms: Algorithm[] };
+  languageKey: string;
 }) {
   const t = useTranslation();
 
@@ -55,7 +57,12 @@ export default function LanguagePage({
             )}
           </div>
         </div>
-        <AlgorithmsList algorithms={language.algorithms} />
+        <AlgorithmsList
+          algorithms={language.algorithms.map((algorithm) => ({
+            ...algorithm,
+            slug: algorithm.slug + "?lang=" + languageKey,
+          }))}
+        />
       </Section>
     </>
   );
@@ -67,6 +74,7 @@ export const getStaticProps: GetStaticProps = async ({ params, locale }) => {
   return {
     props: {
       language,
+      languageKey: params.language.toString(),
       ...(await serverSideTranslations(locale, ["common", "categories"])),
     },
   };
