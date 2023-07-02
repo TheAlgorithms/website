@@ -11,6 +11,7 @@ import { OpenInNew } from "@material-ui/icons";
 import { GetStaticPaths, GetStaticProps } from "next";
 import useTranslation from "hooks/translation";
 import { shouldUseISR } from "lib/aws";
+import { Algorithm } from "lib/models";
 import classes from "./style.module.css";
 
 export default function LanguagePage({
@@ -60,7 +61,7 @@ export default function LanguagePage({
         <AlgorithmsList
           algorithms={language.algorithms.map((algorithm) => ({
             ...algorithm,
-            slug: algorithm.slug + "?lang=" + languageKey,
+            slug: `${algorithm.slug}?lang=${languageKey}`,
           }))}
         />
       </Section>
