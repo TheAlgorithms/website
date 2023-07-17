@@ -74,6 +74,9 @@ const aliases = {
     eulerstotientfunction: "Euler's Totient",
     eulertotient: "Euler's Totient",
     a000010eulerstotient: "Euler's Totient",
+    perfectnumber: "Perfect Number",
+    perfectnumbers: "Perfect Number",
+    perfectnumberchecker: "Perfect Number",
   },
   categories: {
     sorting: "Sorts",
