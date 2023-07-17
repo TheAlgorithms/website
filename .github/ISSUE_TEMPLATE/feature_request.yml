@@ -3,23 +3,67 @@ description: Suggest an idea for this project.
 title: "[FEATURE] <description>"
 labels: [enhancement]
 body:
-  - type: textarea
-    id: description
+  - type: markdown
     attributes:
-      label: Description of the feature request
-      description: Provide a detailed description of the change or addition you are proposing
+      value: |
+        ## Before You Start
+        - Please search the issues (open/closed) to see if your idea has already been suggested.
+        - If an existing issue is similar to your feature request, consider contributing to it.
+        - Screenshots or mockups can greatly help illustrate your ideas. You can add these in the 'Screenshots/Mockups' section below.
+
+  - type: textarea
+    id: summary
+    attributes:
+      label: Summary
+      description: Briefly describe the feature you want to be implemented.
     validations:
       required: true
+  
+  - type: textarea
+    id: motivation
+    attributes:
+      label: Motivation
+      description: Why do you think this feature will be beneficial?
+    validations:
+      required: true
+
+  - type: textarea
+    id: detailed-description
+    attributes:
+      label: Detailed Description
+      description: Provide a detailed description of the proposed feature.
+    validations:
+      required: true
+  
   - type: textarea
     id: screenshots
     attributes:
-      label: Add screenshots of the feature request (if applicable)
+      label: Screenshots/Mockups (if applicable)
+      description: Provide URLs of your uploaded screenshots or mockups, if any.
     validations:
       required: false
+  
   - type: textarea
-    id: context
+    id: additional-context
     attributes:
-      label: Additional information/context
-      description: Is there anything else we should know about this feature?
+      label: Additional Context
+      description: Any other context or information that might be helpful.
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: existing-issues
+    attributes:
+      label: Existing Issues
+      description: Did you check if this request has already been reported?
+      options:
+        - label: I have checked existing issues (open and closed) for duplicates
+          required: true
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives Considered
+      description: What alternative solutions or features have you considered?
     validations:
       required: false
