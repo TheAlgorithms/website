@@ -64,3 +64,13 @@
   width: 1em;
   height: 1em;
 }
+
+.sidebarLink {
+  padding: 0px !important;
+  min-width: auto !important;
+}
+
+.unstyledLink {
+  color: #fff;
+  text-decoration: none;
+}

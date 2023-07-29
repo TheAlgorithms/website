@@ -151,13 +151,15 @@ export default function Navbar({
             <SearchBar query={query} setQuery={setQuery} small />
           </ListItem>
           {menu.map((item) => (
-            <NextLink key={item.name} href={item.href}>
-              <MenuItem>{item.name}</MenuItem>
-            </NextLink>
+            <MenuItem key={item.name}>
+              <Button href={item.href} target={item.target} className={classes.sidebarLink}>
+                {item.name}
+              </Button>
+            </MenuItem>
           ))}
-          <NextLink href="https://github.com/TheAlgorithms">
-            <MenuItem>GitHub</MenuItem>
-          </NextLink>
+          <MenuItem>
+            <a className={classes.unstyledLink} href="https://github.com/TheAlgorithms" target="_blank">GitHub</a>
+          </MenuItem>
           <MenuItem onClick={() => switchTheme()}>
             {darkTheme ? t("lightModeNavbar") : t("darkModeNavbar")}
           </MenuItem>
