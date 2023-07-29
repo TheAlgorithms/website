@@ -53,10 +53,12 @@ export default function Navbar({
     {
       name: t("aboutTextNavbar"),
       href: "/#aboutUs",
+      target: "_self",
     },
     {
       name: t("donateButton"),
       href: "https://liberapay.com/TheAlgorithms/donate",
+      target: "_blank",
     },
   ];
 
@@ -131,9 +133,7 @@ export default function Navbar({
                 <GithubOriginalIcon color="white" />
               </IconButton>
               {menu.map((item) => (
-                <NextLink passHref key={item.name} href={item.href}>
-                  <Button>{item.name}</Button>
-                </NextLink>
+                  <Button key={item.name} href={item.href} target={item.target}>{item.name}</Button>
               ))}
             </div>
           )}
