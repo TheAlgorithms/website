@@ -38,20 +38,21 @@ export default function Footer() {
           <Link href="/#donate">{t("donateTitle")}</Link>
         </div>
         <div className={classes.list}>
-          <a href="https://github.com/TheAlgorithms/" target="_blank">GitHub</a>
-          <a href="https://matrix.to/#/#TheAlgorithms_community:gitter.im" target="_blank">
+          <a href="https://github.com/TheAlgorithms/" target="_blank" rel="noreferrer">GitHub</a>
+          <a href="https://matrix.to/#/#TheAlgorithms_community:gitter.im" target="_blank" rel="noreferrer">
             Gitter
           </a>
-          <a href="https://twitter.com/The_Algorithms" target="_blank">Twitter</a>
-          <a href="https://github.com/TheAlgorithms/website" target="_blank">
+          <a href="https://twitter.com/The_Algorithms" target="_blank" rel="noreferrer">Twitter</a>
+          <a href="https://github.com/TheAlgorithms/website" target="_blank" rel="noreferrer">
             {t("sourceCodeFooter")}
           </a>
-          <a href="mailto:hello@the-algorithms.com" target="_blank">{t("contact")}</a>
+          <a href="mailto:hello@the-algorithms.com" target="_blank" rel="noreferrer">{t("contact")}</a>
         </div>
         <a
           className={classes.vercelLogo}
           href="https://vercel.com?utm_source=thealgorithms&utm_campaign=oss"
           target="_blank"
+          rel="noreferrer"
         >
           <img src="/powered-by-vercel-t.svg" alt="Powered by Vercel" />
         </a>

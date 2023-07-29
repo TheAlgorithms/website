@@ -158,7 +158,7 @@ export default function Navbar({
             </MenuItem>
           ))}
           <MenuItem>
-            <a className={classes.unstyledLink} href="https://github.com/TheAlgorithms" target="_blank">GitHub</a>
+            <a className={classes.unstyledLink} href="https://github.com/TheAlgorithms" target="_blank" rel="noreferrer">GitHub</a>
           </MenuItem>
           <MenuItem onClick={() => switchTheme()}>
             {darkTheme ? t("lightModeNavbar") : t("darkModeNavbar")}
