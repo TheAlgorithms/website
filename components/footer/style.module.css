@@ -19,6 +19,10 @@
   margin-right: 30px;
 }
 
+.list a {
+  text-decoration: none;
+}
+
 .grid {
   display: grid;
   grid-template-rows: 35px auto;
