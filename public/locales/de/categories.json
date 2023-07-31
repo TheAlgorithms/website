@@ -261,5 +261,6 @@
     "tests": "Tests",
     "utils": "Dienstprogramme",
     "view": "Ansicht",
-    "distance": "Entfernung"
+    "distance": "Entfernung",
+    "bit": "Bit"
 }
