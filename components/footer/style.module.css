@@ -23,6 +23,10 @@
   text-decoration: none;
 }
 
+.list a:hover {
+  text-decoration: underline;
+}
+
 .grid {
   display: grid;
   grid-template-rows: 35px auto;
