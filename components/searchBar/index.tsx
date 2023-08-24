@@ -32,47 +32,48 @@ export default function SearchBar({
   const router = useRouter();
   const smallScreen = useMediaQuery("(max-width: 800px)");
   const inputRef = useRef<HTMLInputElement>();
+
+  let debounceTimeout: NodeJS.Timeout;
+  let lastInputValue = ""; // Store the last input value
+
   // Input validation
   const [isEmpty, setIsEmpty] = useState(!query);
   const [isError, setIsError] = useState(false);
 
   function handleInput(event: FormEvent) {
-    setQuery((event.target as HTMLInputElement).value);
+    const inputValue = (event.target as HTMLInputElement).value;
+
+    setQuery(inputValue);
 
     // When input value is null, set error & empty state to `true` and do nothing.
-    if (!(event.target as HTMLInputElement).value) {
+    if (!inputValue) {
       setIsEmpty(true);
       setIsError(true);
       return;
     }
 
     // When input value is not null, reset error & empty state to `false`.
-    // And also debounce the router push.
     setIsError(false);
     setIsEmpty(false);
 
-    if (!smallScreen)
-      debounce(() => {
-        router.push(`/search?q=${(event.target as HTMLInputElement).value}`);
-      });
+    if (!smallScreen) {
+      // Store the debounced function in a variable to be able to cancel it later
+      const debouncedFunc = () => {
+        router.push(`/search?q=${inputValue}`);
+      };
+      debounceTimeout = setTimeout(debouncedFunc, 200);
+    }
   }
 
-  function handleSubmit(event?: FormEvent) {
-    if (event) event.preventDefault();
-
-    // When input value is null, set error & empty state to `true` and do nothing.
-    if (!query || !inputRef.current.value) {
-      setIsError(true);
-      setIsEmpty(true);
-      return;
+  function handleKeyDown(event: React.KeyboardEvent<HTMLInputElement>) {
+    // Check if the Backspace key is pressed and the input value becomes empty
+    if (event.key === "Backspace" && lastInputValue === "") {
+      // Navigate back to the initial page
+      router.push("/");
     }
 
-    // When input value is not null, reset error & empty state to `false` and push the route.
-    setIsError(false);
-    setIsEmpty(false);
-
-    // For performance reasons the input on small screens is not controlled
-    router.push(`/search?q=${smallScreen ? inputRef.current.value : query}`);
+    // Update the last input value
+    lastInputValue = (event.target as HTMLInputElement).value;
   }
 
   const searchAdornment = (
@@ -93,6 +94,24 @@ export default function SearchBar({
       inputRef.current.focus();
     }
   }, [router.route]);
+
+  function handleSubmit(event?: FormEvent) {
+    if (event) event.preventDefault();
+
+    // When input value is null, set error & empty state to `true` and do nothing.
+    if (!query || !inputRef.current.value) {
+      setIsError(true);
+      setIsEmpty(true);
+      return;
+    }
+
+    // When input value is not null, reset error & empty state to `false` and push the route.
+    setIsError(false);
+    setIsEmpty(false);
+
+    // For performance reasons the input on small screens is not controlled
+    router.push(`/search?q=${smallScreen ? inputRef.current.value : query}`);
+  }
 
   return (
     <form
@@ -118,6 +137,9 @@ export default function SearchBar({
               endAdornment={searchAdornment}
               inputRef={inputRef}
               error={isError}
+              onKeyDown={(event: React.KeyboardEvent<HTMLInputElement>) =>
+                handleKeyDown(event)
+              }
             />
           ) : (
             <OutlinedInput
@@ -129,6 +151,9 @@ export default function SearchBar({
               endAdornment={searchAdornment}
               inputRef={inputRef}
               error={isError}
+              onKeyDown={(event: React.KeyboardEvent<HTMLInputElement>) =>
+                handleKeyDown(event)
+              }
             />
           )}
         </FormControl>
@@ -143,6 +168,9 @@ export default function SearchBar({
                 endAdornment={searchAdornment}
                 inputRef={inputRef}
                 error={isError}
+                onKeyDown={(event: React.KeyboardEvent<HTMLInputElement>) =>
+                  handleKeyDown(event)
+                }
               />
             ) : (
               <FilledInput
@@ -153,6 +181,9 @@ export default function SearchBar({
                 endAdornment={searchAdornment}
                 inputRef={inputRef}
                 error={isError}
+                onKeyDown={(event: React.KeyboardEvent<HTMLInputElement>) =>
+                  handleKeyDown(event)
+                }
               />
             )}
           </>
