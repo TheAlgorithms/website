@@ -1,4 +1,3 @@
-/* eslint-disable prettier/prettier */
 import React, { FormEvent, useEffect, useRef, useState } from "react";
 import useTranslation from "hooks/translation";
 import {
