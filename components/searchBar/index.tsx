@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import React, { FormEvent, useEffect, useRef, useState } from "react";
 import useTranslation from "hooks/translation";
 import {
@@ -32,8 +33,9 @@ export default function SearchBar({
   const router = useRouter();
   const smallScreen = useMediaQuery("(max-width: 800px)");
   const inputRef = useRef<HTMLInputElement>();
+  
   // Input validation
-  const [isEmpty, setIsEmpty] = useState(!query);
+  const [isEmpty, setIsEmpty] = useState(false);
   const [isError, setIsError] = useState(false);
 
   function handleInput(event: FormEvent) {
@@ -43,18 +45,19 @@ export default function SearchBar({
     if (!(event.target as HTMLInputElement).value) {
       setIsEmpty(true);
       setIsError(true);
-      return;
-    }
-
-    // When input value is not null, reset error & empty state to `false`.
-    // And also debounce the router push.
-    setIsError(false);
-    setIsEmpty(false);
-
-    if (!smallScreen)
       debounce(() => {
-        router.push(`/search?q=${(event.target as HTMLInputElement).value}`);
+        router.push(`/search`);
       });
+    } else {
+      // When input value is not null, reset error & empty state to `false`.
+      // And also debounce the router push.
+      setIsError(false);
+      setIsEmpty(false);
+      if (!smallScreen)
+        debounce(() => {
+          router.push(`/search?q=${(event.target as HTMLInputElement).value}`);
+        });
+    }
   }
 
   function handleSubmit(event?: FormEvent) {
@@ -74,6 +77,9 @@ export default function SearchBar({
     // For performance reasons the input on small screens is not controlled
     router.push(`/search?q=${smallScreen ? inputRef.current.value : query}`);
   }
+
+
+
 
   const searchAdornment = (
     <InputAdornment position="end">
