@@ -44,6 +44,16 @@ export default function CodePreview({ algorithm }: { algorithm: Algorithm }) {
   const theme = useTheme();
   const fabRef = useRef();
   const [mobileMoreMenuOpen, setMobileMoreMenuOpen] = useState(false);
+  const copyCode = () =>
+    {
+      var str = document.querySelector(".style_pre__k555n").textContent;
+      const el = document.createElement('textarea');
+      el.value = str;
+      document.body.appendChild(el);
+      el.select();
+      document.execCommand('copy');
+      document.body.removeChild(el);
+    };
 
   return (
     <div className={`${classes.container}`}>
@@ -116,7 +126,7 @@ export default function CodePreview({ algorithm }: { algorithm: Algorithm }) {
                 href={`/playground?algorithm=${algorithm.slug}&language=${selectedLanguague}`}
                 passHref
               >
-                <Button
+              <Button
                   color="primary"
                   variant="contained"
                   className={classes.tryCode}
@@ -125,6 +135,14 @@ export default function CodePreview({ algorithm }: { algorithm: Algorithm }) {
                   {t("playgroundTryCode")}
                 </Button>
               </NextLink>
+              <Button
+                color="primary"
+                variant="contained"
+                className={classes.tryCode}
+                onClick = {() => copyCode()}
+                >
+                {("Copy This Code")}
+              </Button>
             </div>
           </>
         )}

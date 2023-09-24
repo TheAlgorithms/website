@@ -79,6 +79,7 @@ body {
 }
 
 .dark .section a {
+  margin-right: 6px;
   color: #00bcb4;
 }
 
