@@ -42,7 +42,7 @@ export default function Footer() {
           <a href="https://matrix.to/#/#TheAlgorithms_community:gitter.im" target="_blank" rel="noreferrer">
             Gitter
           </a>
-          <a href="https://twitter.com/The_Algorithms" target="_blank" rel="noreferrer">Twitter</a>
+          <a href="https://twitter.com/The_Algorithms" target="_blank" rel="noreferrer">X</a>
           <a href="https://github.com/TheAlgorithms/website" target="_blank" rel="noreferrer">
             {t("sourceCodeFooter")}
           </a>
