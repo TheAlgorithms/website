@@ -141,7 +141,7 @@ export default function CodePreview({ algorithm }: { algorithm: Algorithm }) {
                 className={classes.tryCode}
                 onClick = {() => copyCode()}
                 >
-                {("Copy This Code")}
+                {("Copy Code")}
               </Button>
             </div>
           </>
