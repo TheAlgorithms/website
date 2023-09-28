@@ -30,7 +30,7 @@
   </a>
 </p>
 
-This is a static [Next.js](https://nextjs.org/) site providing a searchable library of all the algorithms in [The Algorithms](https://github.com/TheAlgorithms). All the data about the algorithms gets scraped directly from the git repositories.
+This is a static [Next.js](https://nextjs.org/) site providing a searchable library of all the algorithms in [The Algorithms](https://github.com/TheAlgorithms). All the data about the algorithms gets scraped directly from the git repositories. Unlock the world of algorithms with a single click and explore the magic of code in action.
 
 ## Translating the website
 
