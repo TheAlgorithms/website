@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useCallback, useRef, useState } from "react";
 import "highlight.js/styles/atom-one-light.css";
 import { Algorithm } from "lib/models";
 import {
@@ -28,6 +28,7 @@ import {
   OpenInNew,
   PlayArrow,
 } from "@material-ui/icons";
+import ContentCopyIcon from '@mui/icons-material/ContentCopy';
 import NextLink from "next/link";
 import { StringParam, useQueryParam, withDefault } from "next-query-params";
 import classes from "./style.module.css";
@@ -45,6 +46,11 @@ export default function CodePreview({ algorithm }: { algorithm: Algorithm }) {
   const fabRef = useRef();
   const [mobileMoreMenuOpen, setMobileMoreMenuOpen] = useState(false);
 
+  const copyCode = useCallback(async () => {
+    const codeText = document.querySelector(".style_pre__k555n")?.textContent;
+    await navigator.clipboard.writeText(codeText);
+  },[])
+  
   return (
     <div className={`${classes.container}`}>
       <div className={classes.codeBox}>
@@ -92,6 +98,10 @@ export default function CodePreview({ algorithm }: { algorithm: Algorithm }) {
         ) : (
           <>
             <div className={classes.buttonsTop}>
+              <IconButton className={classes.copycode} onClick={copyCode}>
+                <ContentCopyIcon/>
+              </IconButton>
+              
               <Button
                 startIcon={<OpenInNew />}
                 href={implementations[selectedLanguague].url}

@@ -18,11 +18,15 @@
     "lint-fix": "eslint ./ --fix"
   },
   "dependencies": {
+    "@emotion/react": "^11.11.1",
+    "@emotion/styled": "^11.11.0",
     "@material-ui/core": "^4.12.4",
     "@material-ui/icons": "^4.11.3",
     "@material-ui/lab": "^4.0.0-alpha.60",
     "@material-ui/styles": "^4.11.5",
     "@monaco-editor/react": "^4.4.5",
+    "@mui/icons-material": "^5.14.11",
+    "@mui/material": "^5.14.11",
     "@octokit/core": "^3.6.0",
     "ansi_up": "^5.1.0",
     "atob": "^2.1.2",
