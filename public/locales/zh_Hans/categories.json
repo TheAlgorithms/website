@@ -189,5 +189,10 @@
     "cll": "CLL",
     "biginteger": "大整数",
     "cn": "中文",
-    "board": "白板"
+    "board": "白板",
+    "test": "测试",
+    "tests": "测试",
+    "gcd": "最大公约数",
+    "spanningtree": "生成树",
+    "sdbmhash": "Sdbm 哈希"
 }
