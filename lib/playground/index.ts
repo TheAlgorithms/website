@@ -1,7 +1,7 @@
 // eslint-disable-next-line import/prefer-default-export
-export function createNewPlayground(language: string, code = "") {
+export function createNewPlayground(language: string, code = "", tests = "") {
   const id = generateId();
-  localStorage.setItem(id, JSON.stringify({ language, code }));
+  localStorage.setItem(id, JSON.stringify({ language, code, tests }));
   return id;
 }
 
