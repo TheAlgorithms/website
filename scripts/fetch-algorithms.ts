@@ -73,7 +73,7 @@ const categoriesToSkip = ["main", "src", "algorithms", "problems"];
       (repo) =>
         new Promise<void>((resolve, reject) => {
           exec(
-            `git clone https://github.com/TheAlgorithms/${repo}.git`,
+            `git clone --depth 1 https://github.com/TheAlgorithms/${repo}.git`,
             (err) => {
               if (err) reject(err);
               else resolve();
