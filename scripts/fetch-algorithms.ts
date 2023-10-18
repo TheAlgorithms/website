@@ -73,7 +73,7 @@ const categoriesToSkip = ["main", "src", "algorithms", "problems"];
       (repo) =>
         new Promise<void>((resolve, reject) => {
           exec(
-            `git clone https://github.com/TheAlgorithms/${repo}.git`,
+            `git clone --depth 1 https://github.com/TheAlgorithms/${repo}.git`,
             (err) => {
               if (err) reject(err);
               else resolve();
@@ -550,10 +550,10 @@ const categoriesToSkip = ["main", "src", "algorithms", "problems"];
 function isValidCategory(name: string) {
   if (normalize(name).match(/problem\d+/)) return false;
   for (const exclude of categoriesToIgnore)
-    for (const category of name.split("/"))
+    for (const category of name.split(path.sep))
       if (normalize(category) === normalize(exclude)) return false;
   for (const exclude of ["__init__", "mod.rs"])
-    for (const category of name.split("/"))
+    for (const category of name.split(path.sep))
       if (category === exclude) return false;
   return true;
 }

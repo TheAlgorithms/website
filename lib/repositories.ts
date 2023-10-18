@@ -64,7 +64,7 @@ export const Repositories = {
   },
   r: {
     name: "R",
-    allowedFiles: [".R"],
+    allowedFiles: [".r"],
     baseDir: ".",
   },
   ruby: {
