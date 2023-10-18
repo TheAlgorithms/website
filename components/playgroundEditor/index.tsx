@@ -1,5 +1,5 @@
 import { Dispatch, SetStateAction } from "react";
-import LiveCodes from "./LiveCodes";
+import LiveCodes, { isLiveCodesLanguage } from "./LiveCodes";
 import PlaygroundEditor from "./PlaygroundEditor";
 
 export default function Editor({
@@ -13,12 +13,7 @@ export default function Editor({
   setCode: Dispatch<SetStateAction<string>>;
   tests: string;
 }) {
-  if (
-    language === "javascript" ||
-    language === "typescript" ||
-    language === "python" ||
-    language === "r"
-  ) {
+  if (isLiveCodesLanguage(language)) {
     return (
       <LiveCodes
         language={language}

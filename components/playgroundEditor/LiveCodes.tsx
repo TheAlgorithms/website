@@ -2,6 +2,13 @@ import { Dispatch, SetStateAction, useState } from "react";
 import type { Config, Language, Playground } from "livecodes";
 import LiveCodesPlayground from "livecodes/react";
 
+const languages = ["javascript", "typescript", "python", "r", "ruby"] as const;
+
+export const isLiveCodesLanguage = (
+  lang: string
+): lang is typeof languages[number] =>
+  languages.includes(lang as typeof languages[number]);
+
 export default function LiveCodes({
   language,
   code,
@@ -30,6 +37,11 @@ export default function LiveCodes({
     script: {
       language,
       content: code,
+    },
+    tools: {
+      enabled: ["console"],
+      active: "console",
+      status: "full",
     },
   };
 
@@ -85,11 +97,6 @@ export default function LiveCodes({
         language: "pyodide",
         content: addTestRunner(pyCode),
       },
-      tools: {
-        enabled: ["console"],
-        active: "console",
-        status: "full",
-      },
     };
   };
 
@@ -110,6 +117,14 @@ export default function LiveCodes({
     };
   };
 
+  const getRubyConfig = (rubyCode: string): Partial<Config> => ({
+    ...baseConfig,
+    script: {
+      language: "ruby",
+      content: rubyCode,
+    },
+  });
+
   const config: Partial<Config> =
     language === "javascript" || language === "typescript"
       ? getJSTSConfig(language, code, tests)
@@ -117,13 +132,15 @@ export default function LiveCodes({
       ? getPythonConfig(code)
       : language === "r"
       ? getRConfig(code)
+      : language === "ruby"
+      ? getRubyConfig(code)
       : baseConfig;
 
   return (
     <LiveCodesPlayground
       appUrl="https://dev.livecodes.io/"
       config={config}
-      style={{ flexGrow: "1", borderRadius: "0", resize: "none" }}
+      style={{ borderRadius: "0", resize: "none" }}
       sdkReady={onReady}
     />
   );
