@@ -77,5 +77,8 @@
     "playgroundWelcome": "Bem-vindo a Área de Código do TheAlgorithms 👋",
     "playgroundErrInvalidLink": "O link do Playground é inválido",
     "githubRepository": "Repositório GitHub",
-    "playgroundLoadingPackage": "Carregando {package}"
+    "playgroundLoadingPackage": "Carregando {package}",
+    "algorithmMetaDescriptionExplained": "{algorithm} explicado e implementado em {implementations}",
+    "algorithmMetaDescription": "Implementação do {algorithm} em {implementations}",
+    "indexMetaDescription": "Recurso Open Source para aprender estrutura de dados e algoritmos e sua implementação em qualquer linguagem de programação"
 }
