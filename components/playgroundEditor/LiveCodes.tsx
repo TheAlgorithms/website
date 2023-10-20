@@ -27,6 +27,7 @@ export default function LiveCodes({
   };
 
   const baseConfig: Partial<Config> = {
+    autoupdate: false,
     languages: [language],
     script: {
       language,
