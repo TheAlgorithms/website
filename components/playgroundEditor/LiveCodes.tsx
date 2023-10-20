@@ -1,13 +1,7 @@
 import { Dispatch, SetStateAction, useState } from "react";
 import type { Config, Language, Playground } from "livecodes";
 import LiveCodesPlayground from "livecodes/react";
-
-const languages = ["javascript", "typescript", "python", "r", "ruby"] as const;
-
-export const isLiveCodesLanguage = (
-  lang: string
-): lang is typeof languages[number] =>
-  languages.includes(lang as typeof languages[number]);
+import { luaTestRunner } from "lib/livecodes";
 
 export default function LiveCodes({
   language,
@@ -125,6 +119,30 @@ export default function LiveCodes({
     },
   });
 
+  const getLuaConfig = (luaCode: string, test: string): Partial<Config> => {
+    const pattern = /\n\s*local\s+(\S+)\s+=\s+require.*\n/g;
+    const matches = test.matchAll(pattern);
+    const fnName = [...matches][0]?.[1] || "return";
+    const content = `
+${luaCode.replace("return", `local ${fnName} =`)}
+
+
+${test.replace(pattern, "\n")}`.trimStart();
+
+    return {
+      ...baseConfig,
+      languages: ["lua-wasm"],
+      script: {
+        language: "lua-wasm",
+        content,
+        // TODO: this ignore will not be needed in new version of SDK
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-ignore
+        hiddenContent: luaTestRunner,
+      },
+    };
+  };
+
   const config: Partial<Config> =
     language === "javascript" || language === "typescript"
       ? getJSTSConfig(language, code, tests)
@@ -134,6 +152,8 @@ export default function LiveCodes({
       ? getRConfig(code)
       : language === "ruby"
       ? getRubyConfig(code)
+      : language === "lua"
+      ? getLuaConfig(code, tests)
       : baseConfig;
 
   return (

@@ -11,6 +11,7 @@ import Alert from "@material-ui/lab/Alert";
 import Head from "components/head";
 import PlaygroundLayout from "layouts/playground";
 import useTranslation from "hooks/translation";
+import { getTest } from "lib/livecodes";
 
 const PlaygroundEditor = dynamic(() => import("components/playgroundEditor"), {
   ssr: false,
@@ -80,22 +81,10 @@ export default function CodePlayground() {
           .replace(/[ \t]*import doctest *\n{1,2}/g, "")
           .replace(/[ \t]*doctest\.testmod\(.*\).*\n{1,2}/g, "");
 
-        let test = "";
-        if (languageParam === "javascript" || languageParam === "typescript") {
-          const pathname = new URL(
-            algorithm.implementations[languageParam as Language].url
-          ).pathname.slice(1);
-          // eslint-disable-next-line @typescript-eslint/no-unused-vars
-          const [user, repo, _type, branch, ...path] = pathname.split("/");
-          const [name, extension] = path[path.length - 1].split(".");
-          const testPath = `${path
-            .slice(0, -1)
-            .join("/")}/test/${name}.test.${extension}`;
-          const testUrl = `https://raw.githubusercontent.com/${user}/${repo}/${branch}/${testPath}`;
-          test = await fetch(testUrl).then((res) =>
-            !res.ok ? "" : res.text()
-          );
-        }
+        const test = await getTest(
+          languageParam,
+          algorithm.implementations[languageParam as Language].url
+        );
 
         const newId = createNewPlayground(languageParam, githubCode, test);
         setTimeout(() => router.replace(`/playground?id=${newId}`));
