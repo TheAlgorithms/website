@@ -1,11 +1,16 @@
+import type { Language as LiveCodesLanguage } from "livecodes";
+
+export type Language = LiveCodesLanguage | "jupyter";
+
 const languages = [
   "javascript",
   "typescript",
   "python",
+  "jupyter",
   "r",
   "ruby",
   "lua",
-] as const;
+] as const; // satisfies readonly Language[]
 
 export const isLiveCodesLanguage = (
   lang: string

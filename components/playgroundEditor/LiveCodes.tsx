@@ -1,7 +1,7 @@
 import { Dispatch, SetStateAction, useState } from "react";
-import type { Config, Language, Playground } from "livecodes";
+import type { Config, Playground } from "livecodes";
 import LiveCodesPlayground from "livecodes/react";
-import { luaTestRunner } from "lib/livecodes";
+import { luaTestRunner, type Language } from "lib/livecodes";
 
 export default function LiveCodes({
   language,
@@ -28,9 +28,9 @@ export default function LiveCodes({
 
   const baseConfig: Partial<Config> = {
     autoupdate: false,
-    languages: [language],
+    languages: [language === "jupyter" ? "python-wasm" : language],
     script: {
-      language,
+      language: language === "jupyter" ? "python-wasm" : language,
       content: code,
     },
     tools: {
@@ -87,10 +87,39 @@ export default function LiveCodes({
     };
     return {
       ...baseConfig,
-      languages: ["pyodide"],
+      languages: ["python-wasm"],
       script: {
-        language: "pyodide",
+        language: "python-wasm",
         content: addTestRunner(pyCode),
+      },
+    };
+  };
+
+  const getJupyterConfig = (jsonCode: string): Partial<Config> => {
+    const getPyCode = (src: string) => {
+      try {
+        const nb: {
+          cells: Array<{ ["cell_type"]: string; source: string[] }>;
+        } = JSON.parse(src);
+        return nb.cells
+          .filter((c) => c.cell_type === "code")
+          .map((c) => c.source.join(""))
+          .join("\n\n");
+      } catch {
+        return "";
+      }
+    };
+    return {
+      ...baseConfig,
+      languages: ["python-wasm"],
+      script: {
+        language: "python-wasm",
+        content: getPyCode(jsonCode),
+      },
+      tools: {
+        enabled: ["console"],
+        active: "console",
+        status: "open",
       },
     };
   };
@@ -149,6 +178,8 @@ ${test.replace(pattern, "\n")}`.trimStart();
       ? getJSTSConfig(language, code, tests)
       : language === "python"
       ? getPythonConfig(code)
+      : language === "jupyter"
+      ? getJupyterConfig(code)
       : language === "r"
       ? getRConfig(code)
       : language === "ruby"
@@ -160,6 +191,7 @@ ${test.replace(pattern, "\n")}`.trimStart();
   return (
     <LiveCodesPlayground
       appUrl="https://dev.livecodes.io/"
+      loading="eager"
       config={config}
       style={{ borderRadius: "0", resize: "none" }}
       sdkReady={onReady}
