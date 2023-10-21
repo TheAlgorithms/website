@@ -1,4 +1,4 @@
-import { Dispatch, SetStateAction, useState } from "react";
+import { Dispatch, SetStateAction } from "react";
 import type { Config, Playground } from "livecodes";
 import LiveCodesPlayground from "livecodes/react";
 import { luaTestRunner, type Language } from "lib/livecodes";
@@ -14,15 +14,16 @@ export default function LiveCodes({
   setCode: Dispatch<SetStateAction<string>>;
   tests: string;
 }) {
-  const [playground, setPlayground] = useState<Playground>();
-
-  const onReady = (sdk: Playground) => {
-    setPlayground(sdk);
-    setTimeout(() => {
-      playground?.run();
-      playground?.watch("code", (changed) => {
-        setCode(changed.code.script.content);
-      });
+  const onReady = (playground: Playground) => {
+    playground.watch("ready", async () => {
+      await playground.run();
+      if (language === "javascript" || language === "typescript") {
+        await playground.runTests();
+      }
+    });
+    playground.watch("code", (changed) => {
+      if (!changed?.code?.script) return;
+      setCode(changed.code.script.content);
     });
   };
 
@@ -69,6 +70,7 @@ export default function LiveCodes({
         active: "tests",
         status: "full",
       },
+      autoupdate: true,
       autotest: true,
     };
   };
