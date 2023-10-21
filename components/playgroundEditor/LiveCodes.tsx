@@ -1,7 +1,8 @@
-import { Dispatch, SetStateAction } from "react";
+import { Dispatch, SetStateAction, useEffect, useState } from "react";
 import type { Config, Playground } from "livecodes";
 import LiveCodesPlayground from "livecodes/react";
 import { luaTestRunner, type Language } from "lib/livecodes";
+import { useDarkTheme } from "hooks/darkTheme";
 
 export default function LiveCodes({
   language,
@@ -14,18 +15,26 @@ export default function LiveCodes({
   setCode: Dispatch<SetStateAction<string>>;
   tests: string;
 }) {
-  const onReady = (playground: Playground) => {
-    playground.watch("ready", async () => {
-      await playground.run();
+  const [playground, setPlayground] = useState<Playground | undefined>();
+  const [darkTheme] = useDarkTheme();
+
+  const onReady = (sdk: Playground) => {
+    setPlayground(sdk);
+    sdk.watch("ready", async () => {
+      await sdk.run();
       if (language === "javascript" || language === "typescript") {
-        await playground.runTests();
+        await sdk.runTests();
       }
     });
-    playground.watch("code", (changed) => {
+    sdk.watch("code", (changed) => {
       if (!changed?.code?.script) return;
       setCode(changed.code.script.content);
     });
   };
+
+  useEffect(() => {
+    playground?.setConfig({ theme: darkTheme ? "dark" : "light" });
+  }, [playground, darkTheme]);
 
   const baseConfig: Partial<Config> = {
     autoupdate: false,
