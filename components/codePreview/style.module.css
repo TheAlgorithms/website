@@ -56,6 +56,10 @@
   justify-content: flex-end;
 }
 
+.copycode {
+  margin-right: 5px;
+}
+
 .fullscreen {
   margin: 0 10px !important;
 }
