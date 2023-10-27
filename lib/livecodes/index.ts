@@ -53,6 +53,7 @@ export const getTest = (language: string, url: string) => {
   }
 };
 
+// based on https://gist.github.com/jasper-lyons/53afaeb2c9ca4de135b4f1722d6aa1a9
 export const luaTestRunner = `
 local function describe(name, descriptor)
   local errors = {}
