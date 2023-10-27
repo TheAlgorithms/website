@@ -61,7 +61,7 @@ export default function SearchBar({
     if (event) event.preventDefault();
 
     // When input value is null, set error & empty state to `true` and do nothing.
-    if (!query || !inputRef.current.value) {
+    if (!inputRef.current.value) {
       setIsError(true);
       setIsEmpty(true);
       return;
@@ -81,7 +81,7 @@ export default function SearchBar({
         style={{ marginRight: -12 }}
         onClick={() => handleSubmit()}
         aria-label="Search"
-        disabled={isEmpty}
+        disabled={!smallScreen && isEmpty}
       >
         <Search />
       </IconButton>
