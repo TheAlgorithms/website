@@ -176,9 +176,6 @@ ${test.replace(pattern, "\n")}`.trimStart();
       script: {
         language: "lua-wasm",
         content,
-        // TODO: this ignore will not be needed in new version of SDK
-        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-        // @ts-ignore
         hiddenContent: luaTestRunner,
       },
     };
@@ -201,7 +198,7 @@ ${test.replace(pattern, "\n")}`.trimStart();
 
   return (
     <LiveCodesPlayground
-      appUrl="https://dev.livecodes.io/"
+      appUrl="https://v16.livecodes.io/"
       loading="eager"
       config={config}
       style={{ borderRadius: "0", resize: "none" }}
