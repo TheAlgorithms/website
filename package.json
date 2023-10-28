@@ -43,7 +43,6 @@
     "node-fetch": "^3.2.4",
     "notebookjs": "^0.6.7",
     "ora": "<6.0.0",
-    "pyodide": "^0.18.2",
     "react": "^17.0.2",
     "react-devicons": "^2.11.0-rev.2",
     "react-dom": "^17.0.2",

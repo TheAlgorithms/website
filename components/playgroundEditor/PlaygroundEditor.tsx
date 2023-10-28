@@ -15,7 +15,6 @@ import { useDarkTheme } from "hooks/darkTheme";
 import { XTerm } from "xterm-for-react";
 import { FitAddon } from "xterm-addon-fit";
 import CodeRunner from "lib/playground/codeRunner";
-import PythonCodeRunner from "lib/playground/pythonCodeRunner";
 import PistonCodeRunner from "lib/playground/pistonCodeRunner";
 import classes from "./PlaygroundEditor.module.css";
 
@@ -46,16 +45,7 @@ export default function PlaygroundEditor({
   const [disabled, setDisabled] = useState(false);
 
   const codeRunner = useMemo<CodeRunner>(() => {
-    let runner: CodeRunner;
-    switch (language) {
-      case "python":
-        runner = new PythonCodeRunner(xtermRef, t);
-        break;
-
-      default:
-        runner = new PistonCodeRunner(xtermRef, t);
-        break;
-    }
+    const runner = new PistonCodeRunner(xtermRef, t);
     setTimeout(() => {
       runner.load(code, language).then((r) => {
         setReady(true);

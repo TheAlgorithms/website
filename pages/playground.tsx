@@ -11,7 +11,7 @@ import Alert from "@material-ui/lab/Alert";
 import Head from "components/head";
 import PlaygroundLayout from "layouts/playground";
 import useTranslation from "hooks/translation";
-import { getTest } from "lib/livecodes";
+import { getTest } from "lib/playground/livecodes";
 
 const PlaygroundEditor = dynamic(() => import("components/playgroundEditor"), {
   ssr: false,
@@ -77,7 +77,7 @@ export default function CodePlayground() {
           return;
         }
         const githubCode = (await githubResponse.text())
-          // Remove doctest because it doesn't work with pyodide
+          // Remove doctest from code, it is added in LiveCodes config
           .replace(/[ \t]*import doctest *\n{1,2}/g, "")
           .replace(/[ \t]*doctest\.testmod\(.*\).*\n{1,2}/g, "");
 

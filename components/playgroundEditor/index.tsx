@@ -1,5 +1,5 @@
 import { Dispatch, SetStateAction } from "react";
-import { isLiveCodesLanguage } from "lib/livecodes";
+import { isLiveCodesLanguage } from "lib/playground/livecodes";
 import LiveCodes from "./LiveCodes";
 import PlaygroundEditor from "./PlaygroundEditor";
 

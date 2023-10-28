@@ -1,7 +1,7 @@
 import { Dispatch, SetStateAction, useEffect, useState } from "react";
 import type { Config, Playground } from "livecodes";
 import LiveCodesPlayground from "livecodes/react";
-import { luaTestRunner, type Language } from "lib/livecodes";
+import { luaTestRunner, type Language } from "lib/playground/livecodes";
 import { useDarkTheme } from "hooks/darkTheme";
 
 export default function LiveCodes({
