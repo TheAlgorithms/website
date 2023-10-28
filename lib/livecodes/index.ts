@@ -10,6 +10,9 @@ const languages = [
   "r",
   "ruby",
   "lua",
+  "php",
+  "go",
+  "c",
 ] as const; // satisfies readonly Language[]
 
 export const isLiveCodesLanguage = (

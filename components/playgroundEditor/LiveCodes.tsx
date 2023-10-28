@@ -181,6 +181,29 @@ ${test.replace(pattern, "\n")}`.trimStart();
     };
   };
 
+  const getPhpConfig = (phpCode: string): Partial<Config> => ({
+    ...baseConfig,
+    languages: ["php-wasm"],
+    script: {
+      language: "php-wasm",
+      content: phpCode,
+    },
+    tools: {
+      enabled: ["console"],
+      active: "console",
+      status: "open",
+    },
+  });
+
+  const getCConfig = (cCode: string): Partial<Config> => ({
+    ...baseConfig,
+    languages: ["cpp-wasm"],
+    script: {
+      language: "cpp-wasm",
+      content: cCode,
+    },
+  });
+
   const config: Partial<Config> =
     language === "javascript" || language === "typescript"
       ? getJSTSConfig(language, code, tests)
@@ -194,6 +217,10 @@ ${test.replace(pattern, "\n")}`.trimStart();
       ? getRubyConfig(code)
       : language === "lua"
       ? getLuaConfig(code, tests)
+      : language === "php"
+      ? getPhpConfig(code)
+      : language === "c"
+      ? getCConfig(code)
       : baseConfig;
 
   return (
