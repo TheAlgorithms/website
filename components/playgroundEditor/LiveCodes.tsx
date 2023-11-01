@@ -27,7 +27,6 @@ export default function LiveCodes({
       }
     });
     sdk.watch("code", (changed) => {
-      if (!changed?.code?.script) return;
       setCode(changed.code.script.content);
     });
   };
@@ -79,7 +78,6 @@ export default function LiveCodes({
         active: "tests",
         status: "full",
       },
-      autoupdate: true,
       autotest: true,
     };
   };
@@ -225,7 +223,7 @@ ${test.replace(pattern, "\n")}`.trimStart();
 
   return (
     <LiveCodesPlayground
-      appUrl="https://v16.livecodes.io/"
+      appUrl="https://v17.livecodes.io/"
       loading="eager"
       config={config}
       style={{ borderRadius: "0", resize: "none" }}
