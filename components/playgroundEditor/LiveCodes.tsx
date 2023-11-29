@@ -223,7 +223,7 @@ ${test.replace(pattern, "\n")}`.trimStart();
 
   return (
     <LiveCodesPlayground
-      appUrl="https://v17.livecodes.io/"
+      appUrl="https://v19.livecodes.io/"
       loading="eager"
       config={config}
       style={{ borderRadius: "0", resize: "none" }}
