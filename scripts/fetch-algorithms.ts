@@ -306,8 +306,9 @@ const categoriesToSkip = ["main", "src", "algorithms", "problems"];
           if (match) {
             const algorithm = algorithms[normalizeAlgorithm(match[1])];
             if (algorithm) {
-              algorithm.explanationUrl[locale.code] =
-                `https://github.com/TheAlgorithms/Algorithms-Explanation/tree/master/${dir}`;
+              algorithm.explanationUrl[
+                locale.code
+              ] = `https://github.com/TheAlgorithms/Algorithms-Explanation/tree/master/${dir}`;
               algorithm.body[locale.code] = await renderMarkdown(
                 (await fs.promises.readFile(dir))
                   .toString()
