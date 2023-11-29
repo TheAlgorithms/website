@@ -6,6 +6,7 @@ import { exec } from "child_process";
 import fs from "fs";
 import path from "path";
 import { Octokit } from "@octokit/core";
+import { throttling } from "@octokit/plugin-throttling";
 import dotenv from "dotenv";
 import chalk from "chalk";
 import AWS from "aws-sdk";
@@ -25,9 +26,35 @@ import renderMarkdown from "../lib/markdown";
 import renderNotebook from "../lib/notebookjs";
 
 dotenv.config();
-const octokit = new Octokit(
-  process.env.GH_TOKEN ? { auth: process.env.GH_TOKEN } : {}
-);
+const octokit = new (Octokit.plugin(throttling))({
+  ...(process.env.GH_TOKEN ? { auth: process.env.GH_TOKEN } : {}),
+  throttle: {
+    onRateLimit: (retryAfter, options, _, retryCount) => {
+      console.warn(
+        `Request quota exhausted for request ${options.method} ${options.url}`
+      );
+
+      if (retryCount < 2) {
+        console.info(`Retrying after ${retryAfter} seconds!`);
+        return true;
+      }
+
+      return false;
+    },
+    onSecondaryRateLimit: (retryAfter, options, _, retryCount) => {
+      console.warn(
+        `SecondaryRateLimit detected for request ${options.method} ${options.url}`
+      );
+
+      if (retryCount < 2) {
+        console.info(`Retrying after ${retryAfter} seconds!`);
+        return true;
+      }
+
+      return false;
+    },
+  },
+});
 
 let algorithms: { [key: string]: Algorithm } = {};
 let categories: { [category: string]: string[] } = {};
@@ -279,9 +306,8 @@ const categoriesToSkip = ["main", "src", "algorithms", "problems"];
           if (match) {
             const algorithm = algorithms[normalizeAlgorithm(match[1])];
             if (algorithm) {
-              algorithm.explanationUrl[
-                locale.code
-              ] = `https://github.com/TheAlgorithms/Algorithms-Explanation/tree/master/${dir}`;
+              algorithm.explanationUrl[locale.code] =
+                `https://github.com/TheAlgorithms/Algorithms-Explanation/tree/master/${dir}`;
               algorithm.body[locale.code] = await renderMarkdown(
                 (await fs.promises.readFile(dir))
                   .toString()
