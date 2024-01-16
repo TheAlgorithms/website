@@ -47,6 +47,7 @@ export default function Navbar({
   const router = useRouter();
   const isHome = router.route === "/";
   const [darkTheme, setDarkTheme] = useDarkTheme();
+
   const menu = [
     {
       name: t("aboutTextNavbar"),
