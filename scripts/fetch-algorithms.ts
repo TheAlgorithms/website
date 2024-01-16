@@ -6,6 +6,7 @@ import { exec } from "child_process";
 import fs from "fs";
 import path from "path";
 import { Octokit } from "@octokit/core";
+import { throttling } from "@octokit/plugin-throttling";
 import dotenv from "dotenv";
 import chalk from "chalk";
 import AWS from "aws-sdk";
@@ -25,9 +26,35 @@ import renderMarkdown from "../lib/markdown";
 import renderNotebook from "../lib/notebookjs";
 
 dotenv.config();
-const octokit = new Octokit(
-  process.env.GH_TOKEN ? { auth: process.env.GH_TOKEN } : {}
-);
+const octokit = new (Octokit.plugin(throttling))({
+  ...(process.env.GH_TOKEN ? { auth: process.env.GH_TOKEN } : {}),
+  throttle: {
+    onRateLimit: (retryAfter, options, _, retryCount) => {
+      console.warn(
+        `Request quota exhausted for request ${options.method} ${options.url}`
+      );
+
+      if (retryCount < 2) {
+        console.info(`Retrying after ${retryAfter} seconds!`);
+        return true;
+      }
+
+      return false;
+    },
+    onSecondaryRateLimit: (retryAfter, options, _, retryCount) => {
+      console.warn(
+        `SecondaryRateLimit detected for request ${options.method} ${options.url}`
+      );
+
+      if (retryCount < 2) {
+        console.info(`Retrying after ${retryAfter} seconds!`);
+        return true;
+      }
+
+      return false;
+    },
+  },
+});
 
 let algorithms: { [key: string]: Algorithm } = {};
 let categories: { [category: string]: string[] } = {};
@@ -73,7 +100,7 @@ const categoriesToSkip = ["main", "src", "algorithms", "problems"];
       (repo) =>
         new Promise<void>((resolve, reject) => {
           exec(
-            `git clone https://github.com/TheAlgorithms/${repo}.git`,
+            `git clone --depth 1 https://github.com/TheAlgorithms/${repo}.git`,
             (err) => {
               if (err) reject(err);
               else resolve();
@@ -550,10 +577,10 @@ const categoriesToSkip = ["main", "src", "algorithms", "problems"];
 function isValidCategory(name: string) {
   if (normalize(name).match(/problem\d+/)) return false;
   for (const exclude of categoriesToIgnore)
-    for (const category of name.split("/"))
+    for (const category of name.split(path.sep))
       if (normalize(category) === normalize(exclude)) return false;
   for (const exclude of ["__init__", "mod.rs"])
-    for (const category of name.split("/"))
+    for (const category of name.split(path.sep))
       if (category === exclude) return false;
   return true;
 }

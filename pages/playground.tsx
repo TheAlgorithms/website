@@ -11,6 +11,7 @@ import Alert from "@material-ui/lab/Alert";
 import Head from "components/head";
 import PlaygroundLayout from "layouts/playground";
 import useTranslation from "hooks/translation";
+import { getTest } from "lib/playground/livecodes";
 
 const PlaygroundEditor = dynamic(() => import("components/playgroundEditor"), {
   ssr: false,
@@ -28,6 +29,7 @@ export default function CodePlayground() {
   );
   const id = params.get("id");
   const [code, setCode] = useState<string>();
+  const [tests, setTests] = useState<string>("");
   const language: string = useMemo(() => {
     if (!id) return { language: undefined, code: undefined };
     const local = localStorage.getItem(id);
@@ -38,6 +40,9 @@ export default function CodePlayground() {
     const parsed = JSON.parse(local);
     setLoading(false);
     setCode(parsed.code);
+    if (parsed.tests) {
+      setTests(parsed.tests);
+    }
     return parsed.language;
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [id]);
@@ -72,10 +77,16 @@ export default function CodePlayground() {
           return;
         }
         const githubCode = (await githubResponse.text())
-          // Remove doctest because it doesn't work with pyodide
+          // Remove doctest from code, it is added in LiveCodes config
           .replace(/[ \t]*import doctest *\n{1,2}/g, "")
           .replace(/[ \t]*doctest\.testmod\(.*\).*\n{1,2}/g, "");
-        const newId = createNewPlayground(languageParam, githubCode);
+
+        const test = await getTest(
+          languageParam,
+          algorithm.implementations[languageParam as Language].url
+        );
+
+        const newId = createNewPlayground(languageParam, githubCode, test);
         setTimeout(() => router.replace(`/playground?id=${newId}`));
       })();
     } else if (!id && languageParam) {
@@ -90,8 +101,8 @@ export default function CodePlayground() {
 
   useEffect(() => {
     if (id && language && code)
-      localStorage.setItem(id, JSON.stringify({ language, code }));
-  }, [code, id, language]);
+      localStorage.setItem(id, JSON.stringify({ language, code, tests }));
+  }, [code, id, language, tests]);
 
   return (
     <>
@@ -103,7 +114,12 @@ export default function CodePlayground() {
           {error}
         </Alert>
       ) : (
-        <PlaygroundEditor language={language} code={code} setCode={setCode} />
+        <PlaygroundEditor
+          language={language}
+          code={code}
+          setCode={setCode}
+          tests={tests}
+        />
       )}
     </>
   );

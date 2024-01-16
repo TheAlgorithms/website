@@ -73,6 +73,15 @@ export default function CodePreview({ algorithm }: { algorithm: Algorithm }) {
               onClose={() => setMobileMoreMenuOpen(false)}
               className={classes.mobileMenu}
             >
+              <NextLink
+                href={`/playground?algorithm=${algorithm.slug}&language=${selectedLanguague}`}
+                passHref
+              >
+                <MenuItem>
+                  <PlayArrow />
+                  <Typography>{t("playgroundTryCode")}</Typography>
+                </MenuItem>
+              </NextLink>
               <MenuItem onClick={() => setFullScreen(true)}>
                 <Fullscreen />
                 <Typography>{t("fullscreen")}</Typography>

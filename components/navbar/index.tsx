@@ -11,7 +11,6 @@ import {
   SwipeableDrawer,
   ListItem,
 } from "@material-ui/core";
-import NextLink from "next/link";
 import { JumboThemeProvider } from "hooks/themes";
 import Link from "components/link";
 import { useRouter } from "next/router";
@@ -133,7 +132,9 @@ export default function Navbar({
                 <GithubOriginalIcon color="white" />
               </IconButton>
               {menu.map((item) => (
-                  <Button key={item.name} href={item.href} target={item.target}>{item.name}</Button>
+                <Button key={item.name} href={item.href} target={item.target}>
+                  {item.name}
+                </Button>
               ))}
             </div>
           )}
@@ -152,13 +153,24 @@ export default function Navbar({
           </ListItem>
           {menu.map((item) => (
             <MenuItem key={item.name}>
-              <Button href={item.href} target={item.target} className={classes.sidebarLink}>
+              <Button
+                href={item.href}
+                target={item.target}
+                className={classes.sidebarLink}
+              >
                 {item.name}
               </Button>
             </MenuItem>
           ))}
           <MenuItem>
-            <a className={classes.unstyledLink} href="https://github.com/TheAlgorithms" target="_blank" rel="noreferrer">GitHub</a>
+            <a
+              className={classes.unstyledLink}
+              href="https://github.com/TheAlgorithms"
+              target="_blank"
+              rel="noreferrer"
+            >
+              GitHub
+            </a>
           </MenuItem>
           <MenuItem onClick={() => switchTheme()}>
             {darkTheme ? t("lightModeNavbar") : t("darkModeNavbar")}

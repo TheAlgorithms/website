@@ -49,7 +49,7 @@ export default function LanguageIcon({
             case "go":
               return icon("go", colored ? "original" : "plain");
             case "rust":
-              return icon("rust", "plain");
+              return icon("rust", "original");
             case "aarch64_assembly":
               return icon("aarch64", colored ? "original" : "plain");
             case "c-sharp":

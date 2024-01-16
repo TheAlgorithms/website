@@ -2,7 +2,7 @@ name: lint
 on:
   push:
     branches:
-      - main 
+      - main
   pull_request:
 
 jobs:
@@ -10,10 +10,10 @@ jobs:
     name: tsc and eslint
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - uses: actions/setup-node@v3
         with:
-          node-version: "14"
+          node-version: "18"
       - name: Install dependencies
         run: yarn
       - name: Fetch Algorithms
