@@ -11,7 +11,6 @@ import { QueryProvider } from "hooks/query";
 import { DarkThemeProvider } from "hooks/darkTheme";
 import DefaultLayout from "layouts/default";
 import { NextQueryParamProvider } from "next-query-params";
-import ToastProvider from "hooks/toast-provider";
 
 function MyApp({ Component, pageProps }: AppProps) {
   const [isDarkTheme, setIsDarkTheme] = useState(false);
@@ -33,7 +32,6 @@ function MyApp({ Component, pageProps }: AppProps) {
         <ThemeProvider theme={isDarkTheme ? darkTheme : lightTheme}>
           <QueryProvider>
             <NextQueryParamProvider>
-              <ToastProvider />
               <Head />
               <CssBaseline />
               <NextNprogress

@@ -1,4 +1,4 @@
-import React, { useCallback, useRef, useState } from "react";
+import React, { useRef, useState } from "react";
 import "highlight.js/styles/atom-one-light.css";
 import { Algorithm } from "lib/models";
 import {
@@ -27,9 +27,7 @@ import {
   MoreHoriz,
   OpenInNew,
   PlayArrow,
-  FileCopyOutlined,
 } from "@material-ui/icons";
-import { toast } from "react-hot-toast";
 import NextLink from "next/link";
 import { StringParam, useQueryParam, withDefault } from "next-query-params";
 import classes from "./style.module.css";
@@ -46,12 +44,6 @@ export default function CodePreview({ algorithm }: { algorithm: Algorithm }) {
   const theme = useTheme();
   const fabRef = useRef();
   const [mobileMoreMenuOpen, setMobileMoreMenuOpen] = useState(false);
-
-  const copyCode = useCallback(async () => {
-    const codeText = document.querySelector(".style_pre__k555n")?.textContent;
-    await navigator.clipboard.writeText(codeText);
-    toast.success("Code Snippet Copied!");
-  }, []);
 
   return (
     <div className={`${classes.container}`}>
@@ -94,10 +86,6 @@ export default function CodePreview({ algorithm }: { algorithm: Algorithm }) {
                 <Fullscreen />
                 <Typography>{t("fullscreen")}</Typography>
               </MenuItem>
-              <MenuItem onClick={() => copyCode()}>
-                <FileCopyOutlined />
-                <Typography>{t("Copy Code")}</Typography>
-              </MenuItem>
               <Link
                 href={implementations[selectedLanguague].url}
                 target="_blank"
@@ -113,9 +101,6 @@ export default function CodePreview({ algorithm }: { algorithm: Algorithm }) {
         ) : (
           <>
             <div className={classes.buttonsTop}>
-              <IconButton className={classes.copycode} onClick={copyCode}>
-                <FileCopyOutlined />
-              </IconButton>
               <Button
                 startIcon={<OpenInNew />}
                 href={implementations[selectedLanguague].url}
