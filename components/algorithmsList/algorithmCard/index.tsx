@@ -20,7 +20,9 @@ export default function AlgorithmCard({ algorithm }: { algorithm: Algorithm }) {
   const t = useTranslation();
 
   return (
-    <Card className={`AlgorithmCard__div elevateOnHover ${classes.stretchedCard}`}>
+    <Card
+      className={`AlgorithmCard__div elevateOnHover ${classes.stretchedCard}`}
+    >
       <CardContent>
         <Breadcrumbs>
           {algorithm.categories.map((category) => (
