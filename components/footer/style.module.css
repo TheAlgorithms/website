@@ -8,7 +8,7 @@
 
 .logo {
   grid-area: logo;
-  margin-right: 40px;
+  margin-inline-end: 40px;
   width: 80px;
   height: 80px;
 }
@@ -16,7 +16,7 @@
 .list {
   display: flex;
   flex-direction: column;
-  margin-right: 30px;
+  margin-inline-end: 30px;
 }
 
 .list a {

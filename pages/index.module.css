@@ -45,11 +45,11 @@
   margin-top: 20px !important;
   background-color: black !important;
   color: white !important;
-  margin-right: 10px !important;
+  margin-inline-end: 10px !important;
 }
 
 .github svg {
-  margin-right: 7px;
+  margin-inline-end: 7px;
   transform: scale(1.1);
 }
 
@@ -60,7 +60,7 @@
 }
 
 .weblate svg {
-  margin-right: 7px;
+  margin-inline-end: 7px;
   transform: scale(1.1);
 }
 
@@ -71,7 +71,7 @@
 }
 
 .donate svg {
-  margin-right: 5px;
+  margin-inline-end: 5px;
 }
 
 .social > div {
