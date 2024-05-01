@@ -42,7 +42,7 @@
 
 .title img {
   height: 1.2em;
-  margin-right: 10px;
+  margin-inline-end: 10px;
 }
 
 .smallTitle {
@@ -56,7 +56,7 @@
 }
 
 .translateIcon {
-  margin-right: 8px;
+  margin-inline-end: 8px;
 }
 
 .toolbar svg {

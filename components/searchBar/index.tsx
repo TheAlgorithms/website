@@ -53,7 +53,7 @@ export default function SearchBar({
     // When input value is not null, reset error & empty state to `false`.
     // And also debounce the router push.
     setIsError(false);
-    setIsEmpty(false);  
+    setIsEmpty(false);
   }
 
   function handleSubmit(event?: FormEvent) {

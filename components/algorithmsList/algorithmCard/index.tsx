@@ -22,7 +22,7 @@ export default function AlgorithmCard({ algorithm }: { algorithm: Algorithm }) {
   return (
     <Card className={`elevateOnHover ${classes.stretchedCard}`}>
       <CardContent>
-        <Breadcrumbs>
+        <Breadcrumbs className={classes.breadcrumbs}>
           {algorithm.categories.map((category) => (
             <Typography
               variant="h6"

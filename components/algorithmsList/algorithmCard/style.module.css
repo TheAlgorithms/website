@@ -42,3 +42,8 @@
   flex-direction: column;
   justify-content: space-between;
 }
+
+:global(html[lang=ar]) .breadcrumbs,
+:global(html[lang=ar]) .title {
+  direction: ltr;
+}
