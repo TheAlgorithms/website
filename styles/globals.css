@@ -5,6 +5,10 @@ html {
   scroll-padding-top: 100px;
 }
 
+html[lang=ar] {
+  direction: rtl;
+}
+
 html,
 body,
 #__next {
@@ -128,25 +132,4 @@ html::-webkit-scrollbar {
 
 html::-webkit-scrollbar-thumb {
   background: var(--scrollbar-thumb);
-}
-
-/* styles for arabic language */
-html[lang=ar] {
-  direction: rtl;
-}
-
-html[lang=ar] .Jumbo_SearchBar__form label[data-shrink]{
-  left: unset;
-  right: 0;
-  transform: translate(-12px, 20px) scale(1);
-  transform-origin: right;
-}
-
-html[lang=ar] .Jumbo_SearchBar__form label[data-shrink=true]{
-  transform: translate(-12px, 10px) scale(0.75);
-}
-
-html[lang=ar] .AlgorithmCard__div nav,
-html[lang=ar] .AlgorithmCard__div h2 {
-  direction: ltr;
 }

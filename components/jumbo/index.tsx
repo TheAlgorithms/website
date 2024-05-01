@@ -62,7 +62,7 @@ export default function Jumbo() {
               <SearchBar
                 query={query}
                 setQuery={setQuery}
-                className="Jumbo_SearchBar__form"
+                className={classes.Jumbo_SearchBar}
               />
             </div>
           </div>
