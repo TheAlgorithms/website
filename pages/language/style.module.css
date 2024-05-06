@@ -5,9 +5,9 @@
 }
 
 .titleContainer > div > a {
-  margin-left: 20px !important;
+  margin-inline-start: 20px !important;
 }
 
 .icon {
-  margin-right: 12px;
+  margin-inline-end: 12px;
 }
