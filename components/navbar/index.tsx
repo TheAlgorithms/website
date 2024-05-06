@@ -153,13 +153,13 @@ export default function Navbar({
           </ListItem>
           {menu.map((item) => (
             <MenuItem key={item.name}>
-              <Button
+              <a
                 href={item.href}
                 target={item.target}
-                className={classes.sidebarLink}
+                className={classes.unstyledLink}
               >
                 {item.name}
-              </Button>
+              </a>
             </MenuItem>
           ))}
           <MenuItem>
