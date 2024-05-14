@@ -298,5 +298,22 @@
     "ipynbcheckpoints": ".Ipynb točke provjere",
     "sources": "Izvori",
     "tests": "Testovi",
-    "uint53": "Uint 53"
+    "uint53": "Uint 53",
+    "crdt": "Crdt",
+    "digests": "Sažeci",
+    "concurrency": "Istodobnost",
+    "http": "Http",
+    "linearprogramming": "Linearno programiranje",
+    "lossfunction": "Funkcija gubitka",
+    "map": "Karta",
+    "optimization": "Optimizacija",
+    "paddings": "Odmaci",
+    "patternmatching": "Poklapanje uzoraka",
+    "quantitativefinance": "Kvantitativne financije",
+    "similarity": "Sličnost",
+    "specialnumbers": "Posebni brojevi",
+    "sqrt": "Sqrt",
+    "tls": "Tls",
+    "web": "Web",
+    "permutations": "Permutacije"
 }
