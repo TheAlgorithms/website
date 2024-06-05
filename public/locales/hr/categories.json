@@ -106,7 +106,7 @@
     "kmp": "Kmp",
     "kmeans": "Kmeans",
     "isogram": "Isogram",
-    "imageprocessing": "Obrada slike",
+    "imageprocessing": "Obrađivanje slika",
     "horspool": "Horspoolov algoritam",
     "histogramequalization": "Izjednačavanje histograma",
     "helloworld": "Halo svijete",
@@ -145,7 +145,7 @@
     "divisibilityofintegers": "Djeljivost cijelih brojeva",
     "divideandconquer": "Podijeli i vladaj",
     "dithering": "Točkanje",
-    "disjointset": "Razdruženi skup",
+    "disjointset": "Disjunktni skupovi",
     "discretemathematics": "Diskretna matematika",
     "digitalimageprocessing": "Obrada digitalnih slika",
     "dictionary": "Rječnik",
@@ -315,5 +315,8 @@
     "sqrt": "Sqrt",
     "tls": "Tls",
     "web": "Web",
-    "permutations": "Permutacije"
+    "permutations": "Permutacije",
+    "disjointsetunion": "Unija disjunktnih skupova",
+    "io": "U/I",
+    "threads": "Niti"
 }
