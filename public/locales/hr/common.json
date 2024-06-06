@@ -1,7 +1,7 @@
 {
     "contact": "Kontakt",
     "languages_count": "I još {}",
-    "search": "Pretraga",
+    "search": "Traži",
     "home": "Početna stranica",
     "pageNotFound": "Stranica nije pronađena",
     "socialDiscord": "Raspravljaj na Discordu",
@@ -23,7 +23,7 @@
     "helloAlgorithms": "Hej, algoritmi!",
     "imageProcessingCategories": "Obrađivanje slika",
     "basicMathCategories": "Osnovna matematika",
-    "dataStructuresCategories": "Struktura podataka",
+    "dataStructuresCategories": "Strukture podataka",
     "ciphersCategories": "Šifre",
     "dynamicProgrammingCategories": "Dinamičko programiranje",
     "searchesCategories": "Pretrage",
@@ -41,7 +41,7 @@
     "algorithmExplanation": "Algoritam je skup pravila koji uzima jedan ili više unosa, zatim izvodi unutarnje izračune i manipulacije podacima te vraća rezultat ili skup rezultata. Ukratko, algoritmi olakšavaju život. Od složenih manipulacija i mapiranja podataka, do jednostavne aritmetike, algoritmi slijede niz koraka kako bi proizveli koristan rezultat. Primjer algoritma je jednostavna funkcija koja uzima dvije vrijednosti unosa, zbraja ih i vraća njihov zbroj.",
     "algorithmExplanationTitle": "Što je algoritam?",
     "viewOnGithub": "Pogledaj na GitHubu",
-    "addTranslationInfo": "Dupliciraj ovaj repozitorij i dodaj objašnjenje kao datoteku s markdown formatiranjem na osnovi engleske verzije [<code>{ogFilename}</code>] u mapi tvog jezika (<code>{locale}</code>). Kad prevedeš datoteku, možeš otvoriti zahtjev za povlačenje kako bi se tvoj prijevod preuzeo.",
+    "addTranslationInfo": "Objašnjenje ovog algoritma još nije prevedeno na tvoj jezik. Za prevođenje ovog objašnjenja idi na stranicu repozitorija [Algorithms-Explanation]. Dupliciraj ovaj repozitorij u osobni repozitorij i dodaj objašnjenje kao datoteku s markdown formatiranjem na osnovi engleske verzije [<code>{ogFilename}</code>] u mapi tvog jezika (<code>{locale}</code>). Kad prevedeš datoteku, stvori zahtjev za preuzimanje (pull request) kako bi se tvoj prijevod preuzeo u izvorni repozitorij.",
     "addTranslation": "Prevedi ovo objašnjenje",
     "editPageHelp": "Ako imaš bilo kakvih problema, zatraži pomoć na našem [Discord] poslužitelju.",
     "addExplanationInfo": "Ovaj algoritam još nema objašnjenje. Objašnjenja se nalaze u repozitoriju [Algorithms-Explanations]. Ako želiš dodati objašnjenje, dupliciraj ovaj repozitorij i dodaj objašnjenje kao datoteku s markdown formatiranjem ([primjer]). Kad je datoteka spremna, možeš otvoriti zahtjev za povlačenje kako bi se tvoje objašnjenje preuzelo.",
@@ -49,7 +49,7 @@
     "addImplementationInfo": "Za dodavanje primjene na jednom drugom jeziku, posjeti repozitorij za taj jezik i slijedi upute u datotekama <code>README.md</code> i <code>CONTRIBUTING.md</code>.",
     "addImplementation": "Dodaj jednu drugu primjenu",
     "editPageAddImplementation": "Dodaj primjenu",
-    "addExplanation": "Dodaj objašnjenje za algoritam",
+    "addExplanation": "Dodaj objašnjenje za ovaj algoritam",
     "editPageTranslate": "Prevedi objašnjenje",
     "editPageAddExplanation": "Dodaj objašnjenje",
     "editPageEdit": "Uredi stranicu",
@@ -79,6 +79,6 @@
     "codeplayground": "Igralište za kodiranje",
     "playgroundLoadingPackage": "Učitava se {package}",
     "playgroundReady": "Gotovo! Započni uređivanjem koda na\nlijevoj strani ekrana i pritisni „Pokreni kôd”",
-    "aboutThisAlgorithm": "Informacije ovom algoritmu",
+    "aboutThisAlgorithm": "Informacije o ovom algoritmu",
     "fullscreen": "Cjeloekranski prikaz"
 }
