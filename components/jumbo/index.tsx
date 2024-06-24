@@ -59,7 +59,11 @@ export default function Jumbo() {
             </div>
             <Typography className={classes.h2}>{t("welcomeTitle")}</Typography>
             <div className={classes.input}>
-              <SearchBar query={query} setQuery={setQuery} />
+              <SearchBar
+                query={query}
+                setQuery={setQuery}
+                className={classes.Jumbo_SearchBar}
+              />
             </div>
           </div>
         </div>

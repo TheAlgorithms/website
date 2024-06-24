@@ -3,3 +3,10 @@
   transform: translateX(-50%);
   margin-top: 40px !important;
 }
+
+.more span span {
+  margin-left: 0px;
+  margin-right: 0px;
+  margin-inline-start: -4px;
+  margin-inline-end: 8px;
+}

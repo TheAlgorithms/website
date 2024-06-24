@@ -307,5 +307,16 @@
     "test": "Testo",
     "structures": "Strukturoj",
     "tests": "Testoj",
-    "uint53": "53-bita sensignuma entjero"
+    "uint53": "53-bita sensignuma entjero",
+    "http": "HTTP",
+    "linearprogramming": "Lineara programado",
+    "optimization": "Optimumigo",
+    "permutations": "Permutoj",
+    "quantitativefinance": "Kvanta financo",
+    "specialnumbers": "Specialaj nombroj",
+    "similarity": "Simileco",
+    "tls": "TLS",
+    "sqrt": "Kvadrata radiko",
+    "threads": "Fadenoj",
+    "web": "TTT"
 }

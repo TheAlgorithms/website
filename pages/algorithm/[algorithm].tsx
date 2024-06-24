@@ -25,7 +25,8 @@ export default function AlgorithmPage({
   const t = useTranslation();
 
   return (
-    <div className="section container">
+    // direction should stay ltr whatever the user-selected language is
+    <div className="section container" style={{ direction: "ltr" }}>
       <Head
         title={algorithm.name}
         description={t(
