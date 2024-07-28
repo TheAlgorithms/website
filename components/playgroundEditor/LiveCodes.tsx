@@ -100,6 +100,7 @@ export default function LiveCodes({
       script: {
         language: "python-wasm",
         content: addTestRunner(pyCode),
+        title: "Python",
       },
     };
   };
@@ -124,6 +125,7 @@ export default function LiveCodes({
       script: {
         language: "python-wasm",
         content: getPyCode(jsonCode),
+        title: "Python",
       },
       tools: {
         enabled: ["console"],
@@ -175,6 +177,7 @@ ${test.replace(pattern, "\n")}`.trimStart();
         language: "lua-wasm",
         content,
         hiddenContent: luaTestRunner,
+        title: "Lua",
       },
     };
   };
@@ -185,6 +188,7 @@ ${test.replace(pattern, "\n")}`.trimStart();
     script: {
       language: "php-wasm",
       content: phpCode,
+      title: "PHP",
     },
     tools: {
       enabled: ["console"],
@@ -199,6 +203,7 @@ ${test.replace(pattern, "\n")}`.trimStart();
     script: {
       language: "cpp-wasm",
       content: cCode,
+      title: "C",
     },
   });
 
@@ -223,7 +228,7 @@ ${test.replace(pattern, "\n")}`.trimStart();
 
   return (
     <LiveCodesPlayground
-      appUrl="https://v19.livecodes.io/"
+      appUrl="https://v34.livecodes.io/"
       loading="eager"
       config={config}
       style={{ borderRadius: "0", resize: "none" }}
