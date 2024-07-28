@@ -2996,10 +2996,10 @@ levn@~0.3.0:
     prelude-ls "~1.1.2"
     type-check "~0.3.2"
 
-livecodes@0.3.0:
-  version "0.3.0"
-  resolved "https://registry.yarnpkg.com/livecodes/-/livecodes-0.3.0.tgz#95523234f25ecbf338de3e58d4a8e6c0fc05350f"
-  integrity sha512-bRD9TbWCEDAXfXIzqSSgTmlwHZtMjyrqg4uwULPwIdq8ozaFRVZnIEugvNh8PivpkryWN8OgfVknsNukMov43w==
+livecodes@0.6.0:
+  version "0.6.0"
+  resolved "https://registry.yarnpkg.com/livecodes/-/livecodes-0.6.0.tgz#3ad0d4361f6615cea62b8d40acfa33a892d1542f"
+  integrity sha512-nUqS6yy3NAKhVw+wt6yLKiqKSNbpbaJddI+KgtpMeQuIclBZbvhXK/enF8w/vQfxODPf5tmXkq765DIDxwTLTA==
 
 locate-path@^2.0.0:
   version "2.0.0"
