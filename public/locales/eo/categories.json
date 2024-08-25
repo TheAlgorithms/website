@@ -318,5 +318,10 @@
     "tls": "TLS",
     "sqrt": "Kvadrata radiko",
     "threads": "Fadenoj",
-    "web": "TTT"
+    "web": "TTT",
+    "concurrency": "Kunrulado",
+    "crdt": "Senkonflikte replikebla datentipo",
+    "disjointsetunion": "Disa kunigaĵo",
+    "lossfunction": "Perdofunkcio",
+    "io": "Enigo/eligo"
 }
