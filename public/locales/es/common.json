@@ -1,5 +1,5 @@
 {
-    "algorithmExplanationTitle": "¿Qué es un algoritmo?",
+    "algorithmExplanationTitle": "Un algoritmo es un conjunto de reglas que toma una o más entradas, luego realiza cálculos internos y manipulaciones de datos y devuelve una salida o un conjunto de salidas. En resumen, los algoritmos facilitan la vida. Desde complejas manipulaciones de datos y hashes, hasta aritmética simple, los algoritmos siguen un conjunto de pasos para producir un resultado útil. Un ejemplo de algoritmo sería una función simple que toma dos valores de entrada, los suma y devuelve su suma.",
     "algorithmExplanation": "Un algoritmo es un conjunto de reglas que toma una o varias entradas, luego realiza cálculos internos y manipulaciones de datos y devuelve una salida o un conjunto de salidas. En resumen, los algoritmos facilitan la vida. Desde manipulaciones de datos complejas y hashes hasta aritmética simple, los algoritmos siguen un conjunto de pasos para producir un resultado útil. Un ejemplo de un algoritmo sería una función simple que toma dos valores de entrada, los agrega y devuelve su suma.",
     "helloAlgorithms": "¡Hola, algoritmos!",
     "searchesCategories": "Búsquedas",
