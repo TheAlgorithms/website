@@ -115,3 +115,33 @@
 :global(.dark) .socialButtons svg {
   fill: white;
 }
+
+.sideNav {
+  position: fixed;
+  top: 100px;
+  right: 20px;
+  background-color: #f8f8f8;
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.sideNav ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sideNav li {
+  margin-bottom: 10px;
+}
+
+.sideNav a {
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.sideNav a:hover {
+  color: #0070f3;
+}

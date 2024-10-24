@@ -34,6 +34,7 @@ import Head from "components/head";
 import getRepositoryStars from "lib/stars";
 import { Algorithm } from "lib/models";
 import HomeLayout from "layouts/home";
+import { Link as ScrollLink, Element } from "react-scroll"
 import classes from "./index.module.css";
 
 export default function Home({
@@ -46,33 +47,136 @@ export default function Home({
   stars: { [key: string]: number };
 }) {
   const t = useTranslation();
+  const offsetValue =
+    typeof window !== "undefined" ? -window.innerHeight / 3 : 0;
 
   return (
     <>
       <Head description={t("indexMetaDescription")} />
-      <Section title={t("topAlgorithms")}>
-        <AlgorithmsList noCategories algorithms={topAlgorithms} />
-      </Section>
+      <nav className={classes.sideNav}>
+        <ul>
+          <li>
+            <ScrollLink
+              to="topAlgorithms"
+              smooth
+              duration={100}
+              offset={offsetValue}
+            >
+              {t("topAlgorithms")}
+            </ScrollLink>
+          </li>
+          <li>
+            <ScrollLink
+              to="algorithmExplanationTitle"
+              smooth
+              duration={100}
+              offset={offsetValue}
+            >
+              {t("algorithmExplanationTitle")}
+            </ScrollLink>
+          </li>
+          <li>
+            <ScrollLink to="aboutUs" smooth duration={100} offset={offsetValue}>
+              {t("aboutUsTitle")}
+            </ScrollLink>
+          </li>
+          <li>
+            <ScrollLink
+              to="featuredAlgorithms"
+              smooth
+              duration={100}
+              offset={offsetValue}
+            >
+              {t("featuredAlgorithms")}
+            </ScrollLink>
+          </li>
+          <li>
+            <ScrollLink
+              to="topCategories"
+              smooth
+              duration={100}
+              offset={offsetValue}
+            >
+              {t("topCategories")}
+            </ScrollLink>
+          </li>
+          <li>
+            <ScrollLink
+              to="programmingLanguages"
+              smooth
+              duration={100}
+              offset={offsetValue}
+            >
+              {t("programmingLanguagesTitle")}
+            </ScrollLink>
+          </li>
+          <li>
+            <ScrollLink
+              to="contribute"
+              smooth
+              duration={100}
+              offset={offsetValue}
+            >
+              {t("contributeTitle")}
+            </ScrollLink>
+          </li>
+          <li>
+            <ScrollLink
+              to="donateTitle"
+              smooth
+              duration={100}
+              offset={offsetValue}
+            >
+              {t("donateTitle")}
+            </ScrollLink>
+          </li>
+          <li>
+            <ScrollLink
+              to="socialTitle"
+              smooth
+              duration={100}
+              offset={offsetValue}
+            >
+              {t("socialTitle")}
+            </ScrollLink>
+          </li>
+        </ul>
+      </nav>
+
+      <Element name="topAlgorithms">
+        <Section title={t("topAlgorithms")}>
+          <AlgorithmsList noCategories algorithms={topAlgorithms} />
+        </Section>
+      </Element>
+
       <div>
         <Section>
           <Card className={classes.card}>
             <CardContent>
               <div className={classes.twoCols}>
                 <div>
-                  <Typography id="about" variant="h5" className={classes.title}>
-                    {t("algorithmExplanationTitle")}
-                  </Typography>
-                  <Typography>{t("algorithmExplanation")}</Typography>
+                  <Element name="algorithmExplanationTitle">
+                    <Typography
+                      id="about"
+                      variant="h5"
+                      className={classes.title}
+                    >
+                      {t("algorithmExplanationTitle")}
+                    </Typography>
+                    <Typography>{t("algorithmExplanation")}</Typography>
+                  </Element>
                 </div>
                 <div />
                 <div>
-                  <Typography
-                    id="aboutUs"
-                    variant="h5"
-                    className={classes.title}
-                  >
-                    {t("aboutUsTitle")}
-                  </Typography>
+                  <Element name="aboutUsTitle">
+                    <Typography
+                      id="aboutUs"
+                      variant="h5"
+                      className={classes.title}
+                    >
+                      {t("aboutUsTitle")}
+                    </Typography>
+                  </Element>
                   <Typography>{t("aboutUs")}</Typography>
                 </div>
               </div>
@@ -80,55 +184,60 @@ export default function Home({
           </Card>
         </Section>
       </div>
-      <Section title={t("featuredAlgorithms")}>
-        <AlgorithmsList noCategories algorithms={featuredAlgorithms} />
-      </Section>
-      <Section title={t("topCategories")}>
-        <CategoriesList
-          categories={[
-            {
-              name: t("categories:sorts"),
-              icon: <Sort />,
-              href: "/category/sorts",
-            },
-            {
-              name: t("categories:searches"),
-              icon: <Search />,
-              href: "/category/searches",
-            },
-            {
-              name: t("categories:dynamicprogramming"),
-              icon: <OfflineBolt />,
-              href: "/category/dynamicprogramming",
-            },
-            {
-              name: t("categories:ciphers"),
-              icon: <EnhancedEncryption />,
-              href: "/category/ciphers",
-            },
-            {
-              name: t("categories:datastructures"),
-              icon: <Storage />,
-              href: "/category/datastructures",
-            },
-            {
-              name: t("categories:math"),
-              icon: <Functions />,
-              href: "/category/math",
-            },
-            {
-              name: t("categories:digitalimageprocessing"),
-              icon: <InsertPhoto />,
-              href: "/category/digitalimageprocessing",
-            },
-            {
-              name: t("categories:strings"),
-              icon: <FormatQuote />,
-              href: "/category/strings",
-            },
-          ]}
-        />
-      </Section>
+      <Element name="featuredAlgorithms">
+        <Section title={t("featuredAlgorithms")}>
+          <AlgorithmsList noCategories algorithms={featuredAlgorithms} />
+        </Section>
+      </Element>
+
+      <Element name="topCategories">
+        <Section title={t("topCategories")}>
+          <CategoriesList
+            categories={[
+              {
+                name: t("categories:sorts"),
+                icon: <Sort />,
+                href: "/category/sorts",
+              },
+              {
+                name: t("categories:searches"),
+                icon: <Search />,
+                href: "/category/searches",
+              },
+              {
+                name: t("categories:dynamicprogramming"),
+                icon: <OfflineBolt />,
+                href: "/category/dynamicprogramming",
+              },
+              {
+                name: t("categories:ciphers"),
+                icon: <EnhancedEncryption />,
+                href: "/category/ciphers",
+              },
+              {
+                name: t("categories:datastructures"),
+                icon: <Storage />,
+                href: "/category/datastructures",
+              },
+              {
+                name: t("categories:math"),
+                icon: <Functions />,
+                href: "/category/math",
+              },
+              {
+                name: t("categories:digitalimageprocessing"),
+                icon: <InsertPhoto />,
+                href: "/category/digitalimageprocessing",
+              },
+              {
+                name: t("categories:strings"),
+                icon: <FormatQuote />,
+                href: "/category/strings",
+              },
+            ]}
+          />
+        </Section>
+      </Element>
 
       <div>
         <Section>
@@ -136,14 +245,16 @@ export default function Home({
             <CardContent>
               <div className={classes.twoCols}>
                 <div>
-                  <Typography
-                    id="programmingLanguages"
-                    variant="h5"
-                    className={classes.title}
-                  >
-                    {t("programmingLanguagesTitle")}
-                  </Typography>
-                  <Typography>{t("programmingLanguages")}</Typography>
+                  <Element name="programmingLanguages">
+                    <Typography
+                      id="programmingLanguages"
+                      variant="h5"
+                      className={classes.title}
+                    >
+                      {t("programmingLanguagesTitle")}
+                    </Typography>
+                    <Typography>{t("programmingLanguages")}</Typography>
+                  </Element>
                   <LanguagesList
                     languages={Object.keys(Repositories).map(
                       (langName: Language) => ({
@@ -157,13 +268,15 @@ export default function Home({
                 </div>
                 <div />
                 <div>
-                  <Typography
-                    id="contribute"
-                    variant="h5"
-                    className={classes.title}
-                  >
-                    {t("contributeTitle")}
-                  </Typography>
+                  <Element name="contributeTitle">
+                    <Typography
+                      id="contribute"
+                      variant="h5"
+                      className={classes.title}
+                    >
+                      {t("contributeTitle")}
+                    </Typography>
+                  </Element>
                   <div className="MuiTypography-root MuiTypography-body1">
                     <Translation
                       name="contribute"
@@ -193,13 +306,15 @@ export default function Home({
                       <WeblatePlainIcon color="black" />
                       Weblate
                     </Button>
-                    <Typography
-                      id="donate"
-                      variant="h5"
-                      className={classes.title}
-                    >
-                      {t("donateTitle")}
-                    </Typography>
+                    <Element name="donateTitle">
+                      <Typography
+                        id="donate"
+                        variant="h5"
+                        className={classes.title}
+                      >
+                        {t("donateTitle")}
+                      </Typography>
+                    </Element>
                     <div className="MuiTypography-root MuiTypography-body1">
                       <Translation
                         name="donateText"
@@ -234,10 +349,13 @@ export default function Home({
             </CardContent>
           </Card>
         </Section>
+
         <Section className={classes.social}>
-          <Typography variant="h4" className={classes.socialTitle}>
-            {t("socialTitle")}
-          </Typography>
+          <Element name="socialTitle">
+            <Typography variant="h4" className={classes.socialTitle}>
+              {t("socialTitle")}
+            </Typography>
+          </Element>
           <div className={classes.socialButtons}>
             <Tooltip title={t("socialGithub")}>
               <Card>
