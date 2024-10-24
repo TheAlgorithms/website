@@ -31,7 +31,7 @@ export default function LiveCodes({
   }, [playground, darkTheme]);
 
   const baseConfig: Partial<Config> = {
-    autoupdate: true, // changed to true
+    autoupdate: true,
     languages: [language === "jupyter" ? "python-wasm" : language],
     script: {
       language: language === "jupyter" ? "python-wasm" : language,
