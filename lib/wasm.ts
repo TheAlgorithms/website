@@ -1,5 +1,5 @@
 /* eslint-disable */
-export default function checkWasm() {
+export default function check() {
   try {
     if (
       typeof WebAssembly === "object" &&
