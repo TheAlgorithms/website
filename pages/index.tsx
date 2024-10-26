@@ -62,7 +62,7 @@ export default function Home({
               duration={100}
               offset={offsetValue}
             >
-              {t("topAlgorithms")}
+              <span>{t("topAlgorithms")}</span>
             </ScrollLink>
           </li>
           <li>
@@ -72,12 +72,12 @@ export default function Home({
               duration={100}
               offset={offsetValue}
             >
-              {t("algorithmExplanationTitle")}
+              <span>{t("algorithmExplanationTitle")}</span>
             </ScrollLink>
           </li>
           <li>
             <ScrollLink to="aboutUs" smooth duration={100} offset={offsetValue}>
-              {t("aboutUsTitle")}
+              <span>{t("aboutUsTitle")}</span>
             </ScrollLink>
           </li>
           <li>
@@ -87,7 +87,7 @@ export default function Home({
               duration={100}
               offset={offsetValue}
             >
-              {t("featuredAlgorithms")}
+              <span>{t("featuredAlgorithms")}</span>
             </ScrollLink>
           </li>
           <li>
@@ -97,7 +97,7 @@ export default function Home({
               duration={100}
               offset={offsetValue}
             >
-              {t("topCategories")}
+              <span>{t("topCategories")}</span>
             </ScrollLink>
           </li>
           <li>
@@ -107,7 +107,7 @@ export default function Home({
               duration={100}
               offset={offsetValue}
             >
-              {t("programmingLanguagesTitle")}
+              <span>{t("programmingLanguagesTitle")}</span>
             </ScrollLink>
           </li>
           <li>
@@ -117,7 +117,7 @@ export default function Home({
               duration={100}
               offset={offsetValue}
             >
-              {t("contributeTitle")}
+              <span>{t("contributeTitle")}</span>
             </ScrollLink>
           </li>
           <li>
@@ -127,7 +127,7 @@ export default function Home({
               duration={100}
               offset={offsetValue}
             >
-              {t("donateTitle")}
+              <span>{t("donateTitle")}</span>
             </ScrollLink>
           </li>
           <li>
@@ -137,7 +137,7 @@ export default function Home({
               duration={100}
               offset={offsetValue}
             >
-              {t("socialTitle")}
+              <span>{t("socialTitle")}</span>
             </ScrollLink>
           </li>
         </ul>
