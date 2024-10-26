@@ -312,5 +312,13 @@
     "sqrt": "Sqrt",
     "threads": "Threads",
     "tls": "Tls",
-    "web": "Web"
+    "web": "Web",
+    "avltree": "Árbol AVL",
+    "greedy": "Ambicioso",
+    "kdtree": "Árbol de KD",
+    "segmenttree": "Árbol de Segmentos",
+    "splaytree": "Árbol Extendido",
+    "suffixtree": "Árbol de Sufijos",
+    "docs": "Documentos",
+    "example": "Ejemplo"
 }
