@@ -320,5 +320,8 @@
     "splaytree": "Árbol Extendido",
     "suffixtree": "Árbol de Sufijos",
     "docs": "Documentos",
-    "example": "Ejemplo"
+    "example": "Ejemplo",
+    "circularqueue": "Circularmente",
+    "diskscheduling": "Programación de discos",
+    "lineclipping": "Recorte de línea"
 }
