@@ -15,14 +15,7 @@ export default function Editor({
   tests: string;
 }) {
   if (isLiveCodesLanguage(language)) {
-    return (
-      <LiveCodes
-        language={language}
-        code={code}
-        setCode={setCode}
-        tests={tests}
-      />
-    );
+    return <LiveCodes language={language} code={code} tests={tests} />;
   }
   return <PlaygroundEditor language={language} code={code} setCode={setCode} />;
 }
