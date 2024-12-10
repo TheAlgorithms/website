@@ -77,6 +77,11 @@ const aliases = {
     perfectnumber: "Perfect Number",
     perfectnumbers: "Perfect Number",
     perfectnumberchecker: "Perfect Number",
+    kadanealgo: "Kadane's Algorithm",
+    kadane: "Kadane's Algorithm",
+    kadanes3: "Kadane's Algorithm",
+    kadanesalgorithm: "Kadane's Algorithm",
+    kadanealgorithm: "Kadane's Algorithm"
   },
   categories: {
     sorting: "Sorts",
