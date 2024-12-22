@@ -3,6 +3,7 @@ import type { Config, Playground } from "livecodes";
 import LiveCodesPlayground from "livecodes/react";
 import { luaTestRunner, type Language } from "lib/playground/livecodes";
 import { useDarkTheme } from "hooks/darkTheme";
+import { useRouter } from "next/router";
 
 export default function LiveCodes({
   language,
@@ -15,6 +16,14 @@ export default function LiveCodes({
 }) {
   const [playground, setPlayground] = useState<Playground | undefined>();
   const [darkTheme] = useDarkTheme();
+  const { locale } = useRouter();
+
+  const getLanguageFromLocale = (locale_: string | undefined) =>
+    !locale_
+      ? "en"
+      : locale_ === "zh_Hans"
+      ? "zh-CN"
+      : (locale_.split("_")[0] as Config["appLanguage"]);
 
   const onReady = (sdk: Playground) => {
     setPlayground(sdk);
@@ -31,6 +40,7 @@ export default function LiveCodes({
   }, [playground, darkTheme]);
 
   const baseConfig: Partial<Config> = {
+    appLanguage: getLanguageFromLocale(locale),
     autoupdate: true,
     languages: [language === "jupyter" ? "python-wasm" : language],
     script: {
@@ -224,7 +234,7 @@ ${test.replace(pattern, "\n")}`.trimStart();
 
   return (
     <LiveCodesPlayground
-      appUrl="https://v37.livecodes.io/"
+      appUrl="https://v38.livecodes.io/"
       loading="eager"
       config={config}
       style={{ borderRadius: "0", resize: "none" }}
