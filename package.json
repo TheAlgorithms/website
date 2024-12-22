@@ -35,7 +35,7 @@
     "highlight.js": "^11.5.1",
     "iframe-resizer-react": "^1.1.0",
     "katex": "^0.13.24",
-    "livecodes": "0.6.0",
+    "livecodes": "0.7.2",
     "marked": "^4.0.17",
     "next": "^12.1.0",
     "next-i18next": "^8.10.0",
