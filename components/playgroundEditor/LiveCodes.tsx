@@ -42,6 +42,7 @@ export default function LiveCodes({
       active: "console",
       status: "full",
     },
+    themeColor: "hsl(205, 17%, 50%)", // the original theme color is "#3a4852" which is "hsl(205, 17%, 27%)"
   };
 
   const getJSTSConfig = (
@@ -223,7 +224,7 @@ ${test.replace(pattern, "\n")}`.trimStart();
 
   return (
     <LiveCodesPlayground
-      appUrl="https://v34.livecodes.io/"
+      appUrl="https://v37.livecodes.io/"
       loading="eager"
       config={config}
       style={{ borderRadius: "0", resize: "none" }}
