@@ -290,7 +290,7 @@
     "model": "Model",
     "piecewise": "Linearna transformacija slike",
     "view": "Prikaz",
-    "processschedulingalgorithms": "Obradi algoritme planiranja",
+    "processschedulingalgorithms": "Algoritmi planiranja procesa",
     "bit": "Bit",
     "distance": "Udaljenost",
     "entities": "Entiteti",
@@ -318,5 +318,16 @@
     "permutations": "Permutacije",
     "disjointsetunion": "Unija disjunktnih skupova",
     "io": "U/I",
-    "threads": "Niti"
+    "threads": "Niti",
+    "avltree": "AVL stablo",
+    "circularqueue": "Kružni red",
+    "diskscheduling": "Planiranje diska",
+    "docs": "Dokumenti",
+    "example": "Primjer",
+    "greedy": "Pohlepni",
+    "kdtree": "Kd stablo",
+    "lineclipping": "Odrezivanje linija",
+    "segmenttree": "Stablo segmenata",
+    "suffixtree": "Stablo sufiksa",
+    "splaytree": "Smopodešavajuće stablo"
 }

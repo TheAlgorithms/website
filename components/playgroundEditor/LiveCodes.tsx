@@ -1,22 +1,29 @@
-import { Dispatch, SetStateAction, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import type { Config, Playground } from "livecodes";
 import LiveCodesPlayground from "livecodes/react";
 import { luaTestRunner, type Language } from "lib/playground/livecodes";
 import { useDarkTheme } from "hooks/darkTheme";
+import { useRouter } from "next/router";
 
 export default function LiveCodes({
   language,
   code,
-  setCode,
   tests,
 }: {
   language: Language;
   code: string;
-  setCode: Dispatch<SetStateAction<string>>;
   tests: string;
 }) {
   const [playground, setPlayground] = useState<Playground | undefined>();
   const [darkTheme] = useDarkTheme();
+  const { locale } = useRouter();
+
+  const getLanguageFromLocale = (locale_: string | undefined) =>
+    !locale_
+      ? "en"
+      : locale_ === "zh_Hans"
+      ? "zh-CN"
+      : (locale_.split("_")[0] as Config["appLanguage"]);
 
   const onReady = (sdk: Playground) => {
     setPlayground(sdk);
@@ -26,9 +33,6 @@ export default function LiveCodes({
         await sdk.runTests();
       }
     });
-    sdk.watch("code", (changed) => {
-      setCode(changed.code.script.content);
-    });
   };
 
   useEffect(() => {
@@ -36,7 +40,8 @@ export default function LiveCodes({
   }, [playground, darkTheme]);
 
   const baseConfig: Partial<Config> = {
-    autoupdate: false,
+    appLanguage: getLanguageFromLocale(locale),
+    autoupdate: true,
     languages: [language === "jupyter" ? "python-wasm" : language],
     script: {
       language: language === "jupyter" ? "python-wasm" : language,
@@ -47,6 +52,7 @@ export default function LiveCodes({
       active: "console",
       status: "full",
     },
+    themeColor: "hsl(205, 17%, 50%)", // the original theme color is "#3a4852" which is "hsl(205, 17%, 27%)"
   };
 
   const getJSTSConfig = (
@@ -228,7 +234,7 @@ ${test.replace(pattern, "\n")}`.trimStart();
 
   return (
     <LiveCodesPlayground
-      appUrl="https://v34.livecodes.io/"
+      appUrl="https://v39.livecodes.io/"
       loading="eager"
       config={config}
       style={{ borderRadius: "0", resize: "none" }}
