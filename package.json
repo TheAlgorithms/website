@@ -34,7 +34,7 @@
     "dotenv": "^10.0.0",
     "highlight.js": "^11.5.1",
     "iframe-resizer-react": "^1.1.0",
-    "katex": "^0.13.24",
+    "katex": "^0.16.21",
     "livecodes": "0.7.2",
     "marked": "^4.0.17",
     "next": "^12.1.0",
