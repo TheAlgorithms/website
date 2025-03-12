@@ -3,6 +3,8 @@
   flex-direction: column;
   margin-top: 20px !important;
   margin-bottom: 10px !important;
+  /* direction should stay ltr whatever the user-selected language is */
+  direction: ltr;
 }
 
 .sort,

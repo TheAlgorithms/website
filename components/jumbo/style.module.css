@@ -78,3 +78,14 @@
   width: 400px;
   max-width: 100%;
 }
+
+:global(html[lang=ar]) .Jumbo_SearchBar label[data-shrink]{
+  left: unset;
+  right: 0;
+  transform: translate(-12px, 20px) scale(1);
+  transform-origin: right;
+}
+
+:global(html[lang=ar]) .Jumbo_SearchBar label[data-shrink=true]{
+  transform: translate(-12px, 10px) scale(0.75);
+}

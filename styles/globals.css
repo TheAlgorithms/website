@@ -5,6 +5,10 @@ html {
   scroll-padding-top: 100px;
 }
 
+html[lang=ar] {
+  direction: rtl;
+}
+
 html,
 body,
 #__next {
