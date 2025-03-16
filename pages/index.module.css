@@ -115,3 +115,55 @@
 :global(.dark) .socialButtons svg {
   fill: white;
 }
+
+.sideNav {
+  position: fixed;
+  display:flex;
+  flex-direction: column;
+  top: 100px;
+  right: 0; 
+  width: 3%; 
+  background-color: #f8f8f8;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden; 
+  transition: width 0.3s ease; 
+  z-index: 1000;
+}
+
+.sideNav:hover {
+  width: 180px; 
+}
+
+.sideNav ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sideNav li {
+  white-space: nowrap;
+  margin-bottom: 1px;
+}
+
+.sideNav a {
+  display: flex; 
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+  align-items: center;
+  padding: 5px; 
+  font-size: 0.8rem;
+  cursor: pointer; 
+}
+
+.sideNav a span {
+  display: none;
+}
+
+.sideNav:hover a span {
+  display: inline; 
+}
+
+.sideNav a:hover {
+  color: #0070f3;
+}
