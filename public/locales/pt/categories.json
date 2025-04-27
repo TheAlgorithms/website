@@ -88,5 +88,8 @@
     "graphs": "Grafos",
     "ipynbcheckpoints": "Checkpoints de .ipynb",
     "linearregression": "Regressão Linear",
-    "logisticregression": "Regressão Logística"
+    "logisticregression": "Regressão Logística",
+    "a5": "A 5",
+    "avltree": "Árvore AVL",
+    "queues": "Filas"
 }
