@@ -180,7 +180,7 @@
     "fundamentalsofpython": "பைத்தானின் அடிப்படைகள்",
     "fuzzylogic": "இடைநிலை தருக்கம், இடைநிலை ஏரணம்",
     "games": "விளையாட்டுகள்",
-    "ganspytorchvanillalsdc": "கன்ச்-பைடோர்ச்-வெனிலா-எல்.எச்-டி.சி.",
+    "ganspytorchvanillalsdc": "கன்ச்-பைடோர்ச்-வெனிலா-எல்எச்-டிசி",
     "graphs": "வரைபடங்கள்",
     "greatestcommondivisor": "மிகப் பெரிய பொதுவான வகுப்பான்",
     "greedy": "பேராசை",
@@ -205,7 +205,7 @@
     "permutation": "வரிசைமாற்றம், வரிசைவகுதி",
     "permutations": "வரிசைமாற்றங்கள்",
     "physics": "இயற்பியல்",
-    "probabilistic": "நிகழ்தகவு",
+    "probabilistic": "நிகழ்தகவாக",
     "probability": "நிகழ்தகவு",
     "problems": "சிக்கல்கள்",
     "processschedulingalgorithms": "செயல்முறை திட்டமிடல் வழிமுறைகள்",
@@ -217,7 +217,7 @@
     "recursive": "சுழல்நிலை",
     "regressionalgorithms": "பின்னடைவு வழிமுறைகள்",
     "robotics": "ரோபாட்டிக்ச்",
-    "rsa": "Rsa",
+    "rsa": "ஆர்எச்எ",
     "scheduling": "திட்டமிடல்",
     "set": "கணம்",
     "shufflers": "சஃப்லர்கள்",
@@ -230,5 +230,5 @@
     "tree": "மரம்",
     "trie": "ட்ரை",
     "tries": "முயற்சிக்கிறது",
-    "uint53": "Uint 53"
+    "uint53": "அலகு 53"
 }
