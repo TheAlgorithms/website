@@ -69,5 +69,7 @@
     "aboutUs": "Siamo un gruppo di programmatori che si aiutano nello sviluppare nuovi progetti, che siano complessi programmi di criptazione o semplici cifrari. Il nostro obiettivo è lavorare assieme per documentare e modellizzare algoritmi belli, utili ed interessanti. Siamo una comunità open-source a cui chiunque può contribuire. Controlliamo il lavoro altrui, comunichiamo e collaboriamo per risolvere i problemi. Ci sforziamo di essere accoglienti e rispettosi e ci assicuriamo che il nostro codice segua le ultime linee guida di programmazione.",
     "aboutUsTitle": "Chi siamo",
     "algorithmExplanation": "Un algoritmo è un insieme di regole che prendono uno o più input, vi eseguono calcoli o li manipolano e restituiscono un risultato od un insieme di risultati. In breve, gli algoritmi rendono la vita facile. Da complesse manipolazioni di dati e hashes, a semplice aritmetica, gli algoritmi seguono un insieme di passi per produrre un risultato utile. Un esempio di algoritmo sarebbe una semplice funzione che prende in input due valori, li somma e ne ritorna il risultato.",
-    "algorithmExplanationTitle": "Cos'è un Algoritmo?"
+    "algorithmExplanationTitle": "Cos'è un Algoritmo?",
+    "codeplayground": "குறியீடு விளையாட்டு மைதானம்",
+    "playgroundRunCode": "குறியீட்டை இயக்கவும்"
 }
