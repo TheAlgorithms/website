@@ -1,1 +1,13 @@
-{}
+{
+    "a5": "A 5",
+    "activationfunctions": "Fungsi Aktivasi",
+    "ahocorasick": "Aho-Corasick",
+    "arima": "ARIMA",
+    "array": "Array",
+    "associationalgorithms": "Algoritma Asosiasi",
+    "associativemining": "Mining Associatif",
+    "audio": "Suara",
+    "audiofilters": "Filter Suara",
+    "automaton": "Otomat",
+    "avltree": "Pohon AVL"
+}
