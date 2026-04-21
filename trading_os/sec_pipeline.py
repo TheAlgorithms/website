@@ -23,7 +23,9 @@ USER_AGENT = "TradingOSFundamentalPipeline/1.0 (contact: compliance@trading-os.l
 SEC_TICKER_CIK_URL = "https://www.sec.gov/files/company_tickers.json"
 SEC_SUBMISSIONS_URL = "https://data.sec.gov/submissions/CIK{cik}.json"
 SEC_ARCHIVE_BASE = "https://www.sec.gov/Archives/edgar/data"
-ANTHROPIC_MODEL = "claude-3-haiku-20240307"
+DEFAULT_ANTHROPIC_MODEL = "claude-3-haiku-20240307"
+DEFAULT_MAX_TOKENS = 1200
+ENV_KEY_PLACEHOLDER = "your_key_here"
 
 
 def _flatten_tickers(value: Any) -> List[str]:
@@ -135,8 +137,8 @@ def analyze_with_claude(client: Anthropic, ticker: str, item_1a: str, item_7: st
     )
 
     response = client.messages.create(
-        model=ANTHROPIC_MODEL,
-        max_tokens=1200,
+        model=os.getenv("ANTHROPIC_MODEL", DEFAULT_ANTHROPIC_MODEL),
+        max_tokens=int(os.getenv("ANTHROPIC_MAX_TOKENS", str(DEFAULT_MAX_TOKENS))),
         system=SYSTEM_PROMPT,
         messages=[{"role": "user", "content": user_prompt}],
     )
@@ -165,7 +167,7 @@ def append_audit_log(report_path: Path, ticker: str, content: str) -> None:
 def main() -> None:
     load_dotenv()
     api_key = os.getenv("LLM_API_KEY", "").strip()
-    if not api_key or api_key == "your_key_here":
+    if not api_key or api_key == ENV_KEY_PLACEHOLDER:
         raise RuntimeError(
             "Missing valid LLM_API_KEY in .env. Update trading_os/.env before running."
         )
