@@ -24,7 +24,7 @@ export default function Contributors({ algorithm }: { algorithm: Algorithm }) {
 
   return (
     <div className={classes.container}>
-      <div className={classes.avatarGroup}>
+      <div className={classes.avatarGroup} >
         {algorithm.contributors
           .slice(
             algorithm.contributors.length - contributorsShown,

@@ -135,7 +135,7 @@ export default function Home({
           <Card className={classes.card}>
             <CardContent>
               <div className={classes.twoCols}>
-                <div>
+                <div className={classes.leftColumn}>
                   <Typography
                     id="programmingLanguages"
                     variant="h5"
@@ -155,8 +155,8 @@ export default function Home({
                     sortable
                   />
                 </div>
-                <div />
-                <div>
+                
+                <div className = {classes.rightColumn}>
                   <Typography
                     id="contribute"
                     variant="h5"
