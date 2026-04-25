@@ -1,1 +1,131 @@
-{}
+{
+  "algorithmExplanationTitle": "ក្បួនដោះស្រាយ (Algorithm) ជាអ្វី?",
+  "algorithmExplanation": "ក្បួនដោះស្រាយ (algorithm) គឺជាជំហាន ឬវិធីសាស្ត្រដែលទទួល input មួយ ឬច្រើន បន្ទាប់មកដំណើរការ (process) និងបង្ហាញ output។ វាជួយដោះស្រាយបញ្ហាឲ្យកាន់តែងាយស្រួល​​ ។",
+  
+  "aboutUsTitle": "អំពីពួកយើង",
+  "aboutUs": "យើងជាក្រុម developer ដែលធ្វើការរួមគ្នា ដើម្បីបង្កើតអ្វីថ្មីៗ។ គោលដៅរបស់យើងគឺសហការនិងចែករំលែក algorithm។",
+  
+  "programmingLanguagesTitle": "ភាសាសរសេរកម្មវិធី",
+  "programmingLanguages": "យើងគាំទ្រភាសាសរសេរកម្មវិធីជាច្រើន។ ភាសានីមួយៗមាន GitHub repository ផ្ទាល់ខ្លួន។",
+  
+  "contributeTitle": "ចូលរួម (Contribute)",
+  "contribute": "ចង់ចូលរួមមែនទេ? អ្នកអាច contribute បានជាច្រើនវិធី។",
+  
+  "donateTitle": "បរិច្ចាគ",
+  
+  "topAlgorithms": "Algorithm ពេញនិយម",
+  "featuredAlgorithms": "Algorithm ពិសេស",
+  
+  "topCategories": "ប្រភេទពេញនិយម",
+  "sortsCategories": "Sorting",
+  "searchesCategories": "Searching",
+  "dynamicProgrammingCategories": "Dynamic Programming",
+  "ciphersCategories": "Cryptography",
+  "dataStructuresCategories": "Data Structures",
+  "basicMathCategories": "Basic Math",
+  "imageProcessingCategories": "Image Processing",
+  
+  "helloAlgorithms": "សួស្តី Algorithm!",
+  
+  "welcomeTitle": "សូមស្វាគមន៍មកកាន់បណ្ណាល័យ Open Source Algorithm ធំបំផុតលើ GitHub",
+  
+  "searchText": "ស្វែងរក algorithm...",
+  
+  "aboutTextNavbar": "អំពីពួកយើង",
+  
+  "algorithmExplaniationFooter": "Algorithm ជាអ្វី?",
+  "aboutUsFooter": "អំពីពួកយើង",
+  "sourceCodeFooter": "Source Code",
+  
+  "donateButton": "បរិច្ចាគ",
+  "donateText": "អ្នកអាចគាំទ្រពួកយើងតាមរយៈ [Liberapay]។",
+  
+  "moreAlgorithmCard": "មើលបន្ថែម",
+  
+  "lightModeNavbar": "Light Mode",
+  "darkModeNavbar": "Dark Mode",
+  "changeLanguageNavbar": "ប្ដូរភាសា",
+  
+  "socialTitle": "ភ្ជាប់ជាមួយយើង",
+  "socialGithub": "Contribute លើ GitHub",
+  "socialGitter": "Chat លើ Gitter",
+  "socialDiscord": "Chat លើ Discord",
+  
+  "pageNotFound": "រកមិនឃើញទំព័រ",
+  
+  "home": "ទំព័រដើម",
+  "search": "ស្វែងរក",
+  
+  "languages_count": "និង {} ផ្សេងទៀត",
+  
+  "langImplementation": "{language} Implementation",
+  
+  "contact": "ទំនាក់ទំនង",
+  
+  "editPageEdit": "កែប្រែទំព័រ",
+  "editPageAddImplementation": "បន្ថែម Implementation",
+  "editPageAddExplanation": "បន្ថែមការពន្យល់",
+  "editPageTranslate": "បកប្រែ",
+  
+  "addExplanation": "បន្ថែមការពន្យល់សម្រាប់ algorithm នេះ",
+  
+  "addExplanationInfo": "Algorithm នេះមិនទាន់មាន explanation ទេ។ Explanation ទាំងអស់ស្ថិតនៅក្នុង repository [Algorithms-Explanations]។ ប្រសិនបើអ្នកចង់បន្ថែម សូម fork repo ហើយបន្ថែមជា markdown file ([example])។ បន្ទាប់មកអាចបើក pull request បាន។",
+  
+  "editPageHelp": "បើមានបញ្ហា អ្នកអាចចូលទៅ Discord server របស់យើង ដើម្បីសុំជំនួយ។",
+  
+  "addImplementation": "បន្ថែម implementation ថ្មី",
+  
+  "addImplementationInfo": "ដើម្បីបន្ថែម implementation ក្នុងភាសាផ្សេង សូមចូលទៅ repository នៃភាសានោះ ហើយអនុវត្តតាម README.md និង CONTRIBUTING.md។",
+  
+  "addImplementationMissing": "នេះជាតំណទៅ repository ដែលមិនទាន់មាន implementation៖",
+  
+  "addTranslation": "បកប្រែ explanation",
+  
+  "addTranslationInfo": "Explanation នេះមិនទាន់បកប្រែទៅភាសារបស់អ្នកទេ។ សូមចូលទៅ [Algorithms-Explanation] repository ហើយ fork repo បន្ទាប់មកបន្ថែម translation ជា markdown file ពី [<code>{ogFilename}</code>] ទៅក្នុង folder (<code>{locale}</code>)។ បន្ទាប់មកបង្កើត pull request។",
+  
+  "viewOnGithub": "មើលលើ GitHub",
+  
+  "indexMetaDescription": "Open Source សម្រាប់រៀន Data Structures & Algorithms និង implementation នៅក្នុង programming language ផ្សេងៗ",
+  
+  "algorithmMetaDescription": "{algorithm} មាន implementation ក្នុង {implementations}",
+  "algorithmMetaDescriptionExplained": "{algorithm} មាន explanation និង implementation ក្នុង {implementations}",
+  
+  "languageMetaDescription": "Algorithms ដែលសរសេរដោយ {language}",
+  
+  "noResults": "មិនមានលទ្ធផលសម្រាប់",
+  "emptySearch": "សូមស្វែងរក algorithm មួយ",
+  
+  "analyticsFooter": "Analytics",
+  "analyticsTitle": "Analytics នៃវេបសាយនេះ",
+  
+  "analyticsText": "យើងប្រើ [Plausible Analytics] ដើម្បីប្រមូលទិន្នន័យទូទៅ (anonymous) ដើម្បីដឹងពីអ្នកប្រើ និងមុខងារដែលពេញនិយម។ មិនមានការតាមដានអ្នកប្រើផ្ទាល់ខ្លួនទេ និងមិនប្រើ cookies។",
+  
+  "githubRepository": "GitHub Repository",
+  "documentationLanguage": "Documentation",
+  
+  "contributorsMore": "និងអ្នកចូលរួម {numberContributors} នាក់ទៀត",
+  "contributorsTitle": "អ្នកចូលរួម {algorithm}",
+  
+  "contributorsOneCommit": "1 commit",
+  "contributorsCommits": "{numberCommits} commits",
+  
+  "internalServerError": "Server មានបញ្ហា",
+  
+  "codeplayground": "Code Playground",
+  "playgroundRunCode": "Run Code",
+  "playgroundTryCode": "សាកល្បង Code",
+  
+  "playgroundWelcome": "សូមស្វាគមន៍មកកាន់ Code Playground 👋",
+  
+  "playgroundUnsupported": "Browser របស់អ្នកមិនគាំទ្រ WebAssembly ទេ ដូច្នេះមិនអាច run code បាន។ អ្នកអាចកែ code បាននៅខាងឆ្វេង។",
+  
+  "playgroundErrIdNotFound": "រកមិនឃើញ Playground ID",
+  "playgroundErrInvalidLink": "Link មិនត្រឹមត្រូវ",
+  
+  "aboutThisAlgorithm": "អំពី Algorithm នេះ",
+  
+  "playgroundLoadingPackage": "កំពុង load {package}",
+  "playgroundReady": "រួចរាល់! កែ code ហើយចុច \"Run Code\"",
+  
+  "fullscreen": "ពេញអេក្រង់"
+}
