@@ -194,5 +194,12 @@
     "tests": "测试",
     "gcd": "最大公约数",
     "spanningtree": "生成树",
-    "sdbmhash": "Sdbm 哈希"
+    "sdbmhash": "Sdbm 哈希",
+    "map": "映射",
+    "sqrt": "平方根",
+    "web": "网络",
+    "paddings": "内边距",
+    "patternmatching": "模式匹配",
+    "quantitativefinance": "计量金融",
+    "set": "集合"
 }
