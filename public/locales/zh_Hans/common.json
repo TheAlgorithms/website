@@ -72,7 +72,7 @@
     "languageMetaDescription": "{language}语言实现的算法",
     "analyticsFooter": "分析",
     "analyticsText": "我们使用网站的[Plausible Analytics]来收集匿名使用数据用于分析有多少人使用我们的网站，使用频率最高的特性。网站绝不使用任何方法跟踪个人用户。所有数据仅用于统计。没有个人数据会被收集，也不使用cookies。你可以查看所有统计数据如下:",
-    "contributorsOneCommit": "1 添加",
+    "contributorsOneCommit": "1 提交",
     "contributorsCommits": "{numberCommits}个提交",
     "internalServerError": "内部服务器错误",
     "playgroundUnsupported": "您的浏览器不支持 Web Assembly\n因此不能运行该代码。\n\n但你仍然可以编辑左边的代码。",
