@@ -60,7 +60,7 @@
     "xterm-for-react": "^1.0.4"
   },
   "devDependencies": {
-    "@babel/core": "^7.18.0",
+    "@babel/core": "^7.29.7",
     "@types/atob": "^2.1.2",
     "@types/btoa": "^1.2.3",
     "@types/cli-progress": "^3.11.0",
