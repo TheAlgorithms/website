@@ -1,4 +1,3 @@
-import React from "react";
 import {
   Button,
   Card,
@@ -9,31 +8,22 @@ import {
   Typography,
 } from "@material-ui/core";
 import AlgorithmsList from "components/algorithmsList";
-import LanguagesList from "components/languagesList";
-import { getAlgorithm } from "lib/algorithms";
-import Section from "components/section";
 import CategoriesList from "components/categoriesList";
+import Head from "components/head";
+import LanguagesList from "components/languagesList";
+import Section from "components/section";
+import Translation from "components/translation";
+import useCategories from "hooks/categories";
+import useTranslation from "hooks/translation";
+import HomeLayout from "layouts/home";
+import { getAlgorithm } from "lib/algorithms";
+import { Algorithm } from "lib/models";
 import { Language, Repositories } from "lib/repositories";
+import getRepositoryStars from "lib/stars";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import GithubOriginalIcon from "react-devicons/github/original";
 import GitterPlainIcon from "react-devicons/gitter/plain";
 import WeblatePlainIcon from "react-devicons/weblate/plain";
-import {
-  Search,
-  Sort,
-  OfflineBolt,
-  EnhancedEncryption,
-  Storage,
-  Functions,
-  InsertPhoto,
-  FormatQuote,
-} from "@material-ui/icons";
-import Translation from "components/translation";
-import useTranslation from "hooks/translation";
-import Head from "components/head";
-import getRepositoryStars from "lib/stars";
-import { Algorithm } from "lib/models";
-import HomeLayout from "layouts/home";
 import classes from "./index.module.css";
 
 export default function Home({
@@ -46,6 +36,7 @@ export default function Home({
   stars: { [key: string]: number };
 }) {
   const t = useTranslation();
+  const categories = useCategories();
 
   return (
     <>
@@ -84,50 +75,7 @@ export default function Home({
         <AlgorithmsList noCategories algorithms={featuredAlgorithms} />
       </Section>
       <Section title={t("topCategories")}>
-        <CategoriesList
-          categories={[
-            {
-              name: t("categories:sorts"),
-              icon: <Sort />,
-              href: "/category/sorts",
-            },
-            {
-              name: t("categories:searches"),
-              icon: <Search />,
-              href: "/category/searches",
-            },
-            {
-              name: t("categories:dynamicprogramming"),
-              icon: <OfflineBolt />,
-              href: "/category/dynamicprogramming",
-            },
-            {
-              name: t("categories:ciphers"),
-              icon: <EnhancedEncryption />,
-              href: "/category/ciphers",
-            },
-            {
-              name: t("categories:datastructures"),
-              icon: <Storage />,
-              href: "/category/datastructures",
-            },
-            {
-              name: t("categories:math"),
-              icon: <Functions />,
-              href: "/category/math",
-            },
-            {
-              name: t("categories:digitalimageprocessing"),
-              icon: <InsertPhoto />,
-              href: "/category/digitalimageprocessing",
-            },
-            {
-              name: t("categories:strings"),
-              icon: <FormatQuote />,
-              href: "/category/strings",
-            },
-          ]}
-        />
+        <CategoriesList categories={categories} />
       </Section>
 
       <div>
