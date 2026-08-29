@@ -38,13 +38,21 @@ export default function SearchBar({
 
   function handleInput(event: FormEvent) {
     setQuery((event.target as HTMLInputElement).value);
+    const searchValue = (event.target as HTMLInputElement).value;
     // When input value is null, set error & empty state to `true` and do nothing.
 
-    if (!smallScreen)
-      debounce(() => {
-        router.push(`/search?q=${(event.target as HTMLInputElement).value}`);
-      });
-    if (!(event.target as HTMLInputElement).value) {
+    if (!smallScreen) {
+      if (searchValue) {
+        debounce(() => {
+          router.push(`/search?q=${searchValue}`);
+        });
+      } else {
+        debounce(() => {
+          router.push(`/`);
+        });
+      }
+    }
+    if (!searchValue) {
       setIsEmpty(true);
       setIsError(true);
       return;
