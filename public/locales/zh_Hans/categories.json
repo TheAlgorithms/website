@@ -204,5 +204,9 @@
     "set": "集合",
     "associationalgorithms": "关联算法",
     "operationsondatastructures": "数据结构操作",
-    "lossfunction": "损失函数"
+    "lossfunction": "损失函数",
+    "avltree": "平衡二叉树",
+    "circularqueue": "循环队列",
+    "concurrency": "并发",
+    "docs": "文档"
 }
