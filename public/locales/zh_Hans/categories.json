@@ -208,5 +208,7 @@
     "avltree": "平衡二叉树",
     "circularqueue": "循环队列",
     "concurrency": "并发",
-    "docs": "文档"
+    "docs": "文档",
+    "digests": "摘要",
+    "esolang": "深奥编程语言"
 }
